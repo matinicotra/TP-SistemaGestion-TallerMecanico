@@ -1,11 +1,9 @@
 #include "Vehiculo.h"
 #include <cstring>
 
-Vehiculo::Vehiculo()
-{
-	//ctor
+Vehiculo::Vehiculo(const char *patente) {
+	strcpy(_patente, patente);
 }
-
 
 void Vehiculo::setPatente(const char *patente) {
 	strcpy(_patente, patente);

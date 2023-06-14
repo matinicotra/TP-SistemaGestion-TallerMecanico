@@ -1,51 +1,14 @@
 #include <iostream>
 
 /*
-clases
-fecha
 
-AUTO
-patente
-nombre
-marca
-modelo anio
-estado
-
-
-PERSONA
-dni
-nombre
-apellido
-email
-telefono
-direccion
-estado
-
-PERSONA empleado
-cargo
-sueldo
-fecha alta
-
-PERSONA cliente
-fecha alta
-
-PERSONA proveedor
-comentarios
-rubro
-costo
-
-AUTOCLIENTE
-dni cliente o id
-patente auto
-estado
-
-TRABAJO
-patente
-problema string
-presupuesto
-estado de trabajo
-
-
+Las funciones que realiza un mecánico automotriz están relacionadas principalmente con la revisión técnica de un vehículo.
+Por lo general, estas funciones abarcan
+el diagnóstico vehicular,
+mantenimiento preventivo, desmontaje,
+reemplazo de componentes,
+reparación
+y ensamblaje.
 
 
 */

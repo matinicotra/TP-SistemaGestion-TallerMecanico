@@ -6,6 +6,13 @@
 1686704046 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\fecha.h
 	<string>
 
-1686746234 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\main.cpp
+1686746902 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\main.cpp
 	<iostream>
+
+1686746903 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\vehiculo.cpp
+	"Vehiculo.h"
+	<cstring>
+
+1686746903 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\vehiculo.h
+	<string>
 
