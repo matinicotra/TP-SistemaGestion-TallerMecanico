@@ -5,7 +5,7 @@ clases
 fecha
 
 AUTO
-char patente
+patente
 nombre
 marca
 modelo anio

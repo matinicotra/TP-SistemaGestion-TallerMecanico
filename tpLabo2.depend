@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1686703757 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\fecha.cpp
+	<string>
+	"Fecha.h"
+
+1686704046 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\fecha.h
+	<string>
+
+1686746234 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\main.cpp
+	<iostream>
+
