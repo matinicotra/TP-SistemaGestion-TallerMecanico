@@ -1,8 +1,14 @@
 #include "Persona.h"
 #include <cstring>
 
-Persona::Persona(const char *dni) {
-	strcpy(_dni, dni);
+Persona::Persona() {
+	strcpy(_dni, "");
+	_nombre = "";
+	_apellido = "";
+	_eMail = "";
+	_direccion = "";
+	strcpy(_telefono, "");
+	_estado = true;
 }
 
 void Persona::setDni(const char *dni) {
@@ -17,8 +23,8 @@ void Persona::setApellido(std::string apellido) {
 	_apellido = apellido;
 }
 
-void Persona::setEmail(std::string email) {
-	_email = email;
+void Persona::setEmail(std::string eMail) {
+	_eMail = eMail;
 }
 
 void Persona::setDireccion(std::string direccion) {
@@ -46,7 +52,7 @@ std::string Persona::getApellido() {
 }
 
 std::string Persona::getEmail() {
-	return _email;
+	return _eMail;
 }
 
 std::string Persona::getDireccion() {

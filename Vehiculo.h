@@ -10,21 +10,27 @@ private:
  	char _patente[10];
 	std::string _modelo;
 	std::string _marca;
-	int anio;
+	int _anio;
 	Fecha _fechaAlta;
 	bool _estado;
 
 public:
-    Vehiculo(const char *patente = "0000");
+    Vehiculo();
 
+	void setId(int id);
     void setPatente(const char *patente);
     void setModelo(std::string modelo);
     void setMarca(std::string marca);
+    void setAnio(int anio);
+    void setFechaAlta(Fecha alta);
     void setEstado(bool estado);
 
+	int getId();
     const char *getPatente();
 	std::string getModelo();
     std::string getMarca();
+    int getAnio();
+    Fecha getFechaAlta();
     bool getEstado();
 
 };

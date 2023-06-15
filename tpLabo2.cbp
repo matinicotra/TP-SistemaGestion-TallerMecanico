@@ -42,6 +42,8 @@
 		<Unit filename="Funciones.h" />
 		<Unit filename="Persona.cpp" />
 		<Unit filename="Persona.h" />
+		<Unit filename="Repuesto.cpp" />
+		<Unit filename="Repuesto.h" />
 		<Unit filename="Trabajo.cpp" />
 		<Unit filename="Trabajo.h" />
 		<Unit filename="Vehiculo.cpp" />
