@@ -37,6 +37,14 @@ void Presupuesto::setFecha(Fecha fecha) {
 	_fechaPresupuesto = fecha;
 }
 
+void Presupuesto::setAsistenciaGrua(bool asistenciaGrua) {
+	_asistenciaGrua = asistenciaGrua;
+}
+
+void Presupuesto::setVehiculoSustitucion(bool vehiculoSustitucion) {
+	_vehiculoSustitucion = vehiculoSustitucion;
+}
+
 void Presupuesto::setEstado(bool estado) {
 	_estado = estado;
 }
@@ -63,6 +71,14 @@ std::string Presupuesto::getDetalle() {
 
 Fecha Presupuesto::getFecha() {
 	return _fechaPresupuesto;
+}
+
+bool Presupuesto::getAsistenciaGrua() {
+	return _asistenciaGrua;
+}
+
+bool Presupuesto::getVehiculoSustitucion() {
+	return _vehiculoSustitucion;
 }
 
 bool Presupuesto::getEstado() {

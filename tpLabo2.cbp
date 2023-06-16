@@ -48,6 +48,8 @@
 		<Unit filename="Persona.h" />
 		<Unit filename="Presupuesto.cpp" />
 		<Unit filename="Presupuesto.h" />
+		<Unit filename="Proveedor.cpp" />
+		<Unit filename="Proveedor.h" />
 		<Unit filename="Trabajo.cpp" />
 		<Unit filename="Trabajo.h" />
 		<Unit filename="Vehiculo.cpp" />

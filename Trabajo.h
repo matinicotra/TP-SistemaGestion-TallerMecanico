@@ -4,6 +4,17 @@
 #include <Fecha.h>
 #include <string>
 
+/*
+Las funciones que realiza un mecánico automotriz están relacionadas
+principalmente con la revisión técnica de un vehículo.
+Por lo general, estas funciones abarcan
+el diagnóstico vehicular,
+mantenimiento preventivo, desmontaje,
+reemplazo de componentes,
+reparación
+y ensamblaje.
+*/
+
 class Trabajo {
 private:
 	int _idTrabajo;

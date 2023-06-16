@@ -10,6 +10,8 @@ class Presupuesto {
 		float _importe;
 		std::string _detalle;
 		Fecha _fechaPresupuesto;
+		bool _asistenciaGrua;
+		bool _vehiculoSustitucion;
 		bool _estado;
 
 	public:
@@ -21,6 +23,8 @@ class Presupuesto {
 		void setImporte(float importe);
 		void setDetalle(std::string detalle);
 		void setFecha(Fecha fecha);
+		void setAsistenciaGrua(bool asistenciaGrua);
+		void setVehiculoSustitucion(bool vehiculoSustitucion);
 		void setEstado(bool estado);
 
 		int getIdPresupuesto();
@@ -29,6 +33,8 @@ class Presupuesto {
 		float getImporte();
 		std::string getDetalle();
 		Fecha getFecha();
+		bool getAsistenciaGrua();
+		bool getVehiculoSustitucion();
 		bool getEstado();
 
 
