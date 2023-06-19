@@ -28,10 +28,10 @@ Trabajo TrabajoArchivo::leerRegistro(int pos) {
 	return aux;
 }
 
-bool TrabajoArhivo::guardar(Trabajo reg) {
-	FILE *p = fopen(_ruta.c_str(). "ab");
+bool TrabajoArchivo::guardar(Trabajo reg) {
+	FILE *p = fopen(_ruta.c_str(), "ab");
 	if (p == NULL) return false;
-	escribio = fwrite(&reg, sizeof(Trabajo), 1, p);
+	bool escribio = fwrite(&reg, sizeof(Trabajo), 1, p);
 	fclose(p);
 	return escribio;
 }
