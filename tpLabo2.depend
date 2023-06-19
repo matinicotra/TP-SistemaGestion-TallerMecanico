@@ -96,3 +96,81 @@
 
 1687212595 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\vehiculoarchivo.h
 
+1686866923 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\autocliente.cpp
+	"AutoCliente.h"
+
+1687194777 c:\users\petet\onedrive\documents\github\tplabotallermecanico\autocliente.h
+
+1687214079 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\cliente.cpp
+	<cstring>
+	"Cliente.h"
+
+1687214079 c:\users\petet\onedrive\documents\github\tplabotallermecanico\cliente.h
+	"Persona.h"
+
+1687214079 c:\users\petet\onedrive\documents\github\tplabotallermecanico\persona.h
+	"Fecha.h"
+	<string>
+
+1687216111 c:\users\petet\onedrive\documents\github\tplabotallermecanico\fecha.h
+	<string>
+
+1687214079 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\empleado.cpp
+	<cstring>
+	"Fecha.h"
+	"Empleado.h"
+
+1687214079 c:\users\petet\onedrive\documents\github\tplabotallermecanico\empleado.h
+	"Persona.h"
+
+1686866409 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\funciones.cpp
+	"Funciones.h"
+	<climits>
+	<iostream>
+
+1686866409 c:\users\petet\onedrive\documents\github\tplabotallermecanico\funciones.h
+
+1687214079 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\persona.cpp
+	<cstring>
+	"Persona.h"
+
+1687194777 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\presupuesto.cpp
+	<cstring>
+	<string>
+	<Fecha.h>
+	"Presupuesto.h"
+
+1687194777 c:\users\petet\onedrive\documents\github\tplabotallermecanico\presupuesto.h
+
+1687214079 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\proveedor.cpp
+	"Proveedor.h"
+
+1687214079 c:\users\petet\onedrive\documents\github\tplabotallermecanico\proveedor.h
+	"Persona.h"
+
+1686866409 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\trabajo.cpp
+	"Trabajo.h"
+
+1687215352 c:\users\petet\onedrive\documents\github\tplabotallermecanico\trabajo.h
+	<Fecha.h>
+	<string>
+
+1687215352 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\trabajoarchivo.cpp
+	"TrabajoArchivo.h"
+
+1687215352 c:\users\petet\onedrive\documents\github\tplabotallermecanico\trabajoarchivo.h
+	<Trabajo.h>
+
+1686866409 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\vehiculo.cpp
+	"Vehiculo.h"
+	<cstring>
+
+1686866409 c:\users\petet\onedrive\documents\github\tplabotallermecanico\vehiculo.h
+	<Fecha.h>
+	<string>
+
+1687215352 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\vehiculoarchivo.cpp
+	"VehiculoArchivo.h"
+
+1687215352 c:\users\petet\onedrive\documents\github\tplabotallermecanico\vehiculoarchivo.h
+
