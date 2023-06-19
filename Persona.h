@@ -1,6 +1,7 @@
 #ifndef PERSONA_H
 #define PERSONA_H
 
+#include "Fecha.h"
 #include <string>
 
 class Persona {
@@ -10,6 +11,7 @@ protected:
 	std::string _eMail;
 	std::string _direccion;
 	char _telefono[15];
+	Fecha _fechaAlta;
 	bool _estado;
 
 public:
@@ -20,6 +22,7 @@ public:
     void setEmail(std::string eMail);
     void setDireccion(std::string direccion);
     void setTelefono(const char *telefono);
+    void setFechaAlta(Fecha fechaAlta);
     void setEstado(bool estado);
 
     std::string getNombre();
@@ -27,6 +30,7 @@ public:
     std::string getEmail();
     std::string getDireccion();
     const char *getTelefono();
+    Fecha getFechaAlta();
     bool getEstado();
 
 };

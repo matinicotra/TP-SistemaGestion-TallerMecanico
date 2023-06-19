@@ -1,5 +1,5 @@
-#include "Persona.h"
 #include <cstring>
+#include "Persona.h"
 
 Persona::Persona() {
 	_nombre = "";
@@ -30,6 +30,10 @@ void Persona::setTelefono(const char *telefono) {
 	strcpy(_telefono, telefono);
 }
 
+void Persona::setFechaAlta(Fecha fechaAlta) {
+	_fechaAlta = fechaAlta;
+}
+
 void Persona::setEstado(bool estado) {
 	_estado = estado;
 }
@@ -52,6 +56,10 @@ std::string Persona::getDireccion() {
 
 const char *Persona::getTelefono() {
 	return _telefono;
+}
+
+Fecha Persona::getFechaAlta() {
+	return _fechaAlta;
 }
 
 bool Persona::getEstado() {

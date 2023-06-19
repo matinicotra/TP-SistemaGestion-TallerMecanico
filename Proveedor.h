@@ -14,10 +14,12 @@ private:
 public:
 	Proveedor();
 
+	void setIdProveedor(int id);
 	void setRubro(std::string rubro);
 	void setAutoparte(std::string autoparte);
 	void setOrigeFabricacion(std::string origenFabricacion);
 
+	int getIdProveedor();
 	std::string getRubro();
 	std::string getAutoparte();
 	std::string getOrigenFabricacion();

@@ -38,6 +38,8 @@
 		</Compiler>
 		<Unit filename="AutoCliente.cpp" />
 		<Unit filename="AutoCliente.h" />
+		<Unit filename="Cliente.cpp" />
+		<Unit filename="Cliente.h" />
 		<Unit filename="Empleado.cpp" />
 		<Unit filename="Empleado.h" />
 		<Unit filename="Fecha.cpp" />
