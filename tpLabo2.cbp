@@ -56,8 +56,12 @@
 		<Unit filename="Trabajo.h" />
 		<Unit filename="TrabajoArchivo.cpp" />
 		<Unit filename="TrabajoArchivo.h" />
+		<Unit filename="TrabajoManager.cpp" />
+		<Unit filename="TrabajoManager.h" />
 		<Unit filename="Vehiculo.cpp" />
 		<Unit filename="Vehiculo.h" />
+		<Unit filename="VehiculoArchivo.cpp" />
+		<Unit filename="VehiculoArchivo.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

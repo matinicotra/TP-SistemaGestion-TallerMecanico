@@ -78,7 +78,14 @@ int Fecha::getAnio() {
     return _anio;
 }
 
-
+void Cargar() {
+    cout << "DIA:  " << endl;
+    cin >> _dia;
+    cout << "MES:  " << endl;
+    cin >> _mes;
+    cout << "ANIO: " << endl;
+    cin >> _anio;
+}
 
 std::string Fecha::toString(std::string formatoFecha) {
     std::string fechaFormateada = "";

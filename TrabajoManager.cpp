@@ -14,6 +14,17 @@ bool TrabajoManager::ExisteId(int id) {
 void TrabajoManager::Cargar() {
 	Trabajo aux;
 	int id = GenerarId();
+	int dia, mes, anio;
+
 	cout << "CARGAR TRABAJO" << endl;
+	cout << "FECHA DE ENTRADA: " << endl;
+	cout << "DIA:  ";
+	cin >> dia;
+	cout << "MES:   ";
+	cin >> mes;
+	cout << "ANIO:  ";
+	cin >> anio;
+	cout <<
+
 
 }

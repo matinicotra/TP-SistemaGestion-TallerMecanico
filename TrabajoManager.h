@@ -4,8 +4,7 @@
 #include "Trabajo.h"
 #include "TrabajoArchivo.h"
 
-class TrabajoManager
-{
+class TrabajoManager {
 private:
 	TrabajoArchivo _archivo;
 	TrabajoArchivo _archivoBkp = TrabajoArchivo("trabajos.bkp");

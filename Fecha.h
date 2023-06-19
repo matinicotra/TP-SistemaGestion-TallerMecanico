@@ -20,5 +20,7 @@ public:
 
     void agregarDias(int cantidadDias);
 
+    void Cargar();
+
     std::string toString(std::string formatoFecha = "DD/MM/YYYY");
 };
