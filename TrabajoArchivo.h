@@ -19,7 +19,7 @@ public:
 
 	bool guardar(Trabajo reg);							///diferenciamos por sobrecarga
 	bool guardar(Trabajo reg, int posReemplazo);		///sobreescribir
-	bool guardar(Trabajo *vec, int cantRegistros);		///para guardar backup
+	bool guardar(Trabajo *vec, int cantRegistros);		///guardar desde un vec para backup
 
 
 };

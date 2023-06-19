@@ -1,4 +1,3 @@
-
 #include "TrabajoArchivo.h"
 
 TrabajoArchivo::TrabajoArchivo() {
