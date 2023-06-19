@@ -69,4 +69,8 @@ bool TrabajoArchivo::Guardar(Trabajo *vec, int cantRegistros) {
 	return cantEscritos == cantRegistros;
 }
 
-
+void TrabajoArchivo::Vaciar() {
+	FILE *p = fopen(_ruta.c_str(), "wb");
+	if (p = NULL) return;
+	fclose(p);
+}

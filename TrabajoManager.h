@@ -10,11 +10,11 @@ private:
 	TrabajoArchivo _archivo;
 	TrabajoArchivo _archivoBkp = TrabajoArchivo("trabajos.bkp");
 
-	bool ExisteId(int id);
 	int GenerarId();
+	bool ExisteId(int id);
 
 public:
-    TrabajoManager();
+    void Cargar();
 
 
 };

@@ -15,12 +15,13 @@ public:
 	int Buscar(int id);						///devuelve posicion en archivo ingresando id
 
 	Trabajo Leer(int pos);
-	void Leer(Trabajo *vec, int cantRegistros);		///posibilita cargar en un vector Trabajo todos los registros, para hacer backup
+	void Leer(Trabajo *vec, int cantRegistros);		///posibilita cargar en un vector todos los registros (backup)
 
 	bool Guardar(Trabajo reg);							///diferenciamos por sobrecarga
 	bool Guardar(Trabajo reg, int posReemplazo);		///sobreescribir
 	bool Guardar(Trabajo *vec, int cantRegistros);		///guardar desde un vec para backup
 
+	void Vaciar();
 
 };
 

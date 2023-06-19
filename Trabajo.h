@@ -57,7 +57,6 @@ public:
 	float getPresupuesto();
 	bool getEstado();
 
-
 };
 
 #endif // TRABAJO_H
