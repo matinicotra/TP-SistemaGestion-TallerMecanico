@@ -52,6 +52,8 @@
 		<Unit filename="Presupuesto.h" />
 		<Unit filename="Proveedor.cpp" />
 		<Unit filename="Proveedor.h" />
+		<Unit filename="ProveedorArchivo.cpp" />
+		<Unit filename="ProveedorArchivo.h" />
 		<Unit filename="Trabajo.cpp" />
 		<Unit filename="Trabajo.h" />
 		<Unit filename="TrabajoArchivo.cpp" />
