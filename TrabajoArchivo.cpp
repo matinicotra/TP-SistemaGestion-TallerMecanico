@@ -18,7 +18,17 @@ int TrabajoArchivo::getCantidadRegistros() {
 	return bytes / sizeof(Trabajo);
 }
 
-Trabajo TrabajoArchivo::leerRegistro(int pos) {
+int TrabajoArchivo::buscar(int id) {
+	Trabajo aux;
+	int cantRegistros = this->getCantidadRegistros();
+	for (int i = 0; i < cantRegistros; i++) {
+		aux = this->leer(i);
+		if (aux.getId() == id) return i;
+	}
+	return -1;
+}
+
+Trabajo TrabajoArchivo::leer(int pos) {
 	Trabajo aux;
 	FILE *p = fopen(_ruta.c_str(), "rb");
 	if (p == NULL) return aux;
@@ -28,6 +38,13 @@ Trabajo TrabajoArchivo::leerRegistro(int pos) {
 	return aux;
 }
 
+void TrabajoArchivo::leer(Trabajo *vec, int cantRegistros) {
+	FILE *p = fopen(_ruta.c_str(), "rb");
+	if (p == NULL) return;
+	fread(vec, sizeof(Trabajo), cantRegistros, p);
+	fclose(p);
+}
+
 bool TrabajoArchivo::guardar(Trabajo reg) {
 	FILE *p = fopen(_ruta.c_str(), "ab");
 	if (p == NULL) return false;
@@ -35,3 +52,22 @@ bool TrabajoArchivo::guardar(Trabajo reg) {
 	fclose(p);
 	return escribio;
 }
+
+bool TrabajoArchivo::guardar(Trabajo reg, int posReemplazo) {
+	FILE *p = fopen(_ruta.c_str(), "rb+");
+	if (p == NULL) return false;
+	fseek(p, sizeof(Trabajo) * posReemplazo, SEEK_SET);
+	bool escribio = fwrite(&reg, sizeof(Trabajo), 1, p);
+	fclose(p);
+	return escribio;
+}
+
+bool TrabajoArchivo::guardar(Trabajo *vec, int cantRegistros) {
+	FILE *p = fopen(_ruta.c_str(), "ab");
+	if (p == NULL) return false;
+	int cantEscritos = fwrite(vec, sizeof(Trabajo), cantRegistros, p);
+	fclose(p);
+	return cantEscritos == cantRegistros;
+}
+
+

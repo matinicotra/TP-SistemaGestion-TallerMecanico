@@ -12,8 +12,15 @@ public:
     TrabajoArchivo(std::string ruta);
 
 	int getCantidadRegistros();
-	Trabajo leerRegistro(int pos);
-	bool guardar(Trabajo reg);
+	int buscar(int id);						///devuelve posicion en archivo ingresando id
+
+	Trabajo leer(int pos);
+	void leer(Trabajo *vec, int cantRegistros);		///posibilita cargar en un vector Trabajo todos los registros, para hacer backup
+
+	bool guardar(Trabajo reg);							///diferenciamos por sobrecarga
+	bool guardar(Trabajo reg, int posReemplazo);		///sobreescribir
+	bool guardar(Trabajo *vec, int cantRegistros);		///para guardar backup
+
 
 };
 
