@@ -74,6 +74,20 @@
 1687204151 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\trabajoarchivo.cpp
 	"TrabajoArchivo.h"
 
-1687204151 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\trabajoarchivo.h
+1687206129 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\trabajoarchivo.h
 	<Trabajo.h>
+
+1687205576 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\cliente.cpp
+	<cstring>
+	"Cliente.h"
+
+1687205461 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\cliente.h
+	"Persona.h"
+
+1687205853 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\trabajomanager.cpp
+	"TrabajoManager.h"
+
+1687206183 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\trabajomanager.h
+	"Trabajo.h"
+	"TrabajoArchivo.h"
 

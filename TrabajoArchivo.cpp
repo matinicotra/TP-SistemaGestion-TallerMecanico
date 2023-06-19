@@ -8,7 +8,7 @@ TrabajoArchivo::TrabajoArchivo(std::string ruta) {
 	_ruta = ruta;
 }
 
-int TrabajoArchivo::getCantidadRegistros() {
+int TrabajoArchivo::GetCantidadRegistros() {
 	FILE *p = fopen(_ruta.c_str(), "rb");
 	if (p == NULL) return -1;
 	fseek(p, sizeof(Trabajo), SEEK_END);
@@ -17,17 +17,17 @@ int TrabajoArchivo::getCantidadRegistros() {
 	return bytes / sizeof(Trabajo);
 }
 
-int TrabajoArchivo::buscar(int id) {
+int TrabajoArchivo::Buscar(int id) {
 	Trabajo aux;
-	int cantRegistros = this->getCantidadRegistros();
+	int cantRegistros = this->GetCantidadRegistros();
 	for (int i = 0; i < cantRegistros; i++) {
-		aux = this->leer(i);
+		aux = this->Leer(i);
 		if (aux.getId() == id) return i;
 	}
 	return -1;
 }
 
-Trabajo TrabajoArchivo::leer(int pos) {
+Trabajo TrabajoArchivo::Leer(int pos) {
 	Trabajo aux;
 	FILE *p = fopen(_ruta.c_str(), "rb");
 	if (p == NULL) return aux;
@@ -37,14 +37,14 @@ Trabajo TrabajoArchivo::leer(int pos) {
 	return aux;
 }
 
-void TrabajoArchivo::leer(Trabajo *vec, int cantRegistros) {
+void TrabajoArchivo::Leer(Trabajo *vec, int cantRegistros) {
 	FILE *p = fopen(_ruta.c_str(), "rb");
 	if (p == NULL) return;
 	fread(vec, sizeof(Trabajo), cantRegistros, p);
 	fclose(p);
 }
 
-bool TrabajoArchivo::guardar(Trabajo reg) {
+bool TrabajoArchivo::Guardar(Trabajo reg) {
 	FILE *p = fopen(_ruta.c_str(), "ab");
 	if (p == NULL) return false;
 	bool escribio = fwrite(&reg, sizeof(Trabajo), 1, p);
@@ -52,7 +52,7 @@ bool TrabajoArchivo::guardar(Trabajo reg) {
 	return escribio;
 }
 
-bool TrabajoArchivo::guardar(Trabajo reg, int posReemplazo) {
+bool TrabajoArchivo::Guardar(Trabajo reg, int posReemplazo) {
 	FILE *p = fopen(_ruta.c_str(), "rb+");
 	if (p == NULL) return false;
 	fseek(p, sizeof(Trabajo) * posReemplazo, SEEK_SET);
@@ -61,7 +61,7 @@ bool TrabajoArchivo::guardar(Trabajo reg, int posReemplazo) {
 	return escribio;
 }
 
-bool TrabajoArchivo::guardar(Trabajo *vec, int cantRegistros) {
+bool TrabajoArchivo::Guardar(Trabajo *vec, int cantRegistros) {
 	FILE *p = fopen(_ruta.c_str(), "ab");
 	if (p == NULL) return false;
 	int cantEscritos = fwrite(vec, sizeof(Trabajo), cantRegistros, p);
