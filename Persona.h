@@ -3,7 +3,6 @@
 
 #include <string>
 
-
 class Persona {
 protected:
 	char _dni[10];
