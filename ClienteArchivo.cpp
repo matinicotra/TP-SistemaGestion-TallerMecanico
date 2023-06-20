@@ -1,3 +1,4 @@
+#include <cstring>
 #include "ClienteArchivo.h"
 
 ClienteArchivo::ClienteArchivo() {
@@ -17,12 +18,12 @@ int ClienteArchivo::GetCantidadRegistros() {
 	return bytes / sizeof(Cliente);
 }
 
-int ClienteArchivo::Buscar(int id) {
+int ClienteArchivo::Buscar(const char *dni) {
 	Cliente aux;
 	int cantRegistros = this->GetCantidadRegistros();
 	for (int i = 0; i < cantRegistros; i++) {
 		aux = this->Leer(i);
-		if (aux.getId() == id) return i;
+		if (!strcmp(aux.getDni(), dni)) return i;
 	}
 	return -1;
 }

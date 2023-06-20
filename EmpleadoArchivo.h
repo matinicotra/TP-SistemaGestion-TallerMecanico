@@ -1,9 +1,9 @@
 #ifndef EMPLEADOARCHIVO_H
 #define EMPLEADOARCHIVO_H
 
+#include <string>
 
-class EmpleadoArchivo
-{
+class EmpleadoArchivo {
 private:
 	std::string _ruta;
 
@@ -12,7 +12,7 @@ public:
     EmpleadoArchivo(std::string ruta);
 
 	int GetCantidadRegistros();
-	int Buscar(int id);						///devuelve posicion en archivo ingresando id
+	int Buscar(const char *dni);						///devuelve posicion en archivo ingresando id
 
 	Empleado Leer(int pos);
 	void Leer(Empleado *vec, int cantRegistros);		///posibilita cargar en un vector todos los registros (backup)

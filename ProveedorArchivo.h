@@ -3,8 +3,7 @@
 
 #include <Proveedor.h>
 
-class ProveedorArchivo
-{
+class ProveedorArchivo {
 private:
 	std::string _ruta;
 

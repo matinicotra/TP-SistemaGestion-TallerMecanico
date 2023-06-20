@@ -1,9 +1,9 @@
 #ifndef CLIENTEARCHIVO_H
 #define CLIENTEARCHIVO_H
 
+#include "Cliente.h"
 
-class ClienteArchivo
-{
+class ClienteArchivo {
 private:
 	std::string _ruta;
 
@@ -12,7 +12,7 @@ public:
     ClienteArchivo(std::string ruta);
 
 	int GetCantidadRegistros();
-	int Buscar(int id);						///devuelve posicion en archivo ingresando id
+	int Buscar(const char *dni);						///devuelve posicion en archivo ingresando id
 
 	Cliente Leer(int pos);
 	void Leer(Cliente *vec, int cantRegistros);		///posibilita cargar en un vector todos los registros (backup)

@@ -11,10 +11,10 @@ private:
 public:
     Cliente();
 
-    void setDni(const char *dni);
+	void setRazonSocial(std::string razonSocial);
     void setEstado(bool estado);
 
-    const char *getDni();
+	std::string getRazonSocial();
     bool getEstado();
 
 };

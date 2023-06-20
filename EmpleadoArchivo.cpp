@@ -17,12 +17,12 @@ int EmpleadoArchivo::GetCantidadRegistros() {
 	return bytes / sizeof(Empleado);
 }
 
-int EmpleadoArchivo::Buscar(int id) {
+int EmpleadoArchivo::Buscar(const char *dni) {
 	Empleado aux;
 	int cantRegistros = this->GetCantidadRegistros();
 	for (int i = 0; i < cantRegistros; i++) {
 		aux = this->Leer(i);
-		if (aux.getId() == id) return i;
+		if (!strcmp(aux.getDni(), dni)) return i;
 	}
 	return -1;
 }
