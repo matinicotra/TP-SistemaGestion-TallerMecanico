@@ -6,19 +6,19 @@
 
 Presupuesto::Presupuesto() {
 	_idPresupuesto = 0;
-	_idCliente = 0;
+	strcpy(_dniCliente, "");
 	strcpy(_patente, "");
 	_importe = 0;
 	_detalle = "";
 	_estado = true;
 }
 
-void Presupuesto::setIdPresupuesto(int id) {
-	_idPresupuesto = id;
+void Presupuesto::setIdPresupuesto(int idPresupuesto) {
+	_idPresupuesto = idPresupuesto;
 }
 
-void Presupuesto::setIdCliente(int idCliente) {
-	_idCliente = idCliente;
+void Presupuesto::setDniCliente(const char *dniCliente) {
+	strcpy(_dniCliente, dniCliente);
 }
 
 void Presupuesto::setPatente(const char *patente) {
@@ -53,8 +53,8 @@ int Presupuesto::getIdPresupuesto() {
 	return _idPresupuesto;
 }
 
-int Presupuesto::getIdCliente() {
-	return _idCliente;
+const char *Presupuesto::getDniCliente() {
+	return _dniCliente;
 }
 
 const char *Presupuesto::getPatente() {

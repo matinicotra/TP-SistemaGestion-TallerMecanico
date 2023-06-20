@@ -5,7 +5,7 @@
 class Presupuesto {
 private:
 	int _idPresupuesto;
-	int _idCliente;
+	char _dniCliente[10];
 	char _patente[10];
 	float _importe;
 	std::string _detalle;
@@ -17,8 +17,8 @@ private:
 public:
 	Presupuesto();
 
-	void setIdPresupuesto(int id);
-	void setIdCliente(int idCliente);
+	void setIdPresupuesto(int idPresupuesto);
+	void setDniCliente(const char *dniCliente);
 	void setPatente(const char *patente);
 	void setImporte(float importe);
 	void setDetalle(std::string detalle);
@@ -28,7 +28,7 @@ public:
 	void setEstado(bool estado);
 
 	int getIdPresupuesto();
-	int getIdCliente();
+	const char *getDniCliente();
 	const char *getPatente();
 	float getImporte();
 	std::string getDetalle();
