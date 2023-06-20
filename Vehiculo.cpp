@@ -2,7 +2,6 @@
 #include <cstring>
 
 Vehiculo::Vehiculo() {
-	_idVehiculo = 0;
 	strcpy(_patente, "");
 	_modelo = "";
 	_marca = "";

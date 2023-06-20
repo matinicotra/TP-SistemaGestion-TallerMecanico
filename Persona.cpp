@@ -2,12 +2,17 @@
 #include "Persona.h"
 
 Persona::Persona() {
+	strcpy(_dni, "");
 	_nombre = "";
 	_apellido = "";
 	_eMail = "";
 	_direccion = "";
 	strcpy(_telefono, "");
 	_estado = true;
+}
+
+void Persona::setDni(const char *dni) {
+	strcpy(_dni, dni);
 }
 
 void Persona::setNombre(std::string nombre) {
@@ -36,6 +41,10 @@ void Persona::setFechaAlta(Fecha fechaAlta) {
 
 void Persona::setEstado(bool estado) {
 	_estado = estado;
+}
+
+const char *Persona::getDni() {
+	return _dni;
 }
 
 std::string Persona::getNombre() {

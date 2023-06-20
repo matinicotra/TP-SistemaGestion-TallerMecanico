@@ -5,7 +5,6 @@
 
 class Proveedor: public Persona {
 private:
-	int _idProveedor;
 	std::string _rubro;
 	std::string _autoparte;
 	std::string _origenFabricacion;

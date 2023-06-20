@@ -2,13 +2,8 @@
 
 Proveedor::Proveedor()
 {
-	_idProveedor = 0;
 	_rubro = "";
 	_estado = true;
-}
-
-void Proveedor::setIdProveedor(int id) {
-	_idProveedor = id;
 }
 
 void Proveedor::setRubro(std::string rubro) {
@@ -21,10 +16,6 @@ void Proveedor::setAutoparte(std::string autoparte) {
 
 void Proveedor::setOrigeFabricacion(std::string origenFabricacion) {
 	_origenFabricacion = origenFabricacion;
-}
-
-int Proveedor::getIdProveedor() {
-	return _idProveedor;
 }
 
 std::string Proveedor::getRubro() {
