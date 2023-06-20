@@ -40,8 +40,12 @@
 		<Unit filename="AutoCliente.h" />
 		<Unit filename="Cliente.cpp" />
 		<Unit filename="Cliente.h" />
+		<Unit filename="ClienteArchivo.cpp" />
+		<Unit filename="ClienteArchivo.h" />
 		<Unit filename="Empleado.cpp" />
 		<Unit filename="Empleado.h" />
+		<Unit filename="EmpleadoArchivo.cpp" />
+		<Unit filename="EmpleadoArchivo.h" />
 		<Unit filename="Fecha.cpp" />
 		<Unit filename="Fecha.h" />
 		<Unit filename="Funciones.cpp" />
