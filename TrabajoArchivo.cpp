@@ -22,7 +22,7 @@ int TrabajoArchivo::Buscar(int id) {
 	int cantRegistros = this->GetCantidadRegistros();
 	for (int i = 0; i < cantRegistros; i++) {
 		aux = this->Leer(i);
-		if (aux.getId() == id) return i;
+		if (aux.getIdTrabajo() == id) return i;
 	}
 	return -1;
 }

@@ -1,39 +1,45 @@
+#include <cstring>
 #include "Trabajo.h"
 
 Trabajo::Trabajo() {
 	_idTrabajo = 0;
-	_idProveedor = 0;
-	_idVehiculo = 0;
-	_idCliente = 0;
-	_idEmpleado = 0;
-	_estadoTrabajo = 0;
+	_idPresupuesto = 0;
+	strcpy(_patente, "");
+	strcpy(_dniCliente, "");
+	strcpy(_dniProveedor, "");
+	strcpy(_dniEmpleado, "");
+	_avanceTrabajo = 0;
 	_detalle = "";
 	_presupuesto = 0;
 	_estado = true;
 }
 
-void Trabajo::setId(int id) {
-	_idTrabajo = id;
+void Trabajo::setIdTrabajo(int idTrabajo) {
+	_idTrabajo = idTrabajo;
 }
 
-void Trabajo::setIdProveedor(int idProveedor) {
-	_idProveedor = idProveedor;
+void Trabajo::setIdPresupuesto(int idPresupuesto) {
+	_idPresupuesto = idPresupuesto;
 }
 
-void Trabajo::setIdVehiculo(int idVehiculo) {
-	_idVehiculo = idVehiculo;
+void Trabajo::setPatente(const char *patente) {
+	strcpy(_patente, patente);
 }
 
-void Trabajo::setIdCliente(int idCliente) {
-	_idCliente = idCliente;
+void Trabajo::setDniCliente(const char *dniCliente) {
+	strcpy(_dniCliente, dniCliente);
 }
 
-void Trabajo::setIdEmpleado(int idEmpleado) {
-	_idEmpleado = idEmpleado;
+void Trabajo::setDniProveedor(const char *dniProveedor) {
+	strcpy(_dniProveedor, dniProveedor);
 }
 
-void Trabajo::setEstadoTrabajo(int estadoTrabajo) {
-	_estadoTrabajo = estadoTrabajo;
+void Trabajo::setDniEmpleado(const char *dniEmpleado) {
+	strcpy(_dniEmpleado, dniEmpleado);
+}
+
+void Trabajo::setAvanceTrabajo(int avanceTrabajo) {
+	_avanceTrabajo = avanceTrabajo;
 }
 
 void Trabajo::setFechaEntrada(Fecha fechaEntrada) {
@@ -55,28 +61,32 @@ void Trabajo::setEstado(bool estado) {
 	_estado = estado;
 }
 
-int Trabajo::getId() {
+int Trabajo::getIdTrabajo() {
 	return _idTrabajo;
 }
 
-int Trabajo::getIdProveedor() {
-	return _idProveedor;
+int Trabajo::getIdPresupuesto() {
+	return _idPresupuesto;
 }
 
-int Trabajo::getIdVehiculo() {
-	return _idVehiculo;
+const char *Trabajo::getPatente() {
+	return _patente;
 }
 
-int Trabajo::getIdCliente() {
-	return _idCliente;
+const char *Trabajo::getDniCliente() {
+	return _dniCliente;
 }
 
-int Trabajo::getIdEmpleado() {
-	return _idEmpleado;
+const char *Trabajo::getDniProveedor() {
+	return _dniProveedor;
 }
 
-int Trabajo::getEstadoTrabajo() {
-	return _estadoTrabajo;
+const char *Trabajo::getDniEmpleado() {
+	return _dniEmpleado;
+}
+
+int Trabajo::getAvanceTrabajo() {
+	return _avanceTrabajo;
 }
 
 Fecha Trabajo::getFechaEntrada() {

@@ -4,25 +4,15 @@
 #include <Fecha.h>
 #include <string>
 
-/*
-Las funciones que realiza un mecánico automotriz están relacionadas
-principalmente con la revisión técnica de un vehículo.
-Por lo general, estas funciones abarcan
-el diagnóstico vehicular,
-mantenimiento preventivo, desmontaje,
-reemplazo de componentes,
-reparación
-y ensamblaje.
-*/
-
 class Trabajo {
 private:
 	int _idTrabajo;
-	int _idProveedor;
-	int _idVehiculo;
-	int _idCliente;
-	int _idEmpleado;
-	int _estadoTrabajo;
+	int _idPresupuesto;
+	char _patente[10];
+	char _dniCliente[10];
+	char _dniProveedor[10];
+	char _dniEmpleado[10];
+	int _avanceTrabajo; 	//1 diagnostico, 2 desmontaje, 3 reparacion, 4 ensamblaje, 5 entregado
 	Fecha _fechaEntrada;
 	Fecha _fechaEntrega;
 	std::string _detalle;
@@ -33,24 +23,26 @@ private:
 public:
 	Trabajo();
 
-	void setId(int id);
-	void setIdProveedor(int idProveedor);
-	void setIdVehiculo(int idVehiculo);
-	void setIdCliente(int idCliente);
-	void setIdEmpleado(int idEmpleado);
-	void setEstadoTrabajo(int estadoTrabajo);
+	void setIdTrabajo(int idTrabajo);
+	void setIdPresupuesto(int idPresupuesto);
+	void setPatente(const char *patente);
+	void setDniCliente(const char *dniCliente);
+	void setDniProveedor(const char *dniProveedor);
+	void setDniEmpleado(const char *dniEmpleado);
+	void setAvanceTrabajo(int avanceTrabajo);
 	void setFechaEntrada(Fecha fechaEntrada);
 	void setFechaEntrega(Fecha fechaEntrega);
 	void setDetalle(std::string detalle);
 	void setPresupuesto(float presupuesto);
 	void setEstado(bool estado);
 
-	int getId();
-	int getIdProveedor();
-	int getIdVehiculo();
-	int getIdCliente();
-	int getIdEmpleado();
-	int getEstadoTrabajo();
+	int getIdTrabajo();
+	int getIdPresupuesto();
+	const char *getPatente();
+	const char *getDniCliente();
+	const char *getDniProveedor();
+	const char *getDniEmpleado();
+	int getAvanceTrabajo();
 	Fecha getFechaEntrada();
 	Fecha getFechaEntrega();
 	std::string getDetalle();
