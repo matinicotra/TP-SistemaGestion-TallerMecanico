@@ -24,6 +24,10 @@ void Empleado::setCuentaBancaria(const char *cuenta) {
 	strcpy(_cuentaBancaria, cuenta);
 }
 
+void Empleado::setEstado(bool estado) {
+	_estado = estado;
+}
+
 Fecha Empleado::getFechaNacimiento() {
 	return _fechaNacimiento;
 }
@@ -38,4 +42,8 @@ float Empleado::getSueldo() {
 
 const char *Empleado::getCuentaBancaria() {
 	return _cuentaBancaria;
+}
+
+bool Empleado::getEstado() {
+	return _estado;
 }
