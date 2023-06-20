@@ -12,7 +12,7 @@ public:
     ProveedorArchivo(std::string ruta);
 
     int GetCantidadRegistros();
-    int Buscar(int id);						///devuelve posicion en archivo ingresando id
+    int Buscar(const char *dni);						///devuelve posicion en archivo ingresando id
 
 	Proveedor Leer(int pos);
 	void Leer(Proveedor *vec, int cantRegistros);		///posibilita cargar en un vector todos los registros (backup)

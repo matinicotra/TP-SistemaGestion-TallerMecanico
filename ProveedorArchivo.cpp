@@ -1,3 +1,4 @@
+#include <cstring>
 #include "ProveedorArchivo.h"
 
 ProveedorArchivo::ProveedorArchivo() {
@@ -17,12 +18,12 @@ int ProveedorArchivo::GetCantidadRegistros() {
 	return bytes / sizeof(Proveedor);
 }
 
-int ProveedorArchivo::Buscar(int id) {
+int ProveedorArchivo::Buscar(const char *dni) {
 	Proveedor aux;
 	int cantRegistros = this->GetCantidadRegistros();
 	for (int i = 0; i < cantRegistros; i++) {
 		aux = this->Leer(i);
-		if (aux.getId() == id) return i;
+		if (!strcmp(aux.getDni(), dni)) return i;
 	}
 	return -1;
 }

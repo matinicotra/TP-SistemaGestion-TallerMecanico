@@ -1,5 +1,7 @@
 #include <string>
 #include "Fecha.h"
+#include <iostream>
+using namespace std;
 
 void Fecha::establecerFechaPorDefecto() {
     _dia = 1;
@@ -76,15 +78,6 @@ int Fecha::getMes() {
 
 int Fecha::getAnio() {
     return _anio;
-}
-
-void Cargar() {
-    cout << "DIA:  " << endl;
-    cin >> _dia;
-    cout << "MES:  " << endl;
-    cin >> _mes;
-    cout << "ANIO: " << endl;
-    cin >> _anio;
 }
 
 std::string Fecha::toString(std::string formatoFecha) {

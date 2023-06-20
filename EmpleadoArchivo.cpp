@@ -1,3 +1,4 @@
+#include <cstring>
 #include "EmpleadoArchivo.h"
 
 EmpleadoArchivo::EmpleadoArchivo() {

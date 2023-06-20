@@ -1,7 +1,7 @@
 #ifndef EMPLEADOARCHIVO_H
 #define EMPLEADOARCHIVO_H
 
-#include <string>
+#include "Empleado.h"
 
 class EmpleadoArchivo {
 private:
