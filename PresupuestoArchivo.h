@@ -5,7 +5,7 @@
 
 class PresupuestoArchivo {
 private:
-	str::string _ruta;
+	std::string _ruta;
 
 public:
 	PresupuestoArchivo();

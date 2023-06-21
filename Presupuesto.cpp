@@ -1,6 +1,4 @@
-#include <cstring>
-#include <string>
-#include <Fecha.h>
+
 
 #include "Presupuesto.h"
 

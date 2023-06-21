@@ -1,6 +1,9 @@
 #ifndef PRESUPUESTO_H
 #define PRESUPUESTO_H
 
+#include <cstring>
+#include <string>
+#include <Fecha.h>
 
 class Presupuesto {
 private:
