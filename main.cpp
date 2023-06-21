@@ -1,7 +1,13 @@
 #include <iostream>
 using namespace std;
 
-int main() {
+#include <TrabajoManager.h>
+
+int main()
+{
+	TrabajoManager aux;
+
+	aux.Cargar();
 
     return 0;
 }

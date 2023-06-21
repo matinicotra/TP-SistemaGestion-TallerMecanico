@@ -179,19 +179,19 @@ void Menu::menuListados(){
 }
 
 void Menu::menuInformes(){
-        while (true){
-            system("cls");
-            int opcion;
-            std::cout<<"=========== INFORMES ==============="<<std::endl;
-            std::cout<<"-1 RECAUDACION ANUAL"<<std::endl;
-            std::cout<<"-2 RECAUDACION POR CLIENTE"<<std::endl<<std::endl;
-            std::cout<<"-0 ATRAS."<<std::endl;
-            std::cout<<"================================"<<std::endl;
+    while (true){
+        system("cls");
+        int opcion;
+        std::cout<<"=========== INFORMES ==============="<<std::endl;
+        std::cout<<"-1 RECAUDACION ANUAL"<<std::endl;
+        std::cout<<"-2 RECAUDACION POR CLIENTE"<<std::endl<<std::endl;
+        std::cout<<"-0 ATRAS."<<std::endl;
+        std::cout<<"================================"<<std::endl;
 
-            std::cout<<"INGRESE UNA OPCION: ";
-            std::cin>>opcion;
+        std::cout<<"INGRESE UNA OPCION: ";
+        std::cin>>opcion;
 
-            switch(opcion){
+        switch(opcion){
         case 1:
 
             break;
@@ -205,8 +205,8 @@ void Menu::menuInformes(){
         default:
             std::cout<<"OPCION NO VALIDA"<<std::endl;
             break;
-            }
         }
+    }
 }
 
 void Menu::menuArchivos(){
