@@ -72,6 +72,6 @@ bool ClienteArchivo::Guardar(Cliente *vec, int cantRegistros) {
 
 void ClienteArchivo::Vaciar() {
 	FILE *p = fopen(_ruta.c_str(), "wb");
-	if (p = NULL) return;
+	if (p == NULL) return;
 	fclose(p);
 }

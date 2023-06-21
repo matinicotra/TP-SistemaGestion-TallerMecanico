@@ -72,6 +72,6 @@ bool ProveedorArchivo::Guardar(Proveedor *vec, int cantRegistros) {
 
 void ProveedorArchivo::Vaciar() {
 	FILE *p = fopen(_ruta.c_str(), "wb");
-	if (p = NULL) return;
+	if (p == NULL) return;
 	fclose(p);
 }

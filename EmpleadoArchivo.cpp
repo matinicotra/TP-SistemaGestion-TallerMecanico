@@ -72,6 +72,6 @@ bool EmpleadoArchivo::Guardar(Empleado *vec, int cantRegistros) {
 
 void EmpleadoArchivo::Vaciar() {
 	FILE *p = fopen(_ruta.c_str(), "wb");
-	if (p = NULL) return;
+	if (p == NULL) return;
 	fclose(p);
 }

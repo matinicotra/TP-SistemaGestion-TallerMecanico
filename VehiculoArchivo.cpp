@@ -72,6 +72,6 @@ bool VehiculoArchivo::Guardar(Vehiculo *vec, int cantRegistros) {
 
 void VehiculoArchivo::Vaciar() {
 	FILE *p = fopen(_ruta.c_str(), "wb");
-	if (p = NULL) return;
+	if (p == NULL) return;
 	fclose(p);
 }
