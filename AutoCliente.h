@@ -4,20 +4,20 @@
 
 class AutoCliente {
 private:
-	int _idCliente;
-	int _idVehiculo;
+	char _dniCliente[10];
+	char _patente[10];
 	bool _estado;
 
 public:
     AutoCliente();
-    AutoCliente(int idCliente, int idVehiculo);
+    AutoCliente(const char *dniCliente, const char *patente);
 
-    void setIdCliente(int idCliente);
-	void setIdVehiculo(int idVehiculo);
+    void setDniCliente(const char *dniCliente);
+	void setPatente(const char *patente);
 	void setEstado(bool estado);
 
-	int getIdCliente();
-	int getIdVehiculo();
+	const char *getDniCliente();
+	const char *getPatente();
 	bool getEstado();
 
 };

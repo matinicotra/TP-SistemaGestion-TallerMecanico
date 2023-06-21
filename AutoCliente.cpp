@@ -1,35 +1,37 @@
+#include <cstring>
+
 #include "AutoCliente.h"
 
 AutoCliente::AutoCliente() {
-	_idCliente = 0;
-	_idVehiculo = 0;
+	strcpy(_dniCliente, "");
+	strcpy(_patente, "");
 	_estado = true;
 }
 
-AutoCliente::AutoCliente(int idCliente, int idVehiculo) {
-	_idCliente = idCliente;
-	_idVehiculo = idVehiculo;
+AutoCliente::AutoCliente(const char *dniCliente, const char *patente) {
+	strcpy(_dniCliente, dniCliente);
+	strcpy(_patente, patente);
 	_estado = true;
 }
 
-void AutoCliente::setIdCliente(int idCliente) {
-	_idCliente = idCliente;
+void AutoCliente::setDniCliente(const char *dniCliente) {
+	strcpy(_dniCliente, dniCliente);
 }
 
-void AutoCliente::setIdVehiculo(int idVehiculo) {
-	_idVehiculo = idVehiculo;
+void AutoCliente::setPatente(const char *patente) {
+	strcpy(_patente, patente);
 }
 
 void AutoCliente::setEstado(bool estado) {
 	_estado = estado;
 }
 
-int AutoCliente::getIdCliente() {
-	return _idCliente;
+const char *AutoCliente::getDniCliente() {
+	return _dniCliente;
 }
 
-int AutoCliente::getIdVehiculo() {
-	return _idVehiculo;
+const char *AutoCliente::getPatente() {
+	return _patente;
 }
 
 bool AutoCliente::getEstado() {
