@@ -18,23 +18,24 @@ bool TrabajoManager::ExisteId(int id) {
 }
 
 void TrabajoManager::Cargar() {
-	Trabajo aux;
 	VehiculoArchivo arcVehiculo;
 	ClienteArchivo arcCliente;
 	PresupuestoArchivo arcPresupuesto;
 	ProveedorArchivo arcProveedor;
 
-	int id, opc, dia, mes, anio;
+	Trabajo aux;
+	int dia, mes, anio;
 	char patente[10];
 	char dni[10];
 	string detalle;
 
-	id = GenerarId();
+	int id = GenerarId();
 	aux.setIdTrabajo(id);
 
 	//debemos pedir primero el dni del cliente, patente del vehiculo e id de presupuesto y validar que esten cargados, en caso contrario, llamar a los metodos de Cargar respectivamente
 
 	system("cls");
+
 	cout << "CARGAR NUEVO TRABAJO" << endl;
 	cout << "--------------------" << endl;
 	cout << "ID DEL TRABAJO : " << id << endl << endl;
@@ -43,6 +44,7 @@ void TrabajoManager::Cargar() {
 	cin.ignore();
 	cin.getline(patente, 9);
 	while (arcVehiculo.Buscar(patente) == -1) {
+		int opc;
 		cout << "PATENTE INEXISTENTE" << endl;
 		cout << "Presione '1' para ingresar nuevamente; '2' para cargar un nuevo vehiculo; '0' para salir: ";
 		cin >> opc;
@@ -67,6 +69,7 @@ void TrabajoManager::Cargar() {
 	cin.ignore();
 	cin.getline(dni, 9);
 	while (arcCliente.Buscar(dni) == -1) {
+		int opc;
 		cout << "DNI INEXISTENTE. " << endl;
 		cout << "Presione '1' para ingresar nuevamente; '2' para cargar un nuevo cliente; '0' para salir: ";
 		cin >> opc;
@@ -93,6 +96,7 @@ void TrabajoManager::Cargar() {
 	cin.ignore();
 	cin.getline(dni, 9);
 	while (arcProveedor.Buscar(dni) == -1) {
+		int opc;
 		cout << "DNI INEXISTENTE. " << endl;
 		cout << "Presione '1' para ingresar nuevamente; '2' para cargar un nuevo proveedor; '0' para salir: ";
 		cin >> opc;
@@ -139,8 +143,6 @@ void TrabajoManager::Cargar() {
 	cout << "ANIO:  ";
 	cin >> anio;
 	aux.setFechaEntrega(Fecha(dia, mes, anio));
-
-
 
 	cout << "INGRESAR DETALLE: " << endl;
 	cin.ignore();
