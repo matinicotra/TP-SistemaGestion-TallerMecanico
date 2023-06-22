@@ -61,6 +61,9 @@ void TrabajoManager::Cargar() {
 			//int pos = arcVehiculo.GetCantidadRegistros();
 			//strcpy(patente, arcVehiculo.Leer(pos).getPatente());
 			break;
+		case 0:
+			return;
+			break;
 		}
 	}
 	aux.setPatente(patente);
@@ -119,12 +122,6 @@ void TrabajoManager::Cargar() {
 	}
 	aux.setDniProveedor(dni);
 
-	cout << "INGRESAR ID PRESUPUESTO: ";
-	cin >> id;
-	if (arcPresupuesto.Buscar(id) == -1) {
-		//cargar presupuesto
-	}
-
 	bool band;
 	int cantPresu = arcPresupuesto.GetCantidadRegistros();
 	for (int i = 0; i < cantPresu; i++) {
@@ -145,8 +142,7 @@ void TrabajoManager::Cargar() {
 	cout << "DNI EMPLEADO DESIGNADO: ";
 	cin.ignore();
 	cin.getline(dni, 9);
-
-	aux.setDniEmpleado(dni);
+	aux.setDniEmpleado(dni);		// VALIDAR PRIMERO
 
 
 	cout << "FECHA DE ENTRADA: " << endl;
@@ -171,8 +167,6 @@ void TrabajoManager::Cargar() {
 	cin.ignore();
 	getline(cin, detalle);
 	aux.setDetalle(detalle);
-
-
 
 	aux.setAvanceTrabajo(1);
 
