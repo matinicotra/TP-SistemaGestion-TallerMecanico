@@ -14,6 +14,19 @@ Trabajo::Trabajo() {
 	_estado = true;
 }
 
+Trabajo::Trabajo(int idTrabajo, int idPresupuesto,const char* patente, const char* dniCliente, const char* dniProveedor, const char* dniEmpleado, int avanceTrabajo, Fecha fechaEntrada, Fecha fechaEntrega, std::string detalle, float presupuesto) {
+	_idTrabajo = idTrabajo;
+	_idPresupuesto = idPresupuesto;
+	strcpy(_patente, patente);
+	strcpy(_dniCliente, dniCliente);
+	strcpy(_dniProveedor, dniProveedor);
+	strcpy(_dniEmpleado, dniEmpleado);
+	_avanceTrabajo = avanceTrabajo;
+	_detalle = detalle;
+	_presupuesto = presupuesto;
+	_estado = true;
+}
+
 void Trabajo::setIdTrabajo(int idTrabajo) {
 	_idTrabajo = idTrabajo;
 }

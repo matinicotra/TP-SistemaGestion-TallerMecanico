@@ -22,6 +22,7 @@ private:
 
 public:
 	Trabajo();
+	Trabajo(int idTrabajo, int idPresupuesto,const char* patente, const char* dniCliente, const char* dniProveedor, const char* dniEmpleado, int avanceTrabajo, Fecha fechaEntrada, Fecha fechaEntrega, std::string detalle, float presupuesto);
 
 	void setIdTrabajo(int idTrabajo);
 	void setIdPresupuesto(int idPresupuesto);
