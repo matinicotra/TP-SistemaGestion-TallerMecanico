@@ -1,9 +1,12 @@
 #include <iostream>
 #include <string>
+
 #include "ClienteArchivo.h"
 #include "VehiculoArchivo.h"
 #include "PresupuestoArchivo.h"
 #include "TrabajoManager.h"
+#include "ProveedorArchivo.h"
+
 using namespace std;
 
 int TrabajoManager::GenerarId() {
@@ -19,6 +22,7 @@ void TrabajoManager::Cargar() {
 	VehiculoArchivo arcVehiculo;
 	ClienteArchivo arcCliente;
 	PresupuestoArchivo arcPresupuesto;
+	ProveedorArchivo arcProveedor;
 
 	int id, opc, dia, mes, anio;
 	char patente[10];
@@ -28,44 +32,95 @@ void TrabajoManager::Cargar() {
 	id = GenerarId();
 	aux.setIdTrabajo(id);
 
-	//debe pedir primero el dni del cliente, patente del vehiculo y id de presupuesto y validar que esten cargados, en caso contrario, llamar a los metodos de Cargar respectivamente
+	//debemos pedir primero el dni del cliente, patente del vehiculo e id de presupuesto y validar que esten cargados, en caso contrario, llamar a los metodos de Cargar respectivamente
 
+	system("cls");
 	cout << "CARGAR NUEVO TRABAJO" << endl;
 	cout << "--------------------" << endl;
 	cout << "ID DEL TRABAJO : " << id << endl << endl;
 
-	do {
-		cout << "INGRESE PATENTE DEL VEHICULO: ";
-		cin.ignore();
-		cin.getline(patente, 9);
-
-		if (arcVehiculo.Buscar(patente) == -1) {
-			cout << "Patente inexistente, presione '1' para ingresar nuevamente o '2' para cargar un nuevo vehiculo: ";
-			cin >> opc;
-		} else opc = 0;
+	cout << "INGRESE PATENTE DEL VEHICULO: ";
+	cin.ignore();
+	cin.getline(patente, 9);
+	while (arcVehiculo.Buscar(patente) == -1) {
+		cout << "PATENTE INEXISTENTE" << endl;
+		cout << "Presione '1' para ingresar nuevamente; '2' para cargar un nuevo vehiculo; '0' para salir: ";
+		cin >> opc;
 
 		switch (opc) {
 		case 1:
+			cout << "INGRESE PATENTE DEL VEHICULO: ";
+			cin.ignore();
+			cin.getline(patente, 9);
 			break;
 		case 2:
 			cout << "cargar vehiculo..." << endl;
 			// arcVehiculo.Cargar();
-			//int idAux = arcVehiculo.GetCantidadRegistros();
-			//strcpy(patente, arcVehiculo.Leer(idAux).getPatente());
-			break;
-		case 0:
+			//int pos = arcVehiculo.GetCantidadRegistros();
+			//strcpy(patente, arcVehiculo.Leer(pos).getPatente());
 			break;
 		}
-	} while (true);
+	}
 	aux.setPatente(patente);
 
 	cout << "DNI CLIENTE: ";
 	cin.ignore();
 	cin.getline(dni, 9);
-	if (arcCliente.Buscar(dni) == -1) {
-		//cargar cliente
+	while (arcCliente.Buscar(dni) == -1) {
+		cout << "DNI INEXISTENTE. " << endl;
+		cout << "Presione '1' para ingresar nuevamente; '2' para cargar un nuevo cliente; '0' para salir: ";
+		cin >> opc;
+
+		switch (opc) {
+		case 1:
+			cout << "DNI CLIENTE: ";
+			cin.ignore();
+			cin.getline(dni, 9);
+			break;
+		case 2:
+			cout << "cargar cliente..." << endl;
+			// arcCliente.Cargar();
+			//int pos = arcCliente.GetCantidadRegistros();
+			//strcpy(dni, arcCliente.Leer(pos).getDni());
+			break;
+		case 0:
+			break;
+		}
 	}
 	aux.setDniCliente(dni);
+
+	cout << "DNI PROVEEDOR: ";
+	cin.ignore();
+	cin.getline(dni, 9);
+	while (arcProveedor.Buscar(dni) == -1) {
+		cout << "DNI INEXISTENTE. " << endl;
+		cout << "Presione '1' para ingresar nuevamente; '2' para cargar un nuevo proveedor; '0' para salir: ";
+		cin >> opc;
+
+		switch (opc) {
+		case 1:
+			cout << "DNI PROVEEDOR: ";
+			cin.ignore();
+			cin.getline(dni, 9);
+			break;
+		case 2:
+			cout << "cargar proveedor..." << endl;
+			// arcProveedor.Cargar();
+			//int pos = arcProveedor.GetCantidadRegistros();
+			//strcpy(dni, arcProveedor.Leer(pos).getDni());
+			break;
+		case 0:
+			break;
+		}
+	}
+	aux.setDniProveedor(dni);
+
+	cout << "DNI EMPLEADO DESIGNADO: ";
+	cin.ignore();
+	cin.getline(dni, 9);
+
+	aux.setDniEmpleado(dni);
+
 
 	cout << "FECHA DE ENTRADA: " << endl;
 	cout << "DIA:  ";
@@ -85,15 +140,7 @@ void TrabajoManager::Cargar() {
 	cin >> anio;
 	aux.setFechaEntrega(Fecha(dia, mes, anio));
 
-	cout << "DNI PROVEEDOR: ";
-	cin.ignore();
-	cin.getline(dni, 9);
-	aux.setDniProveedor(dni);
 
-	cout << "DNI EMPLEADO DESIGNADO: ";
-	cin.ignore();
-	cin.getline(dni, 9);
-	aux.setDniEmpleado(dni);
 
 	cout << "INGRESAR DETALLE: " << endl;
 	cin.ignore();
