@@ -119,6 +119,29 @@ void TrabajoManager::Cargar() {
 	}
 	aux.setDniProveedor(dni);
 
+	cout << "INGRESAR ID PRESUPUESTO: ";
+	cin >> id;
+	if (arcPresupuesto.Buscar(id) == -1) {
+		//cargar presupuesto
+	}
+
+	bool band;
+	int cantPresu = arcPresupuesto.GetCantidadRegistros();
+	for (int i = 0; i < cantPresu; i++) {
+		Presupuesto presupuesto = arcPresupuesto.Leer(i);
+		if (!strcmp(patente, presupuesto.getPatente()) && presupuesto.getEstado()) {
+			band = true;
+		}
+	}
+	if (band) {
+		aux.setIdPresupuesto(id);
+	} else {
+		//cargarpresupuesto();
+		//int pos = arcPresupuesto.GetCantidadRegistros();
+		//id = arcPresupuesto.Leer(pos).getIdPresupuesto();
+		//aux.setIdPresupuesto(id);
+	}
+
 	cout << "DNI EMPLEADO DESIGNADO: ";
 	cin.ignore();
 	cin.getline(dni, 9);
@@ -149,12 +172,7 @@ void TrabajoManager::Cargar() {
 	getline(cin, detalle);
 	aux.setDetalle(detalle);
 
-	cout << "INGRESAR ID PRESUPUESTO: ";
-	cin >> id;
-	if (arcPresupuesto.Buscar(id) == -1) {
-		//cargar presupuesto
-	}
-	aux.setIdPresupuesto(id);
+
 
 	aux.setAvanceTrabajo(1);
 
