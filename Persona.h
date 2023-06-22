@@ -13,10 +13,10 @@ protected:
 	std::string _direccion;
 	char _telefono[15];
 	Fecha _fechaAlta;
-	bool _estado;
 
 public:
     Persona();
+    Persona(const char* dni, std::string nombre, std::string apellido, std::string eMail, std::string direccion, const char* telefono, Fecha fechaAlta);
 
 	void setDni(const char *dni);
     void setNombre(std::string nombre);
@@ -25,7 +25,6 @@ public:
     void setDireccion(std::string direccion);
     void setTelefono(const char *telefono);
     void setFechaAlta(Fecha fechaAlta);
-    void setEstado(bool estado);
 
     const char *getDni();
     std::string getNombre();
@@ -34,7 +33,6 @@ public:
     std::string getDireccion();
     const char *getTelefono();
     Fecha getFechaAlta();
-    bool getEstado();
 
 };
 

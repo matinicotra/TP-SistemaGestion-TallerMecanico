@@ -11,6 +11,17 @@ Presupuesto::Presupuesto() {
 	_estado = true;
 }
 
+Presupuesto::Presupuesto(int idPresupuesto, const char* dniCliente, const char* patente, float importe, std::string detalle, Fecha fechaPresupuesto, bool asistenciaGrua, bool vehiculoSustitucion) {
+	_idPresupuesto = idPresupuesto;
+	strcpy(_dniCliente, dniCliente);
+	strcpy(_patente, patente);
+	_importe = importe;
+	_detalle = detalle;
+	_asistenciaGrua = asistenciaGrua;
+	_vehiculoSustitucion = vehiculoSustitucion;
+	_estado = true;
+}
+
 void Presupuesto::setIdPresupuesto(int idPresupuesto) {
 	_idPresupuesto = idPresupuesto;
 }

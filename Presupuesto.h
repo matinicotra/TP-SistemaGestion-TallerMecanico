@@ -19,6 +19,7 @@ private:
 
 public:
 	Presupuesto();
+	Presupuesto(int idPresupuesto, const char* dniCliente, const char* patente, float importe, std::string detalle, Fecha fechaPresupuesto, bool asistenciaGrua, bool vehiculoSustitucion);
 
 	void setIdPresupuesto(int idPresupuesto);
 	void setDniCliente(const char *dniCliente);

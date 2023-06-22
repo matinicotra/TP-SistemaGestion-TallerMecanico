@@ -1,11 +1,19 @@
 #include "Proveedor.h"
 
-Proveedor::Proveedor()
-{
+Proveedor::Proveedor(){
 	_rubro = "";
 	_autoparte = "";
+	_origenFabricacion = "";
 	_estado = true;
 }
+
+Proveedor::Proveedor(std::string rubro, std::string autoparte, std::string origenFabricacion){
+	_rubro = rubro;
+	_autoparte = autoparte;
+	_origenFabricacion = origenFabricacion;
+	_estado = true;
+}
+
 
 void Proveedor::setRubro(std::string rubro) {
 	_rubro = rubro;
