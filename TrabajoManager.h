@@ -16,12 +16,11 @@ public:
     void Cargar();
 
 	void ListarTodos();
+	void Listar(int id);
+	void Listar(Trabajo trabajo);
 	void ListarPorPatente(const char *patente);
 	void ListarPorDniCliente(const char *dniCliente);
 	void ListarPorAvance(int avance);
-
-	void Mostrar(int id);
-	void Mostrar(Trabajo trabajo);
 
 	void HacerCopiaDeSeguridad();
 	void RestaurarCopiaDeSeguridad();

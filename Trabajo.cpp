@@ -10,7 +10,6 @@ Trabajo::Trabajo() {
 	strcpy(_dniEmpleado, "");
 	_avanceTrabajo = 0;
 	_detalle = "";
-	_presupuesto = 0;
 	_estado = true;
 }
 
@@ -51,10 +50,6 @@ void Trabajo::setFechaEntrega(Fecha fechaEntrega) {
 }
 void Trabajo::setDetalle(std::string detalle) {
 	_detalle = detalle;
-}
-
-void Trabajo::setPresupuesto(float presupuesto) {
-	_presupuesto = presupuesto;
 }
 
 void Trabajo::setEstado(bool estado) {
@@ -99,10 +94,6 @@ Fecha Trabajo::getFechaEntrega() {
 
 std::string Trabajo::getDetalle() {
 	return _detalle;
-}
-
-float Trabajo::getPresupuesto() {
-	return _presupuesto;
 }
 
 bool Trabajo::getEstado() {

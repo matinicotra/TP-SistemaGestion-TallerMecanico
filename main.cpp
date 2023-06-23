@@ -1,13 +1,14 @@
 #include <iostream>
 using namespace std;
 
-#include <TrabajoManager.h>
+#include "TrabajoManager.h"
+#include "Trabajo.h"
 
 int main()
 {
 	TrabajoManager aux;
-
-	aux.Cargar();
+	Trabajo trabajo;
+	aux.Listar(trabajo);
 
     return 0;
 }

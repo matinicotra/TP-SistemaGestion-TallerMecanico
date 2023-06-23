@@ -6,6 +6,7 @@
 #include "PresupuestoArchivo.h"
 #include "TrabajoManager.h"
 #include "ProveedorArchivo.h"
+#include "EmpleadoArchivo.h"
 
 using namespace std;
 
@@ -68,7 +69,7 @@ void TrabajoManager::Cargar() {
 	}
 	aux.setPatente(patente);
 
-	cout << "DNI CLIENTE: ";
+	cout << "INGRESAR DNI DEL CLIENTE: ";
 	cin.ignore();
 	cin.getline(dni, 9);
 	while (arcCliente.Buscar(dni) == -1) {
@@ -90,12 +91,13 @@ void TrabajoManager::Cargar() {
 			//strcpy(dni, arcCliente.Leer(pos).getDni());
 			break;
 		case 0:
+			return;
 			break;
 		}
 	}
 	aux.setDniCliente(dni);
 
-	cout << "DNI PROVEEDOR: ";
+	cout << "INGRESAR DNI DEL PROVEEDOR: ";
 	cin.ignore();
 	cin.getline(dni, 9);
 	while (arcProveedor.Buscar(dni) == -1) {
@@ -117,11 +119,13 @@ void TrabajoManager::Cargar() {
 			//strcpy(dni, arcProveedor.Leer(pos).getDni());
 			break;
 		case 0:
+			return;
 			break;
 		}
 	}
 	aux.setDniProveedor(dni);
 
+	///PRESUPUESTO
 	bool band;
 	int cantPresu = arcPresupuesto.GetCantidadRegistros();
 	for (int i = 0; i < cantPresu; i++) {
@@ -175,4 +179,29 @@ void TrabajoManager::Cargar() {
 	if (_archivo.Guardar(aux)) {
 		cout << "Registro guardado existosamente." << endl;
 	};
+}
+
+void TrabajoManager::Listar(Trabajo trabajo) {
+	ClienteArchivo arcCliente;
+	EmpleadoArchivo arcEmpleado;
+	PresupuestoArchivo arcPresupuesto;
+	ProveedorArchivo arcProveedor;
+
+	int pos;
+
+	cout << "ID TRABAJO         #" << trabajo.getIdTrabajo() << endl;
+	cout << "PATENTE:            " << trabajo.getPatente() << endl;
+	pos = arcCliente.Buscar(trabajo.getDniCliente());
+	cout << "CLIENTE:            " << arcCliente.Leer(pos).getNombre() << " " << arcCliente.Leer(pos).getApellido() << endl;
+	pos = arcEmpleado.Buscar(trabajo.getDniEmpleado());
+	cout << "EMPLEADO DESIGNADO: " << arcEmpleado.Leer(pos).getNombre() << " " << arcEmpleado.Leer(pos).getApellido() << endl;
+	pos = arcPresupuesto.Buscar(trabajo.getIdPresupuesto());
+	cout << "PRESUPUESTO:       $" << arcPresupuesto.Leer(pos).getImporte() << endl;
+	pos = arcProveedor.Buscar(trabajo.getDniProveedor());
+	cout << "PROVEEDOR:          " << arcProveedor.Leer(pos).getNombre() << " " << arcProveedor.Leer(pos).getApellido() << endl;
+	cout << "REPUESTO:           " << arcProveedor.Leer(pos).getAutoparte() << endl;
+	cout << "FECHA DE ENTRADA:   " << trabajo.getFechaEntrada().toString("DD/MM/YYYY") << endl;
+	cout << "FECHA DE SALIDA:    " << trabajo.getFechaEntrega().toString("DD/MM/YYYY") << endl;
+	cout << "DETALLE:            " << trabajo.getDetalle();
+
 }

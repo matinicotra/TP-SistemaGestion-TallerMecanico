@@ -16,7 +16,6 @@ private:
 	Fecha _fechaEntrada;
 	Fecha _fechaEntrega;
 	std::string _detalle;
-	float _presupuesto;
 	bool _estado;
 
 
@@ -33,7 +32,6 @@ public:
 	void setFechaEntrada(Fecha fechaEntrada);
 	void setFechaEntrega(Fecha fechaEntrega);
 	void setDetalle(std::string detalle);
-	void setPresupuesto(float presupuesto);
 	void setEstado(bool estado);
 
 	int getIdTrabajo();
@@ -46,7 +44,6 @@ public:
 	Fecha getFechaEntrada();
 	Fecha getFechaEntrega();
 	std::string getDetalle();
-	float getPresupuesto();
 	bool getEstado();
 
 };
