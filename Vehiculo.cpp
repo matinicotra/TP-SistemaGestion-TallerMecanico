@@ -9,6 +9,15 @@ Vehiculo::Vehiculo() {
 	_estado = true;
 }
 
+Vehiculo::Vehiculo(const char* patente, std::string modelo, std::string marca, int anio, Fecha fechaAlta) {
+	strcpy(_patente, patente);
+	_modelo = modelo;
+	_marca = marca;
+	_anio = anio;
+	_fechaAlta = fechaAlta;
+	_estado = true;
+}
+
 void Vehiculo::setPatente(const char *patente) {
 	strcpy(_patente, patente);
 }

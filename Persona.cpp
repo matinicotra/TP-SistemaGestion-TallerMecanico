@@ -8,7 +8,16 @@ Persona::Persona() {
 	_eMail = "";
 	_direccion = "";
 	strcpy(_telefono, "");
-	_estado = true;
+}
+
+Persona::Persona(const char* dni, std::string nombre, std::string apellido, std::string eMail, std::string direccion, const char* telefono, Fecha fechaAlta){
+	strcpy(_dni, dni);
+	_nombre=nombre;
+	_apellido=apellido;
+	_eMail=eMail;
+	_direccion=direccion;
+	strcpy(_telefono, telefono);
+	_fechaAlta=fechaAlta;
 }
 
 void Persona::setDni(const char *dni) {
@@ -39,9 +48,6 @@ void Persona::setFechaAlta(Fecha fechaAlta) {
 	_fechaAlta = fechaAlta;
 }
 
-void Persona::setEstado(bool estado) {
-	_estado = estado;
-}
 
 const char *Persona::getDni() {
 	return _dni;
@@ -71,6 +77,3 @@ Fecha Persona::getFechaAlta() {
 	return _fechaAlta;
 }
 
-bool Persona::getEstado() {
-	return _estado;
-}

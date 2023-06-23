@@ -10,6 +10,7 @@ private:
 
 public:
     Cliente();
+    Cliente (std::string razonSocial);
 
 	void setRazonSocial(std::string razonSocial);
     void setEstado(bool estado);

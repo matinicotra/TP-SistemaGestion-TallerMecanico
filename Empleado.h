@@ -13,6 +13,7 @@ private:
 
 public:
 	Empleado();
+	Empleado(Fecha fechaNacimiento, std::string cargo, float sueldo, const char* cuentaBancaria);
 
 	void setFechaNacimiento(Fecha fechaNacimiento);
 	void setCargo(std::string cargo);

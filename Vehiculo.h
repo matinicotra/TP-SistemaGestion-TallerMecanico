@@ -15,6 +15,7 @@ private:
 
 public:
     Vehiculo();
+    Vehiculo(const char* patente, std::string modelo, std::string marca, int anio, Fecha fechaAlta);
 
     void setPatente(const char *patente);
     void setModelo(std::string modelo);

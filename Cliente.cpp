@@ -7,6 +7,11 @@ Cliente::Cliente()
 	_estado = true;
 }
 
+Cliente::Cliente (std::string razonSocial){
+    _razonSocial=razonSocial;
+    _estado = true;
+}
+
 void Cliente::setRazonSocial(std::string razonSocial) {
 	_razonSocial = razonSocial;
 }

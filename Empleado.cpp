@@ -6,6 +6,14 @@ Empleado::Empleado() {
 	_cargo = "";
 	_sueldo = 0;
 	strcpy(_cuentaBancaria, "");
+	_estado = true;
+}
+
+Empleado::Empleado(Fecha fechaNacimiento, std::string cargo, float sueldo, const char* cuentaBancaria) {
+	_cargo = cargo;
+	_sueldo = sueldo;
+	strcpy(_cuentaBancaria, cuentaBancaria);
+	_estado = true;
 }
 
 void Empleado::setFechaNacimiento(Fecha fechaNacimiento) {
