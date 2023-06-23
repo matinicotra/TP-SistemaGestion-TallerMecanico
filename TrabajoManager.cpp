@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 
+#include "Funciones.h"
 #include "ClienteArchivo.h"
 #include "VehiculoArchivo.h"
 #include "PresupuestoArchivo.h"
@@ -23,15 +24,14 @@ void TrabajoManager::Cargar() {
 	ClienteArchivo arcCliente;
 	PresupuestoArchivo arcPresupuesto;
 	ProveedorArchivo arcProveedor;
+	EmpleadoArchivo arcEmpleado;
 
 	Trabajo aux;
-	int dia, mes, anio;
-	string patente, dni, detalle;
+	int opc, dia, mes, anio;
+	string patente, dni, detalle, idPresu;
 
 	int id = GenerarId();
 	aux.setIdTrabajo(id);
-
-	//debemos pedir primero el dni del cliente, patente del vehiculo e id de presupuesto y validar que esten cargados, en caso contrario, llamar a los metodos de Cargar respectivamente
 
 	system("cls");
 
@@ -39,112 +39,88 @@ void TrabajoManager::Cargar() {
 	cout << "--------------------" << endl;
 	cout << "ID DEL TRABAJO : " << id << endl << endl;
 
-	cout << "INGRESE PATENTE DEL VEHICULO: ";
-	cin.ignore();
-	getline(cin, patente);
-	while (arcVehiculo.Buscar(patente) == -1) {
-		int opc;
-		cout << "PATENTE INEXISTENTE" << endl;
-		cout << "Presione '1' para ingresar nuevamente; '2' para cargar un nuevo vehiculo; '0' para salir: ";
-		cin >> opc;
-
-		switch (opc) {
-		case 1:
-			cout << "INGRESE PATENTE DEL VEHICULO: ";
-			cin.ignore();
+	cout << "1 - INGRESAR PATENTE DEL VEHICULO" << endl;
+	cout << "2 - CARGAR NUEVO VEHICULO" << endl;
+	cout << "Opcion: ";
+	cin >> opc;
+	switch (opc) {
+	case 1:
+		cout << "PATENTE: ";
+		cin.ignore();
+		getline(cin, patente);
+		while (arcVehiculo.Buscar(patente) == -1) {
+			cout << "Patente inexistente. Presione '0' para salir o intente nuevamente... : ";
 			getline(cin, patente);
-			break;
-		case 2:
-			cout << "cargar vehiculo..." << endl;
-			// arcVehiculo.Cargar();
-			//int pos = arcVehiculo.GetCantidadRegistros();
-			//strcpy(patente, arcVehiculo.Leer(pos).getPatente());
-			break;
-		case 0:
-			return;
-			break;
+			if (patente == "0") break;
 		}
+		aux.setPatente(patente);
+		break;
+	case 2:
+		///CARGAR VEHICULO
+		int pos = arcVehiculo.GetCantidadRegistros();
+		aux.setPatente(arcVehiculo.Leer(pos).getPatente());
+		break;
 	}
-	aux.setPatente(patente);
 
-	cout << "INGRESAR DNI DEL CLIENTE: ";
-	cin.ignore();
-	getline(cin, dni);
-	while (arcCliente.Buscar(dni) == -1) {
-		int opc;
-		cout << "DNI INEXISTENTE. " << endl;
-		cout << "Presione '1' para ingresar nuevamente; '2' para cargar un nuevo cliente; '0' para salir: ";
-		cin >> opc;
-
-		switch (opc) {
-		case 1:
-			cout << "DNI CLIENTE: ";
-			cin.ignore();
+	cout << "1 - INGRESAR DNI DEL CLIENTE" << endl;
+	cout << "2 - CARGAR NUEVO CLIENTE" << endl;
+	cout << "Opcion: ";
+	cin >> opc;
+	switch (opc) {
+	case 1:
+		cout << "DNI: ";
+		cin.ignore();
+		getline(cin, dni);
+		while (arcCliente.Buscar(dni) == -1) {
+			cout << "DNI inexistente. Presione '0' para continuar o intente nuevamente... : ";
 			getline(cin, dni);
-			break;
-		case 2:
-			cout << "cargar cliente..." << endl;
-			// arcCliente.Cargar();
-			//int pos = arcCliente.GetCantidadRegistros();
-			//strcpy(dni, arcCliente.Leer(pos).getDni());
-			break;
-		case 0:
-			return;
-			break;
+			if (dni == "0") break;
 		}
+		aux.setDniCliente(dni);
+	case 2:
+		///CARGAR CLIENTE
+		int pos = arcCliente.GetCantidadRegistros();
+		aux.setDniCliente(arcCliente.Leer(pos).getDni());
+		break;
 	}
-	aux.setDniCliente(dni);
 
-	cout << "INGRESAR DNI DEL PROVEEDOR: ";
-	cin.ignore();
+	cout << "INGRESAR DNI DEL PROVEEDOR DE REPUESTOS: ";
 	getline(cin, dni);
 	while (arcProveedor.Buscar(dni) == -1) {
-		int opc;
-		cout << "DNI INEXISTENTE. " << endl;
-		cout << "Presione '1' para ingresar nuevamente; '2' para cargar un nuevo proveedor; '0' para salir: ";
-		cin >> opc;
-
-		switch (opc) {
-		case 1:
-			cout << "DNI PROVEEDOR: ";
-			cin.ignore();
-			getline(cin, dni);
-			break;
-		case 2:
-			cout << "cargar proveedor..." << endl;
-			// arcProveedor.Cargar();
-			//int pos = arcProveedor.GetCantidadRegistros();
-			//strcpy(dni, arcProveedor.Leer(pos).getDni());
-			break;
-		case 0:
-			return;
-			break;
-		}
+		cout << "DNI inexistente. Presione '0' para continuar o intente nuevamente... : ";
+		getline(cin, dni);
+		if (dni == "0") break;
 	}
 	aux.setDniProveedor(dni);
 
-	///PRESUPUESTO
-	bool band;
-	int cantPresu = arcPresupuesto.GetCantidadRegistros();
-	for (int i = 0; i < cantPresu; i++) {
-		Presupuesto presupuesto = arcPresupuesto.Leer(i);
-		if (presupuesto.getPatente() == patente && presupuesto.getEstado()) {
-			band = true;
-		}
-	}
-	if (band) {
-		aux.setIdPresupuesto(id);
-	} else {
-		//cargarpresupuesto();
-		//int pos = arcPresupuesto.GetCantidadRegistros();
-		//id = arcPresupuesto.Leer(pos).getIdPresupuesto();
-		//aux.setIdPresupuesto(id);
-	}
-
-	cout << "DNI EMPLEADO DESIGNADO: ";
-	cin.ignore();
+	cout << "INGRESAR DNI DEL EMPLEADO DESIGNADO: ";
 	getline(cin, dni);
-	aux.setDniEmpleado(dni);		// VALIDAR PRIMERO
+	while (arcEmpleado.Buscar(dni) == -1) {
+		cout << "DNI inexistente. Presione '0' para continuar o intente nuevamente... : ";
+		getline(cin,dni);
+		if(dni == "0") break;
+	}
+	aux.setDniEmpleado(dni);
+
+	cout << "1 - INGRESAR ID DEL PRESUPUESTO";
+	cout << "2 - CARGAR PRESUPUESTO";
+	cin >> opc;
+	switch (opc) {
+	case 1:
+		cout << "ID #: ";
+		cin >> id;
+		while (arcPresupuesto.Buscar(id) == -1) {
+			cout << "No existe un presupuesto con ese ID. Intente nuevamente... : ";		////FALTA PODER SALIR DEL WHILE SIN ID
+			cin >> id;
+		}
+		aux.setIdPresupuesto(id);
+		break;
+	case 2:
+		///CARGAR PRESUPUESTO
+		int pos = arcPresupuesto.GetCantidadRegistros();
+		aux.setIdPresupuesto(arcPresupuesto.Leer(pos).getIdPresupuesto());
+		break;
+	}
 
 	cout << "FECHA DE ENTRADA: " << endl;
 	cout << "DIA:  ";
@@ -155,7 +131,7 @@ void TrabajoManager::Cargar() {
 	cin >> anio;
 	aux.setFechaEntrada(Fecha(dia, mes, anio));
 
-	cout << "FECHA DE ENTREGA: " << endl;		//// si nos queda tiempo podriamos usar la funcion de "agregar dias" de la clase fecha y que la fecha de entrega se calcule sola
+	cout << "FECHA DE ENTREGA: " << endl;
 	cout << "DIA:  ";
 	cin >> dia;
 	cout << "MES:   ";
@@ -172,6 +148,8 @@ void TrabajoManager::Cargar() {
 		cout << "Registro guardado existosamente." << endl;
 	};
 }
+
+
 
 void TrabajoManager::Listar(Trabajo trabajo) {
 	ClienteArchivo arcCliente;

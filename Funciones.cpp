@@ -18,3 +18,4 @@ int getInteger(int minimo = INT_MIN, int maximo = INT_MAX) {
 		}
 	}
 }
+
