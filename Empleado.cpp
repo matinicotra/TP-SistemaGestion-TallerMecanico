@@ -1,18 +1,17 @@
-#include <cstring>
 #include "Fecha.h"
 #include "Empleado.h"
 
 Empleado::Empleado() {
-	_cargo = "";
+	strcpy(_cargo, "");
 	_sueldo = 0;
 	strcpy(_cuentaBancaria, "");
 	_estado = true;
 }
 
-Empleado::Empleado(Fecha fechaNacimiento, std::string cargo, float sueldo, const char* cuentaBancaria) {
-	_cargo = cargo;
+Empleado::Empleado(Fecha fechaNacimiento, std::string cargo, float sueldo, std::string cuentaBancaria) {
+	strcpy(_cargo, cargo.c_str());
 	_sueldo = sueldo;
-	strcpy(_cuentaBancaria, cuentaBancaria);
+	strcpy(_cuentaBancaria, cuentaBancaria.c_str());
 	_estado = true;
 }
 
@@ -20,16 +19,20 @@ void Empleado::setFechaNacimiento(Fecha fechaNacimiento) {
 	_fechaNacimiento = fechaNacimiento;
 }
 
+void Empleado::setFechaAlta(Fecha fechaAlta) {
+	_fechaAlta = fechaAlta;
+}
+
 void Empleado::setCargo(std::string cargo) {
-	_cargo = cargo;
+	strcpy(_cargo, cargo.c_str());
 }
 
 void Empleado::setSueldo(float sueldo) {
 	_sueldo = sueldo;
 }
 
-void Empleado::setCuentaBancaria(const char *cuenta) {
-	strcpy(_cuentaBancaria, cuenta);
+void Empleado::setCuentaBancaria(std::string cuenta) {
+	strcpy(_cuentaBancaria, cuenta.c_str());
 }
 
 void Empleado::setEstado(bool estado) {
@@ -40,16 +43,22 @@ Fecha Empleado::getFechaNacimiento() {
 	return _fechaNacimiento;
 }
 
+Fecha Empleado::getFechaAlta() {
+	return _fechaAlta;
+}
+
 std::string Empleado::getCargo() {
-	return _cargo;
+	std::string cargoAux = _cargo;
+	return cargoAux;
 }
 
 float Empleado::getSueldo() {
 	return _sueldo;
 }
 
-const char *Empleado::getCuentaBancaria() {
-	return _cuentaBancaria;
+std::string Empleado::getCuentaBancaria() {
+	std::string cuentaAux = _cuentaBancaria;
+	return cuentaAux;
 }
 
 bool Empleado::getEstado() {

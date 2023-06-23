@@ -1,5 +1,3 @@
-
-
 #include "Presupuesto.h"
 
 Presupuesto::Presupuesto() {
@@ -7,16 +5,16 @@ Presupuesto::Presupuesto() {
 	strcpy(_dniCliente, "");
 	strcpy(_patente, "");
 	_importe = 0;
-	_detalle = "";
+	strcpy(_detalle, "");
 	_estado = true;
 }
 
-Presupuesto::Presupuesto(int idPresupuesto, const char* dniCliente, const char* patente, float importe, std::string detalle, Fecha fechaPresupuesto, bool asistenciaGrua, bool vehiculoSustitucion) {
+Presupuesto::Presupuesto(int idPresupuesto, std::string dniCliente, std::string patente, float importe, std::string detalle, Fecha fechaPresupuesto, bool asistenciaGrua, bool vehiculoSustitucion) {
 	_idPresupuesto = idPresupuesto;
-	strcpy(_dniCliente, dniCliente);
-	strcpy(_patente, patente);
+	strcpy(_dniCliente, dniCliente.c_str());
+	strcpy(_patente, patente.c_str());
 	_importe = importe;
-	_detalle = detalle;
+	strcpy(_detalle, detalle.c_str());
 	_asistenciaGrua = asistenciaGrua;
 	_vehiculoSustitucion = vehiculoSustitucion;
 	_estado = true;
@@ -26,12 +24,12 @@ void Presupuesto::setIdPresupuesto(int idPresupuesto) {
 	_idPresupuesto = idPresupuesto;
 }
 
-void Presupuesto::setDniCliente(const char *dniCliente) {
-	strcpy(_dniCliente, dniCliente);
+void Presupuesto::setDniCliente(std::string dniCliente) {
+	strcpy(_dniCliente, dniCliente.c_str());
 }
 
-void Presupuesto::setPatente(const char *patente) {
-	strcpy(_patente, patente);
+void Presupuesto::setPatente(std::string patente) {
+	strcpy(_patente, patente.c_str());
 }
 
 void Presupuesto::setImporte(float importe) {
@@ -39,7 +37,7 @@ void Presupuesto::setImporte(float importe) {
 }
 
 void Presupuesto::setDetalle(std::string detalle) {
-	_detalle = detalle;
+	strcpy(_detalle, detalle.c_str());
 }
 
 void Presupuesto::setFecha(Fecha fecha) {
@@ -62,12 +60,14 @@ int Presupuesto::getIdPresupuesto() {
 	return _idPresupuesto;
 }
 
-const char *Presupuesto::getDniCliente() {
-	return _dniCliente;
+std::string Presupuesto::getDniCliente() {
+	std::string dniAux = _dniCliente;
+	return dniAux;
 }
 
-const char *Presupuesto::getPatente() {
-	return _patente;
+std::string Presupuesto::getPatente() {
+	std::string patenteAux = _patente;
+	return patenteAux;
 }
 
 float Presupuesto::getImporte() {
@@ -75,7 +75,8 @@ float Presupuesto::getImporte() {
 }
 
 std::string Presupuesto::getDetalle() {
-	return _detalle;
+	std::string detalleAux = _detalle;
+	return detalleAux;
 }
 
 Fecha Presupuesto::getFecha() {

@@ -3,77 +3,74 @@
 
 Persona::Persona() {
 	strcpy(_dni, "");
-	_nombre = "";
-	_apellido = "";
-	_eMail = "";
-	_direccion = "";
+	strcpy(_nombre, "");
+	strcpy(_apellido, "");
+	strcpy(_eMail, "");
+	strcpy(_direccion, "");
 	strcpy(_telefono, "");
 }
 
-Persona::Persona(const char* dni, std::string nombre, std::string apellido, std::string eMail, std::string direccion, const char* telefono, Fecha fechaAlta){
-	strcpy(_dni, dni);
-	_nombre=nombre;
-	_apellido=apellido;
-	_eMail=eMail;
-	_direccion=direccion;
-	strcpy(_telefono, telefono);
-	_fechaAlta=fechaAlta;
+Persona::Persona(std::string dni, std::string nombre, std::string apellido, std::string eMail, std::string direccion, std::string telefono){
+	strcpy(_dni, dni.c_str());
+	strcpy(_nombre, nombre.c_str());
+	strcpy(_apellido, apellido.c_str());
+	strcpy(_eMail, eMail.c_str());
+	strcpy(_direccion, direccion.c_str());
+	strcpy(_telefono, telefono.c_str());
 }
 
-void Persona::setDni(const char *dni) {
-	strcpy(_dni, dni);
+void Persona::setDni(std::string dni) {
+	strcpy(_dni, dni.c_str());
 }
 
 void Persona::setNombre(std::string nombre) {
-	_nombre = nombre;
+	strcpy(_nombre, nombre.c_str());
 }
 
 void Persona::setApellido(std::string apellido) {
-	_apellido = apellido;
+	strcpy(_apellido, apellido.c_str());
 }
 
 void Persona::setEmail(std::string eMail) {
-	_eMail = eMail;
+	strcpy(_eMail, eMail.c_str());
 }
 
 void Persona::setDireccion(std::string direccion) {
-	_direccion = direccion;
+	strcpy(_direccion, direccion.c_str());
 }
 
-void Persona::setTelefono(const char *telefono) {
-	strcpy(_telefono, telefono);
+void Persona::setTelefono(std::string telefono) {
+	strcpy(_telefono, telefono.c_str());
 }
 
-void Persona::setFechaAlta(Fecha fechaAlta) {
-	_fechaAlta = fechaAlta;
-}
-
-
-const char *Persona::getDni() {
-	return _dni;
+std::string Persona::getDni() {
+	std::string dniAux = _dni;
+	return dniAux;
 }
 
 std::string Persona::getNombre() {
-	return _nombre;
+	std::string nombreAux = _nombre;
+	return nombreAux;
 }
 
 std::string Persona::getApellido() {
-	return _apellido;
+	std::string apellidoAux = _apellido;
+	return apellidoAux;
 }
 
 std::string Persona::getEmail() {
-	return _eMail;
+	std::string eMailAux = _eMail;
+	return eMailAux;
 }
 
 std::string Persona::getDireccion() {
-	return _direccion;
+	std::string direccionAux;
+	return direccionAux;
 }
 
-const char *Persona::getTelefono() {
-	return _telefono;
+std::string Persona::getTelefono() {
+	std::string telefonoAux = _telefono;
+	return telefonoAux;
 }
 
-Fecha Persona::getFechaAlta() {
-	return _fechaAlta;
-}
 

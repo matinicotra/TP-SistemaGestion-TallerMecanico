@@ -5,9 +5,9 @@
 
 class Proveedor: public Persona {
 private:
-	std::string _rubro;
-	std::string _autoparte;
-	std::string _origenFabricacion;
+	char _rubro[50];
+	char _autoparte[50];
+	char _origenFabricacion[30];
 	bool _estado;
 
 public:

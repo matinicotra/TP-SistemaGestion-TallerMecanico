@@ -5,8 +5,9 @@
 
 class Cliente: public Persona {
 private:
-	std::string _razonSocial;
+	char _razonSocial[50];
 	bool _estado;
+	Fecha _fechaAlta;
 
 public:
     Cliente();
@@ -14,8 +15,10 @@ public:
 
 	void setRazonSocial(std::string razonSocial);
     void setEstado(bool estado);
+    void setFechaAlta(Fecha fechaAlta);
 
 	std::string getRazonSocial();
+    Fecha getFechaAlta();
     bool getEstado();
 
 };

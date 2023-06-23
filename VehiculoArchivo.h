@@ -11,7 +11,7 @@ public:
     VehiculoArchivo(std::string ruta);
 
 	int GetCantidadRegistros();
-	int Buscar(const char *patente);			///devuelve posicion de reg en el archivo ingresando patente
+	int Buscar(std::string patente);			///devuelve posicion de reg en el archivo ingresando patente
 
 	Vehiculo Leer(int pos);
 	void Leer(Vehiculo *vec, int cantRegistros);		///posibilita cargar en un vector todos los registros (backup)

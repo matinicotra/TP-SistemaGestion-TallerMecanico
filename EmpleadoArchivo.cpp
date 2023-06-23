@@ -1,4 +1,3 @@
-#include <cstring>
 #include "EmpleadoArchivo.h"
 
 EmpleadoArchivo::EmpleadoArchivo() {
@@ -18,12 +17,12 @@ int EmpleadoArchivo::GetCantidadRegistros() {
 	return bytes / sizeof(Empleado);
 }
 
-int EmpleadoArchivo::Buscar(const char *dni) {
+int EmpleadoArchivo::Buscar(std::string dni) {
 	Empleado aux;
 	int cantRegistros = this->GetCantidadRegistros();
 	for (int i = 0; i < cantRegistros; i++) {
 		aux = this->Leer(i);
-		if (!strcmp(aux.getDni(), dni)) return i;
+		if (aux.getDni() == dni) return i;
 	}
 	return -1;
 }

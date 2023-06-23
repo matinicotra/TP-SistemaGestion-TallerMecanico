@@ -3,31 +3,31 @@
 
 Vehiculo::Vehiculo() {
 	strcpy(_patente, "");
-	_modelo = "";
-	_marca = "";
+	strcpy(_modelo, "");
+	strcpy(_marca, "");
 	_anio = 0;
 	_estado = true;
 }
 
-Vehiculo::Vehiculo(const char* patente, std::string modelo, std::string marca, int anio, Fecha fechaAlta) {
-	strcpy(_patente, patente);
-	_modelo = modelo;
-	_marca = marca;
+Vehiculo::Vehiculo(std::string patente, std::string modelo, std::string marca, int anio, Fecha fechaAlta) {
+	strcpy(_patente, patente.c_str());
+	strcpy(_modelo, modelo.c_str());
+	strcpy(_marca, marca.c_str());
 	_anio = anio;
 	_fechaAlta = fechaAlta;
 	_estado = true;
 }
 
-void Vehiculo::setPatente(const char *patente) {
-	strcpy(_patente, patente);
+void Vehiculo::setPatente(std::string patente) {
+	strcpy(_patente, patente.c_str());
 }
 
 void Vehiculo::setModelo(std::string modelo) {
-	_modelo = modelo;
+	strcpy(_modelo, modelo.c_str());
 }
 
 void Vehiculo::setMarca(std::string marca) {
-	_marca = marca;
+	strcpy(_marca, marca.c_str());
 }
 
 void Vehiculo::setAnio(int anio) {
@@ -42,16 +42,19 @@ void Vehiculo::setEstado(bool estado) {
 	_estado = estado;
 }
 
-const char *Vehiculo::getPatente() {
-	return _patente;
+std::string Vehiculo::getPatente() {
+	std::string patenteAux = _patente;
+	return patenteAux;
 }
 
 std::string Vehiculo::getModelo() {
-	return _modelo;
+	std::string modeloAux = _modelo;
+	return modeloAux;
 }
 
 std::string Vehiculo::getMarca() {
-	return _marca;
+	std::string marcaAux = _marca;
+	return marcaAux;
 }
 
 int Vehiculo::getAnio() {

@@ -7,24 +7,24 @@
 class Vehiculo {
 private:
  	char _patente[10];
-	std::string _modelo;
-	std::string _marca;
+	char _modelo[20];
+	char _marca[20];
 	int _anio;
 	Fecha _fechaAlta;
 	bool _estado;
 
 public:
     Vehiculo();
-    Vehiculo(const char* patente, std::string modelo, std::string marca, int anio, Fecha fechaAlta);
+    Vehiculo(std::string patente, std::string modelo, std::string marca, int anio, Fecha fechaAlta);
 
-    void setPatente(const char *patente);
+    void setPatente(std::string patente);
     void setModelo(std::string modelo);
     void setMarca(std::string marca);
     void setAnio(int anio);
     void setFechaAlta(Fecha alta);
     void setEstado(bool estado);
 
-    const char *getPatente();
+    std::string getPatente();
 	std::string getModelo();
     std::string getMarca();
     int getAnio();

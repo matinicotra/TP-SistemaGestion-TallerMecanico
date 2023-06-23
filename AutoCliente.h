@@ -1,6 +1,7 @@
 #ifndef AUTOCLIENTE_H
 #define AUTOCLIENTE_H
 
+#include <string>
 
 class AutoCliente {
 private:
@@ -10,14 +11,14 @@ private:
 
 public:
     AutoCliente();
-    AutoCliente(const char *dniCliente, const char *patente);
+    AutoCliente(std::string dniCliente, std::string patente);
 
-    void setDniCliente(const char *dniCliente);
-	void setPatente(const char *patente);
+    void setDniCliente(std::string dniCliente);
+	void setPatente(std::string patente);
 	void setEstado(bool estado);
 
-	const char *getDniCliente();
-	const char *getPatente();
+	std::string getDniCliente();
+	std::string getPatente();
 	bool getEstado();
 
 };

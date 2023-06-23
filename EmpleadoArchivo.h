@@ -12,14 +12,14 @@ public:
     EmpleadoArchivo(std::string ruta);
 
 	int GetCantidadRegistros();
-	int Buscar(const char *dni);						///devuelve posicion en archivo ingresando id
+	int Buscar(std::string dni);						///devuelve posicion en archivo ingresando dni
 
 	Empleado Leer(int pos);
 	void Leer(Empleado *vec, int cantRegistros);		///posibilita cargar en un vector todos los registros (backup)
 
 	bool Guardar(Empleado reg);							///diferenciamos por sobrecarga
 	bool Guardar(Empleado reg, int posReemplazo);		///sobreescribir
-	bool Guardar(Empleado *vec, int cantRegistros);		///guardar desde un vec para backup
+	bool Guardar(Empleado *vec, int cantRegistros);		///guardar en un vec para backup
 
 	void Vaciar();
 };

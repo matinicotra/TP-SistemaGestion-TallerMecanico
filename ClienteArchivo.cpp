@@ -18,12 +18,12 @@ int ClienteArchivo::GetCantidadRegistros() {
 	return bytes / sizeof(Cliente);
 }
 
-int ClienteArchivo::Buscar(const char *dni) {
+int ClienteArchivo::Buscar(std::string dni) {
 	Cliente aux;
 	int cantRegistros = this->GetCantidadRegistros();
 	for (int i = 0; i < cantRegistros; i++) {
 		aux = this->Leer(i);
-		if (!strcmp(aux.getDni(), dni)) return i;
+		if (aux.getDni() == dni) return i;
 	}
 	return -1;
 }

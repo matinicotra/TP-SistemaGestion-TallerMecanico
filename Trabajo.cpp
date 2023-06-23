@@ -9,20 +9,17 @@ Trabajo::Trabajo() {
 	strcpy(_dniProveedor, "");
 	strcpy(_dniEmpleado, "");
 	_avanceTrabajo = 0;
-	_detalle = "";
 	_estado = true;
 }
 
-Trabajo::Trabajo(int idTrabajo, int idPresupuesto,const char* patente, const char* dniCliente, const char* dniProveedor, const char* dniEmpleado, int avanceTrabajo, Fecha fechaEntrada, Fecha fechaEntrega, std::string detalle, float presupuesto) {
+Trabajo::Trabajo(int idTrabajo, int idPresupuesto, std::string patente, std::string dniCliente, std::string dniProveedor, std::string dniEmpleado, int avanceTrabajo, Fecha fechaEntrada, Fecha fechaEntrega) {
 	_idTrabajo = idTrabajo;
 	_idPresupuesto = idPresupuesto;
-	strcpy(_patente, patente);
-	strcpy(_dniCliente, dniCliente);
-	strcpy(_dniProveedor, dniProveedor);
-	strcpy(_dniEmpleado, dniEmpleado);
+	strcpy(_patente, patente.c_str());
+	strcpy(_dniCliente, dniCliente.c_str());
+	strcpy(_dniProveedor, dniProveedor.c_str());
+	strcpy(_dniEmpleado, dniEmpleado.c_str());
 	_avanceTrabajo = avanceTrabajo;
-	_detalle = detalle;
-	_presupuesto = presupuesto;
 	_estado = true;
 }
 
@@ -34,20 +31,20 @@ void Trabajo::setIdPresupuesto(int idPresupuesto) {
 	_idPresupuesto = idPresupuesto;
 }
 
-void Trabajo::setPatente(const char *patente) {
-	strcpy(_patente, patente);
+void Trabajo::setPatente(std::string patente) {
+	strcpy(_patente, patente.c_str());
 }
 
-void Trabajo::setDniCliente(const char *dniCliente) {
-	strcpy(_dniCliente, dniCliente);
+void Trabajo::setDniCliente(std::string dniCliente) {
+	strcpy(_dniCliente, dniCliente.c_str());
 }
 
-void Trabajo::setDniProveedor(const char *dniProveedor) {
-	strcpy(_dniProveedor, dniProveedor);
+void Trabajo::setDniProveedor(std::string dniProveedor) {
+	strcpy(_dniProveedor, dniProveedor.c_str());
 }
 
-void Trabajo::setDniEmpleado(const char *dniEmpleado) {
-	strcpy(_dniEmpleado, dniEmpleado);
+void Trabajo::setDniEmpleado(std::string dniEmpleado) {
+	strcpy(_dniEmpleado, dniEmpleado.c_str());
 }
 
 void Trabajo::setAvanceTrabajo(int avanceTrabajo) {
@@ -60,9 +57,6 @@ void Trabajo::setFechaEntrada(Fecha fechaEntrada) {
 
 void Trabajo::setFechaEntrega(Fecha fechaEntrega) {
 	_fechaEntrega = fechaEntrega;
-}
-void Trabajo::setDetalle(std::string detalle) {
-	_detalle = detalle;
 }
 
 void Trabajo::setEstado(bool estado) {
@@ -77,20 +71,24 @@ int Trabajo::getIdPresupuesto() {
 	return _idPresupuesto;
 }
 
-const char *Trabajo::getPatente() {
-	return _patente;
+std::string Trabajo::getPatente() {
+	std::string patenteAux = _patente;
+	return patenteAux;
 }
 
-const char *Trabajo::getDniCliente() {
-	return _dniCliente;
+std::string Trabajo::getDniCliente() {
+	std::string dniClienteAux = _dniCliente;
+	return dniClienteAux;
 }
 
-const char *Trabajo::getDniProveedor() {
-	return _dniProveedor;
+std::string Trabajo::getDniProveedor() {
+	std::string dniProveedorAux = _dniProveedor;
+	return dniProveedorAux;
 }
 
-const char *Trabajo::getDniEmpleado() {
-	return _dniEmpleado;
+std::string Trabajo::getDniEmpleado() {
+	std::string dniEmpleadoAux = _dniEmpleado;
+	return dniEmpleadoAux;
 }
 
 int Trabajo::getAvanceTrabajo() {
@@ -103,10 +101,6 @@ Fecha Trabajo::getFechaEntrada() {
 
 Fecha Trabajo::getFechaEntrega() {
 	return _fechaEntrega;
-}
-
-std::string Trabajo::getDetalle() {
-	return _detalle;
 }
 
 bool Trabajo::getEstado() {

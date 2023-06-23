@@ -1,7 +1,6 @@
 #ifndef AUTOCLIENTEARCHIVO_H
 #define AUTOCLIENTEARCHIVO_H
 
-#include <string>
 #include "AutoCliente.h"
 
 class AutoClienteArchivo {
@@ -13,8 +12,8 @@ public:
     AutoClienteArchivo(std::string ruta);
 
 	int GetCantidadRegistros();
-	int BuscarDni(const char *dni);				///devuelve la posicion del registro en el archivo ingresando dni
-	int BuscarPatente(const char *patente);		///devuelve la posicion del registro en el archivo ingresando patente
+	int BuscarDni(std::string dni);				///devuelve la posicion del registro en el archivo ingresando dni
+	int BuscarPatente(std::string patente);		///devuelve la posicion del registro en el archivo ingresando patente
 
 	AutoCliente Leer(int pos);
 	void Leer(AutoCliente *vec, int cantRegistros);		///posibilita cargar en un vector todos los registros (backup)

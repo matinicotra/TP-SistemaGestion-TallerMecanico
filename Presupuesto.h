@@ -11,7 +11,7 @@ private:
 	char _dniCliente[10];
 	char _patente[10];
 	float _importe;
-	std::string _detalle;
+	char _detalle[100];
 	Fecha _fechaPresupuesto;
 	bool _asistenciaGrua;
 	bool _vehiculoSustitucion;
@@ -19,11 +19,11 @@ private:
 
 public:
 	Presupuesto();
-	Presupuesto(int idPresupuesto, const char* dniCliente, const char* patente, float importe, std::string detalle, Fecha fechaPresupuesto, bool asistenciaGrua, bool vehiculoSustitucion);
+	Presupuesto(int idPresupuesto, std::string dniCliente, std::string patente, float importe, std::string detalle, Fecha fechaPresupuesto, bool asistenciaGrua, bool vehiculoSustitucion);
 
 	void setIdPresupuesto(int idPresupuesto);
-	void setDniCliente(const char *dniCliente);
-	void setPatente(const char *patente);
+	void setDniCliente(std::string dniCliente);
+	void setPatente(std::string patente);
 	void setImporte(float importe);
 	void setDetalle(std::string detalle);
 	void setFecha(Fecha fecha);
@@ -32,8 +32,8 @@ public:
 	void setEstado(bool estado);
 
 	int getIdPresupuesto();
-	const char *getDniCliente();
-	const char *getPatente();
+	std::string getDniCliente();
+	std::string getPatente();
 	float getImporte();
 	std::string getDetalle();
 	Fecha getFecha();

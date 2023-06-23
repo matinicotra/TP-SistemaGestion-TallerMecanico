@@ -18,12 +18,12 @@ int VehiculoArchivo::GetCantidadRegistros() {
 	return bytes / sizeof(Vehiculo);
 }
 
-int VehiculoArchivo::Buscar(const char *patente) {
+int VehiculoArchivo::Buscar(std::string patente) {
 	Vehiculo aux;
 	int cantRegistros = this->GetCantidadRegistros();
 	for (int i = 0; i < cantRegistros; i++) {
 		aux = this->Leer(i);
-		if (!strcmp(aux.getPatente(), patente)) return i;
+		if (aux.getPatente() == patente) return i;
 	}
 	return -1;
 }

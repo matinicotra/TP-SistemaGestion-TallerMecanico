@@ -18,22 +18,22 @@ int AutoClienteArchivo::GetCantidadRegistros() {
 	return bytes / sizeof(AutoCliente);
 }
 
-int AutoClienteArchivo::BuscarDni(const char *dni) {
+int AutoClienteArchivo::BuscarDni(std::string dni) {
 	AutoCliente aux;
 	int cantRegistros = this->GetCantidadRegistros();
 	for (int i = 0; i < cantRegistros; i++) {
 		aux = this->Leer(i);
-		if (!strcmp(aux.getDniCliente(), dni)) return i;
+		if (aux.getDniCliente() == dni) return i;
 	}
 	return -1;
 }
 
-int AutoClienteArchivo::BuscarPatente(const char *patente) {
+int AutoClienteArchivo::BuscarPatente(std::string patente) {
 	AutoCliente aux;
 	int cantRegistros = this->GetCantidadRegistros();
 	for (int i = 0; i < cantRegistros; i++) {
 		aux = this->Leer(i);
-		if (!strcmp(aux.getPatente(), patente)) return i;
+		if (aux.getPatente() == patente) return i;
 	}
 	return -1;
 }

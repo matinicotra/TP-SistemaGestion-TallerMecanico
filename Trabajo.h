@@ -15,36 +15,33 @@ private:
 	int _avanceTrabajo; 	//1 diagnostico, 2 desmontaje, 3 reparacion, 4 ensamblaje, 5 entregado
 	Fecha _fechaEntrada;
 	Fecha _fechaEntrega;
-	std::string _detalle;
 	bool _estado;
 
 
 public:
 	Trabajo();
-	Trabajo(int idTrabajo, int idPresupuesto,const char* patente, const char* dniCliente, const char* dniProveedor, const char* dniEmpleado, int avanceTrabajo, Fecha fechaEntrada, Fecha fechaEntrega, std::string detalle, float presupuesto);
+	Trabajo(int idTrabajo, int idPresupuesto, std::string patente, std::string dniCliente, std::string dniProveedor, std::string dniEmpleado, int avanceTrabajo, Fecha fechaEntrada, Fecha fechaEntrega);
 
 	void setIdTrabajo(int idTrabajo);
 	void setIdPresupuesto(int idPresupuesto);
-	void setPatente(const char *patente);
-	void setDniCliente(const char *dniCliente);
-	void setDniProveedor(const char *dniProveedor);
-	void setDniEmpleado(const char *dniEmpleado);
+	void setPatente(std::string patente);
+	void setDniCliente(std::string dniCliente);
+	void setDniProveedor(std::string dniProveedor);
+	void setDniEmpleado(std::string dniEmpleado);
 	void setAvanceTrabajo(int avanceTrabajo);
 	void setFechaEntrada(Fecha fechaEntrada);
 	void setFechaEntrega(Fecha fechaEntrega);
-	void setDetalle(std::string detalle);
 	void setEstado(bool estado);
 
 	int getIdTrabajo();
 	int getIdPresupuesto();
-	const char *getPatente();
-	const char *getDniCliente();
-	const char *getDniProveedor();
-	const char *getDniEmpleado();
+	std::string getPatente();
+	std::string getDniCliente();
+	std::string getDniProveedor();
+	std::string getDniEmpleado();
 	int getAvanceTrabajo();
 	Fecha getFechaEntrada();
 	Fecha getFechaEntrega();
-	std::string getDetalle();
 	bool getEstado();
 
 };

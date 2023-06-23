@@ -8,30 +8,32 @@ AutoCliente::AutoCliente() {
 	_estado = true;
 }
 
-AutoCliente::AutoCliente(const char *dniCliente, const char *patente) {
-	strcpy(_dniCliente, dniCliente);
-	strcpy(_patente, patente);
+AutoCliente::AutoCliente(std::string dniCliente, std::string patente) {
+	strcpy(_dniCliente, dniCliente.c_str());
+	strcpy(_patente, patente.c_str());
 	_estado = true;
 }
 
-void AutoCliente::setDniCliente(const char *dniCliente) {
-	strcpy(_dniCliente, dniCliente);
+void AutoCliente::setDniCliente(std::string dniCliente) {
+	strcpy(_dniCliente, dniCliente.c_str());
 }
 
-void AutoCliente::setPatente(const char *patente) {
-	strcpy(_patente, patente);
+void AutoCliente::setPatente(std::string patente) {
+	strcpy(_patente, patente.c_str());
 }
 
 void AutoCliente::setEstado(bool estado) {
 	_estado = estado;
 }
 
-const char *AutoCliente::getDniCliente() {
-	return _dniCliente;
+std::string AutoCliente::getDniCliente() {
+	std::string dniClienteAux = _dniCliente;
+	return dniClienteAux;
 }
 
-const char *AutoCliente::getPatente() {
-	return _patente;
+std::string AutoCliente::getPatente() {
+	std::string patenteAux = _patente;
+	return patenteAux;
 }
 
 bool AutoCliente::getEstado() {

@@ -1,30 +1,29 @@
 #include "Proveedor.h"
 
-Proveedor::Proveedor(){
-	_rubro = "";
-	_autoparte = "";
-	_origenFabricacion = "";
+Proveedor::Proveedor() {
+	strcpy(_rubro, "");
+	strcpy(_autoparte, "");
+	strcpy(_origenFabricacion, "");
 	_estado = true;
 }
 
 Proveedor::Proveedor(std::string rubro, std::string autoparte, std::string origenFabricacion){
-	_rubro = rubro;
-	_autoparte = autoparte;
-	_origenFabricacion = origenFabricacion;
+	strcpy(_rubro, rubro.c_str());
+	strcpy(_autoparte, autoparte.c_str());
+	strcpy(_origenFabricacion, origenFabricacion.c_str());
 	_estado = true;
 }
 
-
 void Proveedor::setRubro(std::string rubro) {
-	_rubro = rubro;
+	strcpy(_rubro, rubro.c_str());
 }
 
 void Proveedor::setAutoparte(std::string autoparte) {
-	_autoparte = autoparte;
+	strcpy(_autoparte, autoparte.c_str());
 }
 
 void Proveedor::setOrigeFabricacion(std::string origenFabricacion) {
-	_origenFabricacion = origenFabricacion;
+	strcpy(_origenFabricacion, origenFabricacion.c_str());
 }
 
 void Proveedor::setEstado(bool estado) {
@@ -32,15 +31,18 @@ void Proveedor::setEstado(bool estado) {
 }
 
 std::string Proveedor::getRubro() {
-	return _rubro;
+	std::string rubroAux = _rubro;
+	return rubroAux;
 }
 
 std::string Proveedor::getAutoparte() {
-	return _autoparte;
+	std::string autoparteAux = _autoparte;
+	return autoparteAux;
 }
 
 std::string Proveedor::getOrigenFabricacion() {
-	return _origenFabricacion;
+	std::string origenAux = _origenFabricacion;
+	return origenAux;
 }
 
 bool Proveedor::getEstado() {

@@ -12,14 +12,14 @@ public:
     ClienteArchivo(std::string ruta);
 
 	int GetCantidadRegistros();
-	int Buscar(const char *dni);						///devuelve posicion en archivo ingresando id
+	int Buscar(std::string dni);						///devuelve posicion en archivo ingresando dni
 
 	Cliente Leer(int pos);
-	void Leer(Cliente *vec, int cantRegistros);		///posibilita cargar en un vector todos los registros (backup)
+	void Leer(Cliente *vec, int cantRegistros);			///posibilita cargar en un vector todos los registros (backup)
 
 	bool Guardar(Cliente reg);							///diferenciamos por sobrecarga
 	bool Guardar(Cliente reg, int posReemplazo);		///sobreescribir
-	bool Guardar(Cliente *vec, int cantRegistros);		///guardar desde un vec para backup
+	bool Guardar(Cliente *vec, int cantRegistros);		///guardar en un vec (para backup)
 
 	void Vaciar();
 };
