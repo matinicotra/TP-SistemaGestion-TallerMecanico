@@ -310,3 +310,31 @@ void TrabajoManager::ListarOrdenadosPorFecha() {
 
 	delete []vec;
 }
+
+void TrabajoManager::ActualizarAvance() {
+	Trabajo reg;
+	int id, pos;
+
+	cout << "INGRESAR ID DE TRABAJO A EDITAR: ";
+	cin >> id;
+	pos = _archivo.Buscar(id);
+
+	if (pos >= 0) {
+		reg = _archivo.Leer(pos);
+		ListarRegistro(reg);
+		cout << endl;
+
+		int nuevoEstado;
+		cout << "NUEVO ESTADO:" << endl;
+		cout << "1 - DIAGNOSTICO" << endl;
+		cout << "2 - DESMONTAJE" << endl;
+		cout << "3 - REPARACION" << endl;
+		cout << "4 - ENSAMBLAJE" << endl;
+		cout << "5 - FINALIZADO" << endl;
+		cout << "Opcion: ";
+		cin >> nuevoEstado;
+
+		reg.setAvanceTrabajo(nuevoEstado);
+		_archivo.Guardar(reg);
+	}
+}

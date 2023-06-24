@@ -24,7 +24,6 @@ public:
 	void ListarPorAvance();
 	void ListarOrdenadosPorFecha();
 
-	void Editar();
 	void ActualizarAvance();
 	void Eliminar();
 
