@@ -379,3 +379,42 @@ void TrabajoManager::Eliminar() {
 		} else cout << "El valor ingresado es incorrecto" << endl;
 	} else cout << "ID inexistente" << endl;
 }
+
+void TrabajoManager::HacerCopiaDeSeguridad() {
+	int cantRegistros = _archivo.GetCantidadRegistros();
+	Trabajo *vec;
+
+	vec = new Trabajo[cantRegistros];
+	if (vec == nullptr) {
+		cout << "Error al realizar backup" << endl;
+		return;
+	}
+
+	_archivo.Leer(vec, cantRegistros);
+	_archivoBkp.Vaciar();
+	if (_archivoBkp.Guardar(vec, cantRegistros)) {
+		cout << "Backup realizado correctamente!" << endl;
+	} else cout << "Error al realizar backup" << endl;
+
+	delete []vec;
+}
+
+void TrabajoManager::RestaurarCopiaDeSeguridad() {
+	int cantRegistros = _archivoBkp.GetCantidadRegistros();
+	Trabajo *vec;
+
+	vec = new Trabajo[cantRegistros];
+	if (vec == nullptr) {
+		cout << "Error al realizar backup" << endl;
+		return;
+	}
+
+	_archivoBkp.Leer(vec, cantRegistros);
+	_archivo.Vaciar();
+	if (_archivo.Guardar(vec, cantRegistros)) {
+		cout << "Backup restaurado correctamente!" << endl;
+	} else cout << "Error al restaurar backup" << endl;
+
+	delete []vec;
+}
+
