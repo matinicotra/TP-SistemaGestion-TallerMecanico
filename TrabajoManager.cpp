@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <ctype.h>
 
 #include "Funciones.h"
 #include "ClienteArchivo.h"
@@ -315,7 +316,7 @@ void TrabajoManager::ActualizarAvance() {
 	Trabajo reg;
 	int id, pos;
 
-	cout << "INGRESAR ID DE TRABAJO A EDITAR: ";
+	cout << "INGRESAR ID DEL TRABAJO: ";
 	cin >> id;
 	pos = _archivo.Buscar(id);
 
@@ -335,6 +336,40 @@ void TrabajoManager::ActualizarAvance() {
 		cin >> nuevoEstado;
 
 		reg.setAvanceTrabajo(nuevoEstado);
-		_archivo.Guardar(reg);
-	}
+
+		if (_archivo.Guardar(reg)) {
+			cout << "Registro #" << id << " editado existosamente." << endl;
+		} else cout << "Error al guardar el registro" << endl;
+
+	} else cout << "ID inexistente." << endl;
+}
+
+void TrabajoManager::Eliminar() {
+	Trabajo reg;
+	int id, pos;
+
+	cout << "INGRESAR ID DE TRABAJO: ";
+	cin >> id;
+	pos = _archivo.Buscar(id);
+
+	if (pos >= 0) {
+		reg = _archivo.Leer(pos);
+		ListarRegistro(reg);
+
+		string opc;
+		cout << endl << "Desea eliminar el registro? Ingresar 'S' para confirmar; 'N' para regresar.";
+		cin.ignore();
+		getline(cin, opc);
+
+		if (opc == "S" || opc == "s") {
+			reg.setEstado(false);
+
+			if (_archivo.Guardar(reg)) {
+				cout << "Registro #" << id << " eliminado exitosamente." << endl;
+			} else cout << "Error al eliminar el registro." << endl;
+
+		} else if (opc == "N" || opc == "n") {
+			cout << "No se realizaron modificaciones." << endl;
+		} else cout << "El valor ingresado es incorrecto" << endl;
+	} else cout << "ID inexistente" << endl;
 }

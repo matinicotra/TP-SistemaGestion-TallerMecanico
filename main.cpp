@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
 	TrabajoManager aux;
-	aux.ListarPorDniCliente();
+	aux.Eliminar();
 
     return 0;
 }
