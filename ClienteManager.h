@@ -22,8 +22,6 @@ public:
 	void HacerCopiaDeSeguridad();
 	void RestaurarCopiaDeSeguridad();
 
-protected:
-
 };
 
 #endif // CLIENTEMANAGER_H

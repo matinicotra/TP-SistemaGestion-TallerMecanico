@@ -118,7 +118,7 @@ void ClienteManager::Eliminar() {
 			reg.setEstado(false);
 
 			if (_archivo.Guardar(reg)) {
-				cout << "DNI " << dni << " eliminado exitosamente." << endl;
+				cout << "Registro eliminado exitosamente." << endl;
 			} else cout << "Error al eliminar el registro." << endl;
 
 		} else if (opc == "N" || opc == "n") {

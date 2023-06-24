@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <ctype.h>
 
 #include "Funciones.h"
 #include "ClienteArchivo.h"
@@ -9,6 +8,8 @@
 #include "TrabajoManager.h"
 #include "ProveedorArchivo.h"
 #include "EmpleadoArchivo.h"
+#include "ClienteManager.h"
+#include "VehiculoManager.h"
 
 using namespace std;
 
@@ -47,12 +48,12 @@ void TrabajoManager::Cargar() {
 	ProveedorArchivo arcProveedor;
 	EmpleadoArchivo arcEmpleado;
 
-	Trabajo aux;
+	Trabajo reg;
 	int opc, dia, mes, anio;
 	string patente, dni, detalle, idPresu;
 
 	int id = GenerarId();
-	aux.setIdTrabajo(id);
+	reg.setIdTrabajo(id);
 
 	system("cls");
 
@@ -74,12 +75,13 @@ void TrabajoManager::Cargar() {
 			getline(cin, patente);
 			if (patente == "0") break;
 		}
-		aux.setPatente(patente);
+		reg.setPatente(patente);
 		break;
 	case 2:
-		///CARGAR VEHICULO
+		VehiculoManager aux;
+		aux.Cargar();
 		int pos = arcVehiculo.GetCantidadRegistros();
-		aux.setPatente(arcVehiculo.Leer(pos).getPatente());
+		reg.setPatente(arcVehiculo.Leer(pos).getPatente());
 		break;
 	}
 
@@ -97,11 +99,12 @@ void TrabajoManager::Cargar() {
 			getline(cin, dni);
 			if (dni == "0") break;
 		}
-		aux.setDniCliente(dni);
+		reg.setDniCliente(dni);
 	case 2:
-		///CARGAR CLIENTE
+		ClienteManager aux;
+		aux.Cargar();
 		int pos = arcCliente.GetCantidadRegistros();
-		aux.setDniCliente(arcCliente.Leer(pos).getDni());
+		reg.setDniCliente(arcCliente.Leer(pos).getDni());
 		break;
 	}
 
@@ -112,7 +115,7 @@ void TrabajoManager::Cargar() {
 		getline(cin, dni);
 		if (dni == "0") break;
 	}
-	aux.setDniProveedor(dni);
+	reg.setDniProveedor(dni);
 
 	cout << "INGRESAR DNI DEL EMPLEADO DESIGNADO: ";
 	getline(cin, dni);
@@ -121,7 +124,7 @@ void TrabajoManager::Cargar() {
 		getline(cin,dni);
 		if(dni == "0") break;
 	}
-	aux.setDniEmpleado(dni);
+	reg.setDniEmpleado(dni);
 
 	cout << "1 - INGRESAR ID DEL PRESUPUESTO";
 	cout << "2 - CARGAR PRESUPUESTO";
@@ -134,12 +137,12 @@ void TrabajoManager::Cargar() {
 			cout << "No existe un presupuesto con ese ID. Intente nuevamente... : ";		////FALTA PODER SALIR DEL WHILE SIN ID
 			cin >> id;
 		}
-		aux.setIdPresupuesto(id);
+		reg.setIdPresupuesto(id);
 		break;
 	case 2:
 		///CARGAR PRESUPUESTO
 		int pos = arcPresupuesto.GetCantidadRegistros();
-		aux.setIdPresupuesto(arcPresupuesto.Leer(pos).getIdPresupuesto());
+		reg.setIdPresupuesto(arcPresupuesto.Leer(pos).getIdPresupuesto());
 		break;
 	}
 
@@ -150,7 +153,7 @@ void TrabajoManager::Cargar() {
 	cin >> mes;
 	cout << "ANIO:  ";
 	cin >> anio;
-	aux.setFechaEntrada(Fecha(dia, mes, anio));
+	reg.setFechaEntrada(Fecha(dia, mes, anio));
 
 	cout << "FECHA DE ENTREGA: " << endl;
 	cout << "DIA:  ";
@@ -159,12 +162,12 @@ void TrabajoManager::Cargar() {
 	cin >> mes;
 	cout << "ANIO:  ";
 	cin >> anio;
-	aux.setFechaEntrega(Fecha(dia, mes, anio));
+	reg.setFechaEntrega(Fecha(dia, mes, anio));
 
-	aux.setAvanceTrabajo(1);
-	aux.setEstado(true);
+	reg.setAvanceTrabajo(1);
+	reg.setEstado(true);
 
-	if (_archivo.Guardar(aux)) {
+	if (_archivo.Guardar(reg)) {
 		cout << "Registro guardado existosamente!" << endl;
 	} cout << "Error al guardar el registro" << endl;
 }
