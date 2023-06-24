@@ -11,7 +11,7 @@ private:
 
 	int GenerarId();
 	bool ExisteId(int id);
-	void Ordenar(Trabajo *vec, int cantRegistros);
+	void Ordenar(Trabajo *vec, int cantRegistros); ///por fecha
 
 public:
     void Cargar();
@@ -22,6 +22,7 @@ public:
 	void ListarPorPatente();
 	void ListarPorDniCliente();
 	void ListarPorAvance();
+	void ListarOrdenadosPorFecha();
 
 	void Editar();
 	void ActualizarAvance();

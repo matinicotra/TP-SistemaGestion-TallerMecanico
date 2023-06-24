@@ -19,7 +19,25 @@ bool TrabajoManager::ExisteId(int id) {
 	return _archivo.Buscar(id) >= 0;
 }
 
+void TrabajoManager::Ordenar(Trabajo *vec, int cantRegistros) {
+	int mayor = 0;
+	Trabajo aux;
 
+	for (int i = 0; i < cantRegistros - 1; i++) {
+		mayor = i;
+
+		for (int j = i + 1; j < cantRegistros; j++) {
+			if (vec[j].getFechaEntrada().toString("YYYY/MM/DD") > vec[mayor].getFechaEntrada().toString("YYYY/MM/DD")) {
+				mayor = j;
+			}
+		}
+		if (i != mayor) {
+			aux = vec[i];
+			vec[i] = vec[mayor];
+			vec[mayor] = aux;
+		}
+	}
+}
 
 void TrabajoManager::Cargar() {
 	VehiculoArchivo arcVehiculo;
@@ -242,8 +260,8 @@ void TrabajoManager::ListarPorAvance() {
 	int cantRegistros = _archivo.GetCantidadRegistros();
 	bool bandera = false;
 
-	cout << "LISTAR TRABAJOS POR ESTADO DE AVANCE" << endl;
-	cout << "------------------------------------" << endl;
+	cout << "LISTAR TRABAJOS POR AVANCE" << endl;
+	cout << "--------------------------" << endl;
 	cout << "1 - DIAGNOSTICO" << endl;
 	cout << "2 - DESMONTAJE" << endl;
 	cout << "3 - REPARACION" << endl;
@@ -270,4 +288,25 @@ void TrabajoManager::ListarPorAvance() {
 		if (opc == 4) cout << "ensamblaje." << endl;
 		if (opc == 5) cout << "finalizado." << endl;
 	}
+}
+
+void TrabajoManager::ListarOrdenadosPorFecha() {
+	int cantRegistros = _archivo.GetCantidadRegistros();
+	Trabajo *vec;
+
+	vec = new Trabajo[cantRegistros];
+	if (vec == nullptr) {
+		cout << "Error al visualizar el listado.";
+		return;
+	}
+
+	_archivo.Leer(vec, cantRegistros);
+	Ordenar(vec, cantRegistros);
+
+	for (int i = 0; i < cantRegistros; i++) {
+		ListarRegistro(vec[i]);
+		cout << endl;
+	}
+
+	delete []vec;
 }
