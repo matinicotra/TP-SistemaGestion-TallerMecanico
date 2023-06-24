@@ -11,7 +11,7 @@ private:
 
 public:
     Cliente();
-    Cliente (std::string razonSocial);
+    Cliente (std::string dni, std::string nombre, std::string apellido, std::string eMail, std::string direccion, std::string telefono, std::string razonSocial);
 
 	void setRazonSocial(std::string razonSocial);
     void setEstado(bool estado);

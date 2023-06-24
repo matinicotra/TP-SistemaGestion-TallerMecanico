@@ -40,10 +40,14 @@
 		<Unit filename="AutoCliente.h" />
 		<Unit filename="AutoClienteArchivo.cpp" />
 		<Unit filename="AutoClienteArchivo.h" />
+		<Unit filename="AutoClienteManager.cpp" />
+		<Unit filename="AutoClienteManager.h" />
 		<Unit filename="Cliente.cpp" />
 		<Unit filename="Cliente.h" />
 		<Unit filename="ClienteArchivo.cpp" />
 		<Unit filename="ClienteArchivo.h" />
+		<Unit filename="ClienteManager.cpp" />
+		<Unit filename="ClienteManager.h" />
 		<Unit filename="Empleado.cpp" />
 		<Unit filename="Empleado.h" />
 		<Unit filename="EmpleadoArchivo.cpp" />
@@ -72,6 +76,8 @@
 		<Unit filename="Vehiculo.h" />
 		<Unit filename="VehiculoArchivo.cpp" />
 		<Unit filename="VehiculoArchivo.h" />
+		<Unit filename="VehiculoManager.cpp" />
+		<Unit filename="VehiculoManager.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="menu.cpp" />
 		<Unit filename="menu.h" />

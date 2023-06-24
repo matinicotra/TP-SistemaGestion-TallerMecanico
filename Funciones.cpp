@@ -19,3 +19,24 @@ int getInteger(int minimo = INT_MIN, int maximo = INT_MAX) {
 	}
 }
 
+void clienteHardcodear(){
+
+}
+void empleadoHardcodear(){
+
+}
+void proveedorHardcodear(){
+
+}
+void vehiculoHardcodear(){
+
+}
+void presupuestoHardcodear(){
+
+}
+void trabajoHardcodear(){
+
+}
+void autoClienteHardcodear(){
+
+}
