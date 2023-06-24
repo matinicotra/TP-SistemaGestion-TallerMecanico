@@ -165,8 +165,8 @@ void TrabajoManager::Cargar() {
 	aux.setEstado(true);
 
 	if (_archivo.Guardar(aux)) {
-		cout << "Registro guardado existosamente." << endl;
-	};
+		cout << "Registro guardado existosamente!" << endl;
+	} cout << "Error al guardar el registro" << endl;
 }
 
 void TrabajoManager::ListarPorId() {
@@ -183,7 +183,6 @@ void TrabajoManager::ListarPorId() {
 
 void TrabajoManager::ListarTodos() {
 	int cantRegistros = _archivo.GetCantidadRegistros();
-
 	for (int i = 0; i < cantRegistros; i++) {
 		Trabajo trabajo = _archivo.Leer(i);
 		if (trabajo.getEstado()) {
@@ -319,7 +318,6 @@ void TrabajoManager::ListarOrdenadosPorFecha() {
 }
 
 void TrabajoManager::ActualizarAvance() {
-	Trabajo reg;
 	int id, pos;
 
 	cout << "INGRESAR ID DEL TRABAJO: ";
@@ -327,7 +325,7 @@ void TrabajoManager::ActualizarAvance() {
 	pos = _archivo.Buscar(id);
 
 	if (pos >= 0) {
-		reg = _archivo.Leer(pos);
+		Trabajo reg = _archivo.Leer(pos);
 		ListarRegistro(reg);
 		cout << endl;
 
@@ -345,13 +343,12 @@ void TrabajoManager::ActualizarAvance() {
 
 		if (_archivo.Guardar(reg)) {
 			cout << "Registro #" << id << " editado existosamente." << endl;
-		} else cout << "Error al guardar el registro" << endl;
+		} else cout << "Error al guardar el registro." << endl;
 
 	} else cout << "ID inexistente." << endl;
 }
 
 void TrabajoManager::Eliminar() {
-	Trabajo reg;
 	int id, pos;
 
 	cout << "INGRESAR ID DE TRABAJO: ";
@@ -359,7 +356,7 @@ void TrabajoManager::Eliminar() {
 	pos = _archivo.Buscar(id);
 
 	if (pos >= 0) {
-		reg = _archivo.Leer(pos);
+		Trabajo reg = _archivo.Leer(pos);
 		ListarRegistro(reg);
 
 		string opc;
@@ -377,7 +374,7 @@ void TrabajoManager::Eliminar() {
 		} else if (opc == "N" || opc == "n") {
 			cout << "No se realizaron modificaciones." << endl;
 		} else cout << "El valor ingresado es incorrecto" << endl;
-	} else cout << "ID inexistente" << endl;
+	} else cout << "ID inexistente." << endl;
 }
 
 void TrabajoManager::HacerCopiaDeSeguridad() {
