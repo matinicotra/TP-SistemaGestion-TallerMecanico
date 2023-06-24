@@ -10,6 +10,7 @@
 #include "EmpleadoArchivo.h"
 #include "ClienteManager.h"
 #include "VehiculoManager.h"
+#include "AutoClienteManager.h"
 
 using namespace std;
 
@@ -48,9 +49,12 @@ void TrabajoManager::Cargar() {
 	ProveedorArchivo arcProveedor;
 	EmpleadoArchivo arcEmpleado;
 
+
 	Trabajo reg;
 	int opc, dia, mes, anio;
 	string patente, dni, detalle, idPresu;
+	bool nuevoCliente = false;
+	bool nuevoVehiculo = false;
 
 	int id = GenerarId();
 	reg.setIdTrabajo(id);
@@ -82,6 +86,7 @@ void TrabajoManager::Cargar() {
 		aux.Cargar();
 		int pos = arcVehiculo.GetCantidadRegistros();
 		reg.setPatente(arcVehiculo.Leer(pos).getPatente());
+		nuevoVehiculo = true;
 		break;
 	}
 
@@ -105,6 +110,7 @@ void TrabajoManager::Cargar() {
 		aux.Cargar();
 		int pos = arcCliente.GetCantidadRegistros();
 		reg.setDniCliente(arcCliente.Leer(pos).getDni());
+		nuevoCliente = true;
 		break;
 	}
 
@@ -166,6 +172,11 @@ void TrabajoManager::Cargar() {
 
 	reg.setAvanceTrabajo(1);
 	reg.setEstado(true);
+
+	if (nuevoCliente && nuevoVehiculo) {
+		AutoClienteManager aux;
+		aux.Cargar(dni, patente);
+	}
 
 	if (_archivo.Guardar(reg)) {
 		cout << "Registro guardado existosamente!" << endl;
