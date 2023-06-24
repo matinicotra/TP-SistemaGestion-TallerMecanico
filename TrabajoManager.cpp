@@ -214,6 +214,12 @@ void TrabajoManager::ListarRegistro(Trabajo trabajo) {
 	cout << "REPUESTO           : " << arcProveedor.Leer(posProv).getAutoparte() << endl;
 	cout << "FECHA DE ENTRADA   : " << trabajo.getFechaEntrada().toString("DD/MM/YYYY") << endl;
 	cout << "FECHA DE ENTREGA   : " << trabajo.getFechaEntrega().toString("DD/MM/YYYY") << endl;
+	cout << "ESTADO             : ";
+	if (trabajo.getAvanceTrabajo() == 1) cout << "DIAGNOSTICO" << endl;
+	if (trabajo.getAvanceTrabajo() == 1) cout << "DESMONTAJE" << endl;
+	if (trabajo.getAvanceTrabajo() == 1) cout << "ENSAMBLAJE" << endl;
+	if (trabajo.getAvanceTrabajo() == 1) cout << "FINALIZADO" << endl;
+	if (trabajo.getAvanceTrabajo() == 1) cout << "ENTREGADO" << endl;
 }
 
 void TrabajoManager::ListarPorPatente() {
@@ -265,9 +271,9 @@ void TrabajoManager::ListarPorAvance() {
 	cout << "--------------------------" << endl;
 	cout << "1 - DIAGNOSTICO" << endl;
 	cout << "2 - DESMONTAJE" << endl;
-	cout << "3 - REPARACION" << endl;
-	cout << "4 - ENSAMBLAJE" << endl;
-	cout << "5 - FINALIZADO" << endl;
+	cout << "3 - ENSAMBLAJE" << endl;
+	cout << "4 - FINALIZADO" << endl;
+	cout << "5 - ENTREGADO" << endl;
 	cout << "Opcion: ";
 	cin >> opc;
 

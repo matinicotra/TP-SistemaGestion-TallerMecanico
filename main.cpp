@@ -6,7 +6,8 @@ using namespace std;
 int main()
 {
 	TrabajoManager aux;
-	aux.Eliminar();
+	Trabajo reg;
+	aux.ListarRegistro(reg);
 
     return 0;
 }

@@ -5,7 +5,7 @@ Presupuesto::Presupuesto() {
 	strcpy(_dniCliente, "");
 	strcpy(_patente, "");
 	_importe = 0;
-	strcpy(_detalle, "");
+	strcpy(_detalle, "caca");
 	_estado = true;
 }
 
