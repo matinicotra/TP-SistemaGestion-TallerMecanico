@@ -12,7 +12,7 @@ private:
 	char _dniCliente[10];
 	char _dniProveedor[10];
 	char _dniEmpleado[10];
-	int _avanceTrabajo; 	//1 diagnostico, 2 desmontaje, 3 reparacion, 4 ensamblaje, 5 entregado
+	int _avanceTrabajo; 	//1 diagnostico, 2 desmontaje, 3 reparacion, 4 ensamblaje, 5 finalizado
 	Fecha _fechaEntrada;
 	Fecha _fechaEntrega;
 	bool _estado;

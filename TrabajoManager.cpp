@@ -19,6 +19,8 @@ bool TrabajoManager::ExisteId(int id) {
 	return _archivo.Buscar(id) >= 0;
 }
 
+
+
 void TrabajoManager::Cargar() {
 	VehiculoArchivo arcVehiculo;
 	ClienteArchivo arcCliente;
@@ -141,7 +143,6 @@ void TrabajoManager::Cargar() {
 	aux.setFechaEntrega(Fecha(dia, mes, anio));
 
 	aux.setAvanceTrabajo(1);
-
 	aux.setEstado(true);
 
 	if (_archivo.Guardar(aux)) {
@@ -149,9 +150,31 @@ void TrabajoManager::Cargar() {
 	};
 }
 
+void TrabajoManager::ListarPorId() {
+	int id, pos;
 
+	cout << "INGRESAR ID DEL TRABAJO: ";
+	cin >> id;
+	pos = _archivo.Buscar(id);
 
-void TrabajoManager::Listar(Trabajo trabajo) {
+	if (pos >= 0) {
+		ListarRegistro(_archivo.Leer(pos));
+	} else cout << "No exsite registro con ID #" << id << endl;
+}
+
+void TrabajoManager::ListarTodos() {
+	int cantRegistros = _archivo.GetCantidadRegistros();
+
+	for (int i = 0; i < cantRegistros; i++) {
+		Trabajo trabajo = _archivo.Leer(i);
+		if (trabajo.getEstado()) {
+			ListarRegistro(trabajo);
+			cout << endl;
+		}
+	}
+}
+
+void TrabajoManager::ListarRegistro(Trabajo trabajo) {
 	ClienteArchivo arcCliente;
 	EmpleadoArchivo arcEmpleado;
 	PresupuestoArchivo arcPresupuesto;
@@ -172,5 +195,79 @@ void TrabajoManager::Listar(Trabajo trabajo) {
 	cout << "REPUESTO           : " << arcProveedor.Leer(posProv).getAutoparte() << endl;
 	cout << "FECHA DE ENTRADA   : " << trabajo.getFechaEntrada().toString("DD/MM/YYYY") << endl;
 	cout << "FECHA DE ENTREGA   : " << trabajo.getFechaEntrega().toString("DD/MM/YYYY") << endl;
+}
 
+void TrabajoManager::ListarPorPatente() {
+	std::string patente;
+	bool bandera = false;
+	int cantRegistros = _archivo.GetCantidadRegistros();
+
+	cout << "INGRESAR PATENTE: ";
+	getline(cin, patente);
+
+	for (int i = 0; i < cantRegistros; i++) {
+		Trabajo trabajo = _archivo.Leer(i);
+		if (trabajo.getPatente() == patente) {
+			ListarRegistro(trabajo);
+			cout << endl;
+			bandera = true;
+		}
+	}
+
+	if (!bandera) cout << "No se realizaron trabajos con la patente " << patente << endl;
+}
+
+void TrabajoManager::ListarPorDniCliente() {
+	std::string dni;
+	bool bandera = false;
+	int cantRegistros = _archivo.GetCantidadRegistros();
+
+	cout << "INGRESAR DNI DEL CLIENTE: ";
+	getline(cin, dni);
+
+	for (int i = 0; i < cantRegistros; i++) {
+		Trabajo trabajo = _archivo.Leer(i);
+		if (trabajo.getDniCliente() == dni) {
+			ListarRegistro(trabajo);
+			cout << endl;
+			bandera = true;
+		}
+	}
+
+	if (!bandera) cout << "No se realizaron trabajos con el DNI " << dni << endl;
+}
+
+void TrabajoManager::ListarPorAvance() {
+	int opc;
+	int cantRegistros = _archivo.GetCantidadRegistros();
+	bool bandera = false;
+
+	cout << "LISTAR TRABAJOS POR ESTADO DE AVANCE" << endl;
+	cout << "------------------------------------" << endl;
+	cout << "1 - DIAGNOSTICO" << endl;
+	cout << "2 - DESMONTAJE" << endl;
+	cout << "3 - REPARACION" << endl;
+	cout << "4 - ENSAMBLAJE" << endl;
+	cout << "5 - FINALIZADO" << endl;
+	cout << "Opcion: ";
+	cin >> opc;
+
+	system("cls");
+
+	for (int i = 0; i < cantRegistros; i++) {
+		Trabajo trabajo = _archivo.Leer(i);
+		if (trabajo.getAvanceTrabajo() == opc) {
+			ListarRegistro(trabajo);
+			cout << endl;
+			bandera = true;
+		}
+	}
+	if (!bandera) {
+		cout << "No hay trabajos en estado de ";
+		if (opc == 1) cout << "diagnostico." << endl;
+		if (opc == 2) cout << "desmontaje." << endl;
+		if (opc == 3) cout << "reparacion." << endl;
+		if (opc == 4) cout << "ensamblaje." << endl;
+		if (opc == 5) cout << "finalizado." << endl;
+	}
 }

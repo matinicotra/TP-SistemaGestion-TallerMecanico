@@ -11,16 +11,21 @@ private:
 
 	int GenerarId();
 	bool ExisteId(int id);
+	void Ordenar(Trabajo *vec, int cantRegistros);
 
 public:
     void Cargar();
 
+	void ListarPorId();
 	void ListarTodos();
-	void Listar(int id);
-	void Listar(Trabajo trabajo);
-	void ListarPorPatente(const char *patente);
-	void ListarPorDniCliente(const char *dniCliente);
-	void ListarPorAvance(int avance);
+	void ListarRegistro(Trabajo trabajo);
+	void ListarPorPatente();
+	void ListarPorDniCliente();
+	void ListarPorAvance();
+
+	void Editar();
+	void ActualizarAvance();
+	void Eliminar();
 
 	void HacerCopiaDeSeguridad();
 	void RestaurarCopiaDeSeguridad();
