@@ -8,11 +8,13 @@ Empleado::Empleado() {
 	_estado = true;
 }
 
-Empleado::Empleado(Fecha fechaNacimiento, std::string cargo, float sueldo, std::string cuentaBancaria) {
-	strcpy(_cargo, cargo.c_str());
-	_sueldo = sueldo;
-	strcpy(_cuentaBancaria, cuentaBancaria.c_str());
-	_estado = true;
+Empleado::Empleado(std::string dni, std::string nombre, std::string apellido, std::string eMail, std::string direccion, std::string telefono, Fecha fechaNacimiento, std::string cargo, float sueldo, std::string cuentaBancaria) {
+    setDni(dni);
+    setNombre(nombre);
+    setApellido(apellido);
+    setEmail(eMail);
+    setDireccion(direccion);
+    setTelefono(telefono);
 }
 
 void Empleado::setFechaNacimiento(Fecha fechaNacimiento) {

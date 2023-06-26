@@ -14,7 +14,7 @@ private:
 
 public:
 	Empleado();
-	Empleado(Fecha fechaNacimiento, std::string cargo, float sueldo, std::string cuentaBancaria);
+	Empleado(std::string dni, std::string nombre, std::string apellido, std::string eMail, std::string direccion, std::string telefono, Fecha fechaNacimiento, std::string cargo, float sueldo, std::string cuentaBancaria);
 
 	void setFechaNacimiento(Fecha fechaNacimiento);
     void setFechaAlta(Fecha fechaAlta);

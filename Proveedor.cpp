@@ -7,6 +7,15 @@ Proveedor::Proveedor() {
 	_estado = true;
 }
 
+Proveedor::Proveedor(std::string dni, std::string nombre, std::string apellido, std::string eMail, std::string direccion, std::string telefono, std::string rubro, std::string autoparte, std::string origenFabricacion){
+    setDni(dni);
+    setNombre(nombre);
+    setApellido(apellido);
+    setEmail(eMail);
+    setDireccion(direccion);
+    setTelefono(telefono);
+}
+
 Proveedor::Proveedor(std::string rubro, std::string autoparte, std::string origenFabricacion){
 	strcpy(_rubro, rubro.c_str());
 	strcpy(_autoparte, autoparte.c_str());

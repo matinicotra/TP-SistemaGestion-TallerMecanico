@@ -12,6 +12,7 @@ private:
 
 public:
 	Proveedor();
+	Proveedor(std::string dni, std::string nombre, std::string apellido, std::string eMail, std::string direccion, std::string telefono, std::string rubro, std::string autoparte, std::string origenFabricacion);
 	Proveedor(std::string rubro, std::string autoparte, std::string origenFabricacion);
 
 	void setRubro(std::string rubro);

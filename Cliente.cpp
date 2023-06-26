@@ -6,6 +6,15 @@ Cliente::Cliente() {
 	_estado = true;
 }
 
+Cliente::Cliente(std::string dni, std::string nombre, std::string apellido, std::string eMail, std::string direccion, std::string telefono, std::string razonSocial){
+    setDni(dni);
+    setNombre(nombre);
+    setApellido(apellido);
+    setEmail(eMail);
+    setDireccion(direccion);
+    setTelefono(telefono);
+}
+
 Cliente::Cliente (std::string razonSocial){
     strcpy(_razonSocial, razonSocial.c_str());
     _estado = true;
