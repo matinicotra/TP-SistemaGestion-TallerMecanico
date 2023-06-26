@@ -1,70 +1,75 @@
+#include "EmpleadoManager.h"
 #include <iostream>
 using namespace std;
 
-#include "ClienteManager.h"
-
-void ClienteManager::Cargar() {
-	string dni, nombre, apellido, eMail, direccion, telefono, razonSocial;
+void EmpleadoManager::Cargar() {
+	string dni, nombre, apellido, eMail, direccion, telefono, cargo, cuentaBancaria;
+	float sueldo;
 	int dia, mes, anio;
 
-	cout << "NOMBRE       : ";
+	cout << "NOMBRE              : ";
 	getline(cin, nombre);
-	cout << "APELLIDO     : ";
+	cout << "APELLIDO            : ";
 	getline(cin, apellido);
-	cout << "DNI          : ";
+	cout << "DNI                 : ";
 	getline(cin, dni);
-	cout << "EMAIL        : ";
+	cout << "EMAIL               : ";
 	getline(cin, eMail);
-	cout << "DIRECCION    : ";
+	cout << "DIRECCION           : ";
 	getline(cin, direccion);
-	cout << "TELEFONO     : ";
+	cout << "TELEFONO            : ";
 	getline(cin, telefono);
-	cout << "RAZON SOCIAL : ";
-	getline(cin, razonSocial);
-	cout << "FECHA DE ALTA" << endl;
-	cout << "DIA          : ";
+	cout << "CARGO               : ";
+	getline(cin, cargo);
+	cout << "CUENTA BANCARIA     : ";
+	getline(cin, cuentaBancaria);
+	cout << "SUELDO              : ";
+	cin >> sueldo;
+	cout << "FECHA DE NACIMIENTO" << endl;
+	cout << "DIA                 : ";
 	cin >> dia;
-	cout << "MES          : ";
+	cout << "MES                 : ";
 	cin >> mes;
-	cout << "ANIO         :" ;
+	cout << "ANIO                :" ;
 	cin >> anio;
 
-	Cliente reg(dni, nombre, apellido, eMail, direccion, telefono, razonSocial);
-	reg.setFechaAlta(Fecha(dia, mes, anio));
+	Empleado reg(dni, nombre, apellido, eMail, direccion, telefono, Fecha(dia, mes, anio), cargo, sueldo, cuentaBancaria);
 
 	if (_archivo.Guardar(reg)) {
 		cout << "Registro guardado existosamente!" << endl;
 	} else cout << "Error al guardar el registro" << endl;
 }
 
-void ClienteManager::ListarTodos() {
+void EmpleadoManager::ListarTodos() {
 	int cantRegistros = _archivo.GetCantidadRegistros();
 	for (int i = 0; i < cantRegistros; i++) {
-		Cliente cliente = _archivo.Leer(i);
-		if (cliente.getEstado()) {
-			ListarRegistro(cliente);
+		Empleado empleado = _archivo.Leer(i);
+		if (empleado.getEstado()) {
+			ListarRegistro(empleado);
 			cout << endl;
 		}
 	}
 }
 
-void ClienteManager::ListarRegistro(Cliente cliente) {
-	cout << "NOMBRE        : " << cliente.getNombre() << endl;
-	cout << "APELLIDO      : " << cliente.getApellido() << endl;
-	cout << "DNI           : " << cliente.getDni() << endl;
-	cout << "EMAIL         : " << cliente.getEmail() << endl;
-	cout << "DIRECCION     : " << cliente.getDireccion() << endl;
-	cout << "TELEFONO      : " << cliente.getTelefono() << endl;
-	cout << "RAZON SOCIAL  : " << cliente.getRazonSocial() << endl;
-	cout << "FECHA DE ALTA : ";
-	cliente.getFechaAlta().toString("DD/MM/YYYY");
+void EmpleadoManager::ListarRegistro(Empleado empleado) {
+	cout << "NOMBRE               : " << empleado.getNombre() << endl;
+	cout << "APELLIDO             : " << empleado.getApellido() << endl;
+	cout << "DNI                  : " << empleado.getDni() << endl;
+	cout << "EMAIL                : " << empleado.getEmail() << endl;
+	cout << "DIRECCION            : " << empleado.getDireccion() << endl;
+	cout << "TELEFONO             : " << empleado.getTelefono() << endl;
+	cout << "CARGO                : " << empleado.getCargo() << endl;
+	cout << "SUELDO               : " << empleado.getSueldo() << endl;
+	cout << "CUENTA BANCARIA      : " << empleado.getCuentaBancaria() << endl;
+	cout << "FECHA DE NACIMOIENTO : ";
+	empleado.getFechaNacimiento().toString("DD/MM/YYYY");
 	cout << endl;
 }
 
-void ClienteManager::ListarPorDni() {
+void EmpleadoManager::ListarPorDni() {
 	int pos;
 	string dni;
-	cout << "INGRESAR DNI DEL CLIENTE: ";
+	cout << "INGRESAR DNI DEL EMPLEADO: ";
 	getline(cin, dni);
 	pos = _archivo.Buscar(dni);
 	if (pos >= 0) {
@@ -72,32 +77,33 @@ void ClienteManager::ListarPorDni() {
 	} else cout << "No exsite registro con DNI " << dni << endl;
 }
 
-void ClienteManager::EditarTelefono() {
+void EmpleadoManager::EditarSueldo() {
 	int pos;
-	string dni, telefono;
-	cout << "INGRESAR DNI DEL CLIENTE: ";
+	string dni;
+	float sueldo;
+	cout << "INGRESAR DNI DEL EMPLEADO: ";
 	getline(cin, dni);
 	pos = _archivo.Buscar(dni);
 	if (pos >= 0) {
-		Cliente reg = _archivo.Leer(pos);
+		Empleado reg = _archivo.Leer(pos);
 		ListarRegistro(reg);
-		cout << endl << "INGRESAR NUEVO TELEFONO: ";
-		getline(cin, telefono);
-		reg.setTelefono(telefono);
+		cout << endl << "INGRESAR SUELDO: ";
+		cin >> sueldo;
+		reg.setSueldo(sueldo);
 		if (_archivo.Guardar(reg)) {
 			cout << "Registro guardado existosamente!" << endl;
 		} cout << "Error al guardar el registro." << endl;
 	} cout << "DNI inexistente." << endl;
 }
 
-void ClienteManager::Eliminar() {
+void EmpleadoManager::Eliminar() {
 	int pos;
 	string dni;
-	cout << "INGRESAR DNI DEL CLIENTE: ";
+	cout << "INGRESAR DNI DEL EMPLEADO: ";
 	getline(cin, dni);
 	pos = _archivo.Buscar(dni);
 	if (pos >= 0) {
-		Cliente reg = _archivo.Leer(pos);
+		Empleado reg = _archivo.Leer(pos);
 		ListarRegistro(reg);
 
 		string opc;
@@ -118,11 +124,11 @@ void ClienteManager::Eliminar() {
 	} else cout << "DNI inexistente." << endl;
 }
 
-void ClienteManager::HacerCopiaDeSeguridad() {
+void EmpleadoManager::HacerCopiaDeSeguridad() {
 	int cantRegistros = _archivo.GetCantidadRegistros();
-	Cliente *vec;
+	Empleado *vec;
 
-	vec = new Cliente[cantRegistros];
+	vec = new Empleado[cantRegistros];
 	if (vec == nullptr) {
 		cout << "Error al realizar backup" << endl;
 		return;
@@ -137,11 +143,11 @@ void ClienteManager::HacerCopiaDeSeguridad() {
 	delete []vec;
 }
 
-void ClienteManager::RestaurarCopiaDeSeguridad() {
+void EmpleadoManager::RestaurarCopiaDeSeguridad() {
 	int cantRegistros = _archivoBkp.GetCantidadRegistros();
-	Cliente *vec;
+	Empleado *vec;
 
-	vec = new Cliente[cantRegistros];
+	vec = new Empleado[cantRegistros];
 	if (vec == nullptr) {
 		cout << "Error al realizar backup" << endl;
 		return;
