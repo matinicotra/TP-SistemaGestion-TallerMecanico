@@ -175,7 +175,7 @@ void TrabajoManager::Cargar() {
 
 
 	if (_archivo.Guardar(reg)) {
-		if (nuevoCliente && nuevoVehiculo) {
+		if ((nuevoCliente && nuevoVehiculo) || (!nuevoCliente && nuevoVehiculo)) {
 			AutoClienteManager aux;
 			aux.Cargar(dniCliente, patente);
 		}

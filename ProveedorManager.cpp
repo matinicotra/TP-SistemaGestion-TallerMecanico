@@ -3,7 +3,6 @@ using namespace std;
 
 #include "ProveedorManager.h"
 
-
 void ProveedorManager::Cargar() {
 	string dni, nombre, apellido, eMail, direccion, telefono, rubro, autoparte, origenFabricacion;
 
