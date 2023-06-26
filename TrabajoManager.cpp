@@ -52,7 +52,7 @@ void TrabajoManager::Cargar() {
 
 	Trabajo reg;
 	int opc, dia, mes, anio;
-	string patente, dni, detalle, idPresu;
+	string patente, dniCliente, dni, detalle, idPresu;
 	bool nuevoCliente = false;
 	bool nuevoVehiculo = false;
 
@@ -98,13 +98,13 @@ void TrabajoManager::Cargar() {
 	case 1:
 		cout << "DNI: ";
 		cin.ignore();
-		getline(cin, dni);
-		while (arcCliente.Buscar(dni) == -1) {
+		getline(cin, dniCliente);
+		while (arcCliente.Buscar(dniCliente) == -1) {
 			cout << "DNI inexistente. Presione '0' para continuar o intente nuevamente... : ";
-			getline(cin, dni);
-			if (dni == "0") break;
+			getline(cin, dniCliente);
+			if (dniCliente == "0") break;
 		}
-		reg.setDniCliente(dni);
+		reg.setDniCliente(dniCliente);
 	case 2:
 		ClienteManager aux;
 		aux.Cargar();
@@ -173,12 +173,12 @@ void TrabajoManager::Cargar() {
 	reg.setAvanceTrabajo(1);
 	reg.setEstado(true);
 
-	if (nuevoCliente && nuevoVehiculo) {
-		AutoClienteManager aux;
-		aux.Cargar(dni, patente);
-	}
 
 	if (_archivo.Guardar(reg)) {
+		if (nuevoCliente && nuevoVehiculo) {
+			AutoClienteManager aux;
+			aux.Cargar(dniCliente, patente);
+		}
 		cout << "Registro guardado existosamente!" << endl;
 	} cout << "Error al guardar el registro" << endl;
 }
