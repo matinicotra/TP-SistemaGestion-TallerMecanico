@@ -4,7 +4,6 @@ using namespace std;
 #include "ClienteManager.h"
 
 void ClienteManager::Cargar() {
-	Cliente reg;
 	string dni, nombre, apellido, eMail, direccion, telefono, razonSocial;
 	int dia, mes, anio;
 
@@ -30,13 +29,7 @@ void ClienteManager::Cargar() {
 	cout << "ANIO         :" ;
 	cin >> anio;
 
-	reg.setNombre(nombre);
-	reg.setApellido(apellido);
-	reg.setDni(dni);
-	reg.setEmail(eMail);
-	reg.setDireccion(direccion);
-	reg.setTelefono(telefono);
-	reg.setRazonSocial(razonSocial);
+	Cliente reg(dni, nombre, apellido, eMail, direccion, telefono, razonSocial);
 	reg.setFechaAlta(Fecha(dia, mes, anio));
 
 	if (_archivo.Guardar(reg)) {
