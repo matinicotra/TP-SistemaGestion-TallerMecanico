@@ -13,11 +13,7 @@ Cliente::Cliente(std::string dni, std::string nombre, std::string apellido, std:
     setEmail(eMail);
     setDireccion(direccion);
     setTelefono(telefono);
-}
-
-Cliente::Cliente (std::string razonSocial){
     strcpy(_razonSocial, razonSocial.c_str());
-    _estado = true;
 }
 
 void Cliente::setRazonSocial(std::string razonSocial) {

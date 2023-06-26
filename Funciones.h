@@ -11,11 +11,13 @@
 #include "Fecha.h"
 #include "AutoCliente.h"
 
-/*#include "ClienteArchivo.h"
+#include "ClienteArchivo.h"
 #include "EmpleadoArchivo.h"
 #include "ProveedorArchivo.h"
 #include "VehiculoArchivo.h"
-#include "PresupuestoArchivo.h"*/
+#include "PresupuestoArchivo.h"
+#include "TrabajoArchivo.h"
+#include "AutoClienteArchivo.h"
 
 int getInteger(int minimo, int maximo);
 

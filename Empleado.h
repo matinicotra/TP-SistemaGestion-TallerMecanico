@@ -6,7 +6,6 @@
 class Empleado: public Persona {
 private:
 	Fecha _fechaNacimiento;
-	Fecha _fechaAlta;
 	char _cargo[50];
 	float _sueldo;
 	char _cuentaBancaria[20];
@@ -17,14 +16,12 @@ public:
 	Empleado(std::string dni, std::string nombre, std::string apellido, std::string eMail, std::string direccion, std::string telefono, Fecha fechaNacimiento, std::string cargo, float sueldo, std::string cuentaBancaria);
 
 	void setFechaNacimiento(Fecha fechaNacimiento);
-    void setFechaAlta(Fecha fechaAlta);
 	void setCargo(std::string cargo);
 	void setSueldo(float sueldo);
 	void setCuentaBancaria(std::string cuenta);
 	void setEstado(bool estado);
 
 	Fecha getFechaNacimiento();
-    Fecha getFechaAlta();
 	std::string getCargo();
 	float getSueldo();
 	std::string getCuentaBancaria();
