@@ -93,8 +93,8 @@ ea.Guardar(empleado10);
 }
 
 void proveedorHardcodear(){
-Proveedor proveedor1("12345670", "Proveedor1", "Apellido1", "proveedor1@example.com", "123 Main St", "555-1234", "Amortiguadores", "Amortiguador", "Argentina");
-Proveedor proveedor2("87654321", "Proveedor2", "Apellido2", "proveedor2@example.com", "456 Elm St", "555-5678", "Amortiguadores", "Espiral", "China");
+Proveedor proveedor1("12345670", "Proveedor1", "Apellido1", "proveedor1@example.com", "123 Main St", "555-1234", "Suspension", "Amortiguador", "Argentina");
+Proveedor proveedor2("87654321", "Proveedor2", "Apellido2", "proveedor2@example.com", "456 Elm St", "555-5678", "Suspension", "Espiral", "China");
 Proveedor proveedor3("56781234", "Proveedor3", "Apellido3", "proveedor3@example.com", "789 Oak St", "555-9012", "Motores", "Piston", "Brasil");
 Proveedor proveedor4("43218765", "Proveedor4", "Apellido4", "proveedor4@example.com", "987 Pine St", "555-3456", "Motores", "Viela", "China");
 Proveedor proveedor5("98765432", "Proveedor5", "Apellido5", "proveedor5@example.com", "654 Cedar St", "555-7890", "Motores", "Tapa de cilindro", "Brasil");
