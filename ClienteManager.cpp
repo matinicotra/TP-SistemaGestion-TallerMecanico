@@ -29,7 +29,9 @@ void ClienteManager::Cargar() {
 	cout << "ANIO         :" ;
 	cin >> anio;
 
-	Cliente reg(dni, nombre, apellido, eMail, direccion, telefono, razonSocial);
+    Fecha fechaAlta(dia,mes,anio);
+
+	Cliente reg(dni, nombre, apellido, eMail, direccion, telefono, razonSocial,fechaAlta);
 	reg.setFechaAlta(Fecha(dia, mes, anio));
 
 	if (_archivo.Guardar(reg)) {

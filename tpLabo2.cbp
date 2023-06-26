@@ -52,6 +52,8 @@
 		<Unit filename="Empleado.h" />
 		<Unit filename="EmpleadoArchivo.cpp" />
 		<Unit filename="EmpleadoArchivo.h" />
+		<Unit filename="EmpleadoManager.cpp" />
+		<Unit filename="EmpleadoManager.h" />
 		<Unit filename="Fecha.cpp" />
 		<Unit filename="Fecha.h" />
 		<Unit filename="Funciones.cpp" />
@@ -62,10 +64,14 @@
 		<Unit filename="Presupuesto.h" />
 		<Unit filename="PresupuestoArchivo.cpp" />
 		<Unit filename="PresupuestoArchivo.h" />
+		<Unit filename="PresupuestoManager.cpp" />
+		<Unit filename="PresupuestoManager.h" />
 		<Unit filename="Proveedor.cpp" />
 		<Unit filename="Proveedor.h" />
 		<Unit filename="ProveedorArchivo.cpp" />
 		<Unit filename="ProveedorArchivo.h" />
+		<Unit filename="ProveedorManager.cpp" />
+		<Unit filename="ProveedorManager.h" />
 		<Unit filename="Trabajo.cpp" />
 		<Unit filename="Trabajo.h" />
 		<Unit filename="TrabajoArchivo.cpp" />

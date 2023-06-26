@@ -11,11 +11,21 @@
 #include "Fecha.h"
 #include "AutoCliente.h"
 
-/*#include "ClienteArchivo.h"
+#include "ClienteArchivo.h"
 #include "EmpleadoArchivo.h"
 #include "ProveedorArchivo.h"
 #include "VehiculoArchivo.h"
-#include "PresupuestoArchivo.h"*/
+#include "PresupuestoArchivo.h"
+#include "TrabajoArchivo.h"
+#include "AutoClienteArchivo.h"
+
+#include "ClienteManager.h"
+#include "EmpleadoManager.h"
+#include "ProveedorManager.h"
+#include "VehiculoManager.h"
+#include "PresupuestoManager.h"
+#include "TrabajoManager.h"
+#include "AutoClienteManager.h"
 
 
 int getInteger(int minimo, int maximo);
@@ -28,6 +38,8 @@ void vehiculoHardcodear();
 void presupuestoHardcodear();
 void trabajoHardcodear();
 void autoClienteHardcodear();
+
+void hardcodearTodo();
 
 
 #endif // FUNCIONES_H_INCLUDED

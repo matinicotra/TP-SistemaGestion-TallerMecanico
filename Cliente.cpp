@@ -6,7 +6,7 @@ Cliente::Cliente() {
 	_estado = true;
 }
 
-Cliente::Cliente (std::string dni, std::string nombre, std::string apellido, std::string eMail, std::string direccion, std::string telefono, std::string razonSocial){
+Cliente::Cliente (std::string dni, std::string nombre, std::string apellido, std::string eMail, std::string direccion, std::string telefono, std::string razonSocial, Fecha fechaAlta){
     setDni(dni);
     setNombre(nombre);
     setApellido(apellido);
@@ -14,6 +14,7 @@ Cliente::Cliente (std::string dni, std::string nombre, std::string apellido, std
     setDireccion(direccion);
     setTelefono(telefono);
     strcpy(_razonSocial, razonSocial.c_str());
+    setFechaAlta(fechaAlta);
     _estado = true;
 }
 

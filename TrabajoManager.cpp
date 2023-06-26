@@ -217,7 +217,7 @@ void TrabajoManager::ListarRegistro(Trabajo trabajo) {
 	int posPresu = arcPresupuesto.Buscar(trabajo.getIdPresupuesto());
 	int posProv = arcProveedor.Buscar(trabajo.getDniProveedor());
 
-	cout << "ID DE TRABAJO:     # " << trabajo.getIdTrabajo() << endl;
+	cout << endl << "ID DE TRABAJO:     # " << trabajo.getIdTrabajo() << endl;
 	cout << "PATENTE            : " << trabajo.getPatente() << endl;
 	cout << "CLIENTE            : " << arcCliente.Leer(posCli).getNombre() << " " << arcCliente.Leer(posCli).getApellido() << endl;
 	cout << "EMPLEADO DESIGNADO : " << arcEmpleado.Leer(posEmp).getNombre() << " " << arcEmpleado.Leer(posEmp).getApellido() << endl;

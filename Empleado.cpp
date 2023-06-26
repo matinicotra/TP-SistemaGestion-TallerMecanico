@@ -26,9 +26,9 @@ void Empleado::setFechaNacimiento(Fecha fechaNacimiento) {
 	_fechaNacimiento = fechaNacimiento;
 }
 
-void Empleado::setFechaAlta(Fecha fechaAlta) {
+/*void Empleado::setFechaAlta(Fecha fechaAlta) {
 	_fechaAlta = fechaAlta;
-}
+}*/
 
 void Empleado::setCargo(std::string cargo) {
 	strcpy(_cargo, cargo.c_str());
@@ -50,9 +50,9 @@ Fecha Empleado::getFechaNacimiento() {
 	return _fechaNacimiento;
 }
 
-Fecha Empleado::getFechaAlta() {
+/*Fecha Empleado::getFechaAlta() {
 	return _fechaAlta;
-}
+}*/
 
 std::string Empleado::getCargo() {
 	std::string cargoAux = _cargo;
