@@ -9,7 +9,7 @@ int main()
     cm.ListarTodos();*/
 
     //clienteHardcodear();
-    ClienteManager pm;
+    VehiculoManager pm;
     system("pause");
 
     pm.ListarTodos();

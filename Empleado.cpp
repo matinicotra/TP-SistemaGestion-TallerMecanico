@@ -15,7 +15,7 @@ Empleado::Empleado(std::string dni, std::string nombre, std::string apellido, st
     setEmail(eMail);
     setDireccion(direccion);
     setTelefono(telefono);
-
+    setFechaNacimiento(fechaNacimiento);
 	strcpy(_cargo, cargo.c_str());
 	_sueldo = sueldo;
 	strcpy(_cuentaBancaria, cuentaBancaria.c_str());

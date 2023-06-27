@@ -61,9 +61,7 @@ void EmpleadoManager::ListarRegistro(Empleado empleado) {
 	cout << "CARGO                : " << empleado.getCargo() << endl;
 	cout << "SUELDO               : " << empleado.getSueldo() << endl;
 	cout << "CUENTA BANCARIA      : " << empleado.getCuentaBancaria() << endl;
-	cout << "FECHA DE NACIMOIENTO : ";
-	empleado.getFechaNacimiento().toString("DD/MM/YYYY");
-	cout << endl;
+	cout << "FECHA DE NACIMOIENTO : " << empleado.getFechaNacimiento().toString("DD/MM/YYYY") << endl;
 }
 
 void EmpleadoManager::ListarPorDni() {
