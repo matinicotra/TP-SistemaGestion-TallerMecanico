@@ -268,9 +268,10 @@ void Menu::menuConsultasClientes()
         system("cls");
         int opcion;
         std::cout<<"====== CONSULTAS CLIENTES ======"<<std::endl;
-        std::cout<<"-1 POR APELLIDO O RAZON SOCIAL"<<std::endl;
+        std::cout<<"-1 POR APELLIDO"<<std::endl;
         std::cout<<"-2 POR DNI"<<std::endl;
         std::cout<<"-3 POR TRABAJO"<<std::endl<<std::endl;
+        std::cout<<"-5 EDITAR UN NUMERO DE TELEFONO"<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
 
@@ -284,11 +285,12 @@ void Menu::menuConsultasClientes()
             break;
         case 2:
             _clienteManager.ListarPorDni();
-
             break;
         case 3:
-
+//            _clienteManager.ListarTrabajosCliente();
             break;
+        case 4:
+            _clienteManager.EditarTelefono();
         case 0:
             return;
             break;
@@ -306,7 +308,7 @@ void Menu::menuConsultasTrabajos()
         system("cls");
         int opcion;
         std::cout<<"====== CONSULTAS TRABAJOS ======"<<std::endl;
-        std::cout<<"-1 POR ESTADO"<<std::endl;
+        std::cout<<"-1 POR AVANCE"<<std::endl;
         std::cout<<"-2 POR RANGO DE FECHAS"<<std::endl;
         std::cout<<"-3 POR VEHICULO"<<std::endl;
         std::cout<<"-4 POR CLIENTE"<<std::endl<<std::endl;
@@ -319,16 +321,16 @@ void Menu::menuConsultasTrabajos()
         switch(opcion)
         {
         case 1:
-
+            _trabajoManager.ListarPorAvance();
             break;
         case 2:
 
             break;
         case 3:
-
+            _trabajoManager.ListarPorPatente();
             break;
         case 4:
-
+            _trabajoManager.ListarPorDniCliente();
             break;
         case 0:
             return;
@@ -347,23 +349,28 @@ void Menu::menuConsultasProveedores()
         system("cls");
         int opcion;
         std::cout<<"====== CONSULTAS PROVEEDORES ===="<<std::endl;
-        std::cout<<"-1 POR TIPO DE REPUESTO"<<std::endl;
-        std::cout<<"-2 POR RANGO DE PRECIOS"<<std::endl<<std::endl;
+        std::cout<<"-1 POR DNI."<<std::endl;
+        std::cout<<"-2 POR RUBRO."<<std::endl;
+        std::cout<<"-3 POR AUTOPARTE."<<std::endl<<std::endl;
+        std::cout<<"-4 EDITAR TELEFONO DE PROVEEDOR."<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
 
         std::cout<<"INGRESE UNA OPCION: ";
         std::cin>>opcion;
 
-        switch(opcion)
-        {
+        switch(opcion) {
         case 1:
-
-            break;
+            _proveedorManager.ListarPorDni();
         case 2:
+            _proveedorManager.ListarPorRubro();
+            break;
+        case 3:
 
             break;
-
+        case 4:
+            _proveedorManager.EditarTelefono();
+            break;
         case 0:
             return;
             break;

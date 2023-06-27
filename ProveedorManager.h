@@ -15,7 +15,7 @@ public:
 	void ListarTodos();
 	void ListarRegistro(Proveedor proveedor);
 	void ListarPorDni();
-	void ListarPorRubro();  ///lista todos los proveedores del rubro ingresado
+	void ListarPorRubro();
 
 	void EditarTelefono();
 	void Eliminar();

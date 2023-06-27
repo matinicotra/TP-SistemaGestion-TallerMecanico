@@ -2,6 +2,8 @@
 using namespace std;
 
 #include "ClienteManager.h"
+#include "TrabajoArchivo.h"
+#include "TrabajoManager.h"
 
 void ClienteManager::Cargar() {
 	string dni, nombre, apellido, eMail, direccion, telefono, razonSocial;
@@ -85,12 +87,29 @@ void ClienteManager::ListarPorApellido() {
 	}
 }
 
+//void ClienteManager::ListarTrabajosCliente() {
+//	TrabajoArchivo _arcTrabajo;
+//	int cantTrabajos = _arcTrabajo.GetCantidadRegistros();
+//	string dni;
+//	cout << "INGRESAR DNI DEL CLIENTE: ";
+//	getline(cin, dni);
+//	int pos = _archivo.Buscar(dni);
+//	if (pos >= 0) {
+//		TrabajoManager aux;
+//		for (int i = 0; i < cantTrabajos; i++) {
+//			Trabajo trabajo = _arcTrabajo.Leer(i);
+//			if (trabajo.getEstado()) {
+//				aux.ListarRegistro(trabajo));
+//			}
+//		}
+//	} cout << "Dni inexistente." << endl;
+//}
+
 void ClienteManager::EditarTelefono() {
-	int pos;
 	string dni, telefono;
 	cout << "INGRESAR DNI DEL CLIENTE: ";
 	getline(cin, dni);
-	pos = _archivo.Buscar(dni);
+	int pos = _archivo.Buscar(dni);
 	if (pos >= 0) {
 		Cliente reg = _archivo.Leer(pos);
 		ListarRegistro(reg);
