@@ -298,14 +298,15 @@
 1687553958 c:\users\petet\onedrive\documents\github\tplabotallermecanico\proveedorarchivo.h
 	<Proveedor.h>
 
-1687648120 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\autoclientemanager.cpp
+1687828351 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\autoclientemanager.cpp
+	<iostream>
 	"AutoClienteManager.h"
 
-1687648120 c:\users\petet\onedrive\documents\github\tplabotallermecanico\autoclientemanager.h
+1687827796 c:\users\petet\onedrive\documents\github\tplabotallermecanico\autoclientemanager.h
 	"AutoCliente.h"
 	"AutoClienteArchivo.h"
 
-1687824429 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\clientemanager.cpp
+1687827796 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\clientemanager.cpp
 	<iostream>
 	"ClienteManager.h"
 
@@ -321,7 +322,7 @@
 	"Empleado.h"
 	"EmpleadoArchivo.h"
 
-1687826793 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\main.cpp
+1687827424 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\main.cpp
 	<iostream>
 	"menu.h"
 	"Funciones.h"
