@@ -15,6 +15,7 @@ public:
 	void ListarTodos();
 	void ListarRegistro(Cliente cliente);
 	void ListarPorDni();
+	void ListarPorApellido();
 
 	void EditarTelefono();
 	void Eliminar();

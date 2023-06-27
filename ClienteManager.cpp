@@ -72,6 +72,19 @@ void ClienteManager::ListarPorDni() {
 	} else cout << "No exsite registro con DNI " << dni << endl;
 }
 
+void ClienteManager::ListarPorApellido() {
+	int cantRegistros = _archivo.GetCantidadRegistros();
+	string apellido;
+	cout << "INGRESAR APELLIDO DEL CLIENTE: ";
+	getline(cin, apellido);
+	for (int i = 0; i < cantRegistros; i++) {
+		Cliente cliente = _archivo.Leer(i);
+		if (cliente.getApellido() == apellido && cliente.getEstado()) {
+			ListarRegistro(cliente);
+		}
+	}
+}
+
 void ClienteManager::EditarTelefono() {
 	int pos;
 	string dni, telefono;
