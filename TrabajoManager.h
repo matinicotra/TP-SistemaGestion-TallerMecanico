@@ -19,6 +19,7 @@ public:
 	void ListarPorId();
 	void ListarTodos();
 	void ListarRegistro(Trabajo trabajo);
+
 	void ListarPorPatente();
 	void ListarPorDniCliente();
 	void ListarPorAvance();
