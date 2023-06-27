@@ -20,6 +20,8 @@ Trabajo::Trabajo(int idTrabajo, int idPresupuesto, std::string patente, std::str
 	strcpy(_dniProveedor, dniProveedor.c_str());
 	strcpy(_dniEmpleado, dniEmpleado.c_str());
 	_avanceTrabajo = avanceTrabajo;
+	setFechaEntrada(fechaEntrada);
+	setFechaEntrega(fechaEntrega);
 	_estado = true;
 }
 

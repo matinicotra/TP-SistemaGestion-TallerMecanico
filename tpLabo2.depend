@@ -188,7 +188,7 @@
 1687649831 c:\users\petet\onedrive\documents\github\tplabotallermecanico\proveedor.h
 	"Persona.h"
 
-1687553958 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\trabajo.cpp
+1687827219 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\trabajo.cpp
 	<cstring>
 	"Trabajo.h"
 
@@ -321,7 +321,7 @@
 	"Empleado.h"
 	"EmpleadoArchivo.h"
 
-1687826747 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\main.cpp
+1687826793 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\main.cpp
 	<iostream>
 	"menu.h"
 	"Funciones.h"
@@ -351,7 +351,7 @@
 	"Proveedor.h"
 	"ProveedorArchivo.h"
 
-1687820290 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\trabajomanager.cpp
+1687827219 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\trabajomanager.cpp
 	<iostream>
 	<string>
 	"Funciones.h"

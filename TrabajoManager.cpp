@@ -229,10 +229,10 @@ void TrabajoManager::ListarRegistro(Trabajo trabajo) {
 	cout << "FECHA DE ENTREGA   : " << trabajo.getFechaEntrega().toString("DD/MM/YYYY") << endl;
 	cout << "ESTADO             : ";
 	if (trabajo.getAvanceTrabajo() == 1) cout << "DIAGNOSTICO" << endl;
-	if (trabajo.getAvanceTrabajo() == 1) cout << "DESMONTAJE" << endl;
-	if (trabajo.getAvanceTrabajo() == 1) cout << "ENSAMBLAJE" << endl;
-	if (trabajo.getAvanceTrabajo() == 1) cout << "FINALIZADO" << endl;
-	if (trabajo.getAvanceTrabajo() == 1) cout << "ENTREGADO" << endl;
+	if (trabajo.getAvanceTrabajo() == 2) cout << "DESMONTAJE" << endl;
+	if (trabajo.getAvanceTrabajo() == 3) cout << "ENSAMBLAJE" << endl;
+	if (trabajo.getAvanceTrabajo() == 4) cout << "FINALIZADO" << endl;
+	if (trabajo.getAvanceTrabajo() == 5) cout << "ENTREGADO" << endl;
 }
 
 void TrabajoManager::ListarPorPatente() {
