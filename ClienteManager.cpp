@@ -124,25 +124,25 @@ void ClienteManager::ListarPorApellido() {
 	}
 }
 
-//void ClienteManager::ListarTrabajosCliente() {
-//	TrabajoArchivo _arcTrabajo;
-//	int cantTrabajos = _arcTrabajo.GetCantidadRegistros();
-//	string dni;
-//	cout << "INGRESAR DNI DEL CLIENTE: ";
-//	getline(cin, dni);
-//	int pos = _archivo.Buscar(dni);
-//	if (pos >= 0) {
-//		TrabajoManager aux;
-//		for (int i = 0; i < cantTrabajos; i++) {
-//			Trabajo trabajo = _arcTrabajo.Leer(i);
-//			if (trabajo.getEstado()) {
-//				aux.ListarRegistro(trabajo));
-//			}
-//		}
-//	} cout << "Dni inexistente." << endl;
-//}
+void ClienteManager::ListarTrabajosCliente() {
+	TrabajoArchivo _arcTrabajo;
+	int cantTrabajos = _arcTrabajo.GetCantidadRegistros();
+	string dni;
+	cout << "INGRESAR DNI DEL CLIENTE: ";
+	getline(cin, dni);
+	int pos = _archivo.Buscar(dni);
+	if (pos >= 0) {
+		TrabajoManager aux;
+		for (int i = 0; i < cantTrabajos; i++) {
+			Trabajo trabajo = _arcTrabajo.Leer(i);
+			if (trabajo.getEstado()) {
+				aux.ListarRegistro(trabajo);
+			}
+		}
+	} cout << "Dni inexistente." << endl;
+}
 
-void ClienteManager::ListarPorFechaDeAlta() {
+void ClienteManager::ListarOrdenadosPorFechaAlta() {
 	int cantReg = _archivo.GetCantidadRegistros();
 
 	Cliente *vec = new Cliente[cantReg];
@@ -155,7 +155,7 @@ void ClienteManager::ListarPorFechaDeAlta() {
 		vec[i] = _archivo.Leer(i);
 	}
 
-	OrdenarPorFecha(vec, cantReg);
+	OrdenarPorApellido(vec, cantReg);
 
 	for (int i = 0; i < cantReg; i++) {
 		ListarRegistro(vec[i]);
@@ -165,7 +165,7 @@ void ClienteManager::ListarPorFechaDeAlta() {
 	delete []vec;
 }
 
-void ClienteManager::ListarPorFechaDeApellido() {
+void ClienteManager::ListarOrdenadosPorApellido() {
 	int cantReg = _archivo.GetCantidadRegistros();
 
 	Cliente *vec = new Cliente[cantReg];

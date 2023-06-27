@@ -398,10 +398,10 @@ void Menu::menuListadoClientes()
         switch(opcion)
         {
         case 1:
-            _clienteManager.ListarPorApellido();
+            _clienteManager.ListarOrdenadosPorApellido();
             break;
         case 2:
-            _clienteManager.ListarPorFechaDeAlta();
+            _clienteManager.ListarOrdenadosPorFechaAlta();
             break;
         case 0:
             return;
@@ -420,8 +420,8 @@ void Menu::menuListadoVehiculos()
         system("cls");
         int opcion;
         std::cout<<"=========== LISTADOS VEHICULOS ====="<<std::endl;
-        std::cout<<"-1 ORDENADO POR PATENTE"<<std::endl;
-        std::cout<<"-2 ORDENADO POR FECHA DE INGRESO"<<std::endl<<std::endl;
+        std::cout<<"-1 ORDENADO POR PATENTE."<<std::endl;
+        std::cout<<"-2 ORDENADO POR FECHA DE INGRESO."<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
 

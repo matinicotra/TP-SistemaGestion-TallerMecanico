@@ -9,8 +9,8 @@ private:
 	ClienteArchivo _archivo;
 	ClienteArchivo _archivoBkp = ClienteArchivo("clientes.bkp");
 
-	void OrdenarPorFecha(Trabajo *vec, int cantRegistros);
-	void OrdenarPorApellido(Trabajo *vec, int cantRegistros);
+	void OrdenarPorFecha(Cliente *vec, int cantRegistros);
+	void OrdenarPorApellido(Cliente *vec, int cantRegistros);
 
 public:
 	void Cargar();
@@ -19,9 +19,9 @@ public:
 	void ListarRegistro(Cliente cliente);
 	void ListarPorDni();
 	void ListarPorApellido();
-//	void ListarTrabajosCliente();
-	void ListarPorFechaDeAlta();
-	void ListarPorApellido();
+	void ListarTrabajosCliente();
+	void ListarOrdenadosPorFechaAlta();
+	void ListarOrdenadosPorApellido();
 
 	void EditarTelefono();
 	void Eliminar();
