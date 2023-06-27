@@ -351,8 +351,7 @@ void Menu::menuConsultasProveedores()
         std::cout<<"====== CONSULTAS PROVEEDORES ===="<<std::endl;
         std::cout<<"-1 POR DNI."<<std::endl;
         std::cout<<"-2 POR RUBRO."<<std::endl;
-        std::cout<<"-3 POR AUTOPARTE."<<std::endl<<std::endl;
-        std::cout<<"-4 EDITAR TELEFONO DE PROVEEDOR."<<std::endl<<std::endl;
+        std::cout<<"-3 EDITAR TELEFONO DE PROVEEDOR."<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
 
@@ -362,13 +361,11 @@ void Menu::menuConsultasProveedores()
         switch(opcion) {
         case 1:
             _proveedorManager.ListarPorDni();
+            break;
         case 2:
             _proveedorManager.ListarPorRubro();
             break;
         case 3:
-
-            break;
-        case 4:
             _proveedorManager.EditarTelefono();
             break;
         case 0:
@@ -391,7 +388,7 @@ void Menu::menuListadoClientes()
         int opcion;
         std::cout<<"=========== LISTADOS CLIENTES ====="<<std::endl;
         std::cout<<"-1 ORDENADO POR APLELLIDO"<<std::endl;
-        std::cout<<"-2 ORDENADO POR FECHA DE INGRESO"<<std::endl<<std::endl;
+        std::cout<<"-2 ORDENADO POR FECHA DE ALTA"<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
 
@@ -401,12 +398,11 @@ void Menu::menuListadoClientes()
         switch(opcion)
         {
         case 1:
-
+            _clienteManager.ListarPorApellido();
             break;
         case 2:
-
+            _clienteManager.ListarPorFechaDeAlta();
             break;
-
         case 0:
             return;
             break;

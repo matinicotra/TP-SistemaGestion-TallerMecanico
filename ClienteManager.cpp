@@ -5,6 +5,43 @@ using namespace std;
 #include "TrabajoArchivo.h"
 #include "TrabajoManager.h"
 
+void ClienteManager::OrdenarPorFecha(Cliente *vec, int cantRegistros) {
+	int mayor = 0;
+	Cliente aux;
+	for (int i = 0; i < cantRegistros - 1; i++) {
+		mayor = i;
+		for (int j = i + 1; j < cantRegistros; j++) {
+			if (vec[j].getFechaAlta().toString("YYYY/MM/DD") > vec[mayor].getFechaAlta().toString("YYYY/MM/DD")) {
+				mayor = j;
+			}
+		}
+		if (i != mayor) {
+			aux = vec[i];
+			vec[i] = vec[mayor];
+			vec[mayor] = aux;
+		}
+	}
+}
+
+void ClienteManager::OrdenarPorApellido(Cliente *vec, int cantRegistros) {
+	int mayor = 0;
+	Cliente aux;
+	for (int i = 0; i < cantRegistros - 1; i++) {
+		mayor = i;
+		for (int j = i + 1; j < cantRegistros; j++) {
+			if (vec[j].getApellido() > vec[mayor].getApellido()) {
+				mayor = j;
+			}
+		}
+		if (i != mayor) {
+			aux = vec[i];
+			vec[i] = vec[mayor];
+			vec[mayor] = aux;
+		}
+	}
+}
+
+
 void ClienteManager::Cargar() {
 	string dni, nombre, apellido, eMail, direccion, telefono, razonSocial;
 	int dia, mes, anio;
@@ -104,6 +141,52 @@ void ClienteManager::ListarPorApellido() {
 //		}
 //	} cout << "Dni inexistente." << endl;
 //}
+
+void ClienteManager::ListarPorFechaDeAlta() {
+	int cantReg = _archivo.GetCantidadRegistros();
+
+	Cliente *vec = new Cliente[cantReg];
+	if (vec == nullptr) {
+		cout << "Error" << endl;
+		return;
+	}
+
+	for (int i = 0; i < cantReg; i++) {
+		vec[i] = _archivo.Leer(i);
+	}
+
+	OrdenarPorFecha(vec, cantReg);
+
+	for (int i = 0; i < cantReg; i++) {
+		ListarRegistro(vec[i]);
+		cout << endl;
+	}
+
+	delete []vec;
+}
+
+void ClienteManager::ListarPorFechaDeApellido() {
+	int cantReg = _archivo.GetCantidadRegistros();
+
+	Cliente *vec = new Cliente[cantReg];
+	if (vec == nullptr) {
+		cout << "Error" << endl;
+		return;
+	}
+
+	for (int i = 0; i < cantReg; i++) {
+		vec[i] = _archivo.Leer(i);
+	}
+
+	OrdenarPorApellido(vec, cantReg);
+
+	for (int i = 0; i < cantReg; i++) {
+		ListarRegistro(vec[i]);
+		cout << endl;
+	}
+
+	delete []vec;
+}
 
 void ClienteManager::EditarTelefono() {
 	string dni, telefono;
