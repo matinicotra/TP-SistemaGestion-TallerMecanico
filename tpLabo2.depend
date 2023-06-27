@@ -7,10 +7,8 @@
 1687298530 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\fecha.h
 	<string>
 
-1687526086 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\main.cpp
+1687639500 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\main.cpp
 	<iostream>
-	"TrabajoManager.h"
-	"Trabajo.h"
 
 1687523667 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\vehiculo.cpp
 	"Vehiculo.h"
@@ -20,12 +18,28 @@
 	<Fecha.h>
 	<string>
 
-1686782964 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\funciones.cpp
+1687787707 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\funciones.cpp
 	"Funciones.h"
 	<climits>
 	<iostream>
 
-1686782964 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\funciones.h
+1687745659 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\funciones.h
+	"Persona.h"
+	"Cliente.h"
+	"Empleado.h"
+	"Proveedor.h"
+	"Vehiculo.h"
+	"Presupuesto.h"
+	"Trabajo.h"
+	"Fecha.h"
+	"AutoCliente.h"
+	"ClienteArchivo.h"
+	"EmpleadoArchivo.h"
+	"ProveedorArchivo.h"
+	"VehiculoArchivo.h"
+	"PresupuestoArchivo.h"
+	"TrabajoArchivo.h"
+	"AutoClienteArchivo.h"
 
 1687524712 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\persona.cpp
 	<cstring>
@@ -45,7 +59,7 @@
 	<cstring>
 	"Trabajo.h"
 
-1687523288 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\trabajo.h
+1687629608 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\trabajo.h
 	<Fecha.h>
 	<string>
 
@@ -56,7 +70,7 @@
 1687481020 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\autocliente.h
 	<string>
 
-1687524765 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\presupuesto.cpp
+1687628949 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\presupuesto.cpp
 	"Presupuesto.h"
 
 1687522201 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\presupuesto.h
@@ -64,17 +78,17 @@
 	<string>
 	<Fecha.h>
 
-1687524721 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\empleado.cpp
+1687745416 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\empleado.cpp
 	"Fecha.h"
 	"Empleado.h"
 
-1687520701 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\empleado.h
+1687745387 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\empleado.h
 	"Persona.h"
 
-1687521638 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\proveedor.cpp
+1687744795 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\proveedor.cpp
 	"Proveedor.h"
 
-1687521638 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\proveedor.h
+1687744795 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\proveedor.h
 	"Persona.h"
 
 1687348114 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\trabajoarchivo.cpp
@@ -83,24 +97,28 @@
 1687212595 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\trabajoarchivo.h
 	<Trabajo.h>
 
-1687520701 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\cliente.cpp
+1687745291 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\cliente.cpp
 	<cstring>
 	"Cliente.h"
 
-1687520701 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\cliente.h
+1687745291 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\cliente.h
 	"Persona.h"
 
-1687525730 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\trabajomanager.cpp
+1687791940 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\trabajomanager.cpp
 	<iostream>
 	<string>
+	"Funciones.h"
 	"ClienteArchivo.h"
 	"VehiculoArchivo.h"
 	"PresupuestoArchivo.h"
 	"TrabajoManager.h"
 	"ProveedorArchivo.h"
 	"EmpleadoArchivo.h"
+	"ClienteManager.h"
+	"VehiculoManager.h"
+	"AutoClienteManager.h"
 
-1687470213 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\trabajomanager.h
+1687626420 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\trabajomanager.h
 	"Trabajo.h"
 	"TrabajoArchivo.h"
 
@@ -193,7 +211,7 @@
 	<cstring>
 	"AutoClienteArchivo.h"
 
-1687523982 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\autoclientearchivo.h
+1687646484 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\autoclientearchivo.h
 	"AutoCliente.h"
 
 1687524698 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\clientearchivo.cpp
@@ -226,4 +244,44 @@
 
 1687290066 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\menu.h
 	<iostream>
+
+1687640717 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\clientemanager.h
+	"Cliente.h"
+	"ClienteArchivo.h"
+
+1687747358 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\clientemanager.cpp
+	<iostream>
+	"ClienteManager.h"
+
+1687640717 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\vehiculomanager.cpp
+	"VehiculoManager.h"
+	<iostream>
+	"ClienteManager.h"
+
+1687640760 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\vehiculomanager.h
+	"Vehiculo.h"
+	"VehiculoArchivo.h"
+
+1687646499 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\autoclientemanager.h
+	"AutoCliente.h"
+	"AutoClienteArchivo.h"
+
+1687646587 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\autoclientemanager.cpp
+	"AutoClienteManager.h"
+
+1687747629 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\empleadomanager.cpp
+	"EmpleadoManager.h"
+	<iostream>
+
+1687747612 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\empleadomanager.h
+	"Empleado.h"
+	"EmpleadoArchivo.h"
+
+1687788196 source:c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\proveedormanager.cpp
+	<iostream>
+	"ProveedorManager.h"
+
+1687787707 c:\users\matia\onedrive - frgp.utn.edu.ar\documentos\utn\laboratorio 2\tp\tplabotallermecanico\proveedormanager.h
+	"Proveedor.h"
+	"ProveedorArchivo.h"
 
