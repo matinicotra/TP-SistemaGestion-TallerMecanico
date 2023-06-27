@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-	//prueba
+	//prueba, hay un error y no compila
 
     return 0;
 }
