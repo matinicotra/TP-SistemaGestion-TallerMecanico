@@ -11,7 +11,7 @@ EmpleadoArchivo::EmpleadoArchivo(std::string ruta) {
 int EmpleadoArchivo::GetCantidadRegistros() {
 	FILE *p = fopen(_ruta.c_str(), "rb");
 	if (p == NULL) return -1;
-	fseek(p, sizeof(Empleado), SEEK_END);
+	fseek(p, 0, SEEK_END);
 	int bytes = ftell(p);
 	fclose(p);
 	return bytes / sizeof(Empleado);
