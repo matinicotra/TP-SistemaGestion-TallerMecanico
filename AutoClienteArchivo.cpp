@@ -12,7 +12,7 @@ AutoClienteArchivo::AutoClienteArchivo(std::string ruta) {
 int AutoClienteArchivo::GetCantidadRegistros() {
 	FILE *p = fopen(_ruta.c_str(), "rb");
 	if (p == NULL) return -1;
-	fseek(p, sizeof(AutoCliente), SEEK_END);
+	fseek(p, 0, SEEK_END);
 	int bytes = ftell(p);
 	fclose(p);
 	return bytes / sizeof(AutoCliente);

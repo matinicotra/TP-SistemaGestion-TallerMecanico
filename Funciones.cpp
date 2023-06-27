@@ -21,16 +21,29 @@ int getInteger(int minimo = INT_MIN, int maximo = INT_MAX) {
 
 void clienteHardcodear(){
 
-Cliente cliente1("12345678", "John Doe", "Doe", "johndoe@example.com", "123 Main St", "555-1234", "Cliente 1");
-Cliente cliente2("87654321", "Jane Smith", "Smith", "janesmith@example.com", "456 Elm St", "555-5678", "Cliente 2");
-Cliente cliente3("56781234", "Michael", "Johnson", "michaeljohnson@example.com", "789 Oak St", "555-9012", "Cliente 3");
-Cliente cliente4("43218765", "Emily", "Davis", "emilydavis@example.com", "987 Pine St", "555-3456", "Cliente 4");
-Cliente cliente5("98765432", "Jessica", "Brown", "jessicabrown@example.com", "654 Cedar St", "555-7890", "Cliente 5");
-Cliente cliente6("65432187", "Daniel", "Wilson", "danielwilson@example.com", "321 Maple St", "555-2345", "Cliente 6");
-Cliente cliente7("87651234", "Sophia", "Taylor", "sophiataylor@example.com", "543 Birch St", "555-6789", "Cliente 7");
-Cliente cliente8("12348765", "Oliver", "Martinez", "olivermartinez@example.com", "876 Walnut St", "555-0123", "Cliente 8");
-Cliente cliente9("34561278", "Emma", "Anderson", "emmaanderson@example.com", "210 Spruce St", "555-4567", "Cliente 9");
-Cliente cliente10("56783421", "William", "Thompson", "williamthompson@example.com", "432 Oak St", "555-8901", "Cliente 10");
+Fecha fecha1(10, 1, 2022);
+Fecha fecha2(20, 2, 2022);
+Fecha fecha3(13, 3, 2022);
+Fecha fecha4(14, 4, 2022);
+Fecha fecha5(15, 5, 2022);
+Fecha fecha6(16, 6, 2022);
+Fecha fecha7(17, 7, 2022);
+Fecha fecha8(18, 8, 2022);
+Fecha fecha9(19, 9, 2022);
+Fecha fecha10(21, 10, 2022);
+
+Cliente cliente1("12345678", "Emily", "Johnson", "emilyjohnson@example.com", "456 Elm St", "555-1111", "Cliente 1", fecha1);
+Cliente cliente2("87654321", "James", "Brown", "jamesbrown@example.com", "789 Oak St", "555-2222", "Cliente 2", fecha2);
+Cliente cliente3("56781234", "Sophia", "Garcia", "sophiagarcia@example.com", "987 Pine St", "555-3333", "Cliente 3", fecha3);
+Cliente cliente4("43218765", "Isabella", "Martinez", "isabellamartinez@example.com", "654 Cedar St", "555-4444", "Cliente 4", fecha4);
+Cliente cliente5("98765432", "Benjamin", "Lopez", "benjaminlopez@example.com", "321 Maple St", "555-5555", "Cliente 5", fecha5);
+Cliente cliente6("65432187", "Oliver", "Gonzalez", "olivergonzalez@example.com", "543 Birch St", "555-6666", "Cliente 6", fecha6);
+Cliente cliente7("87651234", "Amelia", "Rodriguez", "ameliarodriguez@example.com", "876 Walnut St", "555-7777", "Cliente 7", fecha7);
+Cliente cliente8("12348765", "Ethan", "Perez", "ethanperez@example.com", "210 Spruce St", "555-8888", "Cliente 8", fecha8);
+Cliente cliente9("34561278", "Mia", "Sanchez", "miasanchez@example.com", "432 Oak St", "555-9999", "Cliente 9", fecha9);
+Cliente cliente10("56783421", "Charlotte", "Rivera", "charlotterivera@example.com", "123 Main St", "555-0000", "Cliente 10", fecha10);
+
+
 
 ClienteArchivo ca;
 ca.Guardar(cliente1);
@@ -93,16 +106,16 @@ ea.Guardar(empleado10);
 }
 
 void proveedorHardcodear(){
-Proveedor proveedor1("12345670", "Proveedor1", "Apellido1", "proveedor1@example.com", "123 Main St", "555-1234", "Suspension", "Amortiguador", "Argentina");
-Proveedor proveedor2("87654321", "Proveedor2", "Apellido2", "proveedor2@example.com", "456 Elm St", "555-5678", "Suspension", "Espiral", "China");
-Proveedor proveedor3("56781234", "Proveedor3", "Apellido3", "proveedor3@example.com", "789 Oak St", "555-9012", "Motores", "Piston", "Brasil");
-Proveedor proveedor4("43218765", "Proveedor4", "Apellido4", "proveedor4@example.com", "987 Pine St", "555-3456", "Motores", "Viela", "China");
-Proveedor proveedor5("98765432", "Proveedor5", "Apellido5", "proveedor5@example.com", "654 Cedar St", "555-7890", "Motores", "Tapa de cilindro", "Brasil");
-Proveedor proveedor6("65432187", "Proveedor6", "Apellido6", "proveedor6@example.com", "321 Maple St", "555-2345", "Frenos", "Caliper", "Argentina");
-Proveedor proveedor7("87651230", "Proveedor7", "Apellido7", "proveedor7@example.com", "543 Birch St", "555-6789", "Frenos", "Pastillas", "Brasil");
-Proveedor proveedor8("12348765", "Proveedor8", "Apellido8", "proveedor8@example.com", "876 Walnut St", "555-0123", "Ruedas", "Neumatico", "China");
-Proveedor proveedor9("34561278", "Proveedor9", "Apellido9", "proveedor9@example.com", "210 Spruce St", "555-4567", "Ruedas", "Llanta", "Brasil");
-Proveedor proveedor10("56783429", "Proveedor10", "Apellido10", "proveedor10@example.com", "432 Oak St", "555-8901", "Ruedas", "Camara", "Argentina");
+Proveedor proveedor1("12345670", "Proveedor1", "Apellido1", "proveedor1@example.com", "Main St", "555-1234", "Amortiguadores", "Amortiguador", "Argentina");
+Proveedor proveedor2("87654321", "Proveedor2", "Apellido2", "proveedor2@example.com", "Elm St", "555-5678", "Amortiguadores", "Espiral", "China");
+Proveedor proveedor3("56781234", "Proveedor3", "Apellido3", "proveedor3@example.com", "Oak St", "555-9012", "Motores", "Piston", "Brasil");
+Proveedor proveedor4("43218765", "Proveedor4", "Apellido4", "proveedor4@example.com", "Pine St", "555-3456", "Motores", "Viela", "China");
+Proveedor proveedor5("98765432", "Proveedor5", "Apellido5", "proveedor5@example.com", "Cedar St", "555-7890", "Motores", "Tapa de cilindro", "Brasil");
+Proveedor proveedor6("65432187", "Proveedor6", "Apellido6", "proveedor6@example.com", "Maple St", "555-2345", "Frenos", "Caliper", "Argentina");
+Proveedor proveedor7("87651230", "Proveedor7", "Apellido7", "proveedor7@example.com", "Birch St", "555-6789", "Frenos", "Pastillas", "Brasil");
+Proveedor proveedor8("12348765", "Proveedor8", "Apellido8", "proveedor8@example.com", "Walnut St", "555-0123", "Ruedas", "Neumatico", "China");
+Proveedor proveedor9("34561278", "Proveedor9", "Apellido9", "proveedor9@example.com", "Spruce St", "555-4567", "Ruedas", "Llanta", "Brasil");
+Proveedor proveedor10("56783429", "Proveedor10", "Apellido10", "proveedor10@example.com", "Oak St", "555-8901", "Ruedas", "Camara", "Argentina");
 
 ProveedorArchivo pa;
 
@@ -168,16 +181,16 @@ Fecha fecha8(8, 8, 2022);
 Fecha fecha9(9, 9, 2022);
 Fecha fecha10(10, 10, 2022);
 
-Presupuesto presupuesto1(1, "11111111", "ABC123", 1000.0, "Reparación de motor", fecha1, true, false);
-Presupuesto presupuesto2(2, "22222222", "DEF456", 500.0, "Cambio de frenos", fecha2, false, true);
-Presupuesto presupuesto3(3, "33333333", "GHI789", 800.0, "Reparación de carrocería", fecha3, true, true);
-Presupuesto presupuesto4(4, "44444444", "JKL012", 1200.0, "Cambio de embrague", fecha4, false, false);
-Presupuesto presupuesto5(5, "55555555", "MNO345", 1500.0, "Reparación de suspensión", fecha5, true, true);
-Presupuesto presupuesto6(6, "66666666", "PQR678", 900.0, "Cambio de aceite y filtros", fecha6, false, false);
-Presupuesto presupuesto7(7, "77777777", "STU901", 700.0, "Reparación de sistema eléctrico", fecha7, true, false);
-Presupuesto presupuesto8(8, "88888888", "VWX234", 1800.0, "Cambio de neumáticos", fecha8, false, true);
-Presupuesto presupuesto9(9, "99999999", "YZA567", 600.0, "Reparación de sistema de escape", fecha9, true, true);
-Presupuesto presupuesto10(10, "10101010", "BCD890", 2000.0, "Cambio de kit de distribución", fecha10, false, false);
+Presupuesto presupuesto1(1, "12345678", "ABC123", 1000.0, "Reparación de motor", fecha1, true, false);
+Presupuesto presupuesto2(2, "12345678", "DEF456", 500.0, "Cambio de frenos", fecha2, false, true);
+Presupuesto presupuesto3(3, "12345678", "GHI789", 800.0, "Reparación de carrocería", fecha3, true, true);
+Presupuesto presupuesto4(4, "87654321", "JKL012", 1200.0, "Cambio de embrague", fecha4, false, false);
+Presupuesto presupuesto5(5, "87654321", "MNO345", 1500.0, "Reparación de suspensión", fecha5, true, true);
+Presupuesto presupuesto6(6, "56781234", "PQR678", 900.0, "Cambio de aceite y filtros", fecha6, false, false);
+Presupuesto presupuesto7(7, "56781234", "STU901", 700.0, "Reparación de sistema eléctrico", fecha7, true, false);
+Presupuesto presupuesto8(8, "56783421", "VWX234", 1800.0, "Cambio de neumáticos", fecha8, false, true);
+Presupuesto presupuesto9(9, "56783421", "YZA567", 600.0, "Reparación de sistema de escape", fecha9, true, true);
+Presupuesto presupuesto10(10, "56783421", "BCD890", 2000.0, "Cambio de kit de distribución", fecha10, false, false);
 
 PresupuestoArchivo pa;
 
@@ -266,4 +279,14 @@ aca.Guardar(autoCliente7);
 aca.Guardar(autoCliente8);
 aca.Guardar(autoCliente9);
 aca.Guardar(autoCliente10);
+}
+
+void hardcodearTodo(){
+    clienteHardcodear();
+    empleadoHardcodear();
+    proveedorHardcodear();
+    vehiculoHardcodear();
+    presupuestoHardcodear();
+    trabajoHardcodear();
+    autoClienteHardcodear();
 }

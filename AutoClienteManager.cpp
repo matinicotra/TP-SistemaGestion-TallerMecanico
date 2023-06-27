@@ -1,3 +1,5 @@
+#include <iostream>
+using namespace std;
 #include "AutoClienteManager.h"
 
 void AutoClienteManager::Cargar(std::string dni, std::string patente) {
@@ -55,3 +57,19 @@ void AutoClienteManager::RestaurarCopiaDeSeguridad() {
 
 	delete []vec;
 }
+
+void AutoClienteManager::ListarTodos(){
+    	int cantRegistros = _archivo.GetCantidadRegistros();
+	for (int i = 0; i < cantRegistros; i++) {
+		AutoCliente autoCliente = _archivo.Leer(i);
+		if (autoCliente.getEstado()) {
+			ListarRegistro(autoCliente);
+			cout << endl;
+		}
+	}
+}
+
+void AutoClienteManager::ListarRegistro(AutoCliente reg){
+    cout << "Dni del Cliente: " << reg.getDniCliente() << "    Patente del auto: " << reg.getPatente() << endl;
+}
+

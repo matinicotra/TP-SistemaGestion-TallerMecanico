@@ -29,7 +29,9 @@ void ClienteManager::Cargar() {
 	cout << "ANIO         :" ;
 	cin >> anio;
 
-	Cliente reg(dni, nombre, apellido, eMail, direccion, telefono, razonSocial);
+    Fecha fechaAlta(dia,mes,anio);
+
+	Cliente reg(dni, nombre, apellido, eMail, direccion, telefono, razonSocial,fechaAlta);
 	reg.setFechaAlta(Fecha(dia, mes, anio));
 
 	if (_archivo.Guardar(reg)) {
@@ -56,9 +58,7 @@ void ClienteManager::ListarRegistro(Cliente cliente) {
 	cout << "DIRECCION     : " << cliente.getDireccion() << endl;
 	cout << "TELEFONO      : " << cliente.getTelefono() << endl;
 	cout << "RAZON SOCIAL  : " << cliente.getRazonSocial() << endl;
-	cout << "FECHA DE ALTA : ";
-	cliente.getFechaAlta().toString("DD/MM/YYYY");
-	cout << endl;
+	cout << "FECHA DE ALTA : " << cliente.getFechaAlta().toString("DD/MM/YYYY") << endl;
 }
 
 void ClienteManager::ListarPorDni() {

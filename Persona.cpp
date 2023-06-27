@@ -64,7 +64,7 @@ std::string Persona::getEmail() {
 }
 
 std::string Persona::getDireccion() {
-	std::string direccionAux;
+	std::string direccionAux = _direccion;
 	return direccionAux;
 }
 

@@ -50,9 +50,7 @@ void VehiculoManager::ListarRegistro(Vehiculo vehiculo) {
 	cout << "MARCA         : " << vehiculo.getMarca() << endl;
 	cout << "MODELO        : " << vehiculo.getModelo() << endl;
 	cout << "ANIO          : " << vehiculo.getAnio() << endl;
-	cout << "FECHA DE ALTA : " << endl;
-	vehiculo.getFechaAlta().toString("DD/MM/YYYY");
-	cout << endl;
+	cout << "FECHA DE ALTA : " << vehiculo.getFechaAlta().toString("DD/MM/YYYY") << endl;
 }
 
 void VehiculoManager::ListarPorPatente() {

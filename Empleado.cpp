@@ -15,15 +15,20 @@ Empleado::Empleado(std::string dni, std::string nombre, std::string apellido, st
     setEmail(eMail);
     setDireccion(direccion);
     setTelefono(telefono);
-	_fechaNacimiento = fechaNacimiento;
+    setFechaNacimiento(fechaNacimiento);
 	strcpy(_cargo, cargo.c_str());
 	_sueldo = sueldo;
 	strcpy(_cuentaBancaria, cuentaBancaria.c_str());
+	_estado = true;
 }
 
 void Empleado::setFechaNacimiento(Fecha fechaNacimiento) {
 	_fechaNacimiento = fechaNacimiento;
 }
+
+/*void Empleado::setFechaAlta(Fecha fechaAlta) {
+	_fechaAlta = fechaAlta;
+}*/
 
 void Empleado::setCargo(std::string cargo) {
 	strcpy(_cargo, cargo.c_str());
@@ -40,10 +45,14 @@ void Empleado::setCuentaBancaria(std::string cuenta) {
 void Empleado::setEstado(bool estado) {
 	_estado = estado;
 }
-Fecha Empleado::getFechaNacimiento() {
 
+Fecha Empleado::getFechaNacimiento() {
 	return _fechaNacimiento;
 }
+
+/*Fecha Empleado::getFechaAlta() {
+	return _fechaAlta;
+}*/
 
 std::string Empleado::getCargo() {
 	std::string cargoAux = _cargo;

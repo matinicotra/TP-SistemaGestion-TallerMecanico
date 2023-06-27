@@ -19,6 +19,15 @@
 #include "TrabajoArchivo.h"
 #include "AutoClienteArchivo.h"
 
+#include "ClienteManager.h"
+#include "EmpleadoManager.h"
+#include "ProveedorManager.h"
+#include "VehiculoManager.h"
+#include "PresupuestoManager.h"
+#include "TrabajoManager.h"
+#include "AutoClienteManager.h"
+
+
 int getInteger(int minimo, int maximo);
 
     ///funciones para hardcodear
@@ -29,5 +38,8 @@ void vehiculoHardcodear();
 void presupuestoHardcodear();
 void trabajoHardcodear();
 void autoClienteHardcodear();
+
+void hardcodearTodo();
+
 
 #endif // FUNCIONES_H_INCLUDED
