@@ -5,7 +5,7 @@ Presupuesto::Presupuesto() {
 	strcpy(_dniCliente, "");
 	strcpy(_patente, "");
 	_importe = 0;
-	strcpy(_detalle, "caca");
+	strcpy(_detalle, "");
 	_estado = true;
 }
 
@@ -15,6 +15,7 @@ Presupuesto::Presupuesto(int idPresupuesto, std::string dniCliente, std::string 
 	strcpy(_patente, patente.c_str());
 	_importe = importe;
 	strcpy(_detalle, detalle.c_str());
+	setFecha(fechaPresupuesto);
 	_asistenciaGrua = asistenciaGrua;
 	_vehiculoSustitucion = vehiculoSustitucion;
 	_estado = true;

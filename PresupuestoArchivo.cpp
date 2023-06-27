@@ -1,7 +1,7 @@
 #include "PresupuestoArchivo.h"
 
 PresupuestoArchivo::PresupuestoArchivo() {
-	_ruta = "trabajos.dat";
+	_ruta = "presupuestos.dat";
 }
 
 PresupuestoArchivo::PresupuestoArchivo(std::string ruta) {

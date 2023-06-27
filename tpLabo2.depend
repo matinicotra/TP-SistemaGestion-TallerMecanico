@@ -140,7 +140,7 @@
 1687814257 c:\users\petet\onedrive\documents\github\tplabotallermecanico\empleado.h
 	"Persona.h"
 
-1687822736 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\funciones.cpp
+1687826280 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\funciones.cpp
 	"Funciones.h"
 	<climits>
 	<iostream>
@@ -174,7 +174,7 @@
 	<cstring>
 	"Persona.h"
 
-1687645409 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\presupuesto.cpp
+1687826661 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\presupuesto.cpp
 	"Presupuesto.h"
 
 1687553958 c:\users\petet\onedrive\documents\github\tplabotallermecanico\presupuesto.h
@@ -286,7 +286,7 @@
 1687285264 c:\users\petet\onedrive\documents\github\tplabotallermecanico\menu.h
 	<iostream>
 
-1687824865 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\presupuestoarchivo.cpp
+1687826661 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\presupuestoarchivo.cpp
 	"PresupuestoArchivo.h"
 
 1687461908 c:\users\petet\onedrive\documents\github\tplabotallermecanico\presupuestoarchivo.h
@@ -321,12 +321,12 @@
 	"Empleado.h"
 	"EmpleadoArchivo.h"
 
-1687825328 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\main.cpp
+1687826747 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\main.cpp
 	<iostream>
 	"menu.h"
 	"Funciones.h"
 
-1687814257 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\presupuestomanager.cpp
+1687826747 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\presupuestomanager.cpp
 	"PresupuestoManager.h"
 	"ClienteArchivo.h"
 	"ClienteManager.h"
@@ -369,7 +369,7 @@
 	"Trabajo.h"
 	"TrabajoArchivo.h"
 
-1687645409 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\vehiculomanager.cpp
+1687825392 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\vehiculomanager.cpp
 	"VehiculoManager.h"
 	<iostream>
 	"ClienteManager.h"

@@ -8,8 +8,9 @@ int main()
     /*ClienteManager cm;
     cm.ListarTodos();*/
 
-    //clienteHardcodear();
-    VehiculoManager pm;
+    trabajoHardcodear();
+
+    TrabajoManager pm;
     system("pause");
 
     pm.ListarTodos();
@@ -22,9 +23,7 @@ int main()
     system("pause");
     vehiculoHardcodear();
     system("pause");
-    presupuestoHardcodear();
     system("pause");
-    trabajoHardcodear();
     system("pause");
     autoClienteHardcodear();*/
 

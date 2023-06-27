@@ -181,16 +181,16 @@ Fecha fecha8(8, 8, 2022);
 Fecha fecha9(9, 9, 2022);
 Fecha fecha10(10, 10, 2022);
 
-Presupuesto presupuesto1(1, "11111111", "ABC123", 1000.0, "Reparación de motor", fecha1, true, false);
-Presupuesto presupuesto2(2, "22222222", "DEF456", 500.0, "Cambio de frenos", fecha2, false, true);
-Presupuesto presupuesto3(3, "33333333", "GHI789", 800.0, "Reparación de carrocería", fecha3, true, true);
-Presupuesto presupuesto4(4, "44444444", "JKL012", 1200.0, "Cambio de embrague", fecha4, false, false);
-Presupuesto presupuesto5(5, "55555555", "MNO345", 1500.0, "Reparación de suspensión", fecha5, true, true);
-Presupuesto presupuesto6(6, "66666666", "PQR678", 900.0, "Cambio de aceite y filtros", fecha6, false, false);
-Presupuesto presupuesto7(7, "77777777", "STU901", 700.0, "Reparación de sistema eléctrico", fecha7, true, false);
-Presupuesto presupuesto8(8, "88888888", "VWX234", 1800.0, "Cambio de neumáticos", fecha8, false, true);
-Presupuesto presupuesto9(9, "99999999", "YZA567", 600.0, "Reparación de sistema de escape", fecha9, true, true);
-Presupuesto presupuesto10(10, "10101010", "BCD890", 2000.0, "Cambio de kit de distribución", fecha10, false, false);
+Presupuesto presupuesto1(1, "12345678", "ABC123", 1000.0, "Reparación de motor", fecha1, true, false);
+Presupuesto presupuesto2(2, "12345678", "DEF456", 500.0, "Cambio de frenos", fecha2, false, true);
+Presupuesto presupuesto3(3, "12345678", "GHI789", 800.0, "Reparación de carrocería", fecha3, true, true);
+Presupuesto presupuesto4(4, "87654321", "JKL012", 1200.0, "Cambio de embrague", fecha4, false, false);
+Presupuesto presupuesto5(5, "87654321", "MNO345", 1500.0, "Reparación de suspensión", fecha5, true, true);
+Presupuesto presupuesto6(6, "56781234", "PQR678", 900.0, "Cambio de aceite y filtros", fecha6, false, false);
+Presupuesto presupuesto7(7, "56781234", "STU901", 700.0, "Reparación de sistema eléctrico", fecha7, true, false);
+Presupuesto presupuesto8(8, "56783421", "VWX234", 1800.0, "Cambio de neumáticos", fecha8, false, true);
+Presupuesto presupuesto9(9, "56783421", "YZA567", 600.0, "Reparación de sistema de escape", fecha9, true, true);
+Presupuesto presupuesto10(10, "56783421", "BCD890", 2000.0, "Cambio de kit de distribución", fecha10, false, false);
 
 PresupuestoArchivo pa;
 
