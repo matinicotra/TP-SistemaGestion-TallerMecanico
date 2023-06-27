@@ -41,6 +41,7 @@ void ClienteManager::Cargar() {
 
 void ClienteManager::ListarTodos() {
 	int cantRegistros = _archivo.GetCantidadRegistros();
+	cout << "cantidad registros: "<<cantRegistros<<endl;
 	for (int i = 0; i < cantRegistros; i++) {
 		Cliente cliente = _archivo.Leer(i);
 		if (cliente.getEstado()) {
@@ -58,9 +59,7 @@ void ClienteManager::ListarRegistro(Cliente cliente) {
 	cout << "DIRECCION     : " << cliente.getDireccion() << endl;
 	cout << "TELEFONO      : " << cliente.getTelefono() << endl;
 	cout << "RAZON SOCIAL  : " << cliente.getRazonSocial() << endl;
-	cout << "FECHA DE ALTA : ";
-	cliente.getFechaAlta().toString("DD/MM/YYYY");
-	cout << endl;
+	cout << "FECHA DE ALTA : " << cliente.getFechaAlta().toString("DD/MM/YYYY") << endl;
 }
 
 void ClienteManager::ListarPorDni() {

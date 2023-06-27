@@ -170,7 +170,7 @@
 	"TrabajoManager.h"
 	"AutoClienteManager.h"
 
-1687553958 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\persona.cpp
+1687823387 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\persona.cpp
 	<cstring>
 	"Persona.h"
 
@@ -305,7 +305,7 @@
 	"AutoCliente.h"
 	"AutoClienteArchivo.h"
 
-1687822835 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\clientemanager.cpp
+1687824429 source:c:\users\petet\onedrive\documents\github\tplabotallermecanico\clientemanager.cpp
 	<iostream>
 	"ClienteManager.h"
 
