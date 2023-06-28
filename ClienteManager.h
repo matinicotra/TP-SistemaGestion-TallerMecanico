@@ -19,7 +19,6 @@ public:
 	void ListarRegistro(Cliente cliente);
 	void ListarPorDni();
 	void ListarPorApellido();
-	void ListarTrabajosCliente();
 	void ListarOrdenadosPorFechaAlta();
 	void ListarOrdenadosPorApellido();
 	//void ListarEntreFechas(Fecha fecha1, Fecha fecha2);

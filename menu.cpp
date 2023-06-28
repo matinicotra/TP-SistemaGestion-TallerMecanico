@@ -3,12 +3,11 @@
 ///FALTA LLAMADAS A LAS FUNCIONES QUE HACEN CADA COSA, SOLO ESTÁ EL GENERAL DE LLAMAR A LOS MENUS
 
 /// ---------------------------menu principal--------------------------------------------------
-void Menu::displayMain()
-{
-    while (true)
-    {
-        system("cls");
+void Menu::displayMain() {
+    while (true) {
         int opcion;
+
+        system("cls");
         std::cout<<"================================"<<std::endl;
         std::cout<<"============= MENU ============="<<std::endl;
         std::cout<<"================================"<<std::endl<<std::endl;
@@ -20,12 +19,10 @@ void Menu::displayMain()
         std::cout<<"-0 SALIR"<<std::endl;
         std::cout<<"================================"<<std::endl;
         std::cout<<"================================"<<std::endl;
-
         std::cout<<"INGRESE UNA OPCION: ";
         std::cin>>opcion;
 
-        switch(opcion)
-        {
+        switch(opcion) {
         case 1:
             menuCargas();
             break;
@@ -47,19 +44,17 @@ void Menu::displayMain()
         default:
             std::cout<<"OPCION NO VALIDA"<<std::endl;
             break;
-
         }
     }
 }
 
 ///----------------------menus secundarios-----------------------------------------
 
-void Menu::menuCargas()
-{
-    while (true)
-    {
-        system("cls");
+void Menu::menuCargas() {
+    while (true) {
         int opcion;
+
+        system("cls");
         std::cout<<"============ CARGAS ============"<<std::endl;
         std::cout<<"-1 CLIENTE"<<std::endl;
         std::cout<<"-2 VEHICULO"<<std::endl;
@@ -69,12 +64,10 @@ void Menu::menuCargas()
         std::cout<<"-6 PROVEEDOR"<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
-
         std::cout<<"INGRESE UNA OPCION: ";
         std::cin>>opcion;
 
-        switch(opcion)
-        {
+        switch(opcion) {
         case 1:
             _clienteManager.Cargar();
             break;
@@ -103,24 +96,21 @@ void Menu::menuCargas()
     }
 }
 
-void Menu::menuConsultas()
-{
-    while (true)
-    {
-        system("cls");
+void Menu::menuConsultas() {
+    while (true) {
         int opcion;
+
+        system("cls");
         std::cout<<"=========== CONSULTAS =========="<<std::endl;
         std::cout<<"-1 CLIENTE"<<std::endl;
         std::cout<<"-2 TRABAJO"<<std::endl;
         std::cout<<"-3 PROVEEDOR"<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
-
         std::cout<<"INGRESE UNA OPCION: ";
         std::cin>>opcion;
 
-        switch(opcion)
-        {
+        switch(opcion) {
         case 1:
             menuConsultasClientes();
             break;
@@ -136,17 +126,15 @@ void Menu::menuConsultas()
         default:
             std::cout<<"OPCION NO VALIDA"<<std::endl;
             break;
-
         }
     }
 }
 
-void Menu::menuListados()
-{
-    while (true)
-    {
-        system("cls");
+void Menu::menuListados() {
+    while (true) {
         int opcion;
+
+        system("cls");
         std::cout<<"=========== LISTADOS =============="<<std::endl;
         std::cout<<"-1 CLIENTES"<<std::endl;
         std::cout<<"-2 VEHICULOS"<<std::endl;
@@ -187,23 +175,20 @@ void Menu::menuListados()
     }
 }
 
-void Menu::menuInformes()
-{
-    while (true)
-    {
-        system("cls");
+void Menu::menuInformes() {
+    while (true) {
         int opcion;
+
+        system("cls");
         std::cout<<"=========== INFORMES ==============="<<std::endl;
         std::cout<<"-1 RECAUDACION ANUAL"<<std::endl;
         std::cout<<"-2 RECAUDACION POR CLIENTE"<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
-        std::cout<<"================================"<<std::endl;
-
+        std::cout<<"===================================="<<std::endl;
         std::cout<<"INGRESE UNA OPCION: ";
         std::cin>>opcion;
 
-        switch(opcion)
-        {
+        switch(opcion) {
         case 1:
 
             break;
@@ -221,30 +206,26 @@ void Menu::menuInformes()
     }
 }
 
-void Menu::menuArchivos()
-{
-    while (true)
-    {
-        system("cls");
+void Menu::menuArchivos() {
+    while (true) {
         int opcion;
+
+        system("cls");
         std::cout<<"=========== ARCHIVOS =============="<<std::endl;
         std::cout<<"-1 REALIZAR COPIA DE SEGURIDAD"<<std::endl;
-        std::cout<<"-2 RESTAURAR ARCHIVO POR UNA VERSION ANTERIOR"<<std::endl<<std::endl;
+        std::cout<<"-2 RESTAURAR COPIA DE SEGURIDAD"<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
-
         std::cout<<"INGRESE UNA OPCION: ";
         std::cin>>opcion;
 
-        switch(opcion)
-        {
+        switch(opcion) {
         case 1:
             menuArchivoCopiar();
             break;
         case 2:
             menuArchivoRestaurar();
             break;
-
         case 0:
             return;
             break;
@@ -261,25 +242,21 @@ void Menu::menuArchivos()
 
 //menus terciarios consultas
 
-void Menu::menuConsultasClientes()
-{
-    while (true)
-    {
-        system("cls");
+void Menu::menuConsultasClientes() {
+    while (true) {
         int opcion;
+        system("cls");
         std::cout<<"====== CONSULTAS CLIENTES ======"<<std::endl;
         std::cout<<"-1 POR APELLIDO"<<std::endl;
         std::cout<<"-2 POR DNI"<<std::endl;
         std::cout<<"-3 POR TRABAJO"<<std::endl<<std::endl;
-        std::cout<<"-5 EDITAR UN NUMERO DE TELEFONO"<<std::endl<<std::endl;
+        std::cout<<"-4 MODIFICAR UN NUMERO DE TELEFONO"<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
-
         std::cout<<"INGRESE UNA OPCION: ";
         std::cin>>opcion;
 
-        switch(opcion)
-        {
+        switch(opcion) {
         case 1:
             _clienteManager.ListarPorApellido();
             break;
@@ -301,12 +278,10 @@ void Menu::menuConsultasClientes()
     }
 }
 
-void Menu::menuConsultasTrabajos()
-{
-    while (true)
-    {
-        system("cls");
+void Menu::menuConsultasTrabajos() {
+    while (true) {
         int opcion;
+        system("cls");
         std::cout<<"====== CONSULTAS TRABAJOS ======"<<std::endl;
         std::cout<<"-1 POR AVANCE"<<std::endl;
         std::cout<<"-2 POR RANGO DE FECHAS"<<std::endl;
@@ -314,12 +289,10 @@ void Menu::menuConsultasTrabajos()
         std::cout<<"-4 POR CLIENTE"<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
-
         std::cout<<"INGRESE UNA OPCION: ";
         std::cin>>opcion;
 
-        switch(opcion)
-        {
+        switch(opcion) {
         case 1:
             _trabajoManager.ListarPorAvance();
             break;
@@ -342,19 +315,16 @@ void Menu::menuConsultasTrabajos()
     }
 }
 
-void Menu::menuConsultasProveedores()
-{
-    while (true)
-    {
-        system("cls");
+void Menu::menuConsultasProveedores() {
+    while (true) {
         int opcion;
+        system("cls");
         std::cout<<"====== CONSULTAS PROVEEDORES ===="<<std::endl;
         std::cout<<"-1 POR DNI."<<std::endl;
         std::cout<<"-2 POR RUBRO."<<std::endl;
         std::cout<<"-3 EDITAR TELEFONO DE PROVEEDOR."<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
-
         std::cout<<"INGRESE UNA OPCION: ";
         std::cin>>opcion;
 
@@ -380,18 +350,15 @@ void Menu::menuConsultasProveedores()
 //------------------hasta aca menus terciarios consultas-------------------------------------------
 
 //menus terciarios listados
-void Menu::menuListadoClientes()
-{
-    while (true)
-    {
-        system("cls");
+void Menu::menuListadoClientes() {
+    while (true) {
         int opcion;
+        system("cls");
         std::cout<<"=========== LISTADOS CLIENTES ====="<<std::endl;
         std::cout<<"-1 ORDENADO POR APLELLIDO"<<std::endl;
         std::cout<<"-2 ORDENADO POR FECHA DE ALTA"<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
-
         std::cout<<"INGRESE UNA OPCION: ";
         std::cin>>opcion;
 
@@ -413,30 +380,25 @@ void Menu::menuListadoClientes()
     }
 }
 
-void Menu::menuListadoVehiculos()
-{
-    while (true)
-    {
-        system("cls");
+void Menu::menuListadoVehiculos() {
+    while (true) {
         int opcion;
+        system("cls");
         std::cout<<"=========== LISTADOS VEHICULOS ====="<<std::endl;
         std::cout<<"-1 ORDENADO POR PATENTE."<<std::endl;
-        std::cout<<"-2 ORDENADO POR FECHA DE INGRESO."<<std::endl<<std::endl;
+        std::cout<<"-2 ORDENADO POR FECHA DE ALTA."<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
-
         std::cout<<"INGRESE UNA OPCION: ";
         std::cin>>opcion;
 
-        switch(opcion)
-        {
+        switch(opcion) {
         case 1:
-
+            _vehiculoManager.ListarOrdenadosPorPatente();
             break;
         case 2:
-
+            _vehiculoManager.ListarOrdenadosPorFechaAlta();
             break;
-
         case 0:
             return;
             break;
@@ -481,12 +443,10 @@ void Menu::menuListadoTrabajos()
     }
 }
 
-void Menu::menuListadoProveedores()
-{
-    while (true)
-    {
-        system("cls");
+void Menu::menuListadoProveedores() {
+    while (true) {
         int opcion;
+        system("cls");
         std::cout<<"=========== LISTADOS PROVEEDORES ==="<<std::endl;
         std::cout<<"-1 ORDENADO POR TIPO DE REPUESTO"<<std::endl;
         std::cout<<"-2 ORDENADO POR COSTOS"<<std::endl<<std::endl;
@@ -522,8 +482,8 @@ void Menu::menuListadoEmpleados()
         system("cls");
         int opcion;
         std::cout<<"=========== LISTADOS EMPLEADOS ====="<<std::endl;
-        std::cout<<"-1 ORDENADO POR DNI"<<std::endl;
-        std::cout<<"-2 ORDENADO POR TRABAJOS"<<std::endl;
+        std::cout<<"-1 LISTAR TODOS."<<std::endl;
+        std::cout<<"-2 MODIFICAR SUELDO DE EMPLEADO."<<std::endl;
         std::cout<<"-3 ORDENADO POR ANTIGUEDAD"<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
@@ -534,10 +494,10 @@ void Menu::menuListadoEmpleados()
         switch(opcion)
         {
         case 1:
-
+            _empleadoManager.ListarTodos();
             break;
         case 2:
-
+            _empleadoManager.EditarSueldo();
             break;
         case 3:
 
@@ -554,12 +514,11 @@ void Menu::menuListadoEmpleados()
 //---------------hasta aca menus terciarios listados-------------------------------------------
 
 //menus archivos
-void Menu::menuArchivoCopiar()
-{
-    while (true)
-    {
-        system("cls");
+void Menu::menuArchivoCopiar() {
+    while (true) {
         int opcion;
+
+        system("cls");
         std::cout<<"=========== ARCHIVOS -> HACER COPIA DE SEGURIDAD ========="<<std::endl;
         std::cout<<"-1 CLIENTES"<<std::endl;
         std::cout<<"-2 VEHICULOS"<<std::endl;
@@ -570,32 +529,35 @@ void Menu::menuArchivoCopiar()
         std::cout<<"-7 TODOS LOS ARCHIVOS"<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
-
         std::cout<<"INGRESE UNA OPCION: ";
         std::cin>>opcion;
 
-        switch(opcion)
-        {
+        switch(opcion) {
         case 1:
-
+            _clienteManager.HacerCopiaDeSeguridad();
             break;
         case 2:
-
+            _vehiculoManager.HacerCopiaDeSeguridad();
             break;
         case 3:
-
+            _trabajoManager.HacerCopiaDeSeguridad();
             break;
         case 4:
-
+            _proveedorManager.HacerCopiaDeSeguridad();
             break;
         case 5:
-
+            _empleadoManager.HacerCopiaDeSeguridad();
             break;
         case 6:
-
+            _autoClienteManager.HacerCopiaDeSeguridad();
             break;
         case 7:
-
+            _clienteManager.HacerCopiaDeSeguridad();
+            _vehiculoManager.HacerCopiaDeSeguridad();
+            _trabajoManager.HacerCopiaDeSeguridad();
+            _proveedorManager.HacerCopiaDeSeguridad();
+            _empleadoManager.HacerCopiaDeSeguridad();
+            _autoClienteManager.HacerCopiaDeSeguridad();
             break;
         case 0:
             return;
@@ -603,18 +565,16 @@ void Menu::menuArchivoCopiar()
         default:
             std::cout<<"OPCION NO VALIDA"<<std::endl;
             break;
-
         }
     }
 }
 
-void Menu::menuArchivoRestaurar()
-{
-    while (true)
-    {
-        system("cls");
+void Menu::menuArchivoRestaurar() {
+    while (true) {
         int opcion;
-        std::cout<<"=========== ARCHIVOS -> RESTAURAR COPIA ANTERIOR ========="<<std::endl;
+
+        system("cls");
+        std::cout<<"=========== ARCHIVOS -> RESTAURAR COPIA DE SEGURIDAD ========="<<std::endl;
         std::cout<<"-1 CLIENTES"<<std::endl;
         std::cout<<"-2 VEHICULOS"<<std::endl;
         std::cout<<"-3 TRABAJOS"<<std::endl;
@@ -624,32 +584,35 @@ void Menu::menuArchivoRestaurar()
         std::cout<<"-7 TODOS LOS ARCHIVOS"<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
-
         std::cout<<"INGRESE UNA OPCION: ";
         std::cin>>opcion;
 
-        switch(opcion)
-        {
+        switch(opcion) {
         case 1:
-
+            _clienteManager.RestaurarCopiaDeSeguridad();
             break;
         case 2:
-
+            _vehiculoManager.RestaurarCopiaDeSeguridad();
             break;
         case 3:
-
+            _trabajoManager.RestaurarCopiaDeSeguridad();
             break;
         case 4:
-
+            _proveedorManager.RestaurarCopiaDeSeguridad();
             break;
         case 5:
-
+            _empleadoManager.RestaurarCopiaDeSeguridad();
             break;
         case 6:
-
+            _autoClienteManager.RestaurarCopiaDeSeguridad();
             break;
         case 7:
-
+            _clienteManager.RestaurarCopiaDeSeguridad();
+            _vehiculoManager.RestaurarCopiaDeSeguridad();
+            _trabajoManager.RestaurarCopiaDeSeguridad();
+            _proveedorManager.RestaurarCopiaDeSeguridad();
+            _empleadoManager.RestaurarCopiaDeSeguridad();
+            _autoClienteManager.RestaurarCopiaDeSeguridad();
             break;
         case 0:
             return;
@@ -657,7 +620,6 @@ void Menu::menuArchivoRestaurar()
         default:
             std::cout<<"OPCION NO VALIDA"<<std::endl;
             break;
-
         }
     }
 }

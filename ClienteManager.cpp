@@ -124,24 +124,6 @@ void ClienteManager::ListarPorApellido() {
 	}
 }
 
-void ClienteManager::ListarTrabajosCliente() {
-	TrabajoArchivo _arcTrabajo;
-	int cantTrabajos = _arcTrabajo.GetCantidadRegistros();
-	string dni;
-	cout << "INGRESAR DNI DEL CLIENTE: ";
-	getline(cin, dni);
-	int pos = _archivo.Buscar(dni);
-	if (pos >= 0) {
-		TrabajoManager aux;
-		for (int i = 0; i < cantTrabajos; i++) {
-			Trabajo trabajo = _arcTrabajo.Leer(i);
-			if (trabajo.getEstado()) {
-				aux.ListarRegistro(trabajo);
-			}
-		}
-	} cout << "Dni inexistente." << endl;
-}
-
 void ClienteManager::ListarOrdenadosPorFechaAlta() {
 	int cantReg = _archivo.GetCantidadRegistros();
 

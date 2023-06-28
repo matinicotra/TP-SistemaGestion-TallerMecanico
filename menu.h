@@ -8,6 +8,7 @@
 #include "PresupuestoManager.h"
 #include "VehiculoManager.h"
 #include "ProveedorManager.h"
+#include "AutoClienteManager.h"
 
 class Menu {
 private:
@@ -17,6 +18,7 @@ private:
     PresupuestoManager _presupuestoManager;
     ProveedorManager _proveedorManager;
     VehiculoManager _vehiculoManager;
+    AutoClienteManager _autoClienteManager;
 
 public:
     Menu();
