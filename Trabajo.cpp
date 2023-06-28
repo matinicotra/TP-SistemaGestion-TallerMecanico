@@ -12,7 +12,7 @@ Trabajo::Trabajo() {
 	_estado = true;
 }
 
-Trabajo::Trabajo(int idTrabajo, int idPresupuesto, std::string patente, std::string dniCliente, std::string dniProveedor, std::string dniEmpleado, int avanceTrabajo, Fecha fechaEntrada, Fecha fechaEntrega) {
+Trabajo::Trabajo(int idTrabajo, int idPresupuesto, std::string patente, std::string dniCliente, std::string dniProveedor, std::string dniEmpleado, int avanceTrabajo, Fecha fechaEntrada, Fecha fechaEntrega, float precioTrabajo) {
 	_idTrabajo = idTrabajo;
 	_idPresupuesto = idPresupuesto;
 	strcpy(_patente, patente.c_str());
@@ -22,6 +22,7 @@ Trabajo::Trabajo(int idTrabajo, int idPresupuesto, std::string patente, std::str
 	_avanceTrabajo = avanceTrabajo;
 	setFechaEntrada(fechaEntrada);
 	setFechaEntrega(fechaEntrega);
+	_precioTrabajo = precioTrabajo;
 	_estado = true;
 }
 
@@ -59,6 +60,10 @@ void Trabajo::setFechaEntrada(Fecha fechaEntrada) {
 
 void Trabajo::setFechaEntrega(Fecha fechaEntrega) {
 	_fechaEntrega = fechaEntrega;
+}
+
+void Trabajo::setPrecioTrabajo (float precioTrabajo){
+    _precioTrabajo = precioTrabajo;
 }
 
 void Trabajo::setEstado(bool estado) {
@@ -103,6 +108,10 @@ Fecha Trabajo::getFechaEntrada() {
 
 Fecha Trabajo::getFechaEntrega() {
 	return _fechaEntrega;
+}
+
+float Trabajo::getPrecioTrabajo (){
+    return _precioTrabajo;
 }
 
 bool Trabajo::getEstado() {

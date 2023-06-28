@@ -188,6 +188,26 @@ void ClienteManager::ListarOrdenadosPorApellido() {
 	delete []vec;
 }
 
+/*void ClienteManager::ListarEntreFechas(Fecha fecha1, Fecha fecha2) {
+
+    if (fecha1.getAnio()==fecha2.getAnio() && ){
+        fecha1.getMes()==
+
+    }
+
+    ClienteArchivo ca;
+
+
+
+	int cantRegistros = ca.GetCantidadRegistros();
+
+	Cliente aux;
+	for (int i = 0; i < cantRegistros ; i++) {
+
+
+	}
+}*/
+
 void ClienteManager::EditarTelefono() {
 	string dni, telefono;
 	cout << "INGRESAR DNI DEL CLIENTE: ";

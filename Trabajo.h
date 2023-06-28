@@ -15,12 +15,13 @@ private:
 	int _avanceTrabajo; 	//1 diagnostico, 2 desmontaje, 3 ensamblaje, 4 finalizado, 5 entregado
 	Fecha _fechaEntrada;
 	Fecha _fechaEntrega;
+	float _precioTrabajo;
 	bool _estado;
 
 
 public:
 	Trabajo();
-	Trabajo(int idTrabajo, int idPresupuesto, std::string patente, std::string dniCliente, std::string dniProveedor, std::string dniEmpleado, int avanceTrabajo, Fecha fechaEntrada, Fecha fechaEntrega);
+	Trabajo(int idTrabajo, int idPresupuesto, std::string patente, std::string dniCliente, std::string dniProveedor, std::string dniEmpleado, int avanceTrabajo, Fecha fechaEntrada, Fecha fechaEntrega, float precioTrabajo);
 
 	void setIdTrabajo(int idTrabajo);
 	void setIdPresupuesto(int idPresupuesto);
@@ -31,6 +32,7 @@ public:
 	void setAvanceTrabajo(int avanceTrabajo);
 	void setFechaEntrada(Fecha fechaEntrada);
 	void setFechaEntrega(Fecha fechaEntrega);
+	void setPrecioTrabajo (float precioTrabajo);
 	void setEstado(bool estado);
 
 	int getIdTrabajo();
@@ -42,6 +44,7 @@ public:
 	int getAvanceTrabajo();
 	Fecha getFechaEntrada();
 	Fecha getFechaEntrega();
+	float getPrecioTrabajo();
 	bool getEstado();
 
 };

@@ -1,6 +1,9 @@
 #ifndef FUNCIONES_H_INCLUDED
 #define FUNCIONES_H_INCLUDED
 
+#include "string"
+#include "iostream"
+
 #include "Persona.h"
 #include "Cliente.h"
 #include "Empleado.h"
@@ -38,8 +41,11 @@ void vehiculoHardcodear();
 void presupuestoHardcodear();
 void trabajoHardcodear();
 void autoClienteHardcodear();
-
 void hardcodearTodo();
+
+    ///funciones para el menu
+void recaudacionAnual(int anio);
+void recaudacionCliente (std::string dni);
 
 
 #endif // FUNCIONES_H_INCLUDED

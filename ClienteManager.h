@@ -22,6 +22,7 @@ public:
 	void ListarTrabajosCliente();
 	void ListarOrdenadosPorFechaAlta();
 	void ListarOrdenadosPorApellido();
+	//void ListarEntreFechas(Fecha fecha1, Fecha fecha2);
 
 	void EditarTelefono();
 	void Eliminar();

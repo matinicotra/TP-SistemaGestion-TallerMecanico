@@ -19,6 +19,8 @@ int getInteger(int minimo = INT_MIN, int maximo = INT_MAX) {
 	}
 }
 
+
+        ///HARCODEO
 void clienteHardcodear(){
 
 Fecha fecha1(10, 1, 2022);
@@ -229,16 +231,16 @@ Fecha fechaEntrega9(15, 9, 2022);
 Fecha fechaEntrada10(10, 10, 2022);
 Fecha fechaEntrega10(20, 10, 2022);
 
-Trabajo trabajo1(1, 1, "ABC123", "12345678", "12345670", "12345600", 3, fechaEntrada1, fechaEntrega1);
-Trabajo trabajo2(2, 2, "DEF456", "12345678", "12345670", "12345600", 2, fechaEntrada2, fechaEntrega2);
-Trabajo trabajo3(3, 3, "GHI789", "12345678", "12345670", "12345600", 4, fechaEntrada3, fechaEntrega3);
-Trabajo trabajo4(4, 4, "JKL012", "87654321", "65432187", "87654311", 1, fechaEntrada4, fechaEntrega4);
-Trabajo trabajo5(5, 5, "MNO345", "87654321", "65432187", "87654311", 5, fechaEntrada5, fechaEntrega5);
-Trabajo trabajo6(6, 6, "PQR678", "56781234", "65432187", "98765444", 3, fechaEntrada6, fechaEntrega6);
-Trabajo trabajo7(7, 7, "STU901", "56781234", "43218765", "43218733", 2, fechaEntrada7, fechaEntrega7);
-Trabajo trabajo8(8, 8, "VWX234", "56783421", "43218765", "43218733", 4, fechaEntrada8, fechaEntrega8);
-Trabajo trabajo9(9, 9, "YZA567", "56783421", "56783429", "43218733", 1, fechaEntrada9, fechaEntrega9);
-Trabajo trabajo10(10, 10, "BCD890", "56783421", "56783429", "56781222", 5, fechaEntrada10, fechaEntrega10);
+Trabajo trabajo1(1, 1, "ABC123", "12345678", "12345670", "12345600", 3, fechaEntrada1, fechaEntrega1, 10000);
+Trabajo trabajo2(2, 2, "DEF456", "12345678", "12345670", "12345600", 2, fechaEntrada2, fechaEntrega2, 15000);
+Trabajo trabajo3(3, 3, "GHI789", "12345678", "12345670", "12345600", 4, fechaEntrada3, fechaEntrega3, 7000);
+Trabajo trabajo4(4, 4, "JKL012", "87654321", "65432187", "87654311", 1, fechaEntrada4, fechaEntrega4, 9500);
+Trabajo trabajo5(5, 5, "MNO345", "87654321", "65432187", "87654311", 5, fechaEntrada5, fechaEntrega5, 12000);
+Trabajo trabajo6(6, 6, "PQR678", "56781234", "65432187", "98765444", 3, fechaEntrada6, fechaEntrega6, 14000);
+Trabajo trabajo7(7, 7, "STU901", "56781234", "43218765", "43218733", 2, fechaEntrada7, fechaEntrega7, 18000);
+Trabajo trabajo8(8, 8, "VWX234", "56783421", "43218765", "43218733", 4, fechaEntrada8, fechaEntrega8, 9000);
+Trabajo trabajo9(9, 9, "YZA567", "56783421", "56783429", "43218733", 1, fechaEntrada9, fechaEntrega9, 22000);
+Trabajo trabajo10(10, 10, "BCD890", "56783421", "56783429", "56781222", 5, fechaEntrada10, fechaEntrega10, 5000);
 
 TrabajoArchivo ta;
 
@@ -290,3 +292,49 @@ void hardcodearTodo(){
     trabajoHardcodear();
     autoClienteHardcodear();
 }
+
+///--------------------------HASTA ACA HARDCODEO-----------------------------------------
+
+
+/// FUNCIONES DEL MENU
+
+void recaudacionAnual(int anio){
+    TrabajoArchivo ta;
+    Trabajo trabajo;
+    int cantRegistros = ta.GetCantidadRegistros();
+    float recaudacion = 0;
+    for (int x = 0 ; x < cantRegistros ; x++){
+            trabajo = ta.Leer(x);
+        if (anio == trabajo.getFechaEntrega().getAnio() && trabajo.getAvanceTrabajo() == 5 && trabajo.getEstado() == true){
+            recaudacion += trabajo.getPrecioTrabajo();
+        }
+    }
+    cout << "La recaudacion del anio " << anio <<" es: $" << recaudacion << endl;
+}
+
+void recaudacionCliente (string dni){
+    ClienteArchivo ca;
+    Cliente cliente;
+    TrabajoArchivo ta;
+    Trabajo trabajo;
+    int cantRegistrosCliente = ca.GetCantidadRegistros(), cantRegistrosTrabajo = ta.GetCantidadRegistros();
+    float recaudacion = 0;
+    bool existe = false;
+
+    for (int y = 0 ; y < cantRegistrosTrabajo ; y++){
+            trabajo = ta.Leer(y);
+        if (dni == trabajo.getDniCliente() && trabajo.getAvanceTrabajo() == 5 && trabajo.getEstado() == true){
+            recaudacion += trabajo.getPrecioTrabajo();
+        }
+    }
+
+    for (int x = 0 ; x < cantRegistrosCliente ; x++){
+        cliente = ca.Leer(x);
+        if (dni == cliente.getDni() && cliente.getEstado() == true){
+            cout << "El cliente " << cliente.getApellido() << " " << cliente.getNombre() << " lleva gastado: $" << recaudacion << endl;
+            existe = true;
+        }
+    }
+        if (!existe) {cout << "El cliente no existe." << endl;}
+}
+
