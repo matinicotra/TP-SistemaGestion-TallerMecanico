@@ -1,11 +1,12 @@
 #include <iostream>
 using namespace std;
-#include "menu.h"
-#include "Funciones.h"
+
+#include "Programa.h"
 
 int main()
 {
-	//prueba, hay un error y no compila
+	Programa programa;
+	programa.Ejecutar();
 
     return 0;
 }

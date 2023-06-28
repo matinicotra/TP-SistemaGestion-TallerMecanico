@@ -39,7 +39,7 @@ public:
     void menuListadoClientes();
     void menuListadoVehiculos();
     void menuListadoTrabajos();
-    void menuListadoProveedores()
+    void menuListadoProveedores();
 
     void menuArchivoCopiar();
     void menuArchivoRestaurar();

@@ -151,7 +151,6 @@ void Menu::menuListados() {
         std::cout<<"-2 VEHICULOS"<<std::endl;
         std::cout<<"-3 TRABAJOS"<<std::endl;
         std::cout<<"-4 PROVEEDORES"<<std::endl;
-        std::cout<<"-5 EMPLEADOS"<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
 
@@ -171,9 +170,6 @@ void Menu::menuListados() {
             break;
         case 4:
             menuListadoProveedores();
-            break;
-        case 5:
-            menuListadoEmpleados();
             break;
         case 0:
             return;

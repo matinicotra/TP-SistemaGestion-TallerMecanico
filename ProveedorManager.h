@@ -9,7 +9,7 @@ private:
 	ProveedorArchivo _archivo;
 	ProveedorArchivo _archivoBkp = ProveedorArchivo("proveedores.bkp");
 
-	OrdenarPorOrigen(Proveedor *vec, int cantRegistros);
+	void OrdenarPorOrigen(Proveedor *vec, int cantRegistros);
 
 public:
 	void Cargar();

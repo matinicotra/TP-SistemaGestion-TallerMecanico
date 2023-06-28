@@ -366,7 +366,7 @@ void TrabajoManager::ListarEntregadosPorFecha() {
 	OrdenarPorFechaEntrega(vec, cantRegistros);
 
 	for (int i = 0; i < cantRegistros; i++) {
-		if (vec[i].getAvanceTrabajo == 5 && vec[i].getEstado()) {
+		if (vec[i].getAvanceTrabajo() == 5 && vec[i].getEstado()) {
 			ListarRegistro(vec[i]);
 			cout << endl;
 		}
@@ -406,7 +406,7 @@ void TrabajoManager::ActualizarAvance() {
 	} else cout << "ID inexistente." << endl;
 }
 
-TrabajoManager::ListarPorEmpleado() {
+void TrabajoManager::ListarPorEmpleado() {
 	EmpleadoArchivo arcEmpleado;
 	std::string dni;
 	bool bandera = false;
