@@ -485,6 +485,7 @@ void Menu::menuListadoEmpleados()
         std::cout<<"-1 LISTAR TODOS."<<std::endl;
         std::cout<<"-2 MODIFICAR SUELDO DE EMPLEADO."<<std::endl;
         std::cout<<"-3 ORDENADO POR SUELDO"<<std::endl<<std::endl;
+        std::cout<<"-4 ORDENADO POR FECHA DE NACIMIENTO"<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
 
@@ -500,8 +501,10 @@ void Menu::menuListadoEmpleados()
             _empleadoManager.EditarSueldo();
             break;
         case 3:
-
+			_empleadoManager.ListarOrdenadoPorSueldo();
             break;
+		case 4:
+			_empleadoManager.ListarOrdenadoPorFechaNacimiento();
         case 0:
             return;
             break;

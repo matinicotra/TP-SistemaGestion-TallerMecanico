@@ -1,8 +1,9 @@
-#include "EmpleadoManager.h"
 #include <iostream>
 using namespace std;
 
-void OrdenarPorSueldo(Empleado *vec, int cantRegistros) {
+#include "EmpleadoManager.h"
+
+void EmpleadoManager::OrdenarPorSueldo(Empleado *vec, int cantRegistros) {
 	int mayor = 0;
 	Empleado aux;
 	for (int i = 0; i < cantRegistros - 1; i++) {
@@ -20,7 +21,7 @@ void OrdenarPorSueldo(Empleado *vec, int cantRegistros) {
 	}
 }
 
-void OrdenarPorFecha(Empleado *vec, int cantRegistros) {
+void EmpleadoManager::OrdenarPorFecha(Empleado *vec, int cantRegistros) {
 	int mayor = 0;
 	Empleado aux;
 	for (int i = 0; i < cantRegistros - 1; i++) {
