@@ -11,6 +11,7 @@
 #include "ClienteManager.h"
 #include "VehiculoManager.h"
 #include "AutoClienteManager.h"
+#include "PresupuestoManager.h"
 
 using namespace std;
 
@@ -146,9 +147,11 @@ void TrabajoManager::Cargar() {
 		reg.setIdPresupuesto(id);
 		break;
 	case 2:
-		///CARGAR PRESUPUESTO
+		PresupuestoManager aux;
+		aux.Cargar();
 		int pos = arcPresupuesto.GetCantidadRegistros();
 		reg.setIdPresupuesto(arcPresupuesto.Leer(pos).getIdPresupuesto());
+		reg.setPrecioTrabajo(arcPresupuesto.Leer(pos).getImporte());
 		break;
 	}
 

@@ -24,8 +24,8 @@ public:
 	void ListarPorDniCliente();
 	void ListarPorAvance();
 	void ListarOrdenadosPorFecha();
-
 	void ActualizarAvance();
+
 	void Eliminar();
 
 	void HacerCopiaDeSeguridad();

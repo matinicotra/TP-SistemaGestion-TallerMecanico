@@ -249,7 +249,7 @@ void Menu::menuConsultasClientes() {
         std::cout<<"====== CONSULTAS CLIENTES ======"<<std::endl;
         std::cout<<"-1 POR APELLIDO"<<std::endl;
         std::cout<<"-2 POR DNI"<<std::endl;
-        std::cout<<"-3 POR TRABAJO"<<std::endl<<std::endl;
+        std::cout<<"-3 "<<std::endl<<std::endl;
         std::cout<<"-4 MODIFICAR UN NUMERO DE TELEFONO"<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
@@ -264,7 +264,7 @@ void Menu::menuConsultasClientes() {
             _clienteManager.ListarPorDni();
             break;
         case 3:
-//            _clienteManager.ListarTrabajosCliente();
+
             break;
         case 4:
             _clienteManager.EditarTelefono();
@@ -484,7 +484,7 @@ void Menu::menuListadoEmpleados()
         std::cout<<"=========== LISTADOS EMPLEADOS ====="<<std::endl;
         std::cout<<"-1 LISTAR TODOS."<<std::endl;
         std::cout<<"-2 MODIFICAR SUELDO DE EMPLEADO."<<std::endl;
-        std::cout<<"-3 ORDENADO POR ANTIGUEDAD"<<std::endl<<std::endl;
+        std::cout<<"-3 ORDENADO POR SUELDO"<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
 

@@ -2,6 +2,43 @@
 #include <iostream>
 using namespace std;
 
+void OrdenarPorSueldo(Empleado *vec, int cantRegistros) {
+	int mayor = 0;
+	Empleado aux;
+	for (int i = 0; i < cantRegistros - 1; i++) {
+		mayor = i;
+		for (int j = i + 1; j < cantRegistros; j++) {
+			if (vec[j].getSueldo() > vec[mayor].getSueldo()) {
+				mayor = j;
+			}
+		}
+		if (i != mayor) {
+			aux = vec[i];
+			vec[i] = vec[mayor];
+			vec[mayor] = aux;
+		}
+	}
+}
+
+void OrdenarPorFecha(Empleado *vec, int cantRegistros) {
+	int mayor = 0;
+	Empleado aux;
+	for (int i = 0; i < cantRegistros - 1; i++) {
+		mayor = i;
+		for (int j = i + 1; j < cantRegistros; j++) {
+			if (vec[j].getFechaNacimiento().toString("YYYY/MM/DD") > vec[mayor].getFechaNacimiento().toString("YYYY/MM/DD")) {
+				mayor = j;
+			}
+		}
+		if (i != mayor) {
+			aux = vec[i];
+			vec[i] = vec[mayor];
+			vec[mayor] = aux;
+		}
+	}
+}
+
+
 void EmpleadoManager::Cargar() {
 	string dni, nombre, apellido, eMail, direccion, telefono, cargo, cuentaBancaria;
 	float sueldo;
@@ -73,6 +110,52 @@ void EmpleadoManager::ListarPorDni() {
 	if (pos >= 0) {
 		ListarRegistro(_archivo.Leer(pos));
 	} else cout << "No exsite registro con DNI " << dni << endl;
+}
+
+void EmpleadoManager::ListarOrdenadoPorSueldo() {
+	int cantReg = _archivo.GetCantidadRegistros();
+
+	Empleado *vec = new Empleado[cantReg];
+	if (vec == nullptr) {
+		cout << "Error" << endl;
+		return;
+	}
+
+	for (int i = 0; i < cantReg; i++) {
+		vec[i] = _archivo.Leer(i);
+	}
+
+	OrdenarPorSueldo(vec, cantReg);
+
+	for (int i = 0; i < cantReg; i++) {
+		ListarRegistro(vec[i]);
+		cout << endl;
+	}
+
+	delete []vec;
+}
+
+void EmpleadoManager::ListarOrdenadoPorFechaNacimiento() {
+	int cantReg = _archivo.GetCantidadRegistros();
+
+	Empleado *vec = new Empleado[cantReg];
+	if (vec == nullptr) {
+		cout << "Error" << endl;
+		return;
+	}
+
+	for (int i = 0; i < cantReg; i++) {
+		vec[i] = _archivo.Leer(i);
+	}
+
+	OrdenarPorFecha(vec, cantReg);
+
+	for (int i = 0; i < cantReg; i++) {
+		ListarRegistro(vec[i]);
+		cout << endl;
+	}
+
+	delete []vec;
 }
 
 void EmpleadoManager::EditarSueldo() {

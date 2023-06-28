@@ -9,12 +9,18 @@ private:
 	EmpleadoArchivo _archivo;
 	EmpleadoArchivo _archivoBkp = EmpleadoArchivo("empleados.bkp");
 
+	void OrdenarPorSueldo(Empleado *vec, int cantRegistros);
+	void OrdenarPorFecha(Empleado *vec, int cantRegistros);
+
 public:
 	void Cargar();
 
 	void ListarTodos();
 	void ListarRegistro(Empleado empleado);
 	void ListarPorDni();
+
+	void ListarOrdenadoPorSueldo();
+	void ListarOrdenadoPorFechaNacimiento();
 
 	void EditarSueldo();
 	void Eliminar();

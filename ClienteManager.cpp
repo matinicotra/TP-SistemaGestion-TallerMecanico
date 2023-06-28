@@ -137,7 +137,7 @@ void ClienteManager::ListarOrdenadosPorFechaAlta() {
 		vec[i] = _archivo.Leer(i);
 	}
 
-	OrdenarPorApellido(vec, cantReg);
+	OrdenarPorFecha(vec, cantReg);
 
 	for (int i = 0; i < cantReg; i++) {
 		ListarRegistro(vec[i]);
