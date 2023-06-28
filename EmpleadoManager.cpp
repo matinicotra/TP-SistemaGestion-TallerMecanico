@@ -122,10 +122,7 @@ void EmpleadoManager::ListarOrdenadoPorSueldo() {
 		return;
 	}
 
-	for (int i = 0; i < cantReg; i++) {
-		vec[i] = _archivo.Leer(i);
-	}
-
+	_archivo.Leer(vec, cantReg);
 	OrdenarPorSueldo(vec, cantReg);
 
 	for (int i = 0; i < cantReg; i++) {
@@ -145,10 +142,7 @@ void EmpleadoManager::ListarOrdenadoPorFechaNacimiento() {
 		return;
 	}
 
-	for (int i = 0; i < cantReg; i++) {
-		vec[i] = _archivo.Leer(i);
-	}
-
+	_archivo.Leer(vec, cantReg);
 	OrdenarPorFecha(vec, cantReg);
 
 	for (int i = 0; i < cantReg; i++) {

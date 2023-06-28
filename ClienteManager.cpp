@@ -133,10 +133,7 @@ void ClienteManager::ListarOrdenadosPorFechaAlta() {
 		return;
 	}
 
-	for (int i = 0; i < cantReg; i++) {
-		vec[i] = _archivo.Leer(i);
-	}
-
+	_archivo.Leer(vec, cantReg);
 	OrdenarPorFecha(vec, cantReg);
 
 	for (int i = 0; i < cantReg; i++) {
@@ -156,10 +153,7 @@ void ClienteManager::ListarOrdenadosPorApellido() {
 		return;
 	}
 
-	for (int i = 0; i < cantReg; i++) {
-		vec[i] = _archivo.Leer(i);
-	}
-
+	_archivo.Leer(vec, cantReg);
 	OrdenarPorApellido(vec, cantReg);
 
 	for (int i = 0; i < cantReg; i++) {

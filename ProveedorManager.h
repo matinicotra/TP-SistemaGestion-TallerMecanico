@@ -9,6 +9,8 @@ private:
 	ProveedorArchivo _archivo;
 	ProveedorArchivo _archivoBkp = ProveedorArchivo("proveedores.bkp");
 
+	OrdenarPorOrigen(Proveedor *vec, int cantRegistros);
+
 public:
 	void Cargar();
 
@@ -16,6 +18,7 @@ public:
 	void ListarRegistro(Proveedor proveedor);
 	void ListarPorDni();
 	void ListarPorRubro();
+	void ListarPorOrigenFabricacion();
 
 	void EditarTelefono();
 	void Eliminar();

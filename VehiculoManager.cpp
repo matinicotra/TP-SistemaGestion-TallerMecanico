@@ -110,10 +110,7 @@ void VehiculoManager::ListarOrdenadosPorFechaAlta() {
 		return;
 	}
 
-	for (int i = 0; i < cantReg; i++) {
-		vec[i] = _archivo.Leer(i);
-	}
-
+	_archivo.Leer(vec, cantReg);
 	OrdenarPorFecha(vec, cantReg);
 
 	for (int i = 0; i < cantReg; i++) {
@@ -133,10 +130,7 @@ void VehiculoManager::ListarOrdenadosPorPatente() {
 		return;
 	}
 
-	for (int i = 0; i < cantReg; i++) {
-		vec[i] = _archivo.Leer(i);
-	}
-
+	_archivo.Leer(vec, cantReg);
 	OrdenarPorPatente(vec, cantReg);
 
 	for (int i = 0; i < cantReg; i++) {

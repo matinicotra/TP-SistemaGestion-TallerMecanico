@@ -23,7 +23,7 @@ bool TrabajoManager::ExisteId(int id) {
 	return _archivo.Buscar(id) >= 0;
 }
 
-void TrabajoManager::Ordenar(Trabajo *vec, int cantRegistros) {
+void TrabajoManager::OrdenarPorFechaEntrada(Trabajo *vec, int cantRegistros) {
 	int mayor = 0;
 	Trabajo aux;
 
@@ -32,6 +32,26 @@ void TrabajoManager::Ordenar(Trabajo *vec, int cantRegistros) {
 
 		for (int j = i + 1; j < cantRegistros; j++) {
 			if (vec[j].getFechaEntrada().toString("YYYY/MM/DD") > vec[mayor].getFechaEntrada().toString("YYYY/MM/DD")) {
+				mayor = j;
+			}
+		}
+		if (i != mayor) {
+			aux = vec[i];
+			vec[i] = vec[mayor];
+			vec[mayor] = aux;
+		}
+	}
+}
+
+void TrabajoManager::OrdenarPorFechaEntrega(Trabajo *vec, int cantRegistros) {
+	int mayor = 0;
+	Trabajo aux;
+
+	for (int i = 0; i < cantRegistros - 1; i++) {
+		mayor = i;
+
+		for (int j = i + 1; j < cantRegistros; j++) {
+			if (vec[j].getFechaEntrega().toString("YYYY/MM/DD") > vec[mayor].getFechaEntrega().toString("YYYY/MM/DD")) {
 				mayor = j;
 			}
 		}
@@ -268,7 +288,7 @@ void TrabajoManager::ListarPorDniCliente() {
 
 	for (int i = 0; i < cantRegistros; i++) {
 		Trabajo trabajo = _archivo.Leer(i);
-		if (trabajo.getDniCliente() == dni) {
+		if (trabajo.getDniCliente() == dni && trabajo.getAvanceTrabajo() <= 4 && trabajo.getEstado()) {
 			ListarRegistro(trabajo);
 			cout << endl;
 			bandera = true;
@@ -291,7 +311,7 @@ void TrabajoManager::ListarPorAvance() {
 	cout << "4 - FINALIZADO" << endl;
 	cout << "5 - ENTREGADO" << endl;
 	cout << "Opcion: ";
-	cin >> opc;
+	opc = getInteger(1, 5);
 
 	system("cls");
 
@@ -315,20 +335,41 @@ void TrabajoManager::ListarPorAvance() {
 
 void TrabajoManager::ListarOrdenadosPorFecha() {
 	int cantRegistros = _archivo.GetCantidadRegistros();
-	Trabajo *vec;
 
-	vec = new Trabajo[cantRegistros];
+	Trabajo *vec = new Trabajo[cantRegistros];
 	if (vec == nullptr) {
-		cout << "Error al visualizar el listado.";
+		cout << "Error" << endl;
 		return;
 	}
 
 	_archivo.Leer(vec, cantRegistros);
-	Ordenar(vec, cantRegistros);
+	OrdenarPorFechaEntrada(vec, cantRegistros);
 
 	for (int i = 0; i < cantRegistros; i++) {
 		ListarRegistro(vec[i]);
 		cout << endl;
+	}
+
+	delete []vec;
+}
+
+void TrabajoManager::ListarEntregadosPorFecha() {
+	int cantRegistros = _archivo.GetCantidadRegistros();
+
+	Trabajo *vec = new Trabajo[cantRegistros];
+	if (vec == nullptr) {
+		cout << "Error" << endl;
+		return;
+	}
+
+	_archivo.Leer(vec, cantRegistros);
+	OrdenarPorFechaEntrega(vec, cantRegistros);
+
+	for (int i = 0; i < cantRegistros; i++) {
+		if (vec[i].getAvanceTrabajo == 5 && vec[i].getEstado()) {
+			ListarRegistro(vec[i]);
+			cout << endl;
+		}
 	}
 
 	delete []vec;
@@ -364,6 +405,29 @@ void TrabajoManager::ActualizarAvance() {
 
 	} else cout << "ID inexistente." << endl;
 }
+
+TrabajoManager::ListarPorEmpleado() {
+	EmpleadoArchivo arcEmpleado;
+	std::string dni;
+	bool bandera = false;
+	int cantRegistros = _archivo.GetCantidadRegistros();
+
+	cout << "INGRESAR DNI DEL EMPLEADO: ";
+	getline(cin, dni);
+	if (arcEmpleado.Buscar(dni) >= 0) {
+		for (int i = 0; i < cantRegistros; i++) {
+			Trabajo trabajo = _archivo.Leer(i);
+			if (trabajo.getDniEmpleado() == dni && trabajo.getEstado()) {
+				ListarRegistro(trabajo);
+				cout << endl;
+				bandera = true;
+			}
+		}
+		if (!bandera) cout << "El empleado aun no realizo trabajos." << endl;
+	} cout << "Dni inexistente." << endl;
+
+}
+
 
 void TrabajoManager::Eliminar() {
 	int id, pos;

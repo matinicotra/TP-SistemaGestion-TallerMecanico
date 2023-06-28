@@ -3,6 +3,24 @@ using namespace std;
 
 #include "ProveedorManager.h"
 
+void ProveedorManager::OrdenarPorOrigen(Proveedor *vec, int cantRegistros) {
+	int mayor = 0;
+	Proveedor aux;
+	for (int i = 0; i < cantRegistros - 1; i++) {
+		mayor = i;
+		for (int j = i + 1; j < cantRegistros; j++) {
+			if (vec[j].getOrigenFabricacion() == vec[mayor].getOrigenFabricacion()) {
+				mayor = j;
+			}
+		}
+		if (i != mayor) {
+			aux = vec[i];
+			vec[i] = vec[mayor];
+			vec[mayor] = aux;
+		}
+	}
+}
+
 void ProveedorManager::Cargar() {
 	string dni, nombre, apellido, eMail, direccion, telefono, rubro, autoparte, origenFabricacion;
 
@@ -79,6 +97,26 @@ void ProveedorManager::ListarPorRubro() {
 			cout << endl;
 		}
 	}
+}
+
+void ProveedorManager::ListarPorOrigenFabricacion() {
+	int cantRegistros = _archivo.GetCantidadRegistros();
+
+	Proveedor *vec = new Proveedor[cantRegistros];
+	if (vec == nullptr) {
+		cout << "Error." << endl;
+		return;
+	}
+
+	_archivo.Leer(vec, cantRegistros);
+	OrdenarPorOrigen(vec, cantRegistros);
+
+	for (int i = 0; i < cantRegistros; i++) {
+		ListarRegistro(vec[i]);
+		cout << endl;
+	}
+
+	delete []vec;
 }
 
 void ProveedorManager::EditarTelefono() {

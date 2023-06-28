@@ -1,12 +1,9 @@
 #include "menu.h"
 
-///FALTA LLAMADAS A LAS FUNCIONES QUE HACEN CADA COSA, SOLO ESTÁ EL GENERAL DE LLAMAR A LOS MENUS
-
-/// ---------------------------menu principal--------------------------------------------------
+///MENU PRINCIPAL
 void Menu::displayMain() {
     while (true) {
         int opcion;
-
         system("cls");
         std::cout<<"================================"<<std::endl;
         std::cout<<"============= MENU ============="<<std::endl;
@@ -48,7 +45,9 @@ void Menu::displayMain() {
     }
 }
 
-///----------------------menus secundarios-----------------------------------------
+
+
+//SUBMENUS
 
 void Menu::menuCargas() {
     while (true) {
@@ -102,9 +101,12 @@ void Menu::menuConsultas() {
 
         system("cls");
         std::cout<<"=========== CONSULTAS =========="<<std::endl;
-        std::cout<<"-1 CLIENTE"<<std::endl;
-        std::cout<<"-2 TRABAJO"<<std::endl;
-        std::cout<<"-3 PROVEEDOR"<<std::endl<<std::endl;
+        std::cout<<"-1 CLIENTES"<<std::endl;
+        std::cout<<"-2 TRABAJOS"<<std::endl;
+        std::cout<<"-3 PRESUPUESTOS"<<std::endl;
+        std::cout<<"-4 PROVEEDORES"<<std::endl;
+        std::cout<<"-5 VEHICULOS"<<std::endl;
+        std::cout<<"-6 EMPLEADOS"<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
         std::cout<<"INGRESE UNA OPCION: ";
@@ -114,12 +116,21 @@ void Menu::menuConsultas() {
         case 1:
             menuConsultasClientes();
             break;
-        case 2:
+		case 2:
             menuConsultasTrabajos();
-            break;
+			break;
         case 3:
-            menuConsultasProveedores();
+        	menuConsultasProveedores();
             break;
+        case 4:
+            menuConsultasPresupuestos();
+            break;
+		case 5:
+			menuConsultasVehiculos();
+			break;
+		case 6:
+			menuConsultasEmpleados();
+			break;
         case 0:
             return;
             break;
@@ -235,22 +246,20 @@ void Menu::menuArchivos() {
         }
     }
 }
-///------------------ hasta aca menus secundarios -----------------------------------------
 
 
-///--------------menus terciarios------------------------------
 
-//menus terciarios consultas
+//CONSULTAS Y EDICIONES
 
 void Menu::menuConsultasClientes() {
     while (true) {
         int opcion;
         system("cls");
         std::cout<<"====== CONSULTAS CLIENTES ======"<<std::endl;
-        std::cout<<"-1 POR APELLIDO"<<std::endl;
-        std::cout<<"-2 POR DNI"<<std::endl;
-        std::cout<<"-3 "<<std::endl<<std::endl;
-        std::cout<<"-4 MODIFICAR UN NUMERO DE TELEFONO"<<std::endl<<std::endl;
+        std::cout<<"-1 BUSCAR POR DNI"<<std::endl;
+        std::cout<<"-2 BUSCAR POR APELLIDO"<<std::endl;
+        std::cout<<"-3 MODIFICAR UN NUMERO DE TELEFONO"<<std::endl;
+        std::cout<<"-4 ELIMINAR CLIENTE"<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
         std::cout<<"INGRESE UNA OPCION: ";
@@ -258,16 +267,16 @@ void Menu::menuConsultasClientes() {
 
         switch(opcion) {
         case 1:
-            _clienteManager.ListarPorApellido();
-            break;
-        case 2:
             _clienteManager.ListarPorDni();
             break;
+        case 2:
+            _clienteManager.ListarPorApellido();
+            break;
         case 3:
-
+            _clienteManager.EditarTelefono();
             break;
         case 4:
-            _clienteManager.EditarTelefono();
+        	_clienteManager.Eliminar();
         case 0:
             return;
             break;
@@ -283,10 +292,12 @@ void Menu::menuConsultasTrabajos() {
         int opcion;
         system("cls");
         std::cout<<"====== CONSULTAS TRABAJOS ======"<<std::endl;
-        std::cout<<"-1 POR AVANCE"<<std::endl;
-        std::cout<<"-2 POR RANGO DE FECHAS"<<std::endl;
-        std::cout<<"-3 POR VEHICULO"<<std::endl;
-        std::cout<<"-4 POR CLIENTE"<<std::endl<<std::endl;
+        std::cout<<"-1 BUSCAR POR ID"<<std::endl;
+        std::cout<<"-2 BUSCAR POR ESTADO"<<std::endl;
+        std::cout<<"-3 BUSCAR POR VEHICULO"<<std::endl;
+        std::cout<<"-4 BUSCAR TRABAJOS ACTIVOS POR CLIENTE"<<std::endl;
+        std::cout<<"-5 ACTUALIZAR ESTADO DE TRABAJO"<<std::endl;
+        std::cout<<"-6 ELIMINAR TRABAJO"<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
         std::cout<<"INGRESE UNA OPCION: ";
@@ -294,10 +305,10 @@ void Menu::menuConsultasTrabajos() {
 
         switch(opcion) {
         case 1:
-            _trabajoManager.ListarPorAvance();
+        	_trabajoManager.ListarPorId();
             break;
         case 2:
-
+            _trabajoManager.ListarPorAvance();
             break;
         case 3:
             _trabajoManager.ListarPorPatente();
@@ -305,6 +316,12 @@ void Menu::menuConsultasTrabajos() {
         case 4:
             _trabajoManager.ListarPorDniCliente();
             break;
+		case 5:
+			_trabajoManager.ActualizarAvance();
+			break;
+		case 6:
+			_trabajoManager.Eliminar();
+			break;
         case 0:
             return;
             break;
@@ -322,7 +339,8 @@ void Menu::menuConsultasProveedores() {
         std::cout<<"====== CONSULTAS PROVEEDORES ===="<<std::endl;
         std::cout<<"-1 POR DNI."<<std::endl;
         std::cout<<"-2 POR RUBRO."<<std::endl;
-        std::cout<<"-3 EDITAR TELEFONO DE PROVEEDOR."<<std::endl<<std::endl;
+        std::cout<<"-3 EDITAR TELEFONO DE PROVEEDOR."<<std::endl;
+        std::cout<<"-4 ELIMINAR PROVEEDOR."<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
         std::cout<<"INGRESE UNA OPCION: ";
@@ -338,6 +356,8 @@ void Menu::menuConsultasProveedores() {
         case 3:
             _proveedorManager.EditarTelefono();
             break;
+		case 4:
+			_proveedorManager.Eliminar();
         case 0:
             return;
             break;
@@ -347,23 +367,133 @@ void Menu::menuConsultasProveedores() {
         }
     }
 }
-//------------------hasta aca menus terciarios consultas-------------------------------------------
 
-//menus terciarios listados
-void Menu::menuListadoClientes() {
-    while (true) {
-        int opcion;
+void Menu::menuConsultasPresupuestos() {
+	while (true) {
         system("cls");
-        std::cout<<"=========== LISTADOS CLIENTES ====="<<std::endl;
-        std::cout<<"-1 ORDENADO POR APLELLIDO"<<std::endl;
-        std::cout<<"-2 ORDENADO POR FECHA DE ALTA"<<std::endl<<std::endl;
+        int opcion;
+        std::cout<<"======= CONSULTAS PRESUPUESTOS ====="<<std::endl;
+        std::cout<<"-1 BUSCAR POR ID"<<std::endl;
+        std::cout<<"-2 MODIFICAR IMPORTE"<<std::endl;
+        std::cout<<"-3 ELIMINAR PRESUPUESTO"<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
-        std::cout<<"================================"<<std::endl;
+        std::cout<<"===================================="<<std::endl;
         std::cout<<"INGRESE UNA OPCION: ";
         std::cin>>opcion;
 
         switch(opcion)
         {
+        case 1:
+			_presupuestoManager.ListarPorId();
+            break;
+        case 2:
+			_presupuestoManager.EditarImporte();
+            break;
+		case 3:
+			_presupuestoManager.Eliminar();
+			break;
+        case 0:
+            return;
+            break;
+        default:
+            std::cout<<"OPCION NO VALIDA"<<std::endl;
+            break;
+        }
+    }
+}
+
+void Menu::menuConsultasVehiculos() {
+	while (true) {
+		system("cls");
+		int opcion;
+		std::cout<<"======= CONSULTAS VEHICULOS ====="<<std::endl;
+		std::cout<<"-1 BUSCAR POR PATENTE"<<std::endl;
+		std::cout<<"-2 ELIMINAR VEHICULO"<<std::endl<<std::endl;
+		std::cout<<"-0 ATRAS."<<std::endl;
+		std::cout<<"===================================="<<std::endl;
+		std::cout<<"INGRESE UNA OPCION: ";
+		std::cin>>opcion;
+
+		switch(opcion)
+		{
+		case 1:
+			_vehiculoManager.ListarPorPatente();
+			break;
+		case 2:
+			_vehiculoManager.Eliminar();
+			break;
+		case 0:
+			return;
+			break;
+		default:
+			std::cout<<"OPCION NO VALIDA"<<std::endl;
+			break;
+		}
+    }
+}
+
+void Menu::menuConsultasEmpleados() {
+	while (true) {
+		system("cls");
+		int opcion;
+		std::cout<<"======= CONSULTAS EMPLEADOS ====="<<std::endl;
+		std::cout<<"-1 BUSCAR POR DNI"<<std::endl;
+		std::cout<<"-2 LISTAR TODOS"<<std::endl;
+		std::cout<<"-3 LISTAR ORDENADOS POR SUELDO"<<std::endl;
+		std::cout<<"-4 LISTAR ORDENADOS POR FECHA DE NACIMIENTO"<<std::endl;
+		std::cout<<"-5 EDITAR SUELDO DE EMPLEADO"<<std::endl;
+		std::cout<<"-6 ELIMINAR EMPLEADO"<<std::endl;
+		std::cout<<"-0 ATRAS."<<std::endl;
+		std::cout<<"===================================="<<std::endl;
+		std::cout<<"INGRESE UNA OPCION: ";
+		std::cin>>opcion;
+
+		switch(opcion)
+		{
+		case 1:
+			_empleadoManager.ListarPorDni();
+			break;
+		case 2:
+			_empleadoManager.ListarTodos();
+			break;
+		case 3:
+			_empleadoManager.ListarOrdenadoPorSueldo();
+			break;
+		case 4:
+			_empleadoManager.ListarOrdenadoPorFechaNacimiento();
+			break;
+		case 5:
+			_empleadoManager.EditarSueldo();
+			break;
+		case 6:
+			_empleadoManager.Eliminar();
+		case 0:
+			return;
+			break;
+		default:
+			std::cout<<"OPCION NO VALIDA"<<std::endl;
+			break;
+		}
+    }
+}
+
+
+
+//LISTADOS
+
+void Menu::menuListadoClientes() {
+    while (true) {
+        int opcion;
+        system("cls");
+        std::cout<<"=========== LISTADOS CLIENTES ====="<<std::endl;
+        std::cout<<"-1 LISTAR ORDENADOS POR APLELLIDO"<<std::endl;
+        std::cout<<"-2 LISTAR ORDENADOS POR FECHA DE ALTA"<<std::endl<<std::endl;
+        std::cout<<"-0 ATRAS."<<std::endl;
+        std::cout<<"================================"<<std::endl;
+        std::cout<<"INGRESE UNA OPCION: ";
+        std::cin>>opcion;
+
+        switch(opcion) {
         case 1:
             _clienteManager.ListarOrdenadosPorApellido();
             break;
@@ -385,8 +515,8 @@ void Menu::menuListadoVehiculos() {
         int opcion;
         system("cls");
         std::cout<<"=========== LISTADOS VEHICULOS ====="<<std::endl;
-        std::cout<<"-1 ORDENADO POR PATENTE."<<std::endl;
-        std::cout<<"-2 ORDENADO POR FECHA DE ALTA."<<std::endl<<std::endl;
+        std::cout<<"-1 LISTAR ORDENADOS POR PATENTE."<<std::endl;
+        std::cout<<"-2 LISTAR ORDENADOS POR FECHA DE ALTA."<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
         std::cout<<"INGRESE UNA OPCION: ";
@@ -409,15 +539,15 @@ void Menu::menuListadoVehiculos() {
     }
 }
 
-void Menu::menuListadoTrabajos()
-{
+void Menu::menuListadoTrabajos() {
     while (true)
     {
         system("cls");
         int opcion;
         std::cout<<"=========== LISTADOS TRABAJOS ====="<<std::endl;
-        std::cout<<"-1 ORDENADO POR TIPO"<<std::endl;
-        std::cout<<"-2 ORDENADO POR RANGO DE FECHAS"<<std::endl<<std::endl;
+        std::cout<<"-1 LISTAR TODOS POR FECHA DE ENTRADA"<<std::endl;
+        std::cout<<"-2 LISTAR ENTREGADOS POR FECHA"<<std::endl;
+        std::cout<<"-3 LISTAR TRABAJOS POR EMPLEADO"<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
         std::cout<<"================================"<<std::endl;
 
@@ -427,12 +557,13 @@ void Menu::menuListadoTrabajos()
         switch(opcion)
         {
         case 1:
-
+			_trabajoManager.ListarOrdenadosPorFecha();
             break;
         case 2:
-
+        	_trabajoManager.ListarEntregadosPorFecha();
             break;
-
+		case 3:
+			_trabajoManager.ListarPorEmpleado();
         case 0:
             return;
             break;
@@ -447,24 +578,21 @@ void Menu::menuListadoProveedores() {
     while (true) {
         int opcion;
         system("cls");
-        std::cout<<"=========== LISTADOS PROVEEDORES ==="<<std::endl;
-        std::cout<<"-1 ORDENADO POR TIPO DE REPUESTO"<<std::endl;
-        std::cout<<"-2 ORDENADO POR COSTOS"<<std::endl<<std::endl;
+        std::cout<<"======= LISTADOS PROVEEDORES ======="<<std::endl;
+        std::cout<<"-1 LISTAR TODOS "<<std::endl;
+        std::cout<<"-2 ORDENADO POR ORIGEN DE FABRICACION."<<std::endl;
         std::cout<<"-0 ATRAS."<<std::endl;
-        std::cout<<"================================"<<std::endl;
-
+        std::cout<<"===================================="<<std::endl;
         std::cout<<"INGRESE UNA OPCION: ";
         std::cin>>opcion;
 
-        switch(opcion)
-        {
+        switch(opcion) {
         case 1:
-
+			_proveedorManager.ListarTodos();
             break;
         case 2:
-
+        	_proveedorManager.ListarPorOrigenFabricacion();
             break;
-
         case 0:
             return;
             break;
@@ -475,48 +603,10 @@ void Menu::menuListadoProveedores() {
     }
 }
 
-void Menu::menuListadoEmpleados()
-{
-    while (true)
-    {
-        system("cls");
-        int opcion;
-        std::cout<<"=========== LISTADOS EMPLEADOS ====="<<std::endl;
-        std::cout<<"-1 LISTAR TODOS."<<std::endl;
-        std::cout<<"-2 MODIFICAR SUELDO DE EMPLEADO."<<std::endl;
-        std::cout<<"-3 ORDENADO POR SUELDO"<<std::endl<<std::endl;
-        std::cout<<"-4 ORDENADO POR FECHA DE NACIMIENTO"<<std::endl<<std::endl;
-        std::cout<<"-0 ATRAS."<<std::endl;
-        std::cout<<"================================"<<std::endl;
 
-        std::cout<<"INGRESE UNA OPCION: ";
-        std::cin>>opcion;
 
-        switch(opcion)
-        {
-        case 1:
-            _empleadoManager.ListarTodos();
-            break;
-        case 2:
-            _empleadoManager.EditarSueldo();
-            break;
-        case 3:
-			_empleadoManager.ListarOrdenadoPorSueldo();
-            break;
-		case 4:
-			_empleadoManager.ListarOrdenadoPorFechaNacimiento();
-        case 0:
-            return;
-            break;
-        default:
-            std::cout<<"OPCION NO VALIDA"<<std::endl;
-            break;
-        }
-    }
-}
-//---------------hasta aca menus terciarios listados-------------------------------------------
+//MANEJO DE ARCHIVOS
 
-//menus archivos
 void Menu::menuArchivoCopiar() {
     while (true) {
         int opcion;
@@ -627,4 +717,3 @@ void Menu::menuArchivoRestaurar() {
     }
 }
 
-//---------------hasta aca menus terciarios archivos-------------------------------------------
