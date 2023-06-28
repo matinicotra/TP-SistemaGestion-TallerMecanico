@@ -6,19 +6,19 @@ using namespace std;
 #include "TrabajoManager.h"
 
 void ClienteManager::OrdenarPorFecha(Cliente *vec, int cantRegistros) {
-	int mayor = 0;
+	int menor = 0;
 	Cliente aux;
 	for (int i = 0; i < cantRegistros - 1; i++) {
-		mayor = i;
+		menor = i;
 		for (int j = i + 1; j < cantRegistros; j++) {
-			if (vec[j].getFechaAlta().toString("YYYY/MM/DD") > vec[mayor].getFechaAlta().toString("YYYY/MM/DD")) {
-				mayor = j;
+			if (vec[j].getFechaAlta().toString("YYYY/MM/DD") < vec[menor].getFechaAlta().toString("YYYY/MM/DD")) {
+				menor = j;
 			}
 		}
-		if (i != mayor) {
+		if (i != menor) {
 			aux = vec[i];
-			vec[i] = vec[mayor];
-			vec[mayor] = aux;
+			vec[i] = vec[menor];
+			vec[menor] = aux;
 		}
 	}
 }
@@ -29,7 +29,7 @@ void ClienteManager::OrdenarPorApellido(Cliente *vec, int cantRegistros) {
 	for (int i = 0; i < cantRegistros - 1; i++) {
 		mayor = i;
 		for (int j = i + 1; j < cantRegistros; j++) {
-			if (vec[j].getApellido() > vec[mayor].getApellido()) {
+			if (vec[j].getApellido() < vec[mayor].getApellido()) {
 				mayor = j;
 			}
 		}
@@ -46,6 +46,7 @@ void ClienteManager::Cargar() {
 	string dni, nombre, apellido, eMail, direccion, telefono, razonSocial;
 	int dia, mes, anio;
 
+	cin.ignore();
 	cout << "NOMBRE       : ";
 	getline(cin, nombre);
 	cout << "APELLIDO     : ";
@@ -65,16 +66,15 @@ void ClienteManager::Cargar() {
 	cin >> dia;
 	cout << "MES          : ";
 	cin >> mes;
-	cout << "ANIO         :" ;
+	cout << "ANIO         : " ;
 	cin >> anio;
+	cout << endl;
 
-    Fecha fechaAlta(dia,mes,anio);
-
-	Cliente reg(dni, nombre, apellido, eMail, direccion, telefono, razonSocial,fechaAlta);
-	reg.setFechaAlta(Fecha(dia, mes, anio));
+	Cliente reg(dni, nombre, apellido, eMail, direccion, telefono, razonSocial, Fecha(dia, mes, anio));
 
 	if (_archivo.Guardar(reg)) {
 		cout << "Registro guardado existosamente!" << endl;
+		system("pause");
 	} else cout << "Error al guardar el registro" << endl;
 }
 
@@ -103,17 +103,20 @@ void ClienteManager::ListarRegistro(Cliente cliente) {
 void ClienteManager::ListarPorDni() {
 	int pos;
 	string dni;
+	cin.ignore();
 	cout << "INGRESAR DNI DEL CLIENTE: ";
 	getline(cin, dni);
 	pos = _archivo.Buscar(dni);
 	if (pos >= 0) {
 		ListarRegistro(_archivo.Leer(pos));
 	} else cout << "No exsite registro con DNI " << dni << endl;
+	system("pause");
 }
 
 void ClienteManager::ListarPorApellido() {
 	int cantRegistros = _archivo.GetCantidadRegistros();
 	string apellido;
+	cin.ignore();
 	cout << "INGRESAR APELLIDO DEL CLIENTE: ";
 	getline(cin, apellido);
 	for (int i = 0; i < cantRegistros; i++) {
@@ -122,6 +125,7 @@ void ClienteManager::ListarPorApellido() {
 			ListarRegistro(cliente);
 		}
 	}
+	system("pause");
 }
 
 void ClienteManager::ListarOrdenadosPorFechaAlta() {
@@ -142,6 +146,7 @@ void ClienteManager::ListarOrdenadosPorFechaAlta() {
 	}
 
 	delete []vec;
+	system("pause");
 }
 
 void ClienteManager::ListarOrdenadosPorApellido() {
@@ -162,6 +167,7 @@ void ClienteManager::ListarOrdenadosPorApellido() {
 	}
 
 	delete []vec;
+	system("pause");
 }
 
 /*void ClienteManager::ListarEntreFechas(Fecha fecha1, Fecha fecha2) {
@@ -186,47 +192,61 @@ void ClienteManager::ListarOrdenadosPorApellido() {
 
 void ClienteManager::EditarTelefono() {
 	string dni, telefono;
+
+	cin.ignore();
 	cout << "INGRESAR DNI DEL CLIENTE: ";
 	getline(cin, dni);
+
 	int pos = _archivo.Buscar(dni);
+
 	if (pos >= 0) {
 		Cliente reg = _archivo.Leer(pos);
 		ListarRegistro(reg);
+
 		cout << endl << "INGRESAR NUEVO TELEFONO: ";
 		getline(cin, telefono);
 		reg.setTelefono(telefono);
-		if (_archivo.Guardar(reg)) {
+
+		if (_archivo.Guardar(reg, pos)) {
 			cout << "Registro guardado existosamente!" << endl;
-		} cout << "Error al guardar el registro." << endl;
-	} cout << "DNI inexistente." << endl;
+		} else cout << "Error al guardar el registro." << endl;
+
+	} else cout << "DNI inexistente." << endl;
+
+	system("pause");
 }
 
 void ClienteManager::Eliminar() {
 	int pos;
 	string dni;
+
+	cin.ignore();
 	cout << "INGRESAR DNI DEL CLIENTE: ";
 	getline(cin, dni);
+
 	pos = _archivo.Buscar(dni);
+
 	if (pos >= 0) {
 		Cliente reg = _archivo.Leer(pos);
 		ListarRegistro(reg);
 
-		string opc;
+		char opc;
 		cout << endl << "Desea eliminar el registro? Ingresar 'S' para confirmar; 'N' para regresar.";
-		cin.ignore();
-		getline(cin, opc);
+		cin >> opc;
 
-		if (opc == "S" || opc == "s") {
+		if (opc == 'S' || opc == 's') {
 			reg.setEstado(false);
 
-			if (_archivo.Guardar(reg)) {
+			if (_archivo.Guardar(reg, pos)) {
 				cout << "Registro eliminado exitosamente." << endl;
 			} else cout << "Error al eliminar el registro." << endl;
 
-		} else if (opc == "N" || opc == "n") {
+		} else if (opc == 'N' || opc == 'n') {
 			cout << "No se realizaron modificaciones." << endl;
-		} else cout << "El valor ingresado es incorrecto" << endl;
+		} else cout << "El valor ingresado es incorrecto." << endl;
+
 	} else cout << "DNI inexistente." << endl;
+	system("pause");
 }
 
 void ClienteManager::HacerCopiaDeSeguridad() {
@@ -235,7 +255,7 @@ void ClienteManager::HacerCopiaDeSeguridad() {
 
 	vec = new Cliente[cantRegistros];
 	if (vec == nullptr) {
-		cout << "Error al realizar backup" << endl;
+		cout << "Error al realizar backup." << endl;
 		return;
 	}
 
@@ -243,7 +263,7 @@ void ClienteManager::HacerCopiaDeSeguridad() {
 	_archivoBkp.Vaciar();
 	if (_archivoBkp.Guardar(vec, cantRegistros)) {
 		cout << "Backup realizado correctamente!" << endl;
-	} else cout << "Error al realizar backup" << endl;
+	} else cout << "Error al realizar backup." << endl;
 
 	delete []vec;
 }
@@ -254,7 +274,7 @@ void ClienteManager::RestaurarCopiaDeSeguridad() {
 
 	vec = new Cliente[cantRegistros];
 	if (vec == nullptr) {
-		cout << "Error al realizar backup" << endl;
+		cout << "Error al restaurar el backup." << endl;
 		return;
 	}
 
