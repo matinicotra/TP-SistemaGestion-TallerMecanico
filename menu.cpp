@@ -12,10 +12,10 @@ void Menu::displayMain() {
         std::cout<<"-2 CONSULTAS"<<std::endl;
         std::cout<<"-3 LISTADOS"<<std::endl;
         std::cout<<"-4 INFORMES"<<std::endl;
-        std::cout<<"-5 MANEJO DE ARCHIVOS"<<std::endl;
-        std::cout<<"-0 SALIR DEL MENU PRINCIPAL"<<std::endl;
+        std::cout<<"-5 MANEJO DE ARCHIVOS"<<std::endl<<std::endl;
+        std::cout<<"-0 SALIR DEL MENU PRINCIPAL"<<std::endl<<std::endl;
         std::cout<<"================================"<<std::endl;
-        std::cout<<"================================"<<std::endl;
+        std::cout<<"================================"<<std::endl<<std::endl;
         std::cout<<"INGRESE UNA OPCION: ";
         std::string entrada;
 

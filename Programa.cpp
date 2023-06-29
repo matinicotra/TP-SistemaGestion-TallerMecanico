@@ -7,10 +7,10 @@ void Programa::Ejecutar() {
     char opcion;
 	do {
         system("cls");
-		cout << "===== TALLER MECANICO =====" << endl;
-		cout << "1 - IR AL MENU PRINCIPAL" << endl;
-		cout << "===========================" << endl;
-		cout << "0 - SALIR DEL PROGRAMA" << endl;
+		cout << "===== TALLER MECANICO =====" << endl << endl;
+		cout << "1 - IR AL MENU PRINCIPAL" << endl << endl;
+		cout << "0 - SALIR DEL PROGRAMA" << endl << endl;
+		cout << "===========================" << endl << endl;
 		string entrada;
 
         cin>>entrada;

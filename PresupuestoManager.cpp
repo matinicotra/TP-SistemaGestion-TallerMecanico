@@ -197,15 +197,15 @@ void PresupuestoManager::ListarRegistro(Presupuesto presupuesto) {
 	cout << "PATENTE                 : " << presupuesto.getPatente() << endl;
 	cout << "IMPORTE                 $ " << presupuesto.getImporte() << endl;
 	cout << "DETALLE                 : " << presupuesto.getDetalle() << endl;
-	cout << "FECHA                   : " << presupuesto.getFecha().toString("DD/MM/YYYY") << endl << endl;
+	cout << "FECHA                   : " << presupuesto.getFecha().toString("DD/MM/YYYY") << endl;
 	cout << "ASISTENCIA DE GRUA      : ";
 	if (presupuesto.getAsistenciaGrua()) {
 		cout << "SI" << endl;
 	} else cout << "NO" << endl;
 	cout << "VEHICULO DE SUSTITUCION : ";
 	if (presupuesto.getVehiculoSustitucion()) {
-		cout << "SI" << endl;
-	} else cout << "NO" << endl;
+		cout << "SI" << endl << endl;
+	} else cout << "NO" << endl << endl;
 }
 
 void PresupuestoManager::ListarPorId() {
