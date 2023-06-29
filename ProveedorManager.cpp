@@ -9,7 +9,7 @@ void ProveedorManager::OrdenarPorOrigen(Proveedor *vec, int cantRegistros) {
 	for (int i = 0; i < cantRegistros - 1; i++) {
 		mayor = i;
 		for (int j = i + 1; j < cantRegistros; j++) {
-			if (vec[j].getOrigenFabricacion() == vec[mayor].getOrigenFabricacion()) {
+			if (vec[j].getOrigenFabricacion() > vec[mayor].getOrigenFabricacion()) {
 				mayor = j;
 			}
 		}
