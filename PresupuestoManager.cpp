@@ -192,7 +192,6 @@ void PresupuestoManager::ListarTodos() {
 }
 
 void PresupuestoManager::ListarRegistro(Presupuesto presupuesto) {
-    if (presupuesto.getEstado()){
 	cout << "PRESUPUESTO ID          # " << presupuesto.getIdPresupuesto() << endl;
 	cout << "DNI CLIENTE             : " << presupuesto.getDniCliente() << endl;
 	cout << "PATENTE                 : " << presupuesto.getPatente() << endl;
@@ -207,7 +206,7 @@ void PresupuestoManager::ListarRegistro(Presupuesto presupuesto) {
 	if (presupuesto.getVehiculoSustitucion()) {
 		cout << "SI" << endl;
 	} else cout << "NO" << endl;
-}}
+}
 
 void PresupuestoManager::ListarPorId() {
 	int id;

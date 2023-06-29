@@ -67,7 +67,6 @@ void AutoClienteManager::ListarTodos(){
 }
 
 void AutoClienteManager::ListarRegistro(AutoCliente reg){
-    if (reg.getEstado()){
     cout << "Dni del Cliente: " << reg.getDniCliente() << "    Patente del auto: " << reg.getPatente() << endl << endl;
-}}
+}
 

@@ -90,7 +90,6 @@ void ClienteManager::ListarTodos() {
 }
 
 void ClienteManager::ListarRegistro(Cliente cliente) {
-    if (cliente.getEstado()){
 	cout << "NOMBRE        : " << cliente.getNombre() << endl;
 	cout << "APELLIDO      : " << cliente.getApellido() << endl;
 	cout << "DNI           : " << cliente.getDni() << endl;
@@ -99,7 +98,6 @@ void ClienteManager::ListarRegistro(Cliente cliente) {
 	cout << "TELEFONO      : " << cliente.getTelefono() << endl;
 	cout << "RAZON SOCIAL  : " << cliente.getRazonSocial() << endl;
 	cout << "FECHA DE ALTA : " << cliente.getFechaAlta().toString("DD/MM/YYYY") << endl << endl;
-    }
 }
 
 void ClienteManager::ListarPorDni() {
@@ -146,9 +144,11 @@ void ClienteManager::ListarOrdenadosPorFechaAlta() {
 	OrdenarPorFecha(vec, cantReg);
 
 	for (int i = 0; i < cantReg; i++) {
+	    Cliente aux = _archivo.Leer(i);
+            if (aux.getEstado()){
 		ListarRegistro(vec[i]);
 		cout << endl;
-	}
+	}}
 
 	delete []vec;
 	system("pause");
@@ -167,9 +167,11 @@ void ClienteManager::ListarOrdenadosPorApellido() {
 	OrdenarPorApellido(vec, cantReg);
 
 	for (int i = 0; i < cantReg; i++) {
+            Cliente aux = _archivo.Leer(i);
+            if (aux.getEstado()){
 		ListarRegistro(vec[i]);
 		cout << endl;
-	}
+	}}
 
 	delete []vec;
 	system("pause");

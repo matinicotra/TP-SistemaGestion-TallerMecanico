@@ -86,13 +86,12 @@ void VehiculoManager::ListarTodos() {
 }
 
 void VehiculoManager::ListarRegistro(Vehiculo vehiculo) {
-    if (vehiculo.getEstado()){
 	cout << "PATENTE       : " << vehiculo.getPatente() << endl;
 	cout << "MARCA         : " << vehiculo.getMarca() << endl;
 	cout << "MODELO        : " << vehiculo.getModelo() << endl;
 	cout << "ANIO          : " << vehiculo.getAnio() << endl;
 	cout << "FECHA DE ALTA : " << vehiculo.getFechaAlta().toString("DD/MM/YYYY") << endl << endl;
-}}
+}
 
 void VehiculoManager::ListarPorPatente() {
 	int pos;
@@ -121,9 +120,11 @@ void VehiculoManager::ListarOrdenadosPorFechaAlta() {
 	OrdenarPorFecha(vec, cantReg);
 
 	for (int i = 0; i < cantReg; i++) {
+        Vehiculo aux = _archivo.Leer(i);
+            if (aux.getEstado()){
 		ListarRegistro(vec[i]);
 		cout << endl;
-	}
+	}}
 
 	delete []vec;
 	system("pause");
@@ -142,9 +143,11 @@ void VehiculoManager::ListarOrdenadosPorPatente() {
 	OrdenarPorPatente(vec, cantReg);
 
 	for (int i = 0; i < cantReg; i++) {
+        Vehiculo aux = _archivo.Leer(i);
+            if (aux.getEstado()){
 		ListarRegistro(vec[i]);
 		cout << endl;
-	}
+	}}
 
 	delete []vec;
 	system("pause");

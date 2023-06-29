@@ -93,7 +93,6 @@ void EmpleadoManager::ListarTodos() {
 }
 
 void EmpleadoManager::ListarRegistro(Empleado empleado) {
-    if (empleado.getEstado()){
 	cout << "NOMBRE               : " << empleado.getNombre() << endl;
 	cout << "APELLIDO             : " << empleado.getApellido() << endl;
 	cout << "DNI                  : " << empleado.getDni() << endl;
@@ -104,7 +103,7 @@ void EmpleadoManager::ListarRegistro(Empleado empleado) {
 	cout << "SUELDO               : " << empleado.getSueldo() << endl;
 	cout << "CUENTA BANCARIA      : " << empleado.getCuentaBancaria() << endl;
 	cout << "FECHA DE NACIMOIENTO : " << empleado.getFechaNacimiento().toString("DD/MM/YYYY") << endl;
-}}
+}
 
 void EmpleadoManager::ListarPorDni() {
 	string dni;
@@ -132,9 +131,11 @@ void EmpleadoManager::ListarOrdenadoPorSueldo() {
 	OrdenarPorSueldo(vec, cantReg);
 
 	for (int i = 0; i < cantReg; i++) {
+        Empleado aux = _archivo.Leer(i);
+            if (aux.getEstado()){
 		ListarRegistro(vec[i]);
 		cout << endl;
-	}
+	}}
 
 	delete []vec;
 	system("pause");
@@ -153,9 +154,11 @@ void EmpleadoManager::ListarOrdenadoPorFechaNacimiento() {
 	OrdenarPorFecha(vec, cantReg);
 
 	for (int i = 0; i < cantReg; i++) {
+        Empleado aux = _archivo.Leer(i);
+            if (aux.getEstado()){
 		ListarRegistro(vec[i]);
 		cout << endl;
-	}
+	}}
 
 	delete []vec;
 	system("pause");

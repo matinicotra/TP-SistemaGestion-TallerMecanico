@@ -308,7 +308,6 @@ void TrabajoManager::ListarRegistro(Trabajo trabajo) {
 	int posEmp = arcEmpleado.Buscar(trabajo.getDniEmpleado());
 	int posPresu = arcPresupuesto.Buscar(trabajo.getIdPresupuesto());
 	int posProv = arcProveedor.Buscar(trabajo.getDniProveedor());
-    if (trabajo.getEstado()){
 	cout << endl << "ID DE TRABAJO:     # " << trabajo.getIdTrabajo() << endl;
 	cout << "PATENTE            : " << trabajo.getPatente() << endl;
 	cout << "CLIENTE            : " << arcCliente.Leer(posCli).getNombre() << " " << arcCliente.Leer(posCli).getApellido() << endl;
@@ -325,7 +324,7 @@ void TrabajoManager::ListarRegistro(Trabajo trabajo) {
 	if (trabajo.getAvanceTrabajo() == 3) cout << "ENSAMBLAJE" << endl << endl;
 	if (trabajo.getAvanceTrabajo() == 4) cout << "FINALIZADO" << endl << endl;
 	if (trabajo.getAvanceTrabajo() == 5) cout << "ENTREGADO" << endl << endl;
-}}
+}
 
 void TrabajoManager::ListarPorPatente() {
 	std::string patente;
@@ -418,9 +417,11 @@ void TrabajoManager::ListarOrdenadosPorFecha() {
 	OrdenarPorFechaEntrada(vec, cantRegistros);
 
 	for (int i = 0; i < cantRegistros; i++) {
+            Trabajo aux = _archivo.Leer(i);
+            if (aux.getEstado()){
 		ListarRegistro(vec[i]);
 		cout << endl;
-	}
+	}}
 
 	delete []vec;
 	system("pause");
@@ -495,7 +496,7 @@ void TrabajoManager::ListarPorEmpleado() {
 	if (arcEmpleado.Buscar(dni) >= 0 && emp.getEstado() == true) {
 		for (int i = 0; i < cantRegistros; i++) {
 			Trabajo trabajo = _archivo.Leer(i);
-			if (trabajo.getDniEmpleado() == dni && trabajo.getEstado()) {
+			if (trabajo.getDniEmpleado() == dni && trabajo.getEstado() == true) {
 				ListarRegistro(trabajo);
 				cout << endl;
 				bandera = true;

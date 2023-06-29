@@ -66,7 +66,6 @@ void ProveedorManager::ListarTodos() {
 }
 
 void ProveedorManager::ListarRegistro(Proveedor proveedor) {
-    if (proveedor.getEstado()){
 	cout << "NOMBRE                : " << proveedor.getNombre() << endl;
 	cout << "APELLIDO              : " << proveedor.getApellido() << endl;
 	cout << "DNI                   : " << proveedor.getDni() << endl;
@@ -76,7 +75,6 @@ void ProveedorManager::ListarRegistro(Proveedor proveedor) {
 	cout << "RUBRO                 : " << proveedor.getRubro() << endl;
 	cout << "AUTOPARTE             : " << proveedor.getAutoparte() << endl;
 	cout << "ORIGEN DE FABRICACION : " << proveedor.getOrigenFabricacion() << endl << endl;
-	}
 }
 
 void ProveedorManager::ListarPorDni() {
