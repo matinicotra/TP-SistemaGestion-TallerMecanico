@@ -50,6 +50,7 @@ void recaudacionCliente ();
     ///funciones archivos
 void hacerCopiaDeSeguridadTodo();
 void hacerRestauracionDeSeguridadTodo();
+void vaciarArchivosDeTodo();
 
 
 #endif // FUNCIONES_H_INCLUDED

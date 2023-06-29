@@ -16,7 +16,7 @@ void Programa::Ejecutar() {
         cin>>entrada;
 
         if (entrada.length() != 1) {
-            cout << "Error: Debe ingresar solo un car�cter. Intente nuevamente." << std::endl;
+            cout << "Error: Debe ingresar solo un caracter. Intente nuevamente." << std::endl;
         } else {
         opcion = entrada[0];
 		switch (opcion) {
