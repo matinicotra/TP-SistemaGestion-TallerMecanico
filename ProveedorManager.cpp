@@ -76,7 +76,8 @@ void ProveedorManager::ListarRegistro(Proveedor proveedor) {
 	cout << "RUBRO                 : " << proveedor.getRubro() << endl;
 	cout << "AUTOPARTE             : " << proveedor.getAutoparte() << endl;
 	cout << "ORIGEN DE FABRICACION : " << proveedor.getOrigenFabricacion() << endl << endl;
-}}
+	}
+}
 
 void ProveedorManager::ListarPorDni() {
 	int pos;
