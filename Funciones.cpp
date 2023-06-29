@@ -310,8 +310,12 @@ void hardcodearTodo()
 
 /// FUNCIONES DEL MENU
 
-void recaudacionAnual(int anio)
+void recaudacionAnual()
 {
+    int anio;
+    cout << "======= RECAUDACION ANUAL ========" << endl << endl;
+    cout << "Ingrese el anio: ";
+    cin >> anio;
     TrabajoArchivo ta;
     Trabajo trabajo;
     int cantRegistros = ta.GetCantidadRegistros();
@@ -327,8 +331,12 @@ void recaudacionAnual(int anio)
     cout << "La recaudacion del anio " << anio <<" es: $" << recaudacion << endl;
 }
 
-void recaudacionCliente (string dni)
+void recaudacionCliente ()
 {
+    string dni;
+    cout << "======= RECAUDACION ANUAL POR CLIENTE ========" << endl << endl;
+    cout << "Ingrese DNI del cliente: ";
+    getline(cin, dni);
     ClienteArchivo ca;
     Cliente cliente;
     TrabajoArchivo ta;
