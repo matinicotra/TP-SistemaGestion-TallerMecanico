@@ -138,8 +138,8 @@ void ProveedorManager::EditarTelefono() {
 
 	int pos = _archivo.Buscar(dni);
 
-	if (pos >= 0) {
 		Proveedor reg = _archivo.Leer(pos);
+	if (pos >= 0 && reg.getEstado() == true) {
 		ListarRegistro(reg);
 
 		cout << endl << "INGRESAR NUEVO TELEFONO: ";
@@ -161,8 +161,8 @@ void ProveedorManager::Eliminar() {
 	getline(cin, dni);
 
 	int pos = _archivo.Buscar(dni);
-	if (pos >= 0) {
 		Proveedor reg = _archivo.Leer(pos);
+	if (pos >= 0 && reg.getEstado() == true) {
 		ListarRegistro(reg);
 
 		char opc;

@@ -513,8 +513,8 @@ void TrabajoManager::Eliminar() {
 	cin >> id;
 	pos = _archivo.Buscar(id);
 
-	if (pos >= 0) {
 		Trabajo reg = _archivo.Leer(pos);
+	if (pos >= 0 && reg.getEstado() == true) {
 		ListarRegistro(reg);
 
 		char opc;

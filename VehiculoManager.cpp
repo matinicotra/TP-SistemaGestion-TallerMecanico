@@ -160,8 +160,8 @@ void VehiculoManager::Eliminar() {
 
 	pos = _archivo.Buscar(patente);
 
-	if (pos >= 0) {
 		Vehiculo reg = _archivo.Leer(pos);
+	if (pos >= 0 && reg.getEstado() == true) {
 		ListarRegistro(reg);
 
 		char opc;

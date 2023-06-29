@@ -267,8 +267,8 @@ void PresupuestoManager::EditarImporte() {
 	cout << "INGRESAR ID DEL PRESUPUESTO: ";
 	cin >> id;
 	int pos = _archivo.Buscar(id);
-	if (pos >= 0) {
 		Presupuesto reg = _archivo.Leer(pos);
+	if (pos >= 0 && reg.getEstado() == true) {
 		ListarRegistro(reg);
 		cout << endl << "INGRESAR NUEVO IMPORTE: ";
 		cin >> importe;

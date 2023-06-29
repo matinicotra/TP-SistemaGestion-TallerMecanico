@@ -204,8 +204,8 @@ void ClienteManager::EditarTelefono() {
 
 	int pos = _archivo.Buscar(dni);
 
-	if (pos >= 0) {
 		Cliente reg = _archivo.Leer(pos);
+	if (pos >= 0 && reg.getEstado() == true) {
 		ListarRegistro(reg);
 
 		cout << endl << "INGRESAR NUEVO TELEFONO: ";

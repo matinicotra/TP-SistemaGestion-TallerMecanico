@@ -168,8 +168,8 @@ void EmpleadoManager::EditarSueldo() {
 	cout << "INGRESAR DNI DEL EMPLEADO: ";
 	getline(cin, dni);
 	int pos = _archivo.Buscar(dni);
-	if (pos >= 0) {
 		Empleado reg = _archivo.Leer(pos);
+	if (pos >= 0 && reg.getEstado() == true) {
 		ListarRegistro(reg);
 		cout << endl << "INGRESAR SUELDO: ";
 		cin >> sueldo;
@@ -187,8 +187,8 @@ void EmpleadoManager::Eliminar() {
 	cout << "INGRESAR DNI DEL EMPLEADO: ";
 	getline(cin, dni);
 	int pos = _archivo.Buscar(dni);
-	if (pos >= 0) {
 		Empleado reg = _archivo.Leer(pos);
+	if (pos >= 0 && reg.getEstado() == true) {
 		ListarRegistro(reg);
 
 		char opc;

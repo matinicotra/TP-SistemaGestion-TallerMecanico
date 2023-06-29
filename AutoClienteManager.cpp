@@ -19,8 +19,8 @@ void AutoClienteManager::Cargar(std::string dni, std::string patente) {
 
 void AutoClienteManager::Eliminar(std::string patente) {
 	int pos = _archivo.BuscarPatente(patente);
-	if (pos >= 0) {
 		AutoCliente reg = _archivo.Leer(pos);
+	if (pos >= 0 && reg.getEstado()==true) {
 		reg.setEstado(false);
 		_archivo.Guardar(reg, pos);
 	}
