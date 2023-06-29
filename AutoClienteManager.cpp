@@ -28,32 +28,51 @@ void AutoClienteManager::Eliminar(std::string patente) {
 
 void AutoClienteManager::HacerCopiaDeSeguridad() {
 	int cantRegistros = _archivo.GetCantidadRegistros();
+
+    if (cantRegistros<=0){
+        cout << "No existe el archivo." << endl;
+        system("pause");
+        return;}
+
 	AutoCliente *vec;
 
 	vec = new AutoCliente[cantRegistros];
 	if (vec == nullptr) {
+        cout << "Error al realizar backup." << endl;
 		return;
 	}
 
 	_archivo.Leer(vec, cantRegistros);
 	_archivoBkp.Vaciar();
-	_archivoBkp.Guardar(vec, cantRegistros);
+
+	if (_archivoBkp.Guardar(vec, cantRegistros)) {
+		cout << "Backup realizado correctamente!" << endl;
+	} else cout << "Error al realizar backup." << endl;
 
 	delete []vec;
 }
 
 void AutoClienteManager::RestaurarCopiaDeSeguridad() {
 	int cantRegistros = _archivoBkp.GetCantidadRegistros();
+
+		if (cantRegistros<=0){
+            cout << "No existe el archivo." << endl;
+            system("pause");
+            return;}
+
 	AutoCliente *vec;
 
 	vec = new AutoCliente[cantRegistros];
 	if (vec == nullptr) {
+        cout << "Error al realizar backup." << endl;
 		return;
 	}
 
 	_archivoBkp.Leer(vec, cantRegistros);
 	_archivo.Vaciar();
-	_archivo.Guardar(vec, cantRegistros);
+	if (_archivoBkp.Guardar(vec, cantRegistros)) {
+		cout << "Backup realizado correctamente!" << endl;
+	} else cout << "Error al realizar backup." << endl;
 
 	delete []vec;
 }

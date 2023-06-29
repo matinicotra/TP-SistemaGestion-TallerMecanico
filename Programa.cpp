@@ -5,6 +5,7 @@ using namespace std;
 void Programa::Ejecutar() {
 	int opc;
 	do {
+        system("cls");
 		cout << "===== TALLER MECANICO =====" << endl;
 		cout << "1 - IR AL MENU PRINCIPAL" << endl;
 		cout << "===========================" << endl;

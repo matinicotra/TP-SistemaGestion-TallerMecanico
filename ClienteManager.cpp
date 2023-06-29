@@ -255,6 +255,10 @@ void ClienteManager::Eliminar() {
 
 void ClienteManager::HacerCopiaDeSeguridad() {
 	int cantRegistros = _archivo.GetCantidadRegistros();
+	if (cantRegistros<=0){
+            cout << "No existe el archivo" << endl;
+            system("pause");
+            return;}
 	Cliente *vec;
 
 	vec = new Cliente[cantRegistros];
@@ -275,6 +279,10 @@ void ClienteManager::HacerCopiaDeSeguridad() {
 
 void ClienteManager::RestaurarCopiaDeSeguridad() {
 	int cantRegistros = _archivoBkp.GetCantidadRegistros();
+    	if (cantRegistros<=0){
+            cout << "No existe el archivo" << endl;
+            system("pause");
+            return;}
 	Cliente *vec;
 
 	vec = new Cliente[cantRegistros];
