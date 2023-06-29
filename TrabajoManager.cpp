@@ -211,7 +211,9 @@ void TrabajoManager::Cargar() {
 		dniCliente = arcAutoCliente.Leer(pos).getDniCliente();
 		cout << endl;
 	}
-	else dniCliente = IngresarCliente(nuevoCliente);
+	else {
+		dniCliente = IngresarCliente(nuevoCliente);
+	}
 
 	idPresupuesto = IngresarPresupuesto(precioTrabajo);
 

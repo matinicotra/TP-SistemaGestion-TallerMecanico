@@ -132,7 +132,9 @@ void PresupuestoManager::Cargar() {
 		dniCliente = arcAutoCliente.Leer(pos).getDniCliente();
 		cout << endl;
 	}
-	else dniCliente = IngresarCliente(nuevoCliente);
+	else {
+		dniCliente = IngresarCliente(nuevoCliente);
+	}
 
 	cout << endl << "INGRESAR IMPORTE TOTAL DEL TRABAJO: ";
 	cin >> importe;
