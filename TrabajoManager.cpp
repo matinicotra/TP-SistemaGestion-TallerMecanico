@@ -210,7 +210,8 @@ void TrabajoManager::Cargar() {
 		int pos = arcAutoCliente.BuscarPatente(patente);
 		dniCliente = arcAutoCliente.Leer(pos).getDniCliente();
 		cout << endl;
-	} else dniCliente = IngresarCliente(nuevoCliente);
+	}
+	else dniCliente = IngresarCliente(nuevoCliente);
 
 	idPresupuesto = IngresarPresupuesto(precioTrabajo);
 

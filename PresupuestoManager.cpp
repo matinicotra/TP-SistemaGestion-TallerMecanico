@@ -1,3 +1,7 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
 #include "PresupuestoManager.h"
 #include "ClienteArchivo.h"
 #include "ClienteManager.h"
@@ -5,8 +9,6 @@
 #include "VehiculoManager.h"
 #include "AutoClienteManager.h"
 
-#include <iostream>
-using namespace std;
 
 int PresupuestoManager::GenerarId() {
 	return _archivo.GetCantidadRegistros() + 1;
@@ -16,15 +18,101 @@ bool PresupuestoManager::ExisteId(int id) {
 	return _archivo.Buscar(id) >= 0;
 }
 
-void PresupuestoManager::Cargar() {
+
+string PresupuestoManager::IngresarVehiculo(bool &nuevoVehiculo) {
 	VehiculoArchivo arcVehiculo;
+	VehiculoManager aux;
+ 	int opc, pos;
+	string patente;
+
+	do {
+		cout << "1 - INGRESAR PATENTE DEL VEHICULO" << endl;
+		cout << "2 - CARGAR NUEVO VEHICULO" << endl;
+		cout << "0 - CONTINUAR SIN CARGAR" << endl;
+		cout << "Opcion: ";
+		cin >> opc;
+
+		switch (opc) {
+		case 1:
+			cin.ignore();
+			cout << endl << "PATENTE: ";
+			getline(cin, patente);
+			while (arcVehiculo.Buscar(patente) == -1) {
+				cout << "Patente inexistente, intente nuevamente... : ";
+				getline(cin, patente);
+				if (patente == "0") break;
+			}
+			nuevoVehiculo = false;
+			break;
+		case 2:
+			aux.Cargar();
+			pos = arcVehiculo.GetCantidadRegistros();
+			patente = arcVehiculo.Leer(pos-1).getPatente();
+			nuevoVehiculo = true;
+			break;
+		case 0:
+			patente = "0";
+			break;
+		default:
+			cout << "Opcion incorrecta." << endl;
+			break;
+		}
+	} while (opc != 0 && opc != 1 && opc != 2);
+
+	return patente;
+}
+
+string PresupuestoManager::IngresarCliente(bool &nuevoCliente) {
 	ClienteArchivo arcCliente;
+	ClienteManager aux;
+	int opc, pos;
+	string dni;
+
+	do {
+		cout << "1 - INGRESAR DNI DEL CLIENTE" << endl;
+		cout << "2 - CARGAR NUEVO CLIENTE" << endl;
+		cout << "0 - CONTINUAR SIN CARGAR" << endl;
+		cout << "Opcion: ";
+		cin >> opc;
+
+		switch (opc) {
+		case 1:
+			cin.ignore();
+			cout << endl << "DNI: ";
+			getline(cin, dni);
+			while (arcCliente.Buscar(dni) == -1) {
+				cout << "DNI inexistente, intente nuevamente... : ";
+				getline(cin, dni);
+				if (dni == "0") break;
+			}
+			break;
+		case 2:
+			aux.Cargar();
+			pos = arcCliente.GetCantidadRegistros();
+			dni = arcCliente.Leer(pos-1).getDni();
+			nuevoCliente = true;
+			break;
+		case 0:
+			dni = "0";
+			break;
+		default:
+			cout << "Opcion incorrecta." << endl;
+			break;
+		}
+	} while (opc != 0 && opc != 1 && opc != 2);
+
+	return dni;
+}
+
+
+void PresupuestoManager::Cargar() {
 	VehiculoManager vehiculoManagerAux;
 	ClienteManager clienteManagerAux;
+	AutoClienteArchivo arcAutoCliente;
 
 	string dniCliente, patente, detalle;
 	float importe;
-	int opc, pos, id, dia, mes, anio;
+	int id, dia, mes, anio;
 	char valGrua, valSustitucion; //para validar la entrada de datos
 	bool asistenciaGrua, vehiculoSustitucion;
 	bool nuevoVehiculo = false;
@@ -35,64 +123,16 @@ void PresupuestoManager::Cargar() {
 	cout << "NUEVO PRESUPUESTO" << endl;
 	cout << "-----------------" << endl << endl;
 
-	do {
-		cout << "1 - INGRESAR PATENTE DEL VEHICULO" << endl;
-		cout << "2 - CARGAR NUEVO VEHICULO" << endl;
-		cout << "Opcion: ";
-		cin >> opc;
-
-		switch (opc) {
-		case 1:
-			cin.ignore();
-			cout << "PATENTE: ";
-			getline(cin, patente);
-			while (arcVehiculo.Buscar(patente) == -1) {
-				cout << "Patente inexistente. Presione '0' para salir o intente nuevamente... : ";
-				getline(cin, patente);
-				if (patente == "0") break;
-			}
-			break;
-		case 2:
-			vehiculoManagerAux.Cargar();
-			pos = arcVehiculo.GetCantidadRegistros();
-			patente = arcVehiculo.Leer(pos).getPatente();
-			nuevoVehiculo = true;
-			break;
-		default:
-			cout << "Opcion incorrecta." << endl;
-		}
-	} while (opc != 1 && opc != 2);
+	patente = IngresarVehiculo(nuevoVehiculo);
 
 	cout << endl;
 
-	do {
-		cout << "1 - INGRESAR DNI DEL CLIENTE" << endl;
-		cout << "2 - CARGAR NUEVO CLIENTE" << endl;
-		cout << "Opcion: ";
-		cin >> opc;
-
-		switch (opc) {
-		case 1:
-			cin.ignore();
-			cout << "DNI: ";
-			getline(cin, dniCliente);
-			while (arcCliente.Buscar(dniCliente) == -1) {
-				cout << "DNI inexistente. Presione '0' para continuar o intente nuevamente... : ";
-				getline(cin, dniCliente);
-				if (dniCliente == "0") break;
-			}
-			break;
-		case 2:
-			clienteManagerAux.Cargar();
-			pos = arcCliente.GetCantidadRegistros();
-			dniCliente = arcCliente.Leer(pos).getDni();
-			nuevoCliente = true;
-			break;
-		default:
-			cout << "Opcion incorrecta." << endl;
-			break;
-		}
-	} while (opc != 1 && opc != 2);
+	if (!nuevoVehiculo) {								//si el vehiculo esta cargado asigna dni desde autocliente
+		int pos = arcAutoCliente.BuscarPatente(patente);
+		dniCliente = arcAutoCliente.Leer(pos).getDniCliente();
+		cout << endl;
+	}
+	else dniCliente = IngresarCliente(nuevoCliente);
 
 	cout << endl << "INGRESAR IMPORTE TOTAL DEL TRABAJO: ";
 	cin >> importe;

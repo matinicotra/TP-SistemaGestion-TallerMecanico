@@ -1,6 +1,7 @@
 #ifndef PRESUPUESTOMANAGER_H
 #define PRESUPUESTOMANAGER_H
 
+
 #include "Presupuesto.h"
 #include "PresupuestoArchivo.h"
 
@@ -13,6 +14,8 @@ private:
 	bool ExisteId(int id);
 
 public:
+	std::string IngresarVehiculo(bool &nuevoVehiculo);
+	std::string IngresarCliente(bool &nuevoCliente);
 	void Cargar();
 
 	void ListarTodos();
