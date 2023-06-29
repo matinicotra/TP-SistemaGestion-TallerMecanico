@@ -144,7 +144,7 @@ void ProveedorManager::EditarTelefono() {
 		getline(cin, telefono);
 		reg.setTelefono(telefono);
 
-		if (_archivo.Guardar(reg)) {
+		if (_archivo.Guardar(reg, pos)) {
 			cout << "Registro guardado existosamente!" << endl;
 		} else cout << "Error al guardar el registro." << endl;
 
@@ -170,7 +170,7 @@ void ProveedorManager::Eliminar() {
 		if (opc == 'S' || opc == 's') {
 			reg.setEstado(false);
 
-			if (_archivo.Guardar(reg)) {
+			if (_archivo.Guardar(reg, pos)) {
 				cout << "Registro eliminado exitosamente." << endl;
 			}
 			else cout << "Error al eliminar el registro." << endl;

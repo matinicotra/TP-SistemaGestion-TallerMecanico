@@ -173,7 +173,7 @@ void EmpleadoManager::EditarSueldo() {
 		cout << endl << "INGRESAR SUELDO: ";
 		cin >> sueldo;
 		reg.setSueldo(sueldo);
-		if (_archivo.Guardar(reg)) {
+		if (_archivo.Guardar(reg, pos)) {
 			cout << "Registro guardado existosamente!" << endl;
 		} else cout << "Error al guardar el registro." << endl;
 	} else cout << "DNI inexistente." << endl;

@@ -22,7 +22,7 @@ void AutoClienteManager::Eliminar(std::string patente) {
 	if (pos >= 0) {
 		AutoCliente reg = _archivo.Leer(pos);
 		reg.setEstado(false);
-		_archivo.Guardar(reg);
+		_archivo.Guardar(reg, pos);
 	}
 }
 

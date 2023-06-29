@@ -170,7 +170,7 @@ void VehiculoManager::Eliminar() {
 		if (opc == 'S' || opc == 's') {
 			reg.setEstado(false);
 
-			if (_archivo.Guardar(reg)) {
+			if (_archivo.Guardar(reg, pos)) {
 				cout << "Registro eliminado exitosamente." << endl;
 			} else cout << "Error al eliminar el registro." << endl;
 
