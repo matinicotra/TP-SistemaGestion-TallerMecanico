@@ -41,6 +41,7 @@ public:
     void menuListadoVehiculos();
     void menuListadoTrabajos();
     void menuListadoProveedores();
+    void menuListadoPresupuestos();
 
     void menuArchivoCopiar();
     void menuArchivoRestaurar();

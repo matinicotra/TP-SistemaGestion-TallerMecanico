@@ -155,6 +155,7 @@ void Menu::menuListados() {
         std::cout<<"-2 VEHICULOS"<<std::endl;
         std::cout<<"-3 TRABAJOS"<<std::endl;
         std::cout<<"-4 PROVEEDORES"<<std::endl;
+        std::cout<<"-5 PRESUPUESTOS"<<std::endl;
         std::cout<<"-0 ATRAS"<<std::endl;
         std::cout<<"================================"<<std::endl;
 
@@ -174,6 +175,9 @@ void Menu::menuListados() {
             break;
         case 4:
             menuListadoProveedores();
+            break;
+        case 5:
+            menuListadoPresupuestos();
             break;
         case 0:
             return;
@@ -391,8 +395,6 @@ void Menu::menuConsultasPresupuestos() {
 		case 3:
 			_presupuestoManager.Eliminar();
 			break;
-		case 99:
-			_presupuestoManager.ListarTodos();
         case 0:
             return;
             break;
@@ -604,6 +606,30 @@ void Menu::menuListadoProveedores() {
     }
 }
 
+void Menu::menuListadoPresupuestos(){
+    while (true) {
+        int opcion;
+        system("cls");
+        std::cout<<"======= LISTADOS PRESUPUESTO ======="<<std::endl;
+        std::cout<<"-1 LISTAR TODOS"<<std::endl;
+        std::cout<<"-0 ATRAS"<<std::endl;
+        std::cout<<"===================================="<<std::endl;
+        std::cout<<"INGRESE UNA OPCION: ";
+        std::cin>>opcion;
+
+        switch(opcion) {
+        case 1:
+			_presupuestoManager.ListarTodos();
+            break;
+        case 0:
+            return;
+            break;
+        default:
+            std::cout<<"OPCION NO VALIDA"<<std::endl;
+            break;
+        }
+    }
+}
 
 
 //MANEJO DE ARCHIVOS
