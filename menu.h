@@ -1,6 +1,7 @@
 #ifndef MENU_H
 #define MENU_H
 #include <iostream>
+#include "string"
 
 #include "TrabajoManager.h"
 #include "ClienteManager.h"

@@ -526,6 +526,12 @@ void TrabajoManager::Eliminar() {
 
 void TrabajoManager::HacerCopiaDeSeguridad() {
 	int cantRegistros = _archivo.GetCantidadRegistros();
+		if (cantRegistros <= 0){
+            cout << endl;
+            cout << "No existe el archivo de Trabajos" << endl;
+            cout << endl;
+            system("pause");
+            return;}
 	Trabajo *vec;
 
 	vec = new Trabajo[cantRegistros];
@@ -546,6 +552,12 @@ void TrabajoManager::HacerCopiaDeSeguridad() {
 
 void TrabajoManager::RestaurarCopiaDeSeguridad() {
 	int cantRegistros = _archivoBkp.GetCantidadRegistros();
+		if (cantRegistros <= 0){
+            cout << endl;
+            cout << "No existe el archivo de Trabajos" << endl;
+            cout << endl;
+            system("pause");
+            return;}
 	Trabajo *vec;
 
 	vec = new Trabajo[cantRegistros];

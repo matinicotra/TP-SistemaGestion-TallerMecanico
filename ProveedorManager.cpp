@@ -185,6 +185,12 @@ void ProveedorManager::Eliminar() {
 
 void ProveedorManager::HacerCopiaDeSeguridad() {
 	int cantRegistros = _archivo.GetCantidadRegistros();
+	if (cantRegistros <= 0){
+            cout << endl;
+            cout << "No existe el archivo de Proveedores" << endl;
+            cout << endl;
+            system("pause");
+            return;}
 	Proveedor *vec;
 
 	vec = new Proveedor[cantRegistros];
@@ -205,6 +211,12 @@ void ProveedorManager::HacerCopiaDeSeguridad() {
 
 void ProveedorManager::RestaurarCopiaDeSeguridad() {
 	int cantRegistros = _archivoBkp.GetCantidadRegistros();
+	if (cantRegistros <= 0){
+            cout << endl;
+            cout << "No existe el archivo de Proveedores" << endl;
+            cout << endl;
+            system("pause");
+            return;}
 	Proveedor *vec;
 
 	vec = new Proveedor[cantRegistros];

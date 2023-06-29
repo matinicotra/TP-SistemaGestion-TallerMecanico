@@ -258,6 +258,12 @@ void PresupuestoManager::Eliminar() {
 
 void PresupuestoManager::HacerCopiaDeSeguridad() {
 	int cantRegistros = _archivo.GetCantidadRegistros();
+		if (cantRegistros <= 0){
+            cout << endl;
+            cout << "No existe el archivo de Presupuestos" << endl;
+            system("pause");
+            cout << endl;
+            return;}
 	Presupuesto *vec;
 
 	vec = new Presupuesto[cantRegistros];
@@ -278,6 +284,12 @@ void PresupuestoManager::HacerCopiaDeSeguridad() {
 
 void PresupuestoManager::RestaurarCopiaDeSeguridad() {
 	int cantRegistros = _archivoBkp.GetCantidadRegistros();
+		if (cantRegistros <= 0){
+            cout << endl;
+            cout << "No existe el archivo de Presupuestos" << endl;
+            system("pause");
+            cout << endl;
+            return;}
 	Presupuesto *vec;
 
 	vec = new Presupuesto[cantRegistros];
