@@ -330,12 +330,14 @@ void recaudacionAnual()
         }
     }
     cout << "La recaudacion del anio " << anio <<" es: $" << recaudacion << endl;
+    system("pause");
 }
 
 void recaudacionCliente ()
 {
     string dni;
     cout << "======= RECAUDACION ANUAL POR CLIENTE ========" << endl << endl;
+    cin.ignore();
     cout << "Ingrese DNI del cliente: ";
     getline(cin, dni);
     ClienteArchivo ca;
@@ -368,6 +370,7 @@ void recaudacionCliente ()
     {
         cout << "El cliente no existe." << endl;
     }
+    system("pause");
 }
 
 void hacerCopiaDeSeguridadTodo(){
