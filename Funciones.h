@@ -44,8 +44,8 @@ void autoClienteHardcodear();
 void hardcodearTodo();
 
     ///funciones para el menu
-void recaudacionAnual(int anio);
-void recaudacionCliente (std::string dni);
+void recaudacionAnual();
+void recaudacionCliente ();
 
 
 #endif // FUNCIONES_H_INCLUDED
