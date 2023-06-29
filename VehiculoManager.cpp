@@ -80,19 +80,19 @@ void VehiculoManager::ListarTodos() {
 		Vehiculo vehiculo = _archivo.Leer(i);
 		if (vehiculo.getEstado()) {
 			ListarRegistro(vehiculo);
-			cout << endl;
 		}
 	}
 	system("pause");
 }
 
 void VehiculoManager::ListarRegistro(Vehiculo vehiculo) {
+    if (vehiculo.getEstado()){
 	cout << "PATENTE       : " << vehiculo.getPatente() << endl;
 	cout << "MARCA         : " << vehiculo.getMarca() << endl;
 	cout << "MODELO        : " << vehiculo.getModelo() << endl;
 	cout << "ANIO          : " << vehiculo.getAnio() << endl;
-	cout << "FECHA DE ALTA : " << vehiculo.getFechaAlta().toString("DD/MM/YYYY") << endl;
-}
+	cout << "FECHA DE ALTA : " << vehiculo.getFechaAlta().toString("DD/MM/YYYY") << endl << endl;
+}}
 
 void VehiculoManager::ListarPorPatente() {
 	int pos;
@@ -101,7 +101,8 @@ void VehiculoManager::ListarPorPatente() {
 	cout << "INGRESAR LA PATENTE DEL VEHICULO: ";
 	getline(cin, patente);
 	pos = _archivo.Buscar(patente);
-	if (pos >= 0) {
+	Vehiculo vehiculo = _archivo.Leer(pos);
+	if (pos >= 0 && vehiculo.getEstado() == true) {
 		ListarRegistro(_archivo.Leer(pos));
 	} else cout << "No exsite registro con la patente " << patente << endl;
 	system("pause");

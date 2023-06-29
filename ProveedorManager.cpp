@@ -66,6 +66,7 @@ void ProveedorManager::ListarTodos() {
 }
 
 void ProveedorManager::ListarRegistro(Proveedor proveedor) {
+    if (proveedor.getEstado()){
 	cout << "NOMBRE                : " << proveedor.getNombre() << endl;
 	cout << "APELLIDO              : " << proveedor.getApellido() << endl;
 	cout << "DNI                   : " << proveedor.getDni() << endl;
@@ -74,8 +75,8 @@ void ProveedorManager::ListarRegistro(Proveedor proveedor) {
 	cout << "TELEFONO              : " << proveedor.getTelefono() << endl;
 	cout << "RUBRO                 : " << proveedor.getRubro() << endl;
 	cout << "AUTOPARTE             : " << proveedor.getAutoparte() << endl;
-	cout << "ORIGEN DE FABRICACION : " << proveedor.getOrigenFabricacion() << endl;
-}
+	cout << "ORIGEN DE FABRICACION : " << proveedor.getOrigenFabricacion() << endl << endl;
+}}
 
 void ProveedorManager::ListarPorDni() {
 	int pos;
@@ -84,7 +85,8 @@ void ProveedorManager::ListarPorDni() {
 	cout << "INGRESAR DNI DEL PROVEEDOR: ";
 	getline(cin, dni);
 	pos = _archivo.Buscar(dni);
-	if (pos >= 0) {
+	Proveedor proveedor = _archivo.Leer(pos);
+	if (pos >= 0 && proveedor.getEstado() == true) {
 		ListarRegistro(_archivo.Leer(pos));
 	} else cout << "No exsite registro con DNI " << dni << endl;
 	system("pause");
@@ -98,9 +100,8 @@ void ProveedorManager::ListarPorRubro() {
 	getline(cin, rubro);
 	for (int i = 0; i < cantRegistros; i++) {
 		Proveedor proveedor = _archivo.Leer(i);
-		if (proveedor.getRubro() == rubro) {
+		if (proveedor.getRubro() == rubro && proveedor.getEstado() == true) {
 			ListarRegistro(proveedor);
-			cout << endl;
 		}
 	}
 	system("pause");

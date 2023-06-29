@@ -84,13 +84,13 @@ void ClienteManager::ListarTodos() {
 		Cliente cliente = _archivo.Leer(i);
 		if (cliente.getEstado()) {
 			ListarRegistro(cliente);
-			cout << endl;
 		}
 	}
 	system("pause");
 }
 
 void ClienteManager::ListarRegistro(Cliente cliente) {
+    if (cliente.getEstado()){
 	cout << "NOMBRE        : " << cliente.getNombre() << endl;
 	cout << "APELLIDO      : " << cliente.getApellido() << endl;
 	cout << "DNI           : " << cliente.getDni() << endl;
@@ -98,7 +98,8 @@ void ClienteManager::ListarRegistro(Cliente cliente) {
 	cout << "DIRECCION     : " << cliente.getDireccion() << endl;
 	cout << "TELEFONO      : " << cliente.getTelefono() << endl;
 	cout << "RAZON SOCIAL  : " << cliente.getRazonSocial() << endl;
-	cout << "FECHA DE ALTA : " << cliente.getFechaAlta().toString("DD/MM/YYYY") << endl;
+	cout << "FECHA DE ALTA : " << cliente.getFechaAlta().toString("DD/MM/YYYY") << endl << endl;
+    }
 }
 
 void ClienteManager::ListarPorDni() {
@@ -108,7 +109,8 @@ void ClienteManager::ListarPorDni() {
 	cout << "INGRESAR DNI DEL CLIENTE: ";
 	getline(cin, dni);
 	pos = _archivo.Buscar(dni);
-	if (pos >= 0) {
+	Cliente cliente = _archivo.Leer(pos);
+	if (pos >= 0 && cliente.getEstado()) {
 		ListarRegistro(_archivo.Leer(pos));
 	} else cout << "No exsite registro con DNI " << dni << endl;
 	system("pause");
@@ -123,7 +125,7 @@ void ClienteManager::ListarPorApellido() {
 	getline(cin, apellido);
 	for (int i = 0; i < cantRegistros; i++) {
 		Cliente cliente = _archivo.Leer(i);
-		if (cliente.getApellido() == apellido && cliente.getEstado()) {
+		if (cliente.getApellido() == apellido && cliente.getEstado() == true) {
 			ListarRegistro(cliente);
 			existeRegistro = true;
 		}

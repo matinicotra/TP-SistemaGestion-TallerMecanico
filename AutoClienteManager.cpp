@@ -62,12 +62,12 @@ void AutoClienteManager::ListarTodos(){
 		AutoCliente autoCliente = _archivo.Leer(i);
 		if (autoCliente.getEstado()) {
 			ListarRegistro(autoCliente);
-			cout << endl;
 		}
 	}
 }
 
 void AutoClienteManager::ListarRegistro(AutoCliente reg){
-    cout << "Dni del Cliente: " << reg.getDniCliente() << "    Patente del auto: " << reg.getPatente() << endl;
-}
+    if (reg.getEstado()){
+    cout << "Dni del Cliente: " << reg.getDniCliente() << "    Patente del auto: " << reg.getPatente() << endl << endl;
+}}
 

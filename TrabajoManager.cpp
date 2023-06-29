@@ -269,8 +269,8 @@ void TrabajoManager::ListarPorId() {
 	cout << "INGRESAR ID DEL TRABAJO: ";
 	cin >> id;
 	int pos = _archivo.Buscar(id);
-
-	if (pos >= 0) {
+    Trabajo trabajo = _archivo.Leer(pos);
+	if (pos >= 0 && trabajo.getEstado() == true ) {
 		ListarRegistro(_archivo.Leer(pos));
 	} else cout << "No exsite registro con ID #" << id << endl;
 	system("pasue");
@@ -282,7 +282,6 @@ void TrabajoManager::ListarTodos() {
 		Trabajo trabajo = _archivo.Leer(i);
 		if (trabajo.getEstado()) {
 			ListarRegistro(trabajo);
-			cout << endl;
 		}
 	}
 	system("pause");
@@ -298,7 +297,7 @@ void TrabajoManager::ListarRegistro(Trabajo trabajo) {
 	int posEmp = arcEmpleado.Buscar(trabajo.getDniEmpleado());
 	int posPresu = arcPresupuesto.Buscar(trabajo.getIdPresupuesto());
 	int posProv = arcProveedor.Buscar(trabajo.getDniProveedor());
-
+    if (trabajo.getEstado()){
 	cout << endl << "ID DE TRABAJO:     # " << trabajo.getIdTrabajo() << endl;
 	cout << "PATENTE            : " << trabajo.getPatente() << endl;
 	cout << "CLIENTE            : " << arcCliente.Leer(posCli).getNombre() << " " << arcCliente.Leer(posCli).getApellido() << endl;
@@ -310,12 +309,12 @@ void TrabajoManager::ListarRegistro(Trabajo trabajo) {
 	cout << "FECHA DE ENTRADA   : " << trabajo.getFechaEntrada().toString("DD/MM/YYYY") << endl;
 	cout << "FECHA DE ENTREGA   : " << trabajo.getFechaEntrega().toString("DD/MM/YYYY") << endl;
 	cout << "ESTADO             : ";
-	if (trabajo.getAvanceTrabajo() == 1) cout << "DIAGNOSTICO" << endl;
-	if (trabajo.getAvanceTrabajo() == 2) cout << "DESMONTAJE" << endl;
-	if (trabajo.getAvanceTrabajo() == 3) cout << "ENSAMBLAJE" << endl;
-	if (trabajo.getAvanceTrabajo() == 4) cout << "FINALIZADO" << endl;
-	if (trabajo.getAvanceTrabajo() == 5) cout << "ENTREGADO" << endl;
-}
+	if (trabajo.getAvanceTrabajo() == 1) cout << "DIAGNOSTICO" << endl << endl;
+	if (trabajo.getAvanceTrabajo() == 2) cout << "DESMONTAJE" << endl << endl;
+	if (trabajo.getAvanceTrabajo() == 3) cout << "ENSAMBLAJE" << endl << endl;
+	if (trabajo.getAvanceTrabajo() == 4) cout << "FINALIZADO" << endl << endl;
+	if (trabajo.getAvanceTrabajo() == 5) cout << "ENTREGADO" << endl << endl;
+}}
 
 void TrabajoManager::ListarPorPatente() {
 	std::string patente;
@@ -328,7 +327,7 @@ void TrabajoManager::ListarPorPatente() {
 
 	for (int i = 0; i < cantRegistros; i++) {
 		Trabajo trabajo = _archivo.Leer(i);
-		if (trabajo.getPatente() == patente) {
+		if (trabajo.getPatente() == patente && trabajo.getEstado() == true) {
 			ListarRegistro(trabajo);
 			cout << endl;
 			bandera = true;
@@ -349,7 +348,7 @@ void TrabajoManager::ListarPorDniCliente() {
 
 	for (int i = 0; i < cantRegistros; i++) {
 		Trabajo trabajo = _archivo.Leer(i);
-		if (trabajo.getDniCliente() == dni && trabajo.getAvanceTrabajo() <= 4 && trabajo.getEstado()) {
+		if (trabajo.getDniCliente() == dni && trabajo.getAvanceTrabajo() <= 4 && trabajo.getEstado() == true) {
 			ListarRegistro(trabajo);
 			cout << endl;
 			bandera = true;
@@ -378,7 +377,7 @@ void TrabajoManager::ListarPorAvance() {
 
 	for (int i = 0; i < cantRegistros; i++) {
 		Trabajo trabajo = _archivo.Leer(i);
-		if (trabajo.getAvanceTrabajo() == opc) {
+		if (trabajo.getAvanceTrabajo() == opc && trabajo.getEstado() == true) {
 			ListarRegistro(trabajo);
 			cout << endl;
 			bandera = true;
@@ -445,8 +444,8 @@ void TrabajoManager::ActualizarAvance() {
 	cout << "INGRESAR ID DEL TRABAJO: ";
 	cin >> id;
 	int pos = _archivo.Buscar(id);
-
-	if (pos >= 0) {
+    Trabajo trabajo = _archivo.Leer(pos);
+	if (pos >= 0 && trabajo.getEstado() == true) {
 		Trabajo reg = _archivo.Leer(pos);
 		ListarRegistro(reg);
 		cout << endl;
@@ -480,8 +479,9 @@ void TrabajoManager::ListarPorEmpleado() {
 	cin.ignore();
 	cout << "INGRESAR DNI DEL EMPLEADO: ";
 	getline(cin, dni);
-
-	if (arcEmpleado.Buscar(dni) >= 0) {
+	int pos = arcEmpleado.Buscar(dni);
+    Empleado emp = arcEmpleado.Leer(pos);
+	if (arcEmpleado.Buscar(dni) >= 0 && emp.getEstado() == true) {
 		for (int i = 0; i < cantRegistros; i++) {
 			Trabajo trabajo = _archivo.Leer(i);
 			if (trabajo.getDniEmpleado() == dni && trabajo.getEstado()) {

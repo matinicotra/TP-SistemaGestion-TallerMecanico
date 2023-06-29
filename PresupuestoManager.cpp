@@ -144,19 +144,19 @@ void PresupuestoManager::ListarTodos() {
 		Presupuesto presupuesto = _archivo.Leer(i);
 		if (presupuesto.getEstado()) {
 			ListarRegistro(presupuesto);
-			cout << endl;
 		}
 	}
 	system("pause");
 }
 
 void PresupuestoManager::ListarRegistro(Presupuesto presupuesto) {
+    if (presupuesto.getEstado()){
 	cout << "PRESUPUESTO ID          # " << presupuesto.getIdPresupuesto() << endl;
 	cout << "DNI CLIENTE             : " << presupuesto.getDniCliente() << endl;
 	cout << "PATENTE                 : " << presupuesto.getPatente() << endl;
 	cout << "IMPORTE                 $ " << presupuesto.getImporte() << endl;
 	cout << "DETALLE                 : " << presupuesto.getDetalle() << endl;
-	cout << "FECHA                   : " << presupuesto.getFecha().toString("DD/MM/YYYY") << endl;
+	cout << "FECHA                   : " << presupuesto.getFecha().toString("DD/MM/YYYY") << endl << endl;
 	cout << "ASISTENCIA DE GRUA      : ";
 	if (presupuesto.getAsistenciaGrua()) {
 		cout << "SI" << endl;
@@ -165,14 +165,15 @@ void PresupuestoManager::ListarRegistro(Presupuesto presupuesto) {
 	if (presupuesto.getVehiculoSustitucion()) {
 		cout << "SI" << endl;
 	} else cout << "NO" << endl;
-}
+}}
 
 void PresupuestoManager::ListarPorId() {
 	int id;
 	cout << "INGRESAR ID DEL PRESUPUESTO: ";
 	cin >> id;
 	int pos = _archivo.Buscar(id);
-	if (pos >= 0) {
+	Presupuesto presupuesto = _archivo.Leer(pos);
+	if (pos >= 0 && presupuesto.getEstado() == true) {
 		ListarRegistro(_archivo.Leer(pos));
 	} else cout << "No existe presupuesto con ID #" << id << endl;
 	system("pause");

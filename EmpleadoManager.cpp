@@ -87,13 +87,13 @@ void EmpleadoManager::ListarTodos() {
 		Empleado empleado = _archivo.Leer(i);
 		if (empleado.getEstado()) {
 			ListarRegistro(empleado);
-			cout << endl;
 		}
 	}
 	system("pause");
 }
 
 void EmpleadoManager::ListarRegistro(Empleado empleado) {
+    if (empleado.getEstado()){
 	cout << "NOMBRE               : " << empleado.getNombre() << endl;
 	cout << "APELLIDO             : " << empleado.getApellido() << endl;
 	cout << "DNI                  : " << empleado.getDni() << endl;
@@ -104,7 +104,7 @@ void EmpleadoManager::ListarRegistro(Empleado empleado) {
 	cout << "SUELDO               : " << empleado.getSueldo() << endl;
 	cout << "CUENTA BANCARIA      : " << empleado.getCuentaBancaria() << endl;
 	cout << "FECHA DE NACIMOIENTO : " << empleado.getFechaNacimiento().toString("DD/MM/YYYY") << endl;
-}
+}}
 
 void EmpleadoManager::ListarPorDni() {
 	string dni;
@@ -112,7 +112,8 @@ void EmpleadoManager::ListarPorDni() {
 	cout << "INGRESAR DNI DEL EMPLEADO: ";
 	getline(cin, dni);
 	int pos = _archivo.Buscar(dni);
-	if (pos >= 0) {
+	Empleado empleado = _archivo.Leer(pos);
+	if (pos >= 0 && empleado.getEstado() == true) {
 		ListarRegistro(_archivo.Leer(pos));
 	} else cout << "No exsite registro con DNI " << dni << endl;
 	system("pause");
