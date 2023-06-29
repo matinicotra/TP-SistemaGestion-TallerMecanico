@@ -47,5 +47,9 @@ void hardcodearTodo();
 void recaudacionAnual();
 void recaudacionCliente ();
 
+    ///funciones archivos
+void hacerCopiaDeSeguridadTodo();
+void hacerRestauracionDeSeguridadTodo();
+
 
 #endif // FUNCIONES_H_INCLUDED

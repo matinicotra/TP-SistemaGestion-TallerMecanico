@@ -369,3 +369,39 @@ void recaudacionCliente ()
     }
 }
 
+void hacerCopiaDeSeguridadTodo(){
+
+    ClienteManager _clienteManager;
+    VehiculoManager _vehiculoManager;
+    TrabajoManager _trabajoManager;
+    ProveedorManager _proveedorManager;
+    EmpleadoManager _empleadoManager;
+    AutoClienteManager _autoClienteManager;
+
+
+    _clienteManager.HacerCopiaDeSeguridad();
+    _vehiculoManager.HacerCopiaDeSeguridad();
+    _trabajoManager.HacerCopiaDeSeguridad();
+    _proveedorManager.HacerCopiaDeSeguridad();
+    _empleadoManager.HacerCopiaDeSeguridad();
+    _autoClienteManager.HacerCopiaDeSeguridad();
+}
+
+void hacerRestauracionDeSeguridadTodo(){
+
+    ClienteManager _clienteManager;
+    VehiculoManager _vehiculoManager;
+    TrabajoManager _trabajoManager;
+    ProveedorManager _proveedorManager;
+    EmpleadoManager _empleadoManager;
+    AutoClienteManager _autoClienteManager;
+
+    _clienteManager.RestaurarCopiaDeSeguridad();
+    _vehiculoManager.RestaurarCopiaDeSeguridad();
+    _trabajoManager.RestaurarCopiaDeSeguridad();
+    _proveedorManager.RestaurarCopiaDeSeguridad();
+    _empleadoManager.RestaurarCopiaDeSeguridad();
+    _autoClienteManager.RestaurarCopiaDeSeguridad();
+
+}
+

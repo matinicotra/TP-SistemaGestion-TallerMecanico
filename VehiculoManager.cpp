@@ -184,6 +184,12 @@ void VehiculoManager::Eliminar() {
 
 void VehiculoManager::HacerCopiaDeSeguridad() {
 	int cantRegistros = _archivo.GetCantidadRegistros();
+	if (cantRegistros <= 0){
+            cout << endl;
+            cout << "No existe el archivo de Vehiculos" << endl;
+            cout << endl;
+            system("pause");
+            return;}
 	Vehiculo *vec;
 
 	vec = new Vehiculo[cantRegistros];
@@ -204,6 +210,14 @@ void VehiculoManager::HacerCopiaDeSeguridad() {
 
 void VehiculoManager::RestaurarCopiaDeSeguridad() {
 	int cantRegistros = _archivoBkp.GetCantidadRegistros();
+
+		if (cantRegistros <= 0){
+            cout << endl;
+            cout << "No existe el archivo de Vehiculos" << endl;
+            system("pause");
+            cout << endl;
+            return;}
+
 	Vehiculo *vec;
 
 	vec = new Vehiculo[cantRegistros];

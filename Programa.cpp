@@ -1,28 +1,36 @@
-#include <iostream>
+ #include <iostream>
 #include "Programa.h"
+#include "string"
 using namespace std;
 
 void Programa::Ejecutar() {
-	int opc;
+    char opcion;
 	do {
         system("cls");
 		cout << "===== TALLER MECANICO =====" << endl;
 		cout << "1 - IR AL MENU PRINCIPAL" << endl;
 		cout << "===========================" << endl;
 		cout << "0 - SALIR DEL PROGRAMA" << endl;
-		cin >> opc;
+		string entrada;
 
-		switch (opc) {
-		case 1:
+        cin>>entrada;
+
+        if (entrada.length() != 1) {
+            cout << "Error: Debe ingresar solo un car�cter. Intente nuevamente." << std::endl;
+        } else {
+        opcion = entrada[0];
+		switch (opcion) {
+		case '1':
 			_menuTaller.displayMain();
 			break;
-		case 0:
+		case '0':
 			cout << "Gracias por utilizar nuestro programa!" << endl;
 			cout << "by Brian Sablich & Matias Nicotra" << endl;
 			break;
-		default:
 			cout << "Opcion incorrecta." << endl;
 			break;
 		}
-	} while (opc != 0);
+        }
+	} while (opcion != '0');
+
 }

@@ -210,6 +210,12 @@ void EmpleadoManager::Eliminar() {
 
 void EmpleadoManager::HacerCopiaDeSeguridad() {
 	int cantRegistros = _archivo.GetCantidadRegistros();
+		if (cantRegistros <= 0){
+            cout << endl;
+            cout << "No existe el archivo de Empleados" << endl;
+            cout << endl;
+            system("pause");
+            return;}
 	Empleado *vec;
 
 	vec = new Empleado[cantRegistros];
@@ -230,6 +236,12 @@ void EmpleadoManager::HacerCopiaDeSeguridad() {
 
 void EmpleadoManager::RestaurarCopiaDeSeguridad() {
 	int cantRegistros = _archivoBkp.GetCantidadRegistros();
+		if (cantRegistros <= 0){
+            cout << endl;
+            cout << "No existe el archivo de Empleados" << endl;
+            cout << endl;
+            system("pause");
+            return;}
 	Empleado *vec;
 
 	vec = new Empleado[cantRegistros];
