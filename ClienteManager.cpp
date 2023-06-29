@@ -116,6 +116,7 @@ void ClienteManager::ListarPorDni() {
 
 void ClienteManager::ListarPorApellido() {
 	int cantRegistros = _archivo.GetCantidadRegistros();
+	bool existeRegistro = false;
 	string apellido;
 	cin.ignore();
 	cout << "INGRESAR APELLIDO DEL CLIENTE: ";
@@ -124,8 +125,9 @@ void ClienteManager::ListarPorApellido() {
 		Cliente cliente = _archivo.Leer(i);
 		if (cliente.getApellido() == apellido && cliente.getEstado()) {
 			ListarRegistro(cliente);
+			existeRegistro = true;
 		}
-	}
+	} if (!existeRegistro){ cout << "No exsite registro con el apellido: " << apellido << endl;}
 	system("pause");
 }
 

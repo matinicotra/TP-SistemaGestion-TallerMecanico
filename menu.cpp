@@ -1,4 +1,5 @@
 #include "menu.h"
+#include "Funciones.h"
 
 ///MENU PRINCIPAL
 void Menu::displayMain() {
@@ -13,7 +14,7 @@ void Menu::displayMain() {
         std::cout<<"-3 LISTADOS"<<std::endl;
         std::cout<<"-4 INFORMES"<<std::endl;
         std::cout<<"-5 MANEJO DE ARCHIVOS."<<std::endl;
-        std::cout<<"-0 SALIR"<<std::endl;
+        std::cout<<"-0 VOLVER AL MENU PRINCIPAL"<<std::endl;
         std::cout<<"================================"<<std::endl;
         std::cout<<"================================"<<std::endl;
         std::cout<<"INGRESE UNA OPCION: ";
@@ -37,6 +38,9 @@ void Menu::displayMain() {
             break;
         case 0:
             return;
+            break;
+        case 99:
+            hardcodearTodo();
             break;
         default:
             std::cout<<"OPCION NO VALIDA"<<std::endl;
@@ -197,12 +201,11 @@ void Menu::menuInformes() {
 
         switch(opcion) {
         case 1:
-
+            recaudacionAnual();
             break;
         case 2:
-
+            recaudacionCliente();
             break;
-
         case 0:
             return;
             break;
