@@ -220,36 +220,36 @@ void presupuestoHardcodear()
 
 void trabajoHardcodear()
 {
-    Fecha fechaEntrada1(1, 1, 2022);
-    Fecha fechaEntrega1(10, 1, 2022);
+    Fecha fechaEntrada1(1, 1, 2023);
+    Fecha fechaEntrega1(10, 1, 2023);
     Fecha fechaEntrada2(2, 2, 2022);
     Fecha fechaEntrega2(12, 2, 2022);
-    Fecha fechaEntrada3(3, 3, 2022);
-    Fecha fechaEntrega3(15, 3, 2022);
+    Fecha fechaEntrada3(3, 3, 2023);
+    Fecha fechaEntrega3(15, 3, 2023);
     Fecha fechaEntrada4(4, 4, 2022);
     Fecha fechaEntrega4(20, 4, 2022);
-    Fecha fechaEntrada5(5, 5, 2022);
-    Fecha fechaEntrega5(25, 5, 2022);
+    Fecha fechaEntrada5(5, 5, 2023);
+    Fecha fechaEntrega5(25, 5, 2023);
     Fecha fechaEntrada6(6, 6, 2022);
     Fecha fechaEntrega6(30, 6, 2022);
-    Fecha fechaEntrada7(7, 7, 2022);
-    Fecha fechaEntrega7(5, 7, 2022);
+    Fecha fechaEntrada7(7, 7, 2021);
+    Fecha fechaEntrega7(8, 7, 2021);
     Fecha fechaEntrada8(8, 8, 2022);
     Fecha fechaEntrega8(10, 8, 2022);
-    Fecha fechaEntrada9(9, 9, 2022);
-    Fecha fechaEntrega9(15, 9, 2022);
-    Fecha fechaEntrada10(10, 10, 2022);
-    Fecha fechaEntrega10(20, 10, 2022);
+    Fecha fechaEntrada9(9, 9, 2023);
+    Fecha fechaEntrega9(15, 9, 2023);
+    Fecha fechaEntrada10(10, 10, 2021);
+    Fecha fechaEntrega10(20, 10, 2021);
 
-    Trabajo trabajo1(1, 1, "ABC123", "12345678", "12345670", "12345600", 3, fechaEntrada1, fechaEntrega1, 10000);
-    Trabajo trabajo2(2, 2, "DEF456", "12345678", "12345670", "12345600", 2, fechaEntrada2, fechaEntrega2, 15000);
+    Trabajo trabajo1(1, 1, "ABC123", "12345678", "12345670", "12345600", 5, fechaEntrada1, fechaEntrega1, 10000);
+    Trabajo trabajo2(2, 2, "DEF456", "12345678", "12345670", "12345600", 5, fechaEntrada2, fechaEntrega2, 15000);
     Trabajo trabajo3(3, 3, "GHI789", "12345678", "12345670", "12345600", 4, fechaEntrada3, fechaEntrega3, 7000);
-    Trabajo trabajo4(4, 4, "JKL012", "87654321", "65432187", "87654311", 1, fechaEntrada4, fechaEntrega4, 9500);
+    Trabajo trabajo4(4, 4, "JKL012", "87654321", "65432187", "87654311", 5, fechaEntrada4, fechaEntrega4, 9500);
     Trabajo trabajo5(5, 5, "MNO345", "87654321", "65432187", "87654311", 5, fechaEntrada5, fechaEntrega5, 12000);
     Trabajo trabajo6(6, 6, "PQR678", "56781234", "65432187", "98765444", 3, fechaEntrada6, fechaEntrega6, 14000);
-    Trabajo trabajo7(7, 7, "STU901", "56781234", "43218765", "43218733", 2, fechaEntrada7, fechaEntrega7, 18000);
+    Trabajo trabajo7(7, 7, "STU901", "56781234", "43218765", "43218733", 5, fechaEntrada7, fechaEntrega7, 18000);
     Trabajo trabajo8(8, 8, "VWX234", "56783421", "43218765", "43218733", 4, fechaEntrada8, fechaEntrega8, 9000);
-    Trabajo trabajo9(9, 9, "YZA567", "56783421", "56783429", "43218733", 1, fechaEntrada9, fechaEntrega9, 22000);
+    Trabajo trabajo9(9, 9, "YZA567", "56783421", "56783429", "43218733", 5, fechaEntrada9, fechaEntrega9, 22000);
     Trabajo trabajo10(10, 10, "BCD890", "56783421", "56783429", "56781222", 5, fechaEntrada10, fechaEntrega10, 5000);
 
     TrabajoArchivo ta;
