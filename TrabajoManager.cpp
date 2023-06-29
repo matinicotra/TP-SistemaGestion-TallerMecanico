@@ -186,6 +186,7 @@ int TrabajoManager::IngresarPresupuesto(float &precioTrabajo) {
 void TrabajoManager::Cargar() {
 	ProveedorArchivo arcProveedor;
 	EmpleadoArchivo arcEmpleado;
+	AutoClienteArchivo arcAutoCliente;
 
 	int dia, mes, anio, idPresupuesto;
 	string patente, dniCliente, dniProveedor, dniEmpleado, detalle;
@@ -202,10 +203,17 @@ void TrabajoManager::Cargar() {
 	cout << "--------------------" << endl << endl;
 
 	patente = IngresarVehiculo(nuevoVehiculo);
+
 	cout << endl;
-	dniCliente = IngresarCliente(nuevoCliente);
-	cout << endl;
+
+	if (!nuevoVehiculo) {										//si el vehiculo esta cargado asigna el dni del duenio desde autocliente
+		int pos = arcAutoCliente.BuscarPatente(patente);
+		dniCliente = arcAutoCliente.Leer(pos).getDniCliente();
+		cout << endl;
+	} else dniCliente = IngresarCliente(nuevoCliente);
+
 	idPresupuesto = IngresarPresupuesto(precioTrabajo);
+
 	cout << endl;
 
 	cin.ignore();
