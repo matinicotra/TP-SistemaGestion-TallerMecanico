@@ -140,10 +140,10 @@ void Menu::menuConsultas() {
             menuConsultasTrabajos();
 			break;
         case '3':
-        	menuConsultasProveedores();
+            menuConsultasPresupuestos();
             break;
         case '4':
-            menuConsultasPresupuestos();
+        	menuConsultasProveedores();
             break;
 		case '5':
 			menuConsultasVehiculos();
