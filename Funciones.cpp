@@ -296,6 +296,7 @@ void autoClienteHardcodear()
 
 void hardcodearTodo()
 {
+    vaciarArchivosDeTodo();
     clienteHardcodear();
     empleadoHardcodear();
     proveedorHardcodear();
@@ -402,6 +403,22 @@ void hacerRestauracionDeSeguridadTodo(){
     _proveedorManager.RestaurarCopiaDeSeguridad();
     _empleadoManager.RestaurarCopiaDeSeguridad();
     _autoClienteManager.RestaurarCopiaDeSeguridad();
+}
 
+void vaciarArchivosDeTodo(){
+
+    ClienteArchivo _clienteManager;
+    VehiculoArchivo _vehiculoManager;
+    TrabajoArchivo _trabajoManager;
+    ProveedorArchivo _proveedorManager;
+    EmpleadoArchivo _empleadoManager;
+    AutoClienteArchivo _autoClienteManager;
+
+    _clienteManager.Vaciar();
+    _vehiculoManager.Vaciar();
+    _trabajoManager.Vaciar();
+    _proveedorManager.Vaciar();
+    _empleadoManager.Vaciar();
+    _autoClienteManager.Vaciar();
 }
 
