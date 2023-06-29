@@ -391,6 +391,8 @@ void Menu::menuConsultasPresupuestos() {
 		case 3:
 			_presupuestoManager.Eliminar();
 			break;
+		case 99:
+			_presupuestoManager.ListarTodos();
         case 0:
             return;
             break;

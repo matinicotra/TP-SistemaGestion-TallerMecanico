@@ -24,7 +24,7 @@ void ProveedorManager::OrdenarPorOrigen(Proveedor *vec, int cantRegistros) {
 void ProveedorManager::Cargar() {
 	string dni, nombre, apellido, eMail, direccion, telefono, rubro, autoparte, origenFabricacion;
 
-	system("cls");
+	cin.ignore();
 	cout << "NOMBRE                : ";
 	getline(cin, nombre);
 	cout << "APELLIDO              : ";

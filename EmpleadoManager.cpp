@@ -45,6 +45,7 @@ void EmpleadoManager::Cargar() {
 	float sueldo;
 	int dia, mes, anio;
 
+	cin.ignore();
 	cout << "NOMBRE              : ";
 	getline(cin, nombre);
 	cout << "APELLIDO            : ";

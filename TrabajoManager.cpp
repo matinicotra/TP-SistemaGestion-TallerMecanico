@@ -153,7 +153,6 @@ int TrabajoManager::IngresarPresupuesto(float &precioTrabajo) {
 	int opc, id, pos;
 
 	do {
-		int cont = 0;
 		cout << "1 - INGRESAR ID DEL PRESUPUESTO" << endl;
 		cout << "2 - CARGAR NUEVO PRESUPUESTO" << endl;
 		cin >> opc;
@@ -203,10 +202,11 @@ void TrabajoManager::Cargar() {
 	cout << "--------------------" << endl << endl;
 
 	patente = IngresarVehiculo(nuevoVehiculo);
-
+	cout << endl;
 	dniCliente = IngresarCliente(nuevoCliente);
-
+	cout << endl;
 	idPresupuesto = IngresarPresupuesto(precioTrabajo);
+	cout << endl;
 
 	cin.ignore();
 	cout << "INGRESAR DNI DEL PROVEEDOR DE REPUESTOS: ";

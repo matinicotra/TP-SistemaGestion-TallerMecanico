@@ -19,10 +19,12 @@ bool PresupuestoManager::ExisteId(int id) {
 void PresupuestoManager::Cargar() {
 	VehiculoArchivo arcVehiculo;
 	ClienteArchivo arcCliente;
+	VehiculoManager vehiculoManagerAux;
+	ClienteManager clienteManagerAux;
 
 	string dniCliente, patente, detalle;
 	float importe;
-	int opc, id, dia, mes, anio;
+	int opc, pos, id, dia, mes, anio;
 	char valGrua, valSustitucion; //para validar la entrada de datos
 	bool asistenciaGrua, vehiculoSustitucion;
 	bool nuevoVehiculo = false;
@@ -33,68 +35,80 @@ void PresupuestoManager::Cargar() {
 	cout << "NUEVO PRESUPUESTO" << endl;
 	cout << "-----------------" << endl << endl;
 
-	cout << "1 - INGRESAR PATENTE DEL VEHICULO" << endl;
-	cout << "2 - CARGAR NUEVO VEHICULO" << endl;
-	cout << "Opcion: ";
-	cin >> opc;
+	do {
+		cout << "1 - INGRESAR PATENTE DEL VEHICULO" << endl;
+		cout << "2 - CARGAR NUEVO VEHICULO" << endl;
+		cout << "Opcion: ";
+		cin >> opc;
 
-	switch (opc) {
-	case 1:
-		cin.ignore();
-		cout << "PATENTE: ";
-		getline(cin, patente);
-		while (arcVehiculo.Buscar(patente) == -1) {
-			cout << "Patente inexistente. Presione '0' para salir o intente nuevamente... : ";
+		switch (opc) {
+		case 1:
+			cin.ignore();
+			cout << "PATENTE: ";
 			getline(cin, patente);
-			if (patente == "0") break;
+			while (arcVehiculo.Buscar(patente) == -1) {
+				cout << "Patente inexistente. Presione '0' para salir o intente nuevamente... : ";
+				getline(cin, patente);
+				if (patente == "0") break;
+			}
+			break;
+		case 2:
+			vehiculoManagerAux.Cargar();
+			pos = arcVehiculo.GetCantidadRegistros();
+			patente = arcVehiculo.Leer(pos).getPatente();
+			nuevoVehiculo = true;
+			break;
+		default:
+			cout << "Opcion incorrecta." << endl;
 		}
-		break;
-	case 2:
-		VehiculoManager aux;
-		aux.Cargar();
-		int pos = arcVehiculo.GetCantidadRegistros();
-		patente = arcVehiculo.Leer(pos).getPatente();
-		nuevoVehiculo = true;
-		break;
-	}
+	} while (opc != 1 && opc != 2);
 
-	cout << "1 - INGRESAR DNI DEL CLIENTE" << endl;
-	cout << "2 - CARGAR NUEVO CLIENTE" << endl;
-	cout << "Opcion: ";
-	cin >> opc;
+	cout << endl;
 
-	switch (opc) {
-	case 1:
-		cin.ignore();
-		cout << "DNI: ";
-		getline(cin, dniCliente);
-		while (arcCliente.Buscar(dniCliente) == -1) {
-			cout << "DNI inexistente. Presione '0' para continuar o intente nuevamente... : ";
+	do {
+		cout << "1 - INGRESAR DNI DEL CLIENTE" << endl;
+		cout << "2 - CARGAR NUEVO CLIENTE" << endl;
+		cout << "Opcion: ";
+		cin >> opc;
+
+		switch (opc) {
+		case 1:
+			cin.ignore();
+			cout << "DNI: ";
 			getline(cin, dniCliente);
-			if (dniCliente == "0") break;
+			while (arcCliente.Buscar(dniCliente) == -1) {
+				cout << "DNI inexistente. Presione '0' para continuar o intente nuevamente... : ";
+				getline(cin, dniCliente);
+				if (dniCliente == "0") break;
+			}
+			break;
+		case 2:
+			clienteManagerAux.Cargar();
+			pos = arcCliente.GetCantidadRegistros();
+			dniCliente = arcCliente.Leer(pos).getDni();
+			nuevoCliente = true;
+			break;
+		default:
+			cout << "Opcion incorrecta." << endl;
+			break;
 		}
-	case 2:
-		ClienteManager aux;
-		aux.Cargar();
-		int pos = arcCliente.GetCantidadRegistros();
-		dniCliente = arcCliente.Leer(pos).getDni();
-		nuevoCliente = true;
-		break;
-	}
+	} while (opc != 1 && opc != 2);
 
-	cout << "INGRESAR IMPORTE TOTAL DEL TRABAJO: ";
+	cout << endl << "INGRESAR IMPORTE TOTAL DEL TRABAJO: ";
 	cin >> importe;
 
-	cout << "INGRESAR DETALLE DEL TRABJO A REALIZAR: ";
+	cin.ignore();
+	cout << endl << "INGRESAR DETALLE DEL TRABJO A REALIZAR: ";
 	getline(cin, detalle);
 
-	cout << "INGRESAR LA FECHA" << endl;
+	cout << endl << "INGRESAR LA FECHA" << endl;
 	cout << "DIA: ";
 	cin >> dia;
 	cout << "MES ";
 	cin >> mes;
 	cout << "ANIO: ";
 	cin >> anio;
+	cout << endl;
 
 	cout << "INCLUYE ASISTENCIA DE GRUA, 'S' o 'N' :";
 	cin >> valGrua;
@@ -137,21 +151,20 @@ void PresupuestoManager::ListarTodos() {
 }
 
 void PresupuestoManager::ListarRegistro(Presupuesto presupuesto) {
-	cout << "PRESUPUESTO ID # " << presupuesto.getIdPresupuesto() << endl;
-	cout << "DNI CLIENTE    : " << presupuesto.getDniCliente() << endl;
-	cout << "PATENTE        : " << presupuesto.getPatente() << endl;
-	cout << "IMPORTE        $ " << presupuesto.getImporte() << endl;
-	cout << "DETALLE        : " << presupuesto.getDetalle() << endl;
-	cout << "FECHA          : " << presupuesto.getFecha().toString("DD/MM/YYYY") << endl;
-
+	cout << "PRESUPUESTO ID          # " << presupuesto.getIdPresupuesto() << endl;
+	cout << "DNI CLIENTE             : " << presupuesto.getDniCliente() << endl;
+	cout << "PATENTE                 : " << presupuesto.getPatente() << endl;
+	cout << "IMPORTE                 $ " << presupuesto.getImporte() << endl;
+	cout << "DETALLE                 : " << presupuesto.getDetalle() << endl;
+	cout << "FECHA                   : " << presupuesto.getFecha().toString("DD/MM/YYYY") << endl;
+	cout << "ASISTENCIA DE GRUA      : ";
 	if (presupuesto.getAsistenciaGrua()) {
-		cout << "CON ASISTENCIA DE GRUA" << endl;
-	} else cout << "SIN ASISTENCIA DE GRUA" << endl;
-
+		cout << "SI" << endl;
+	} else cout << "NO" << endl;
+	cout << "VEHICULO DE SUSTITUCION : ";
 	if (presupuesto.getVehiculoSustitucion()) {
-		cout << "INCLUYE VEHICULO DE SUSTITUCION: SI" << endl;
-	} else cout << "INCLUYE VEHICULO DE SUSTITUCION: NO" << endl;
-	system("pause");
+		cout << "SI" << endl;
+	} else cout << "NO" << endl;
 }
 
 void PresupuestoManager::ListarPorId() {
@@ -217,10 +230,10 @@ void PresupuestoManager::EditarImporte() {
 		cout << endl << "INGRESAR NUEVO IMPORTE: ";
 		cin >> importe;
 		reg.setImporte(importe);
-		if (_archivo.Guardar(reg)) {
+		if (_archivo.Guardar(reg, pos)) {
 			cout << "Registro guardado existosamente!" << endl;
-		} cout << "Error al guardar el registro." << endl;
-	} cout << "ID inexistente." << endl;
+		} else cout << "Error al guardar el registro." << endl;
+	} else cout << "ID inexistente." << endl;
 	system("pause");
 }
 
