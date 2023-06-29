@@ -1,7 +1,7 @@
 #include "menu.h"
 #include "Funciones.h"
 
-///MENU PRINCIPAL
+///MENU PRINCIPAL prueba
 void Menu::displayMain() {
     while (true) {
         system("cls");
