@@ -87,6 +87,7 @@ void ClienteManager::ListarTodos() {
 			cout << endl;
 		}
 	}
+	system("pause");
 }
 
 void ClienteManager::ListarRegistro(Cliente cliente) {
@@ -231,7 +232,7 @@ void ClienteManager::Eliminar() {
 		ListarRegistro(reg);
 
 		char opc;
-		cout << endl << "Desea eliminar el registro? Ingresar 'S' para confirmar; 'N' para regresar.";
+		cout << endl << "Desea eliminar el registro? Ingresar 'S' para confirmar; 'N' para regresar: ";
 		cin >> opc;
 
 		if (opc == 'S' || opc == 's') {
@@ -246,6 +247,7 @@ void ClienteManager::Eliminar() {
 		} else cout << "El valor ingresado es incorrecto." << endl;
 
 	} else cout << "DNI inexistente." << endl;
+
 	system("pause");
 }
 
@@ -264,8 +266,9 @@ void ClienteManager::HacerCopiaDeSeguridad() {
 	if (_archivoBkp.Guardar(vec, cantRegistros)) {
 		cout << "Backup realizado correctamente!" << endl;
 	} else cout << "Error al realizar backup." << endl;
-
 	delete []vec;
+
+	system("pause");
 }
 
 void ClienteManager::RestaurarCopiaDeSeguridad() {
@@ -283,6 +286,7 @@ void ClienteManager::RestaurarCopiaDeSeguridad() {
 	if (_archivo.Guardar(vec, cantRegistros)) {
 		cout << "Backup restaurado correctamente!" << endl;
 	} else cout << "Error al restaurar backup" << endl;
-
 	delete []vec;
+
+	system("pause");
 }

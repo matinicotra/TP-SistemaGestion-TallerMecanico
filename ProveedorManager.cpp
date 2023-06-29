@@ -24,6 +24,7 @@ void ProveedorManager::OrdenarPorOrigen(Proveedor *vec, int cantRegistros) {
 void ProveedorManager::Cargar() {
 	string dni, nombre, apellido, eMail, direccion, telefono, rubro, autoparte, origenFabricacion;
 
+	system("cls");
 	cout << "NOMBRE                : ";
 	getline(cin, nombre);
 	cout << "APELLIDO              : ";
@@ -42,12 +43,14 @@ void ProveedorManager::Cargar() {
 	getline(cin, autoparte);
 	cout << "ORIGEN DE FABRICACION : ";
 	getline(cin, origenFabricacion);
+	cout << endl;
 
 	Proveedor reg(dni, nombre, apellido, eMail, direccion, telefono, rubro, autoparte, origenFabricacion);
 
 	if (_archivo.Guardar(reg)) {
 		cout << "Registro guardado existosamente!" << endl;
 	} else cout << "Error al guardar el registro" << endl;
+	system("pause");
 }
 
 void ProveedorManager::ListarTodos() {
@@ -59,6 +62,7 @@ void ProveedorManager::ListarTodos() {
 			cout << endl;
 		}
 	}
+	system("pause");
 }
 
 void ProveedorManager::ListarRegistro(Proveedor proveedor) {
@@ -71,23 +75,25 @@ void ProveedorManager::ListarRegistro(Proveedor proveedor) {
 	cout << "RUBRO                 : " << proveedor.getRubro() << endl;
 	cout << "AUTOPARTE             : " << proveedor.getAutoparte() << endl;
 	cout << "ORIGEN DE FABRICACION : " << proveedor.getOrigenFabricacion() << endl;
-	cout << endl;
 }
 
 void ProveedorManager::ListarPorDni() {
 	int pos;
 	string dni;
+	cin.ignore();
 	cout << "INGRESAR DNI DEL PROVEEDOR: ";
 	getline(cin, dni);
 	pos = _archivo.Buscar(dni);
 	if (pos >= 0) {
 		ListarRegistro(_archivo.Leer(pos));
 	} else cout << "No exsite registro con DNI " << dni << endl;
+	system("pause");
 }
 
 void ProveedorManager::ListarPorRubro() {
 	int cantRegistros = _archivo.GetCantidadRegistros();
 	string rubro;
+	cin.ignore();
 	cout << "INGRESAR RUBRO: ";
 	getline(cin, rubro);
 	for (int i = 0; i < cantRegistros; i++) {
@@ -97,6 +103,7 @@ void ProveedorManager::ListarPorRubro() {
 			cout << endl;
 		}
 	}
+	system("pause");
 }
 
 void ProveedorManager::ListarPorOrigenFabricacion() {
@@ -117,44 +124,50 @@ void ProveedorManager::ListarPorOrigenFabricacion() {
 	}
 
 	delete []vec;
+	system("pause");
 }
 
 void ProveedorManager::EditarTelefono() {
-	int pos;
 	string dni, telefono;
+
+	cin.ignore();
 	cout << "INGRESAR DNI DEL PROVEEDOR: ";
 	getline(cin, dni);
-	pos = _archivo.Buscar(dni);
+
+	int pos = _archivo.Buscar(dni);
+
 	if (pos >= 0) {
 		Proveedor reg = _archivo.Leer(pos);
 		ListarRegistro(reg);
+
 		cout << endl << "INGRESAR NUEVO TELEFONO: ";
 		getline(cin, telefono);
 		reg.setTelefono(telefono);
+
 		if (_archivo.Guardar(reg)) {
 			cout << "Registro guardado existosamente!" << endl;
-		} cout << "Error al guardar el registro." << endl;
-	} cout << "DNI inexistente." << endl;
+		} else cout << "Error al guardar el registro." << endl;
+
+	} else cout << "DNI inexistente." << endl;
+
+	system("pause");
 }
 
 void ProveedorManager::Eliminar() {
-	int pos;
 	string dni;
-
 	cout << "INGRESAR DNI DEL PROVEEDOR: ";
 	getline(cin, dni);
 
-	pos = _archivo.Buscar(dni);
+	int pos = _archivo.Buscar(dni);
 	if (pos >= 0) {
 		Proveedor reg = _archivo.Leer(pos);
 		ListarRegistro(reg);
 
-		string opc;
-		cout << endl << "Desea eliminar el registro? Ingresar 'S' para confirmar; 'N' para regresar.";
-		cin.ignore();
-		getline(cin, opc);
+		char opc;
+		cout << endl << "Desea eliminar el registro? Ingresar 'S' para confirmar; 'N' para regresar: ";
+		cin >> opc;
 
-		if (opc == "S" || opc == "s") {
+		if (opc == 'S' || opc == 's') {
 			reg.setEstado(false);
 
 			if (_archivo.Guardar(reg)) {
@@ -162,12 +175,12 @@ void ProveedorManager::Eliminar() {
 			}
 			else cout << "Error al eliminar el registro." << endl;
 		}
-		else if (opc == "N" || opc == "n") {
+		else if (opc == 'N' || opc == 'n') {
 			cout << "No se realizaron modificaciones." << endl;
-		}
-		else cout << "El valor ingresado es incorrecto" << endl;
-	}
-	else cout << "DNI inexistente." << endl;
+		} else cout << "El valor ingresado es incorrecto" << endl;
+	} else cout << "DNI inexistente." << endl;
+
+	system("pause");
 }
 
 void ProveedorManager::HacerCopiaDeSeguridad() {
@@ -187,6 +200,7 @@ void ProveedorManager::HacerCopiaDeSeguridad() {
 	} else cout << "Error al realizar backup" << endl;
 
 	delete []vec;
+	system("pause");
 }
 
 void ProveedorManager::RestaurarCopiaDeSeguridad() {
@@ -206,4 +220,5 @@ void ProveedorManager::RestaurarCopiaDeSeguridad() {
 	} else cout << "Error al restaurar backup" << endl;
 
 	delete []vec;
+	system("pause");
 }

@@ -68,14 +68,16 @@ void EmpleadoManager::Cargar() {
 	cin >> dia;
 	cout << "MES                 : ";
 	cin >> mes;
-	cout << "ANIO                :" ;
+	cout << "ANIO                : " ;
 	cin >> anio;
+	cout << endl;
 
 	Empleado reg(dni, nombre, apellido, eMail, direccion, telefono, Fecha(dia, mes, anio), cargo, sueldo, cuentaBancaria);
 
 	if (_archivo.Guardar(reg)) {
 		cout << "Registro guardado existosamente!" << endl;
 	} else cout << "Error al guardar el registro" << endl;
+	system("pause");
 }
 
 void EmpleadoManager::ListarTodos() {
@@ -87,6 +89,7 @@ void EmpleadoManager::ListarTodos() {
 			cout << endl;
 		}
 	}
+	system("pause");
 }
 
 void EmpleadoManager::ListarRegistro(Empleado empleado) {
@@ -103,14 +106,15 @@ void EmpleadoManager::ListarRegistro(Empleado empleado) {
 }
 
 void EmpleadoManager::ListarPorDni() {
-	int pos;
 	string dni;
+	cin.ignore();
 	cout << "INGRESAR DNI DEL EMPLEADO: ";
 	getline(cin, dni);
-	pos = _archivo.Buscar(dni);
+	int pos = _archivo.Buscar(dni);
 	if (pos >= 0) {
 		ListarRegistro(_archivo.Leer(pos));
 	} else cout << "No exsite registro con DNI " << dni << endl;
+	system("pause");
 }
 
 void EmpleadoManager::ListarOrdenadoPorSueldo() {
@@ -131,6 +135,7 @@ void EmpleadoManager::ListarOrdenadoPorSueldo() {
 	}
 
 	delete []vec;
+	system("pause");
 }
 
 void EmpleadoManager::ListarOrdenadoPorFechaNacimiento() {
@@ -151,15 +156,16 @@ void EmpleadoManager::ListarOrdenadoPorFechaNacimiento() {
 	}
 
 	delete []vec;
+	system("pause");
 }
 
 void EmpleadoManager::EditarSueldo() {
-	int pos;
 	string dni;
 	float sueldo;
+	cin.ignore();
 	cout << "INGRESAR DNI DEL EMPLEADO: ";
 	getline(cin, dni);
-	pos = _archivo.Buscar(dni);
+	int pos = _archivo.Buscar(dni);
 	if (pos >= 0) {
 		Empleado reg = _archivo.Leer(pos);
 		ListarRegistro(reg);
@@ -168,36 +174,37 @@ void EmpleadoManager::EditarSueldo() {
 		reg.setSueldo(sueldo);
 		if (_archivo.Guardar(reg)) {
 			cout << "Registro guardado existosamente!" << endl;
-		} cout << "Error al guardar el registro." << endl;
-	} cout << "DNI inexistente." << endl;
+		} else cout << "Error al guardar el registro." << endl;
+	} else cout << "DNI inexistente." << endl;
+	system("pause");
 }
 
 void EmpleadoManager::Eliminar() {
-	int pos;
 	string dni;
+	cin.ignore();
 	cout << "INGRESAR DNI DEL EMPLEADO: ";
 	getline(cin, dni);
-	pos = _archivo.Buscar(dni);
+	int pos = _archivo.Buscar(dni);
 	if (pos >= 0) {
 		Empleado reg = _archivo.Leer(pos);
 		ListarRegistro(reg);
 
-		string opc;
+		char opc;
 		cout << endl << "Desea eliminar el registro? Ingresar 'S' para confirmar; 'N' para regresar.";
-		cin.ignore();
-		getline(cin, opc);
+		cin >> opc;
 
-		if (opc == "S" || opc == "s") {
+		if (opc == 'S' || opc == 's') {
 			reg.setEstado(false);
 
 			if (_archivo.Guardar(reg)) {
 				cout << "Registro eliminado exitosamente." << endl;
 			} else cout << "Error al eliminar el registro." << endl;
 
-		} else if (opc == "N" || opc == "n") {
+		} else if (opc == 'N' || opc == 'n') {
 			cout << "No se realizaron modificaciones." << endl;
 		} else cout << "El valor ingresado es incorrecto" << endl;
 	} else cout << "DNI inexistente." << endl;
+	system("pause");
 }
 
 void EmpleadoManager::HacerCopiaDeSeguridad() {
@@ -217,6 +224,7 @@ void EmpleadoManager::HacerCopiaDeSeguridad() {
 	} else cout << "Error al realizar backup" << endl;
 
 	delete []vec;
+	system("pause");
 }
 
 void EmpleadoManager::RestaurarCopiaDeSeguridad() {
@@ -236,4 +244,5 @@ void EmpleadoManager::RestaurarCopiaDeSeguridad() {
 	} else cout << "Error al restaurar backup" << endl;
 
 	delete []vec;
+	system("pause");
 }

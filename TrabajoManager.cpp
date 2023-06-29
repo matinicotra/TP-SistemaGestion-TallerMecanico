@@ -70,9 +70,8 @@ void TrabajoManager::Cargar() {
 	ProveedorArchivo arcProveedor;
 	EmpleadoArchivo arcEmpleado;
 
-
 	Trabajo reg;
-	int opc, dia, mes, anio;
+	int pos, opc, dia, mes, anio;
 	string patente, dniCliente, dni, detalle, idPresu;
 	bool nuevoCliente = false;
 	bool nuevoVehiculo = false;
@@ -90,6 +89,7 @@ void TrabajoManager::Cargar() {
 	cout << "2 - CARGAR NUEVO VEHICULO" << endl;
 	cout << "Opcion: ";
 	cin >> opc;
+
 	switch (opc) {
 	case 1:
 		cout << "PATENTE: ";
@@ -105,7 +105,7 @@ void TrabajoManager::Cargar() {
 	case 2:
 		VehiculoManager aux;
 		aux.Cargar();
-		int pos = arcVehiculo.GetCantidadRegistros();
+		pos = arcVehiculo.GetCantidadRegistros();
 		reg.setPatente(arcVehiculo.Leer(pos).getPatente());
 		nuevoVehiculo = true;
 		break;
@@ -115,6 +115,7 @@ void TrabajoManager::Cargar() {
 	cout << "2 - CARGAR NUEVO CLIENTE" << endl;
 	cout << "Opcion: ";
 	cin >> opc;
+
 	switch (opc) {
 	case 1:
 		cout << "DNI: ";
@@ -135,6 +136,7 @@ void TrabajoManager::Cargar() {
 		break;
 	}
 
+	cin.ignore();
 	cout << "INGRESAR DNI DEL PROVEEDOR DE REPUESTOS: ";
 	getline(cin, dni);
 	while (arcProveedor.Buscar(dni) == -1) {
@@ -143,7 +145,9 @@ void TrabajoManager::Cargar() {
 		if (dni == "0") break;
 	}
 	reg.setDniProveedor(dni);
+	cout << endl;
 
+	cin.ignore();
 	cout << "INGRESAR DNI DEL EMPLEADO DESIGNADO: ";
 	getline(cin, dni);
 	while (arcEmpleado.Buscar(dni) == -1) {
@@ -152,6 +156,7 @@ void TrabajoManager::Cargar() {
 		if(dni == "0") break;
 	}
 	reg.setDniEmpleado(dni);
+	cout << endl;
 
 	cout << "1 - INGRESAR ID DEL PRESUPUESTO";
 	cout << "2 - CARGAR PRESUPUESTO";
@@ -169,12 +174,13 @@ void TrabajoManager::Cargar() {
 	case 2:
 		PresupuestoManager aux;
 		aux.Cargar();
-		int pos = arcPresupuesto.GetCantidadRegistros();
+		pos = arcPresupuesto.GetCantidadRegistros();
 		reg.setIdPresupuesto(arcPresupuesto.Leer(pos).getIdPresupuesto());
 		reg.setPrecioTrabajo(arcPresupuesto.Leer(pos).getImporte());
 		break;
 	}
 
+	cout << endl;
 	cout << "FECHA DE ENTRADA: " << endl;
 	cout << "DIA:  ";
 	cin >> dia;
@@ -183,7 +189,7 @@ void TrabajoManager::Cargar() {
 	cout << "ANIO:  ";
 	cin >> anio;
 	reg.setFechaEntrada(Fecha(dia, mes, anio));
-
+	cout << endl;
 	cout << "FECHA DE ENTREGA: " << endl;
 	cout << "DIA:  ";
 	cin >> dia;
@@ -196,7 +202,6 @@ void TrabajoManager::Cargar() {
 	reg.setAvanceTrabajo(1);
 	reg.setEstado(true);
 
-
 	if (_archivo.Guardar(reg)) {
 		if ((nuevoCliente && nuevoVehiculo) || (!nuevoCliente && nuevoVehiculo)) {
 			AutoClienteManager aux;
@@ -204,18 +209,21 @@ void TrabajoManager::Cargar() {
 		}
 		cout << "Registro guardado existosamente!" << endl;
 	} cout << "Error al guardar el registro" << endl;
+
+	system("pause");
 }
 
 void TrabajoManager::ListarPorId() {
-	int id, pos;
+	int id;
 
 	cout << "INGRESAR ID DEL TRABAJO: ";
 	cin >> id;
-	pos = _archivo.Buscar(id);
+	int pos = _archivo.Buscar(id);
 
 	if (pos >= 0) {
 		ListarRegistro(_archivo.Leer(pos));
 	} else cout << "No exsite registro con ID #" << id << endl;
+	system("pasue");
 }
 
 void TrabajoManager::ListarTodos() {
@@ -227,6 +235,7 @@ void TrabajoManager::ListarTodos() {
 			cout << endl;
 		}
 	}
+	system("pause");
 }
 
 void TrabajoManager::ListarRegistro(Trabajo trabajo) {
@@ -263,6 +272,7 @@ void TrabajoManager::ListarPorPatente() {
 	bool bandera = false;
 	int cantRegistros = _archivo.GetCantidadRegistros();
 
+	cin.ignore();
 	cout << "INGRESAR PATENTE: ";
 	getline(cin, patente);
 
@@ -274,8 +284,8 @@ void TrabajoManager::ListarPorPatente() {
 			bandera = true;
 		}
 	}
-
 	if (!bandera) cout << "No se realizaron trabajos con la patente " << patente << endl;
+	system("pause");
 }
 
 void TrabajoManager::ListarPorDniCliente() {
@@ -283,6 +293,7 @@ void TrabajoManager::ListarPorDniCliente() {
 	bool bandera = false;
 	int cantRegistros = _archivo.GetCantidadRegistros();
 
+	cin.ignore();
 	cout << "INGRESAR DNI DEL CLIENTE: ";
 	getline(cin, dni);
 
@@ -294,8 +305,8 @@ void TrabajoManager::ListarPorDniCliente() {
 			bandera = true;
 		}
 	}
-
 	if (!bandera) cout << "No se realizaron trabajos con el DNI " << dni << endl;
+	system("pause");
 }
 
 void TrabajoManager::ListarPorAvance() {
@@ -331,6 +342,7 @@ void TrabajoManager::ListarPorAvance() {
 		if (opc == 4) cout << "ensamblaje." << endl;
 		if (opc == 5) cout << "finalizado." << endl;
 	}
+	system("pause");
 }
 
 void TrabajoManager::ListarOrdenadosPorFecha() {
@@ -351,6 +363,7 @@ void TrabajoManager::ListarOrdenadosPorFecha() {
 	}
 
 	delete []vec;
+	system("pause");
 }
 
 void TrabajoManager::ListarEntregadosPorFecha() {
@@ -373,14 +386,15 @@ void TrabajoManager::ListarEntregadosPorFecha() {
 	}
 
 	delete []vec;
+	system("pause");
 }
 
 void TrabajoManager::ActualizarAvance() {
-	int id, pos;
+	int id;
 
 	cout << "INGRESAR ID DEL TRABAJO: ";
 	cin >> id;
-	pos = _archivo.Buscar(id);
+	int pos = _archivo.Buscar(id);
 
 	if (pos >= 0) {
 		Trabajo reg = _archivo.Leer(pos);
@@ -404,6 +418,7 @@ void TrabajoManager::ActualizarAvance() {
 		} else cout << "Error al guardar el registro." << endl;
 
 	} else cout << "ID inexistente." << endl;
+	system("pause");
 }
 
 void TrabajoManager::ListarPorEmpleado() {
@@ -412,8 +427,10 @@ void TrabajoManager::ListarPorEmpleado() {
 	bool bandera = false;
 	int cantRegistros = _archivo.GetCantidadRegistros();
 
+	cin.ignore();
 	cout << "INGRESAR DNI DEL EMPLEADO: ";
 	getline(cin, dni);
+
 	if (arcEmpleado.Buscar(dni) >= 0) {
 		for (int i = 0; i < cantRegistros; i++) {
 			Trabajo trabajo = _archivo.Leer(i);
@@ -425,9 +442,8 @@ void TrabajoManager::ListarPorEmpleado() {
 		}
 		if (!bandera) cout << "El empleado aun no realizo trabajos." << endl;
 	} cout << "Dni inexistente." << endl;
-
+	system("pause");
 }
-
 
 void TrabajoManager::Eliminar() {
 	int id, pos;
@@ -440,22 +456,22 @@ void TrabajoManager::Eliminar() {
 		Trabajo reg = _archivo.Leer(pos);
 		ListarRegistro(reg);
 
-		string opc;
+		char opc;
 		cout << endl << "Desea eliminar el registro? Ingresar 'S' para confirmar; 'N' para regresar.";
-		cin.ignore();
-		getline(cin, opc);
+		cin >> opc;
 
-		if (opc == "S" || opc == "s") {
+		if (opc == 'S' || opc == 's') {
 			reg.setEstado(false);
 
 			if (_archivo.Guardar(reg)) {
 				cout << "Registro #" << id << " eliminado exitosamente." << endl;
 			} else cout << "Error al eliminar el registro." << endl;
 
-		} else if (opc == "N" || opc == "n") {
+		} else if (opc == 'N' || opc == 'n') {
 			cout << "No se realizaron modificaciones." << endl;
 		} else cout << "El valor ingresado es incorrecto" << endl;
 	} else cout << "ID inexistente." << endl;
+	system("pause");
 }
 
 void TrabajoManager::HacerCopiaDeSeguridad() {
@@ -475,6 +491,7 @@ void TrabajoManager::HacerCopiaDeSeguridad() {
 	} else cout << "Error al realizar backup" << endl;
 
 	delete []vec;
+	system("pause");
 }
 
 void TrabajoManager::RestaurarCopiaDeSeguridad() {
@@ -494,5 +511,6 @@ void TrabajoManager::RestaurarCopiaDeSeguridad() {
 	} else cout << "Error al restaurar backup" << endl;
 
 	delete []vec;
+	system("pause");
 }
 

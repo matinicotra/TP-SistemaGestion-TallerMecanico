@@ -37,10 +37,11 @@ void PresupuestoManager::Cargar() {
 	cout << "2 - CARGAR NUEVO VEHICULO" << endl;
 	cout << "Opcion: ";
 	cin >> opc;
+
 	switch (opc) {
 	case 1:
-		cout << "PATENTE: ";
 		cin.ignore();
+		cout << "PATENTE: ";
 		getline(cin, patente);
 		while (arcVehiculo.Buscar(patente) == -1) {
 			cout << "Patente inexistente. Presione '0' para salir o intente nuevamente... : ";
@@ -61,10 +62,11 @@ void PresupuestoManager::Cargar() {
 	cout << "2 - CARGAR NUEVO CLIENTE" << endl;
 	cout << "Opcion: ";
 	cin >> opc;
+
 	switch (opc) {
 	case 1:
-		cout << "DNI: ";
 		cin.ignore();
+		cout << "DNI: ";
 		getline(cin, dniCliente);
 		while (arcCliente.Buscar(dniCliente) == -1) {
 			cout << "DNI inexistente. Presione '0' para continuar o intente nuevamente... : ";
@@ -119,6 +121,7 @@ void PresupuestoManager::Cargar() {
 		}
 		cout << "Registro guardado existosamente!" << endl;
 	} else cout << "Error al guardar el registro" << endl;
+	system("pause");
 }
 
 void PresupuestoManager::ListarTodos() {
@@ -130,6 +133,7 @@ void PresupuestoManager::ListarTodos() {
 			cout << endl;
 		}
 	}
+	system("pause");
 }
 
 void PresupuestoManager::ListarRegistro(Presupuesto presupuesto) {
@@ -147,22 +151,26 @@ void PresupuestoManager::ListarRegistro(Presupuesto presupuesto) {
 	if (presupuesto.getVehiculoSustitucion()) {
 		cout << "INCLUYE VEHICULO DE SUSTITUCION: SI" << endl;
 	} else cout << "INCLUYE VEHICULO DE SUSTITUCION: NO" << endl;
+	system("pause");
 }
 
 void PresupuestoManager::ListarPorId() {
-	int id, pos;
+	int id;
 	cout << "INGRESAR ID DEL PRESUPUESTO: ";
 	cin >> id;
-	pos = _archivo.Buscar(id);
+	int pos = _archivo.Buscar(id);
 	if (pos >= 0) {
 		ListarRegistro(_archivo.Leer(pos));
 	} else cout << "No existe presupuesto con ID #" << id << endl;
+	system("pause");
 }
 
 void PresupuestoManager::ListarPorDni() {
 	int cantRegistros = _archivo.GetCantidadRegistros();
 	string dni;
 	bool existe = false;
+
+	cin.ignore();
 	cout << "INGRESAR DNI DEL CLIENTE: ";
 	getline(cin, dni);
 	for (int i = 0; i < cantRegistros; i++) {
@@ -174,12 +182,15 @@ void PresupuestoManager::ListarPorDni() {
 		}
 	}
 	if (!existe) cout << "No se encontraron registros con DNI " << dni << endl;
+	system("pause");
 }
 
 void PresupuestoManager::ListarPorPatente() {
 	int cantRegistros = _archivo.GetCantidadRegistros();
 	string patente;
 	bool existe = false;
+
+	cin.ignore();
 	cout << "INGRESAR PATENTE DEL VEHICULO: ";
 	getline(cin, patente);
 	for (int i = 0; i < cantRegistros; i++) {
@@ -191,14 +202,15 @@ void PresupuestoManager::ListarPorPatente() {
 		}
 	}
 	if (!existe) cout << "No se encontraron registros con patente " << patente << endl;
+	system("pause");
 }
 
 void PresupuestoManager::EditarImporte() {
-	int pos, id;
+	int id;
 	float importe;
 	cout << "INGRESAR ID DEL PRESUPUESTO: ";
 	cin >> id;
-	pos = _archivo.Buscar(id);
+	int pos = _archivo.Buscar(id);
 	if (pos >= 0) {
 		Presupuesto reg = _archivo.Leer(pos);
 		ListarRegistro(reg);
@@ -209,25 +221,25 @@ void PresupuestoManager::EditarImporte() {
 			cout << "Registro guardado existosamente!" << endl;
 		} cout << "Error al guardar el registro." << endl;
 	} cout << "ID inexistente." << endl;
+	system("pause");
 }
 
 void PresupuestoManager::Eliminar() {
-	int pos, id;
+	int id;
 
 	cout << "INGRESAR ID DEL PRESUPUESTO: ";
 	cin >> id;
 
-	pos = _archivo.Buscar(id);
+	int pos = _archivo.Buscar(id);
 	if (pos >= 0) {
 		Presupuesto reg = _archivo.Leer(pos);
 		ListarRegistro(reg);
 
-		string opc;
+		char opc;
 		cout << endl << "Desea eliminar el registro? Ingresar 'S' para confirmar; 'N' para regresar.";
-		cin.ignore();
-		getline(cin, opc);
+		cin >> opc;
 
-		if (opc == "S" || opc == "s") {
+		if (opc == 'S' || opc == 's') {
 			reg.setEstado(false);
 
 			if (_archivo.Guardar(reg)) {
@@ -235,12 +247,13 @@ void PresupuestoManager::Eliminar() {
 			}
 			else cout << "Error al eliminar el registro." << endl;
 		}
-		else if (opc == "N" || opc == "n") {
+		else if (opc == 'N' || opc == 'n') {
 			cout << "No se realizaron modificaciones." << endl;
 		}
 		else cout << "El valor ingresado es incorrecto" << endl;
 	}
 	else cout << "DNI inexistente." << endl;
+	system("pause");
 }
 
 void PresupuestoManager::HacerCopiaDeSeguridad() {
@@ -260,6 +273,7 @@ void PresupuestoManager::HacerCopiaDeSeguridad() {
 	} else cout << "Error al realizar backup" << endl;
 
 	delete []vec;
+	system("pause");
 }
 
 void PresupuestoManager::RestaurarCopiaDeSeguridad() {
@@ -279,4 +293,5 @@ void PresupuestoManager::RestaurarCopiaDeSeguridad() {
 	} else cout << "Error al restaurar backup" << endl;
 
 	delete []vec;
+	system("pause");
 }

@@ -6,19 +6,19 @@ using namespace std;
 #include "ClienteManager.h"
 
 void VehiculoManager::OrdenarPorFecha(Vehiculo *vec, int cantRegistros) {
-	int mayor = 0;
+	int menor = 0;
 	Vehiculo aux;
 	for (int i = 0; i < cantRegistros - 1; i++) {
-		mayor = i;
+		menor = i;
 		for (int j = i + 1; j < cantRegistros; j++) {
-			if (vec[j].getFechaAlta().toString("YYYY/MM/DD") > vec[mayor].getFechaAlta().toString("YYYY/MM/DD")) {
-				mayor = j;
+			if (vec[j].getFechaAlta().toString("YYYY/MM/DD") < vec[menor].getFechaAlta().toString("YYYY/MM/DD")) {
+				menor = j;
 			}
 		}
-		if (i != mayor) {
+		if (i != menor) {
 			aux = vec[i];
-			vec[i] = vec[mayor];
-			vec[mayor] = aux;
+			vec[i] = vec[menor];
+			vec[menor] = aux;
 		}
 	}
 }
@@ -61,14 +61,16 @@ void VehiculoManager::Cargar() {
 	cin >> dia;
 	cout << "MES          : ";
 	cin >> mes;
-	cout << "ANIO         :" ;
+	cout << "ANIO         : " ;
 	cin >> anio;
+	cout << endl;
 
 	Vehiculo reg(patente, modelo, marca, anio, Fecha(dia, mes, anio));
 
 	if (_archivo.Guardar(reg)) {
 		cout << "Registro guardado existosamente!" << endl;
 	} else cout << "Error al guardar el registro" << endl;
+	system("pause");
 }
 
 void VehiculoManager::ListarTodos() {
@@ -80,6 +82,7 @@ void VehiculoManager::ListarTodos() {
 			cout << endl;
 		}
 	}
+	system("pause");
 }
 
 void VehiculoManager::ListarRegistro(Vehiculo vehiculo) {
@@ -93,12 +96,14 @@ void VehiculoManager::ListarRegistro(Vehiculo vehiculo) {
 void VehiculoManager::ListarPorPatente() {
 	int pos;
 	string patente;
+	cin.ignore();
 	cout << "INGRESAR LA PATENTE DEL VEHICULO: ";
 	getline(cin, patente);
 	pos = _archivo.Buscar(patente);
 	if (pos >= 0) {
 		ListarRegistro(_archivo.Leer(pos));
 	} else cout << "No exsite registro con la patente " << patente << endl;
+	system("pause");
 }
 
 void VehiculoManager::ListarOrdenadosPorFechaAlta() {
@@ -144,29 +149,34 @@ void VehiculoManager::ListarOrdenadosPorPatente() {
 void VehiculoManager::Eliminar() {
 	int pos;
 	string patente;
+
+	cin.ignore();
 	cout << "INGRESAR LA PATENTE DEL VEHICULO: ";
 	getline(cin, patente);
+
 	pos = _archivo.Buscar(patente);
+
 	if (pos >= 0) {
 		Vehiculo reg = _archivo.Leer(pos);
 		ListarRegistro(reg);
 
-		string opc;
+		char opc;
 		cout << endl << "Desea eliminar el registro? Ingresar 'S' para confirmar; 'N' para regresar.";
-		cin.ignore();
-		getline(cin, opc);
+		cin >> opc;
 
-		if (opc == "S" || opc == "s") {
+		if (opc == 'S' || opc == 's') {
 			reg.setEstado(false);
 
 			if (_archivo.Guardar(reg)) {
 				cout << "Registro eliminado exitosamente." << endl;
 			} else cout << "Error al eliminar el registro." << endl;
 
-		} else if (opc == "N" || opc == "n") {
+		} else if (opc == 'N' || opc == 'n') {
 			cout << "No se realizaron modificaciones." << endl;
 		} else cout << "El valor ingresado es incorrecto" << endl;
 	} else cout << "Patente inexistente." << endl;
+
+	system("pause");
 }
 
 void VehiculoManager::HacerCopiaDeSeguridad() {
@@ -184,8 +194,9 @@ void VehiculoManager::HacerCopiaDeSeguridad() {
 	if (_archivoBkp.Guardar(vec, cantRegistros)) {
 		cout << "Backup realizado correctamente!" << endl;
 	} else cout << "Error al realizar backup" << endl;
-
 	delete []vec;
+
+	system("pause");
 }
 
 void VehiculoManager::RestaurarCopiaDeSeguridad() {
@@ -203,6 +214,7 @@ void VehiculoManager::RestaurarCopiaDeSeguridad() {
 	if (_archivo.Guardar(vec, cantRegistros)) {
 		cout << "Backup restaurado correctamente!" << endl;
 	} else cout << "Error al restaurar backup" << endl;
-
 	delete []vec;
+
+	system("pause");
 }
