@@ -34,10 +34,10 @@ void clienteHardcodear()
     Fecha fecha4(14, 4, 2022);
     Fecha fecha5(15, 5, 2022);
     Fecha fecha6(16, 6, 2022);
-    Fecha fecha7(17, 7, 2022);
-    Fecha fecha8(18, 8, 2022);
-    Fecha fecha9(19, 9, 2022);
-    Fecha fecha10(21, 10, 2022);
+    Fecha fecha7(17, 7, 2023);
+    Fecha fecha8(18, 8, 2023);
+    Fecha fecha9(19, 9, 2023);
+    Fecha fecha10(21, 10, 2023);
 
     Cliente cliente1("12345678", "Emily", "Johnson", "emilyjohnson@example.com", "456 Elm St", "555-1111", "Cliente 1", fecha1);
     Cliente cliente2("87654321", "James", "Brown", "jamesbrown@example.com", "789 Oak St", "555-2222", "Cliente 2", fecha2);
@@ -69,34 +69,34 @@ void empleadoHardcodear()
 {
 
     Fecha fechaNacimiento1(10, 12, 1990);
-    Empleado empleado1("12345600", "John", "Doe", "johndoe@example.com", "123 Main St", "555-1234", fechaNacimiento1, "Mecanico general", 5000.0, "1234567890");
+    Empleado empleado1("12345600", "John", "Doe", "johndoe@example.com", "Nazca 50", "555-1234", fechaNacimiento1, "Mecanico general", 5000.0, "1234567890");
 
     Fecha fechaNacimiento2(15, 3, 1985);
-    Empleado empleado2("87654311", "Jane", "Smith", "janesmith@example.com", "456 Elm St", "555-5678", fechaNacimiento2, "Mecanico general", 3000.0, "0987654321");
+    Empleado empleado2("87654311", "Jane", "Smith", "janesmith@example.com", "Lanus 100", "555-5678", fechaNacimiento2, "Mecanico general", 3000.0, "0987654321");
 
     Fecha fechaNacimiento3(5, 8, 1992);
-    Empleado empleado3("56781222", "Michael", "Johnson", "michaeljohnson@example.com", "789 Oak St", "555-9012", fechaNacimiento3, "Mecanico general", 2500.0, "5678901234");
+    Empleado empleado3("56781222", "Michael", "Olmos", "michaeljohnson@example.com", "Almagro 200", "555-9012", fechaNacimiento3, "Mecanico general", 2500.0, "5678901234");
 
     Fecha fechaNacimiento4(20, 1, 1988);
-    Empleado empleado4("43218733", "Emily", "Davis", "emilydavis@example.com", "987 Pine St", "555-3456", fechaNacimiento4, "Mecanico general", 4000.0, "4321098765");
+    Empleado empleado4("43218733", "Emily", "Davis", "emilydavis@example.com", "Siempre viva 600", "555-3456", fechaNacimiento4, "Mecanico general", 4000.0, "4321098765");
 
     Fecha fechaNacimiento5(8, 6, 1995);
-    Empleado empleado5("98765444", "Jessica", "Brown", "jessicabrown@example.com", "654 Cedar St", "555-7890", fechaNacimiento5, "Ayudante", 2000.0, "9876543210");
+    Empleado empleado5("98765444", "Jessica", "Brown", "jessicabrown@example.com", "Libertador 250", "555-7890", fechaNacimiento5, "Ayudante", 2000.0, "9876543210");
 
     Fecha fechaNacimiento6(12, 9, 1991);
-    Empleado empleado6("65432155", "Daniel", "Wilson", "danielwilson@example.com", "321 Maple St", "555-2345", fechaNacimiento6, "Ayudante", 3000.0, "6543210987");
+    Empleado empleado6("65432155", "Daniel", "Wilson", "danielwilson@example.com", "Libertad 500", "555-2345", fechaNacimiento6, "Ayudante", 3000.0, "6543210987");
 
     Fecha fechaNacimiento7(25, 11, 1987);
-    Empleado empleado7("87651266", "Sophia", "Taylor", "sophiataylor@example.com", "543 Birch St", "555-6789", fechaNacimiento7, "Ayudante", 2800.0, "8765432109");
+    Empleado empleado7("87651266", "Ester", "Taylor", "sophiataylor@example.com", "Portela 800", "555-6789", fechaNacimiento7, "Ayudante", 2800.0, "8765432109");
 
     Fecha fechaNacimiento8(3, 7, 1993);
-    Empleado empleado8("12348777", "Oliver", "Martinez", "olivermartinez@example.com", "876 Walnut St", "555-0123", fechaNacimiento8, "Ayudante", 5500.0, "1234509876");
+    Empleado empleado8("12348777", "Fernando", "Ruiz", "olivermartinez@example.com", "Añasco 900", "555-0123", fechaNacimiento8, "Ayudante", 5500.0, "1234509876");
 
     Fecha fechaNacimiento9(18, 2, 1989);
-    Empleado empleado9("34561288", "Emma", "Anderson", "emmaanderson@example.com", "210 Spruce St", "555-4567", fechaNacimiento9, "Recepcionista", 4200.0, "3456789012");
+    Empleado empleado9("34561288", "Emma", "Anderson", "emmaanderson@example.com", "Roseti 111", "555-4567", fechaNacimiento9, "Recepcionista", 4200.0, "3456789012");
 
     Fecha fechaNacimiento10(30, 4, 1994);
-    Empleado empleado10("56783499", "William", "Thompson", "williamthompson@example.com", "432 Oak St", "555-8901", fechaNacimiento10, "Jefe", 2200.0, "5678901234");
+    Empleado empleado10("56783499", "William", "Thompson", "williamthompson@example.com", "Pampa 55", "555-8901", fechaNacimiento10, "Jefe", 12200.0, "8678901238");
 
     EmpleadoArchivo ea;
 
@@ -115,16 +115,16 @@ void empleadoHardcodear()
 
 void proveedorHardcodear()
 {
-    Proveedor proveedor1("12345670", "Proveedor1", "Apellido1", "proveedor1@example.com", "Main St", "555-1234", "Amortiguadores", "Amortiguador", "Argentina");
-    Proveedor proveedor2("87654321", "Proveedor2", "Apellido2", "proveedor2@example.com", "Elm St", "555-5678", "Amortiguadores", "Espiral", "China");
-    Proveedor proveedor3("56781234", "Proveedor3", "Apellido3", "proveedor3@example.com", "Oak St", "555-9012", "Motores", "Piston", "Brasil");
-    Proveedor proveedor4("43218765", "Proveedor4", "Apellido4", "proveedor4@example.com", "Pine St", "555-3456", "Motores", "Viela", "China");
-    Proveedor proveedor5("98765432", "Proveedor5", "Apellido5", "proveedor5@example.com", "Cedar St", "555-7890", "Motores", "Tapa de cilindro", "Brasil");
-    Proveedor proveedor6("65432187", "Proveedor6", "Apellido6", "proveedor6@example.com", "Maple St", "555-2345", "Frenos", "Caliper", "Argentina");
-    Proveedor proveedor7("87651230", "Proveedor7", "Apellido7", "proveedor7@example.com", "Birch St", "555-6789", "Frenos", "Pastillas", "Brasil");
-    Proveedor proveedor8("12348765", "Proveedor8", "Apellido8", "proveedor8@example.com", "Walnut St", "555-0123", "Ruedas", "Neumatico", "China");
-    Proveedor proveedor9("34561278", "Proveedor9", "Apellido9", "proveedor9@example.com", "Spruce St", "555-4567", "Ruedas", "Llanta", "Brasil");
-    Proveedor proveedor10("56783429", "Proveedor10", "Apellido10", "proveedor10@example.com", "Oak St", "555-8901", "Ruedas", "Camara", "Argentina");
+    Proveedor proveedor1("12345670", "Proveedor1", "Apellido1", "proveedor1@example.com", "Thorne 111", "555-1240", "Amortiguadores", "Amortiguador", "Argentina");
+    Proveedor proveedor2("87654321", "Proveedor2", "Apellido2", "proveedor2@example.com", "Rua 15", "555-5680", "Amortiguadores", "Espiral", "China");
+    Proveedor proveedor3("56781234", "Proveedor3", "Apellido3", "proveedor3@example.com", "Libertador 222", "555-9020", "Motores", "Piston", "Brasil");
+    Proveedor proveedor4("43218765", "Proveedor4", "Apellido4", "proveedor4@example.com", "De los pinos 55", "555-3460", "Motores", "Viela", "China");
+    Proveedor proveedor5("98765432", "Proveedor5", "Apellido5", "proveedor5@example.com", "Urquiza 333", "555-7800", "Motores", "Tapa cilindro", "Brasil");
+    Proveedor proveedor6("65432187", "Proveedor6", "Apellido6", "proveedor6@example.com", "Rosas 28", "555-2350", "Frenos", "Caliper", "Argentina");
+    Proveedor proveedor7("87651230", "Proveedor7", "Apellido7", "proveedor7@example.com", "Ruta 8 750", "555-6790", "Frenos", "Pastillas", "Brasil");
+    Proveedor proveedor8("12348765", "Proveedor8", "Apellido8", "proveedor8@example.com", "Congreso 70", "555-0130", "Ruedas", "Neumatico", "China");
+    Proveedor proveedor9("34561278", "Proveedor9", "Apellido9", "proveedor9@example.com", "Casilda 88", "555-4570", "Ruedas", "Llanta", "Brasil");
+    Proveedor proveedor10("56783429", "Proveedor10", "Apellido10", "proveedor10@example.com", "Aranguren 175", "555-8910", "Ruedas", "Camara", "Argentina");
 
     ProveedorArchivo pa;
 
@@ -148,9 +148,9 @@ void vehiculoHardcodear()
     Fecha fecha4(1, 1, 2022);
     Fecha fecha5(1, 1, 2017);
     Fecha fecha6(1, 1, 2021);
-    Fecha fecha7(1, 1, 2016);
-    Fecha fecha8(1, 1, 2015);
-    Fecha fecha9(1, 1, 2014);
+    Fecha fecha7(1, 1, 2018);
+    Fecha fecha8(1, 1, 2018);
+    Fecha fecha9(1, 1, 2019);
     Fecha fecha10(1, 1, 2023);
 
     Vehiculo vehiculo1("ABC123", "Prisma", "Chevrolet", 2020, fecha1);
