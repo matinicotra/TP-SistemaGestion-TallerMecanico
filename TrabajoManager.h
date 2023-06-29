@@ -15,6 +15,9 @@ private:
 	void OrdenarPorFechaEntrega(Trabajo *vec, int cantRegistros);
 
 public:
+    std::string IngresarVehiculo(bool &nuevoVehiculo);  //devuelve patente
+    std::string IngresarCliente(bool &nuevoCliente);   //devuelve dni
+    int IngresarPresupuesto(float &precioTrabajo); 	  //devuelve id de presupuesto
     void Cargar();
 
 	void ListarPorId();

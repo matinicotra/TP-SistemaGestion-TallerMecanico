@@ -6,19 +6,19 @@ using namespace std;
 #include "ClienteManager.h"
 
 void VehiculoManager::OrdenarPorFecha(Vehiculo *vec, int cantRegistros) {
-	int menor = 0;
+	int mayor = 0;
 	Vehiculo aux;
 	for (int i = 0; i < cantRegistros - 1; i++) {
-		menor = i;
+		mayor = i;
 		for (int j = i + 1; j < cantRegistros; j++) {
-			if (vec[j].getFechaAlta().toString("YYYY/MM/DD") < vec[menor].getFechaAlta().toString("YYYY/MM/DD")) {
-				menor = j;
+			if (vec[j].getFechaAlta().toString("YYYY/MM/DD") > vec[mayor].getFechaAlta().toString("YYYY/MM/DD")) {
+				mayor = j;
 			}
 		}
-		if (i != menor) {
+		if (i != mayor) {
 			aux = vec[i];
-			vec[i] = vec[menor];
-			vec[menor] = aux;
+			vec[i] = vec[mayor];
+			vec[mayor] = aux;
 		}
 	}
 }
@@ -46,6 +46,7 @@ void VehiculoManager::Cargar() {
 	string patente, modelo, marca;
 	int dia, mes, anio, anioModelo;
 
+	cin.ignore();
 	cout << "NUEVO VEHICULO" << endl;
 	cout << "--------------" << endl;
 	cout << "PATENTE      : ";
@@ -124,6 +125,7 @@ void VehiculoManager::ListarOrdenadosPorFechaAlta() {
 	}
 
 	delete []vec;
+	system("pause");
 }
 
 void VehiculoManager::ListarOrdenadosPorPatente() {
@@ -144,6 +146,7 @@ void VehiculoManager::ListarOrdenadosPorPatente() {
 	}
 
 	delete []vec;
+	system("pause");
 }
 
 void VehiculoManager::Eliminar() {

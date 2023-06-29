@@ -38,7 +38,6 @@ void AutoClienteManager::HacerCopiaDeSeguridad() {
 	_archivo.Leer(vec, cantRegistros);
 	_archivoBkp.Vaciar();
 	_archivoBkp.Guardar(vec, cantRegistros);
-
 	delete []vec;
 }
 
@@ -54,7 +53,6 @@ void AutoClienteManager::RestaurarCopiaDeSeguridad() {
 	_archivoBkp.Leer(vec, cantRegistros);
 	_archivo.Vaciar();
 	_archivo.Guardar(vec, cantRegistros);
-
 	delete []vec;
 }
 

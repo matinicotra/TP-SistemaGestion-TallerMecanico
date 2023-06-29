@@ -1,19 +1,18 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
 #include "Funciones.h"
 #include "ClienteArchivo.h"
 #include "VehiculoArchivo.h"
 #include "PresupuestoArchivo.h"
-#include "TrabajoManager.h"
 #include "ProveedorArchivo.h"
 #include "EmpleadoArchivo.h"
 #include "ClienteManager.h"
 #include "VehiculoManager.h"
 #include "AutoClienteManager.h"
 #include "PresupuestoManager.h"
-
-using namespace std;
+#include "TrabajoManager.h"
 
 int TrabajoManager::GenerarId() {
 	return _archivo.GetCantidadRegistros() + 1;
@@ -63,122 +62,172 @@ void TrabajoManager::OrdenarPorFechaEntrega(Trabajo *vec, int cantRegistros) {
 	}
 }
 
-void TrabajoManager::Cargar() {
+string TrabajoManager::IngresarVehiculo(bool &nuevoVehiculo) {
 	VehiculoArchivo arcVehiculo;
+	VehiculoManager aux;
+ 	int opc, pos;
+	string patente;
+
+	do {
+		cout << "1 - INGRESAR PATENTE DEL VEHICULO" << endl;
+		cout << "2 - CARGAR NUEVO VEHICULO" << endl;
+		cout << "0 - CONTINUAR SIN CARGAR" << endl;
+		cout << "Opcion: ";
+		cin >> opc;
+
+		switch (opc) {
+		case 1:
+			cin.ignore();
+			cout << endl << "PATENTE: ";
+			getline(cin, patente);
+			while (arcVehiculo.Buscar(patente) == -1) {
+				cout << "Patente inexistente, intente nuevamente... : ";
+				getline(cin, patente);
+				if (patente == "0") break;
+			}
+			nuevoVehiculo = false;
+			break;
+		case 2:
+			aux.Cargar();
+			pos = arcVehiculo.GetCantidadRegistros();
+			patente = arcVehiculo.Leer(pos-1).getPatente();
+			nuevoVehiculo = true;
+			break;
+		case 0:
+			patente = "0";
+			break;
+		default:
+			cout << "Opcion incorrecta." << endl;
+			break;
+		}
+	} while (opc != 0 && opc != 1 && opc != 2);
+
+	return patente;
+}
+
+string TrabajoManager::IngresarCliente(bool &nuevoCliente) {
 	ClienteArchivo arcCliente;
+	ClienteManager aux;
+	int opc, pos;
+	string dni;
+
+	do {
+		cout << "1 - INGRESAR DNI DEL CLIENTE" << endl;
+		cout << "2 - CARGAR NUEVO CLIENTE" << endl;
+		cout << "0 - CONTINUAR SIN CARGAR" << endl;
+		cout << "Opcion: ";
+		cin >> opc;
+
+		switch (opc) {
+		case 1:
+			cin.ignore();
+			cout << endl << "DNI: ";
+			getline(cin, dni);
+			while (arcCliente.Buscar(dni) == -1) {
+				cout << "DNI inexistente, intente nuevamente... : ";
+				getline(cin, dni);
+				if (dni == "0") break;
+			}
+			break;
+		case 2:
+			aux.Cargar();
+			pos = arcCliente.GetCantidadRegistros();
+			dni = arcCliente.Leer(pos-1).getDni();
+			nuevoCliente = true;
+			break;
+		case 0:
+			dni = "0";
+			break;
+		default:
+			cout << "Opcion incorrecta." << endl;
+			break;
+		}
+	} while (opc != 0 && opc != 1 && opc != 2);
+
+	return dni;
+}
+
+int TrabajoManager::IngresarPresupuesto(float &precioTrabajo) {
 	PresupuestoArchivo arcPresupuesto;
+	PresupuestoManager aux;
+	int opc, id, pos;
+
+	do {
+		int cont = 0;
+		cout << "1 - INGRESAR ID DEL PRESUPUESTO" << endl;
+		cout << "2 - CARGAR NUEVO PRESUPUESTO" << endl;
+		cin >> opc;
+
+		switch (opc) {
+		case 1:
+			cout << "ID #: ";
+			cin >> id;
+			while (arcPresupuesto.Buscar(id) == -1) {
+				cout << "No existe un presupuesto con ese ID. Intente nuevamente... : ";
+				cin >> id;
+			}
+			pos = arcPresupuesto.Buscar(id);
+			precioTrabajo = arcPresupuesto.Leer(pos).getImporte();					//asignamos el importe del presu al precio del trabajo
+			break;
+		case 2:
+			aux.Cargar();
+			pos = arcPresupuesto.GetCantidadRegistros();
+			id = arcPresupuesto.Leer(pos-1).getIdPresupuesto();					//buscamos el ultimo id ingresado
+			precioTrabajo = arcPresupuesto.Leer(pos-1).getImporte();			//idem
+			break;
+		case 0:
+			cout << "Opcion incorrecta." << endl;
+			break;
+		}
+	} while (opc != 0 && opc != 1 && opc != 2);
+
+	return id;
+}
+
+void TrabajoManager::Cargar() {
 	ProveedorArchivo arcProveedor;
 	EmpleadoArchivo arcEmpleado;
 
-	Trabajo reg;
-	int pos, opc, dia, mes, anio;
-	string patente, dniCliente, dni, detalle, idPresu;
+	int dia, mes, anio, idPresupuesto;
+	string patente, dniCliente, dniProveedor, dniEmpleado, detalle;
 	bool nuevoCliente = false;
 	bool nuevoVehiculo = false;
+	float precioTrabajo;
 
 	int id = GenerarId();
-	reg.setIdTrabajo(id);
 
 	system("cls");
-
 	cout << "CARGAR NUEVO TRABAJO" << endl;
 	cout << "--------------------" << endl;
-	cout << "ID DEL TRABAJO : " << id << endl << endl;
+	cout << "ID DEL TRABAJO : " << id << endl;
+	cout << "--------------------" << endl << endl;
 
-	cout << "1 - INGRESAR PATENTE DEL VEHICULO" << endl;
-	cout << "2 - CARGAR NUEVO VEHICULO" << endl;
-	cout << "Opcion: ";
-	cin >> opc;
+	patente = IngresarVehiculo(nuevoVehiculo);
 
-	switch (opc) {
-	case 1:
-		cout << "PATENTE: ";
-		cin.ignore();
-		getline(cin, patente);
-		while (arcVehiculo.Buscar(patente) == -1) {
-			cout << "Patente inexistente. Presione '0' para salir o intente nuevamente... : ";
-			getline(cin, patente);
-			if (patente == "0") break;
-		}
-		reg.setPatente(patente);
-		break;
-	case 2:
-		VehiculoManager aux;
-		aux.Cargar();
-		pos = arcVehiculo.GetCantidadRegistros();
-		reg.setPatente(arcVehiculo.Leer(pos).getPatente());
-		nuevoVehiculo = true;
-		break;
-	}
+	dniCliente = IngresarCliente(nuevoCliente);
 
-	cout << "1 - INGRESAR DNI DEL CLIENTE" << endl;
-	cout << "2 - CARGAR NUEVO CLIENTE" << endl;
-	cout << "Opcion: ";
-	cin >> opc;
-
-	switch (opc) {
-	case 1:
-		cout << "DNI: ";
-		cin.ignore();
-		getline(cin, dniCliente);
-		while (arcCliente.Buscar(dniCliente) == -1) {
-			cout << "DNI inexistente. Presione '0' para continuar o intente nuevamente... : ";
-			getline(cin, dniCliente);
-			if (dniCliente == "0") break;
-		}
-		reg.setDniCliente(dniCliente);
-	case 2:
-		ClienteManager aux;
-		aux.Cargar();
-		int pos = arcCliente.GetCantidadRegistros();
-		reg.setDniCliente(arcCliente.Leer(pos).getDni());
-		nuevoCliente = true;
-		break;
-	}
+	idPresupuesto = IngresarPresupuesto(precioTrabajo);
 
 	cin.ignore();
 	cout << "INGRESAR DNI DEL PROVEEDOR DE REPUESTOS: ";
-	getline(cin, dni);
-	while (arcProveedor.Buscar(dni) == -1) {
-		cout << "DNI inexistente. Presione '0' para continuar o intente nuevamente... : ";
-		getline(cin, dni);
-		if (dni == "0") break;
+	getline(cin, dniProveedor);
+	while (arcProveedor.Buscar(dniProveedor) == -1) {
+		cout << "DNI inexistente. Intente nuevamente... : ";
+		getline(cin, dniProveedor);
+		if (dniProveedor == "0") break;
 	}
-	reg.setDniProveedor(dni);
 	cout << endl;
 
 	cin.ignore();
 	cout << "INGRESAR DNI DEL EMPLEADO DESIGNADO: ";
-	getline(cin, dni);
-	while (arcEmpleado.Buscar(dni) == -1) {
-		cout << "DNI inexistente. Presione '0' para continuar o intente nuevamente... : ";
-		getline(cin,dni);
-		if(dni == "0") break;
+	getline(cin, dniEmpleado);
+	while (arcEmpleado.Buscar(dniEmpleado) == -1) {
+		cout << "DNI inexistente. Presione '0' para continuar sin cargar o intente nuevamente... : ";
+		getline(cin, dniEmpleado);
+		if(dniProveedor == "0") break;
 	}
-	reg.setDniEmpleado(dni);
 	cout << endl;
 
-	cout << "1 - INGRESAR ID DEL PRESUPUESTO";
-	cout << "2 - CARGAR PRESUPUESTO";
-	cin >> opc;
-	switch (opc) {
-	case 1:
-		cout << "ID #: ";
-		cin >> id;
-		while (arcPresupuesto.Buscar(id) == -1) {
-			cout << "No existe un presupuesto con ese ID. Intente nuevamente... : ";		////FALTA PODER SALIR DEL WHILE SIN ID
-			cin >> id;
-		}
-		reg.setIdPresupuesto(id);
-		break;
-	case 2:
-		PresupuestoManager aux;
-		aux.Cargar();
-		pos = arcPresupuesto.GetCantidadRegistros();
-		reg.setIdPresupuesto(arcPresupuesto.Leer(pos).getIdPresupuesto());
-		reg.setPrecioTrabajo(arcPresupuesto.Leer(pos).getImporte());
-		break;
-	}
 
 	cout << endl;
 	cout << "FECHA DE ENTRADA: " << endl;
@@ -188,7 +237,8 @@ void TrabajoManager::Cargar() {
 	cin >> mes;
 	cout << "ANIO:  ";
 	cin >> anio;
-	reg.setFechaEntrada(Fecha(dia, mes, anio));
+	Fecha fechaEntrada(dia, mes, anio);
+
 	cout << endl;
 	cout << "FECHA DE ENTREGA: " << endl;
 	cout << "DIA:  ";
@@ -197,9 +247,9 @@ void TrabajoManager::Cargar() {
 	cin >> mes;
 	cout << "ANIO:  ";
 	cin >> anio;
-	reg.setFechaEntrega(Fecha(dia, mes, anio));
+	Fecha fechaEntrega(dia, mes, anio);
 
-	reg.setAvanceTrabajo(1);
+	Trabajo reg(id, idPresupuesto, patente, dniCliente, dniProveedor, dniEmpleado, 1, fechaEntrada, fechaEntrega, precioTrabajo);
 	reg.setEstado(true);
 
 	if (_archivo.Guardar(reg)) {
