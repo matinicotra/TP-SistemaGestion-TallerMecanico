@@ -155,6 +155,7 @@ void ProveedorManager::EditarTelefono() {
 
 void ProveedorManager::Eliminar() {
 	string dni;
+	cin.ignore();
 	cout << "INGRESAR DNI DEL PROVEEDOR: ";
 	getline(cin, dni);
 
