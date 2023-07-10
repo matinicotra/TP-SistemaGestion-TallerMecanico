@@ -276,7 +276,6 @@ void TrabajoManager::Cargar() {
 
 void TrabajoManager::ListarPorId() {
 	int id;
-
 	cout << "INGRESAR ID DEL TRABAJO: ";
 	cin >> id;
 	int pos = _archivo.Buscar(id);
@@ -284,7 +283,7 @@ void TrabajoManager::ListarPorId() {
 	if (pos >= 0 && trabajo.getEstado() == true ) {
 		ListarRegistro(_archivo.Leer(pos));
 	} else cout << "No exsite registro con ID #" << id << endl;
-	system("pasue");
+	system("pause");
 }
 
 void TrabajoManager::ListarTodos() {
@@ -314,6 +313,7 @@ void TrabajoManager::ListarRegistro(Trabajo trabajo) {
 	cout << "EMPLEADO DESIGNADO : " << arcEmpleado.Leer(posEmp).getNombre() << " " << arcEmpleado.Leer(posEmp).getApellido() << endl;
 	cout << "DETALLE            : " << arcPresupuesto.Leer(posPresu).getDetalle() << endl;
 	cout << "PRESUPUESTO:       $ " << arcPresupuesto.Leer(posPresu).getImporte() << endl;
+	cout << "PRECIO TRABAJO     $ " << trabajo.getPrecioTrabajo() << endl;
 	cout << "PROVEEDOR          : " << arcProveedor.Leer(posProv).getNombre() << " " << arcProveedor.Leer(posProv).getApellido() << endl;
 	cout << "REPUESTO           : " << arcProveedor.Leer(posProv).getAutoparte() << endl;
 	cout << "FECHA DE ENTRADA   : " << trabajo.getFechaEntrada().toString("DD/MM/YYYY") << endl;
