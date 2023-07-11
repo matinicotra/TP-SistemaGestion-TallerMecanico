@@ -168,7 +168,7 @@ void PresupuestoManager::Cargar() {
 		vehiculoSustitucion = false;
 	} else cout << "Valor ingresado incorrecto." << endl;
 
-	Presupuesto reg(id, dniCliente, patente, importe, detalle, Fecha(dia, mes, anio), asistenciaGrua, vehiculoSustitucion);
+	Presupuesto reg(id, dniCliente, patente, importe, detalle, Fecha(dia, mes, anio), false, asistenciaGrua, vehiculoSustitucion);
 
 	if (_archivo.Guardar(reg)) {
 		if ((nuevoCliente && nuevoVehiculo) || (!nuevoCliente && nuevoVehiculo)) {
@@ -188,6 +188,20 @@ void PresupuestoManager::ListarTodos() {
 			ListarRegistro(presupuesto);
 		}
 	}
+	system("pause");
+}
+
+void PresupuestoManager::ListarTodosSinAsignar() {
+	bool band = false;
+	int cantRegistros = _archivo.GetCantidadRegistros();
+	for (int i = 0; i < cantRegistros; i++) {
+		Presupuesto presupuesto = _archivo.Leer(i);
+		if (!presupuesto.getTrabajoAsignado() && presupuesto.getEstado()) {
+			ListarRegistro(presupuesto);
+			band = true;
+		}
+	}
+	if (!band) cout << "No se encontraron presupuestos sin trabajos asignados..." << endl;
 	system("pause");
 }
 
@@ -307,6 +321,15 @@ void PresupuestoManager::EditarDetalle() {
 
 	} else cout << "ID inexistente." << endl;
 	system("pause");
+}
+
+void PresupuestoManager::AsignarTrabajo(int id, bool valor) {
+	int pos = _archivo.Buscar(id);
+	if (pos >= 0 && _archivo.Leer(pos).getEstado() == true) {
+		Presupuesto presupuesto = _archivo.Leer(pos);
+		presupuesto.setTrabajoAsignado(valor);
+		_archivo.Guardar(presupuesto, id);
+	}
 }
 
 void PresupuestoManager::Eliminar() {

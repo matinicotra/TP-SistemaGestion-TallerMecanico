@@ -337,7 +337,7 @@ void Menu::menuConsultasTrabajos() {
         std::cout<<"-5 ACTUALIZAR ESTADO DE TRABAJO"<<std::endl;
         std::cout<<"-6 MODIFICAR PROVEEDOR"<<std::endl;
         std::cout<<"-7 MODIFICAR EMPLEADO ASIGNADO" << std::endl;
-        std::cout<<"-8 MODIFICAR PRESUPUESTO" << std::endl;
+        std::cout<<"-8 ASIGNAR PRESUPUESTO" << std::endl;
         std::cout<<"-9 MODIFICAR PRECIO FINAL" << std::endl;
         std::cout<<"-10 ELIMINAR TRABAJO"<<std::endl;
         std::cout<<"-0 ATRAS"<<std::endl;
@@ -375,7 +375,7 @@ void Menu::menuConsultasTrabajos() {
             _trabajoManager.ActualizarEmpleado();
             break;
         case '8':
-            _trabajoManager.ActualizarPresupuesto();
+            _trabajoManager.AsignarPresupuesto();
             break;
         case '9':
             _trabajoManager.ActualizarPrecio();

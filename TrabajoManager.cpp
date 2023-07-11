@@ -171,8 +171,9 @@ int TrabajoManager::IngresarPresupuesto(float &precioTrabajo) {
 		case 2:
 			aux.Cargar();
 			pos = arcPresupuesto.GetCantidadRegistros();
-			id = arcPresupuesto.Leer(pos-1).getIdPresupuesto();					//buscamos el ultimo id ingresado
-			precioTrabajo = arcPresupuesto.Leer(pos-1).getImporte();			//idem
+			id = arcPresupuesto.Leer(pos-1).getIdPresupuesto();				//buscamos el ultimo id ingresado que corresponde al ultimo presu
+			precioTrabajo = arcPresupuesto.Leer(pos-1).getImporte();		//asignamos al precio del trabajo el importe del presupuesto
+			aux.AsignarTrabajo(id, true); 									//setea al presupuesto como que tiene un trabajo asignado
 			break;
 		case 0:
 			cout << "Opcion incorrecta." << endl;
@@ -581,7 +582,7 @@ void TrabajoManager::ActualizarEmpleado() {
 	system("pause");
 }
 
-void TrabajoManager::ActualizarPresupuesto() {
+void TrabajoManager::AsignarPresupuesto() {
 	PresupuestoArchivo arcPresupuesto;
 	int id, idPresupuesto;
 
@@ -595,7 +596,7 @@ void TrabajoManager::ActualizarPresupuesto() {
 
 		cout << endl << "LISTADO DE PRESUPUESTOS: " << endl;
 		PresupuestoManager aux;
-		aux.ListarTodos();
+		aux.ListarTodosSinAsignar();
 
 		cout << endl << "ASIGNAR PRESUPUESTO ID #: " << endl;
 		cin >> idPresupuesto;

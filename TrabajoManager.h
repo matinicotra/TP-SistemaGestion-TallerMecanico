@@ -34,7 +34,7 @@ public:
 	void ActualizarAvance();
 	void ActualizarProveedor();
 	void ActualizarEmpleado();
-	void ActualizarPresupuesto();
+	void AsignarPresupuesto();
 	void ActualizarPrecio();
 
 	void Eliminar();

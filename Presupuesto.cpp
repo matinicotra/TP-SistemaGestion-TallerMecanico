@@ -6,16 +6,18 @@ Presupuesto::Presupuesto() {
 	strcpy(_patente, "");
 	_importe = 0;
 	strcpy(_detalle, "");
+	_trabajoAsignado = false;
 	_estado = true;
 }
 
-Presupuesto::Presupuesto(int idPresupuesto, std::string dniCliente, std::string patente, float importe, std::string detalle, Fecha fechaPresupuesto, bool asistenciaGrua, bool vehiculoSustitucion) {
+Presupuesto::Presupuesto(int idPresupuesto, std::string dniCliente, std::string patente, float importe, std::string detalle, Fecha fechaPresupuesto, bool trabajoAsignado, bool asistenciaGrua, bool vehiculoSustitucion) {
 	_idPresupuesto = idPresupuesto;
 	strcpy(_dniCliente, dniCliente.c_str());
 	strcpy(_patente, patente.c_str());
 	_importe = importe;
 	strcpy(_detalle, detalle.c_str());
 	setFecha(fechaPresupuesto);
+	_trabajoAsignado = trabajoAsignado;
 	_asistenciaGrua = asistenciaGrua;
 	_vehiculoSustitucion = vehiculoSustitucion;
 	_estado = true;
@@ -43,6 +45,10 @@ void Presupuesto::setDetalle(std::string detalle) {
 
 void Presupuesto::setFecha(Fecha fecha) {
 	_fechaPresupuesto = fecha;
+}
+
+void Presupuesto::setTrabajoAsignado(bool asignado) {
+	_trabajoAsignado = asignado;
 }
 
 void Presupuesto::setAsistenciaGrua(bool asistenciaGrua) {
@@ -82,6 +88,10 @@ std::string Presupuesto::getDetalle() {
 
 Fecha Presupuesto::getFecha() {
 	return _fechaPresupuesto;
+}
+
+bool Presupuesto::getTrabajoAsignado() {
+	return _trabajoAsignado;
 }
 
 bool Presupuesto::getAsistenciaGrua() {

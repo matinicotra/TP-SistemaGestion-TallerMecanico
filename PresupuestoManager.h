@@ -19,6 +19,7 @@ public:
 	void Cargar();
 
 	void ListarTodos();
+	void ListarTodosSinAsignar();
 	void ListarRegistro(Presupuesto presupuesto);
 	void ListarPorId();
 	void ListarPorDni();		///lista todos los presu que coincidan con dni ingresado
@@ -26,6 +27,7 @@ public:
 
 	void EditarImporte();
 	void EditarDetalle();
+	void AsignarTrabajo(int id, bool valor);
 	void Eliminar();
 
 	void HacerCopiaDeSeguridad();
