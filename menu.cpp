@@ -379,7 +379,7 @@ void Menu::menuConsultasTrabajos() {
                 break;
         case '9':
             _trabajoManager.ActualizarPrecio();
-                break:
+                break;
         case '10':
             _trabajoManager.Eliminar();
                 break;

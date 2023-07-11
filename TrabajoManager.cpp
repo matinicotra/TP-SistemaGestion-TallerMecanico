@@ -529,8 +529,10 @@ void TrabajoManager::ActualizarProveedor() {
 
 		int posProveedor = arcProveedor.Buscar(dniProveedor);
 		if (posProveedor >= 0 && arcProveedor.Leer(posProveedor).getEstado() == true) {
-			Proveedor proveedor = arcProveedor.Leer(posProveedor);
-			trabajo.setDniProveedor(proveedor.getDni());
+			trabajo.setDniProveedor(dniProveedor);
+		} else {
+			cout << "DNI incorrecto" << endl;
+			return;
 		}
 
 		if (_archivo.Guardar(trabajo, pos)) {
@@ -541,9 +543,48 @@ void TrabajoManager::ActualizarProveedor() {
 	system("pause");
 }
 
-void ActualizarEmpleado();
-void ActualizarPresupuesto();
-void ActualizarPrecio();
+void TrabajoManager::ActualizarEmpleado() {
+	EmpleadoArchivo arcEmpleado;
+	int id;
+	string dniEmpleado;
+
+	cout << "INGRESAR ID DEL TRABAJO: ";
+	cin >> id;
+	int pos = _archivo.Buscar(id);
+
+	if (pos >= 0 && _archivo.Leer(pos).getEstado() == true) {
+		Trabajo trabajo = _archivo.Leer(pos);
+		ListarRegistro(trabajo);
+
+		cout << endl << "LISTADO DE EMPLEADOS: " << endl;
+		EmpleadoManager aux;
+		aux.ListarTodos();
+
+		cin.ignore();
+		cout << endl << "ASIGNAR DNI DEL EMPLEADO: " << endl;
+		getline(cin, dniEmpleado);
+
+		int posEmpleado = arcEmpleado.Buscar(dniEmpleado);
+		if (posEmpleado >= 0 && arcEmpleado.Leer(posEmpleado).getEstado() == true) {
+			trabajo.setDniEmpleado(dniEmpleado);
+		} else {
+			cout << "DNI incorrecto." << endl;
+			return;
+		}
+
+		if (_archivo.Guardar(trabajo, pos)) {
+			cout << "Registro #" << id << " editado existosamente." << endl;
+		} else cout << "Error al guardar el registro." << endl;
+
+	} else cout << "ID inexistente." << endl;
+	system("pause");
+}
+void TrabajoManager::ActualizarPresupuesto() {
+
+}
+void TrabajoManager::ActualizarPrecio() {
+
+}
 
 void TrabajoManager::Eliminar() {
 	int id, pos;
