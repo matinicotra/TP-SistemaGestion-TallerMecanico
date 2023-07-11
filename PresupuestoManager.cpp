@@ -152,7 +152,7 @@ void PresupuestoManager::Cargar() {
 	cin >> anio;
 	cout << endl;
 
-	cout << "INCLUYE ASISTENCIA DE GRUA, 'S' o 'N' :";
+	cout << endl << "INCLUYE ASISTENCIA DE GRUA, 'S' o 'N' :";
 	cin >> valGrua;
 	if  (valGrua == 's' || valGrua == 'S') {
 		asistenciaGrua = true;
@@ -160,7 +160,7 @@ void PresupuestoManager::Cargar() {
 		asistenciaGrua = false;
 	} else cout << "Valor ingresado incorrecto." << endl;
 
-	cout << "INCLUYE VEHICULO DE SUSTITUCION, 'S' o 'N' :";
+	cout << endl << "INCLUYE VEHICULO DE SUSTITUCION, 'S' o 'N' :";
 	cin >> valSustitucion;
 	if  (valSustitucion == 's' || valSustitucion == 'S') {
 		vehiculoSustitucion = true;

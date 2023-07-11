@@ -598,7 +598,7 @@ void TrabajoManager::AsignarPresupuesto() {
 		Trabajo trabajo = _archivo.Leer(pos);
 		ListarRegistro(trabajo);
 
-		cout << endl << "LISTADO DE PRESUPUESTOS: " << endl;
+		cout << endl << "LISTADO DE PRESUPUESTOS SIN TRABAJO ASIGNADO: " << endl;
 		PresupuestoManager aux;
 		aux.ListarTodosSinAsignar();
 

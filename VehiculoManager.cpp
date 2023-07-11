@@ -51,7 +51,7 @@ void VehiculoManager::Cargar() {
 	cout << "--------------" << endl;
 	cout << "PATENTE      : ";
 	getline(cin, patente);
-	cout << "MARCA        :";
+	cout << "MARCA        : ";
 	getline(cin, marca);
 	cout << "MODELO       : ";
 	getline(cin, modelo);

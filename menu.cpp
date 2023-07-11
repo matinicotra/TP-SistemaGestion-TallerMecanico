@@ -721,6 +721,7 @@ void Menu::menuListadoPresupuestos(){
         system("cls");
         std::cout<<"======= LISTADOS PRESUPUESTO ======="<<std::endl;
         std::cout<<"-1 LISTAR TODOS"<<std::endl;
+        std::cout<<"-2 LISTAR PRESUPUESTOS SIN TRABAJO ASIGNADO"<<std::endl;
         std::cout<<"-0 ATRAS"<<std::endl;
         std::cout<<"===================================="<<std::endl;
         std::cout<<"INGRESE UNA OPCION: ";
@@ -735,7 +736,10 @@ void Menu::menuListadoPresupuestos(){
 
         switch(opcion) {
         case '1':
-			_presupuestoManager.ListarTodos();
+            _presupuestoManager.ListarTodos();
+            break;
+        case '2':
+            _presupuestoManager.ListarTodosSinAsignar();
             break;
         case '0':
             return;
