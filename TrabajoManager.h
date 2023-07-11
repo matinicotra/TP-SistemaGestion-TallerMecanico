@@ -29,8 +29,13 @@ public:
 	void ListarPorAvance();
 	void ListarOrdenadosPorFecha();
 	void ListarEntregadosPorFecha();
-	void ActualizarAvance();
 	void ListarPorEmpleado();
+
+	void ActualizarAvance();
+	void ActualizarProveedor();
+	void ActualizarEmpleado();
+	void ActualizarPresupuesto();
+	void ActualizarPrecio();
 
 	void Eliminar();
 

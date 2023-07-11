@@ -450,38 +450,6 @@ void TrabajoManager::ListarEntregadosPorFecha() {
 	system("pause");
 }
 
-void TrabajoManager::ActualizarAvance() {
-	int id;
-
-	cout << "INGRESAR ID DEL TRABAJO: ";
-	cin >> id;
-	int pos = _archivo.Buscar(id);
-    Trabajo trabajo = _archivo.Leer(pos);
-	if (pos >= 0 && trabajo.getEstado() == true) {
-		Trabajo reg = _archivo.Leer(pos);
-		ListarRegistro(reg);
-		cout << endl;
-
-		int nuevoEstado;
-		cout << "NUEVO ESTADO:" << endl;
-		cout << "1 - DIAGNOSTICO" << endl;
-		cout << "2 - DESMONTAJE" << endl;
-		cout << "3 - REPARACION" << endl;
-		cout << "4 - ENSAMBLAJE" << endl;
-		cout << "5 - FINALIZADO" << endl;
-		cout << "Opcion: ";
-		cin >> nuevoEstado;
-
-		reg.setAvanceTrabajo(nuevoEstado);
-
-		if (_archivo.Guardar(reg)) {
-			cout << "Registro #" << id << " editado existosamente." << endl;
-		} else cout << "Error al guardar el registro." << endl;
-
-	} else cout << "ID inexistente." << endl;
-	system("pause");
-}
-
 void TrabajoManager::ListarPorEmpleado() {
 	EmpleadoArchivo arcEmpleado;
 	std::string dni;
@@ -506,6 +474,76 @@ void TrabajoManager::ListarPorEmpleado() {
 	} cout << "Dni inexistente." << endl;
 	system("pause");
 }
+
+void TrabajoManager::ActualizarAvance() {
+	int id, nuevoEstado;
+
+	cout << "INGRESAR ID DEL TRABAJO: ";
+	cin >> id;
+	int pos = _archivo.Buscar(id);
+
+	if (pos >= 0 && _archivo.Leer(pos).getEstado() == true) {
+		Trabajo trabajo = _archivo.Leer(pos);
+		ListarRegistro(trabajo);
+
+		cout << endl;
+		cout << "NUEVO ESTADO:" << endl;
+		cout << "1 - DIAGNOSTICO" << endl;
+		cout << "2 - DESMONTAJE" << endl;
+		cout << "3 - REPARACION" << endl;
+		cout << "4 - ENSAMBLAJE" << endl;
+		cout << "5 - FINALIZADO" << endl;
+		cout << "Opcion: ";
+		cin >> nuevoEstado;
+
+		trabajo.setAvanceTrabajo(nuevoEstado);
+
+		if (_archivo.Guardar(trabajo, pos)) {
+			cout << "Registro #" << id << " editado existosamente." << endl;
+		} else cout << "Error al guardar el registro." << endl;
+
+	} else cout << "ID inexistente." << endl;
+	system("pause");
+}
+
+void TrabajoManager::ActualizarProveedor() {
+	ProveedorArchivo arcProveedor;
+	int id;
+	string dniProveedor;
+
+	cout << "INGRESAR ID DEL TRABAJO: ";
+	cin >> id;
+	int pos = _archivo.Buscar(id);
+
+	if (pos >= 0 && _archivo.Leer(pos).getEstado() == true) {
+		Trabajo trabajo = _archivo.Leer(pos);
+		ListarRegistro(trabajo);
+
+		cout << endl << "LISTADO DE PROVEEDORES DISPONIBLES: " << endl;
+		ProveedorManager aux;
+		aux.ListarTodos();
+
+		cin.ignore();
+		cout << endl << "ASIGNAR DNI DEL PROVEEDOR: " << endl;
+		getline(cin, dniProveedor);
+
+		int posProveedor = arcProveedor.Buscar(dniProveedor);
+		if (posProveedor >= 0 && arcProveedor.Leer(posProveedor).getEstado() == true) {
+			Proveedor proveedor = arcProveedor.Leer(posProveedor);
+			trabajo.setDniProveedor(proveedor.getDni());
+		}
+
+		if (_archivo.Guardar(trabajo, pos)) {
+			cout << "Registro #" << id << " editado existosamente." << endl;
+		} else cout << "Error al guardar el registro." << endl;
+
+	} else cout << "ID inexistente." << endl;
+	system("pause");
+}
+
+void ActualizarEmpleado();
+void ActualizarPresupuesto();
+void ActualizarPrecio();
 
 void TrabajoManager::Eliminar() {
 	int id, pos;
