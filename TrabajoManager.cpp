@@ -155,6 +155,7 @@ int TrabajoManager::IngresarPresupuesto(float &precioTrabajo) {
 	do {
 		cout << "1 - INGRESAR ID DEL PRESUPUESTO" << endl;
 		cout << "2 - CARGAR NUEVO PRESUPUESTO" << endl;
+		cout << "0 - CARGAR MAS TARDE" << endl;
 		cin >> opc;
 
 		switch (opc) {
@@ -176,7 +177,8 @@ int TrabajoManager::IngresarPresupuesto(float &precioTrabajo) {
 			aux.AsignarTrabajo(id, true); 									//setea al presupuesto como que tiene un trabajo asignado
 			break;
 		case 0:
-			cout << "Opcion incorrecta." << endl;
+			return -1;
+			precioTrabajo = 0;
 			break;
 		}
 	} while (opc != 0 && opc != 1 && opc != 2);
@@ -205,7 +207,7 @@ void TrabajoManager::Cargar() {
 
 	patente = IngresarVehiculo(nuevoVehiculo);
 
-	cout << endl;
+	cout << endl << endl;
 
 	if (!nuevoVehiculo) {										//si el vehiculo esta cargado asigna el dni del duenio desde autocliente
 		int pos = arcAutoCliente.BuscarPatente(patente);
@@ -218,17 +220,18 @@ void TrabajoManager::Cargar() {
 
 	idPresupuesto = IngresarPresupuesto(precioTrabajo);
 
-	cout << endl;
+	cout << endl << endl;
 
 	cin.ignore();
 	cout << "INGRESAR DNI DEL PROVEEDOR DE REPUESTOS: ";
 	getline(cin, dniProveedor);
 	while (arcProveedor.Buscar(dniProveedor) == -1) {
-		cout << "DNI inexistente. Intente nuevamente... : ";
+		cout << "DNI inexistente. Presione '0' para continuar sin cargar o intente nuevamente... : ";
 		getline(cin, dniProveedor);
 		if (dniProveedor == "0") break;
 	}
-	cout << endl;
+
+	cout << endl << endl;
 
 	cin.ignore();
 	cout << "INGRESAR DNI DEL EMPLEADO DESIGNADO: ";
@@ -236,12 +239,11 @@ void TrabajoManager::Cargar() {
 	while (arcEmpleado.Buscar(dniEmpleado) == -1) {
 		cout << "DNI inexistente. Presione '0' para continuar sin cargar o intente nuevamente... : ";
 		getline(cin, dniEmpleado);
-		if(dniProveedor == "0") break;
+		if(dniEmpleado == "0") break;
 	}
-	cout << endl;
 
+	cout << endl << endl;
 
-	cout << endl;
 	cout << "FECHA DE ENTRADA: " << endl;
 	cout << "DIA:  ";
 	cin >> dia;
@@ -270,7 +272,9 @@ void TrabajoManager::Cargar() {
 			aux.Cargar(dniCliente, patente);
 		}
 		cout << "Registro guardado existosamente!" << endl;
-	} cout << "Error al guardar el registro" << endl;
+	} else {
+		cout << "Error al guardar el registro" << endl;
+	}
 
 	system("pause");
 }
