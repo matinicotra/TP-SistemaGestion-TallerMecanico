@@ -335,7 +335,11 @@ void Menu::menuConsultasTrabajos() {
         std::cout<<"-3 BUSCAR POR VEHICULO"<<std::endl;
         std::cout<<"-4 BUSCAR TRABAJOS ACTIVOS POR CLIENTE"<<std::endl;
         std::cout<<"-5 ACTUALIZAR ESTADO DE TRABAJO"<<std::endl;
-        std::cout<<"-6 ELIMINAR TRABAJO"<<std::endl;
+        std::cout<<"-6 MODIFICAR PROVEEDOR"<<std::endl;
+        std::cout<<"-7 MODIFICAR EMPLEADO ASIGNADO" << std::endl;
+        std::cout<<"-8 MODIFICAR PRESUPUESTO" << std::endl;
+        std::cout<<"-9 MODIFICAR PRECIO FINAL" << std::endl;
+        std::cout<<"-10 ELIMINAR TRABAJO"<<std::endl;
         std::cout<<"-0 ATRAS"<<std::endl;
         std::cout<<"================================"<<std::endl;
         std::cout<<"INGRESE UNA OPCION: ";
@@ -361,12 +365,24 @@ void Menu::menuConsultasTrabajos() {
         case '4':
             _trabajoManager.ListarPorDniCliente();
             break;
-		case '5':
-			_trabajoManager.ActualizarAvance();
-			break;
-		case '6':
-			_trabajoManager.Eliminar();
-			break;
+        case '5':
+            _trabajoManager.ActualizarAvance();
+                break;
+        case '6':
+            _trabajoManager.ActualizarProveedor();
+                break;
+        case '7':
+            _trabajoManager.ActualizarEmpleado();
+                break;
+        case '8':
+            _trabajoManager.ActualizarPresupuesto();
+                break;
+        case '9':
+            _trabajoManager.ActualizarPrecio();
+                break:
+        case '10':
+            _trabajoManager.Eliminar();
+                break;
         case '0':
             return;
             break;
