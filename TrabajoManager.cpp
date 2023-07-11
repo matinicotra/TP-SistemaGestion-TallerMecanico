@@ -579,8 +579,40 @@ void TrabajoManager::ActualizarEmpleado() {
 	} else cout << "ID inexistente." << endl;
 	system("pause");
 }
-void TrabajoManager::ActualizarPresupuesto() {
 
+void TrabajoManager::ActualizarPresupuesto() {
+	PresupuestoArchivo arcPresupuesto;
+	int id, idPresupuesto;
+
+	cout << "INGRESAR ID DEL TRABAJO: ";
+	cin >> id;
+	int pos = _archivo.Buscar(id);
+
+	if (pos >= 0 && _archivo.Leer(pos).getEstado() == true) {
+		Trabajo trabajo = _archivo.Leer(pos);
+		ListarRegistro(trabajo);
+
+		cout << endl << "LISTADO DE PRESUPUESTOS: " << endl;
+		PresupuestoManager aux;
+		aux.ListarTodos();
+
+		cout << endl << "ASIGNAR PRESUPUESTO ID #: " << endl;
+		cin >> idPresupuesto;
+
+		int posPresupuesto = arcPresupuesto.Buscar(idPresupuesto);
+		if (posPresupuesto >= 0 && arcPresupuesto.Leer(posPresupuesto).getEstado() == true) {
+			trabajo.setIdPresupuesto(idPresupuesto);
+		} else {
+			cout << "ID incorrecto." << endl;
+			return;
+		}
+
+		if (_archivo.Guardar(trabajo, pos)) {
+			cout << "Registro #" << id << " editado existosamente." << endl;
+		} else cout << "Error al guardar el registro." << endl;
+
+	} else cout << "ID inexistente." << endl;
+	system("pause");
 }
 void TrabajoManager::ActualizarPrecio() {
 
