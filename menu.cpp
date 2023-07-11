@@ -367,22 +367,22 @@ void Menu::menuConsultasTrabajos() {
             break;
         case '5':
             _trabajoManager.ActualizarAvance();
-                break;
+            break;
         case '6':
             _trabajoManager.ActualizarProveedor();
-                break;
+            break;
         case '7':
             _trabajoManager.ActualizarEmpleado();
-                break;
+            break;
         case '8':
             _trabajoManager.ActualizarPresupuesto();
-                break;
+            break;
         case '9':
             _trabajoManager.ActualizarPrecio();
-                break;
+            break;
         case '10':
             _trabajoManager.Eliminar();
-                break;
+            break;
         case '0':
             return;
             break;
@@ -441,7 +441,8 @@ void Menu::menuConsultasPresupuestos() {
         std::cout<<"======= CONSULTAS PRESUPUESTOS ====="<<std::endl;
         std::cout<<"-1 BUSCAR POR ID"<<std::endl;
         std::cout<<"-2 MODIFICAR IMPORTE"<<std::endl;
-        std::cout<<"-3 ELIMINAR PRESUPUESTO"<<std::endl;
+        std::cout<<"-3 MODIFICAR DETALLE"<<std::endl;
+        std::cout<<"-4 ELIMINAR PRESUPUESTO"<<std::endl;
         std::cout<<"-0 ATRAS"<<std::endl;
         std::cout<<"===================================="<<std::endl;
         std::cout<<"INGRESE UNA OPCION: ";
@@ -457,14 +458,17 @@ void Menu::menuConsultasPresupuestos() {
         switch(opcion)
         {
         case '1':
-			_presupuestoManager.ListarPorId();
+            _presupuestoManager.ListarPorId();
             break;
         case '2':
-			_presupuestoManager.EditarImporte();
+            _presupuestoManager.EditarImporte();
             break;
-		case '3':
-			_presupuestoManager.Eliminar();
-			break;
+        case '3':
+            _presupuestoManager.EditarDetalle();
+            break;
+        case '4':
+            _presupuestoManager.Eliminar();
+            break;
         case '0':
             return;
             break;

@@ -263,18 +263,48 @@ void PresupuestoManager::ListarPorPatente() {
 void PresupuestoManager::EditarImporte() {
 	int id;
 	float importe;
+
 	cout << "INGRESAR ID DEL PRESUPUESTO: ";
 	cin >> id;
 	int pos = _archivo.Buscar(id);
-		Presupuesto reg = _archivo.Leer(pos);
-	if (pos >= 0 && reg.getEstado() == true) {
-		ListarRegistro(reg);
+
+	if (pos >= 0 && _archivo.Leer(pos).getEstado() == true) {
+		Presupuesto presupuesto = _archivo.Leer(pos);
+		ListarRegistro(presupuesto);
+
 		cout << endl << "INGRESAR NUEVO IMPORTE: ";
 		cin >> importe;
-		reg.setImporte(importe);
-		if (_archivo.Guardar(reg, pos)) {
+		presupuesto.setImporte(importe);
+
+		if (_archivo.Guardar(presupuesto, pos)) {
 			cout << "Registro guardado existosamente!" << endl;
 		} else cout << "Error al guardar el registro." << endl;
+
+	} else cout << "ID inexistente." << endl;
+	system("pause");
+}
+
+void PresupuestoManager::EditarDetalle() {
+	int id;
+	string nuevoDetalle;
+
+	cout << "INGRESAR ID DEL PRESUPUESTO: ";
+	cin >> id;
+	int pos = _archivo.Buscar(id);
+
+	if (pos >= 0 && _archivo.Leer(pos).getEstado() == true) {
+		Presupuesto presupuesto = _archivo.Leer(pos);
+		ListarRegistro(presupuesto);
+
+		cin.ignore();
+		cout << endl << "INGRESAR NUEVO DETALLE: ";
+		getline(cin, nuevoDetalle);
+		presupuesto.setDetalle(nuevoDetalle);
+
+		if (_archivo.Guardar(presupuesto, pos)) {
+			cout << "Registro guardado existosamente!" << endl;
+		} else cout << "Error al guardar el registro." << endl;
+
 	} else cout << "ID inexistente." << endl;
 	system("pause");
 }

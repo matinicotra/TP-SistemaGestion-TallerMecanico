@@ -25,6 +25,7 @@ public:
 	void ListarPorPatente();	///lista todos los presu que coincidan con patente ingresada
 
 	void EditarImporte();
+	void EditarDetalle();
 	void Eliminar();
 
 	void HacerCopiaDeSeguridad();

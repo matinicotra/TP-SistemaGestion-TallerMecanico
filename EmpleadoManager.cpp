@@ -87,6 +87,7 @@ void EmpleadoManager::ListarTodos() {
 		Empleado empleado = _archivo.Leer(i);
 		if (empleado.getEstado()) {
 			ListarRegistro(empleado);
+			cout << endl;
 		}
 	}
 	system("pause");

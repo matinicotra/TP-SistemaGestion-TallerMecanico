@@ -307,13 +307,14 @@ void TrabajoManager::ListarRegistro(Trabajo trabajo) {
 	int posEmp = arcEmpleado.Buscar(trabajo.getDniEmpleado());
 	int posPresu = arcPresupuesto.Buscar(trabajo.getIdPresupuesto());
 	int posProv = arcProveedor.Buscar(trabajo.getDniProveedor());
+
 	cout << endl << "ID DE TRABAJO:     # " << trabajo.getIdTrabajo() << endl;
 	cout << "PATENTE            : " << trabajo.getPatente() << endl;
 	cout << "CLIENTE            : " << arcCliente.Leer(posCli).getNombre() << " " << arcCliente.Leer(posCli).getApellido() << endl;
 	cout << "EMPLEADO DESIGNADO : " << arcEmpleado.Leer(posEmp).getNombre() << " " << arcEmpleado.Leer(posEmp).getApellido() << endl;
 	cout << "DETALLE            : " << arcPresupuesto.Leer(posPresu).getDetalle() << endl;
 	cout << "PRESUPUESTO:       $ " << arcPresupuesto.Leer(posPresu).getImporte() << endl;
-	cout << "PRECIO TRABAJO     $ " << trabajo.getPrecioTrabajo() << endl;
+	cout << "PRECIO FINAL       $ " << trabajo.getPrecioTrabajo() << endl;
 	cout << "PROVEEDOR          : " << arcProveedor.Leer(posProv).getNombre() << " " << arcProveedor.Leer(posProv).getApellido() << endl;
 	cout << "REPUESTO           : " << arcProveedor.Leer(posProv).getAutoparte() << endl;
 	cout << "FECHA DE ENTRADA   : " << trabajo.getFechaEntrada().toString("DD/MM/YYYY") << endl;
