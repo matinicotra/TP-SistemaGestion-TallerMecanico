@@ -373,7 +373,8 @@ void recaudacionCliente ()
     system("pause");
 }
 
-void recaudacionEntreFechas() {
+void recaudacionEntreFechas()
+{
     int dia, mes, anio;
     int cantidad = 0;
     float recaudacion = 0;
@@ -399,23 +400,29 @@ void recaudacionEntreFechas() {
     TrabajoArchivo arcTrabajo;
     int cantTrabajos = arcTrabajo.GetCantidadRegistros();
 
-    for (int i = 0; i < cantTrabajos; i++) {
+    for (int i = 0; i < cantTrabajos; i++)
+    {
         Trabajo trabajo = arcTrabajo.Leer(i);
-        if (trabajo.getFechaEntrega() >= fechaInicio && !(trabajo.getFechaEntrega() >= fechaFinal)) {
-            if (trabajo.getAvanceTrabajo() == 5 && trabajo.getEstado()){
+        if (trabajo.getFechaEntrega() >= fechaInicio && !(trabajo.getFechaEntrega() >= fechaFinal))
+        {
+            if (trabajo.getAvanceTrabajo() == 5 && trabajo.getEstado())
+            {
                 recaudacion += trabajo.getPrecioTrabajo();
                 cantidad++;
             }
         }
     }
-    if (cantidad > 0) {
+    if (cantidad > 0)
+    {
         cout << endl << "SE RECAUDARON $ " << recaudacion << " DE " << cantidad << " TRABAJO/S ENTRE LAS FECHAS INGRESADADS." << endl;
-    } else cout << "No se encontraron trabajos entre las fechas ingresadas." << endl;
+    }
+    else cout << "No se encontraron trabajos entre las fechas ingresadas." << endl;
 
     system("pause");
 }
 
-void hacerCopiaDeSeguridadTodo(){
+void hacerCopiaDeSeguridadTodo()
+{
 
     ClienteManager _clienteManager;
     VehiculoManager _vehiculoManager;
@@ -433,7 +440,8 @@ void hacerCopiaDeSeguridadTodo(){
     _autoClienteManager.HacerCopiaDeSeguridad();
 }
 
-void hacerRestauracionDeSeguridadTodo(){
+void hacerRestauracionDeSeguridadTodo()
+{
 
     ClienteManager _clienteManager;
     VehiculoManager _vehiculoManager;
@@ -450,7 +458,8 @@ void hacerRestauracionDeSeguridadTodo(){
     _autoClienteManager.RestaurarCopiaDeSeguridad();
 }
 
-void vaciarArchivosDeTodo(){
+void vaciarArchivosDeTodo()
+{
 
     ClienteArchivo _clienteManager;
     VehiculoArchivo _vehiculoManager;
