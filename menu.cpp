@@ -652,7 +652,6 @@ void Menu::menuListadoClientes(){
         system("cls");
         std::cout<<"=========== LISTADOS CLIENTES ====="<<std::endl;
         std::cout<<"-1 LISTAR ORDENADOS POR APLELLIDO"<<std::endl;
-        std::cout<<"-1 LISTAR ORDENADOS POR APLELLIDO"<<std::endl;
         std::cout<<"-2 LISTAR ORDENADOS POR FECHA DE ALTA"<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS"<<std::endl;
         std::cout<<"================================"<<std::endl;

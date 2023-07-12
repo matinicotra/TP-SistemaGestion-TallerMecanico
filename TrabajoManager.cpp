@@ -621,12 +621,18 @@ void TrabajoManager::AsignarPresupuesto() {
 		PresupuestoManager aux;
 		aux.ListarTodosSinAsignar();
 
-		cout << endl << "ASIGNAR PRESUPUESTO ID #: " << endl;
+		cout << endl << "ASIGNAR PRESUPUESTO ID #: ";
 		cin >> idPresupuesto;
 
 		int posPresupuesto = arcPresupuesto.Buscar(idPresupuesto);
+
 		if (posPresupuesto >= 0 && arcPresupuesto.Leer(posPresupuesto).getEstado() == true) {
 			trabajo.setIdPresupuesto(idPresupuesto);
+
+			Presupuesto presupuesto = arcPresupuesto.Leer(posPresupuesto);
+			presupuesto.setTrabajoAsignado(true);
+			arcPresupuesto.Guardar(presupuesto, posPresupuesto);
+
 		} else {
 			cout << "ID incorrecto." << endl;
 			return;
