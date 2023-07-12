@@ -205,9 +205,9 @@ void TrabajoManager::Cargar() {
 	cout << "ID DEL TRABAJO : " << id << endl;
 	cout << "--------------------" << endl << endl;
 
-	patente = IngresarVehiculo(nuevoVehiculo);
+	patente = IngresarVehiculo(nuevoVehiculo);				//CARGAR VEHICULO
 
-	cout << endl << endl;
+	cout << endl;
 
 	if (!nuevoVehiculo) {										//si el vehiculo esta cargado asigna el dni del duenio desde autocliente
 		int pos = arcAutoCliente.BuscarPatente(patente);
@@ -215,12 +215,17 @@ void TrabajoManager::Cargar() {
 		cout << endl;
 	}
 	else {
-		dniCliente = IngresarCliente(nuevoCliente);
+		dniCliente = IngresarCliente(nuevoCliente);			//CARGAR CLIENTE
 	}
 
-	idPresupuesto = IngresarPresupuesto(precioTrabajo);
+	idPresupuesto = IngresarPresupuesto(precioTrabajo);		//CARGAR PRESUPUESTO
 
-	cout << endl << endl;
+	if (precioTrabajo == 0) {
+		cout << endl << "INGRESAR PRECIO FINAL DEL TRABAJO: ";
+		cin >> precioTrabajo;
+	}
+
+	cout << endl;
 
 	cin.ignore();
 	cout << "INGRESAR DNI DEL PROVEEDOR DE REPUESTOS: ";
@@ -231,9 +236,8 @@ void TrabajoManager::Cargar() {
 		if (dniProveedor == "0") break;
 	}
 
-	cout << endl << endl;
+	cout << endl;
 
-	cin.ignore();
 	cout << "INGRESAR DNI DEL EMPLEADO DESIGNADO: ";
 	getline(cin, dniEmpleado);
 	while (arcEmpleado.Buscar(dniEmpleado) == -1) {
@@ -242,7 +246,7 @@ void TrabajoManager::Cargar() {
 		if(dniEmpleado == "0") break;
 	}
 
-	cout << endl << endl;
+	cout << endl;
 
 	cout << "FECHA DE ENTRADA: " << endl;
 	cout << "DIA:  ";
@@ -315,15 +319,30 @@ void TrabajoManager::ListarRegistro(Trabajo trabajo) {
 
 	cout << endl << "ID DE TRABAJO:     # " << trabajo.getIdTrabajo() << endl;
 	cout << "PATENTE            : " << trabajo.getPatente() << endl;
-	cout << "CLIENTE            : " << arcCliente.Leer(posCli).getNombre() << " " << arcCliente.Leer(posCli).getApellido() << endl;
-	cout << "EMPLEADO DESIGNADO : " << arcEmpleado.Leer(posEmp).getNombre() << " " << arcEmpleado.Leer(posEmp).getApellido() << endl;
-	cout << "DETALLE            : " << arcPresupuesto.Leer(posPresu).getDetalle() << endl;
-	cout << "PRESUPUESTO:       $ " << arcPresupuesto.Leer(posPresu).getImporte() << endl;
+
+	if (posCli >= 0) {
+		cout << "CLIENTE            : " << arcCliente.Leer(posCli).getNombre() << " " << arcCliente.Leer(posCli).getApellido() << endl;
+	} else cout << "CLIENTE            : SIN ASIGNAR" << endl;
+
+	if (posEmp >= 0) {
+		cout << "EMPLEADO DESIGNADO : " << arcEmpleado.Leer(posEmp).getNombre() << " " << arcEmpleado.Leer(posEmp).getApellido() << endl;
+	} else cout << "EMPLEADO DESIGNADO : SIN ASIGNAR" << endl;
+
+	if (posPresu >= 0) {
+		cout << "DETALLE            : " << arcPresupuesto.Leer(posPresu).getDetalle() << endl;
+		cout << "PRESUPUESTO:       $ " << arcPresupuesto.Leer(posPresu).getImporte() << endl;
+	} else cout << "PRESUPUESTO        : SIN ASIGNAR " << endl;
+
 	cout << "PRECIO FINAL       $ " << trabajo.getPrecioTrabajo() << endl;
-	cout << "PROVEEDOR          : " << arcProveedor.Leer(posProv).getNombre() << " " << arcProveedor.Leer(posProv).getApellido() << endl;
-	cout << "REPUESTO           : " << arcProveedor.Leer(posProv).getAutoparte() << endl;
+
+	if (posProv >= 0) {
+		cout << "PROVEEDOR          : " << arcProveedor.Leer(posProv).getNombre() << " " << arcProveedor.Leer(posProv).getApellido() << endl;
+		cout << "REPUESTO           : " << arcProveedor.Leer(posProv).getAutoparte() << endl;
+	} else cout << "PROVEEDOR          : SIN ASIGNAR" << endl;
+
 	cout << "FECHA DE ENTRADA   : " << trabajo.getFechaEntrada().toString("DD/MM/YYYY") << endl;
 	cout << "FECHA DE ENTREGA   : " << trabajo.getFechaEntrega().toString("DD/MM/YYYY") << endl;
+
 	cout << "ESTADO             : ";
 	if (trabajo.getAvanceTrabajo() == 1) cout << "DIAGNOSTICO" << endl << endl;
 	if (trabajo.getAvanceTrabajo() == 2) cout << "DESMONTAJE" << endl << endl;
