@@ -220,7 +220,7 @@ void TrabajoManager::Cargar() {
 
 	idPresupuesto = IngresarPresupuesto(precioTrabajo);		//CARGAR PRESUPUESTO
 
-	if (precioTrabajo == 0) {
+	if (precioTrabajo == 0) {									//se asigna al precio del trabajo el importe de presu si este es distinto de cero
 		cout << endl << "INGRESAR PRECIO FINAL DEL TRABAJO: ";
 		cin >> precioTrabajo;
 	}

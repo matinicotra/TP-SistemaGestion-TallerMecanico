@@ -120,6 +120,7 @@ void PresupuestoManager::Cargar() {
 
 	id = GenerarId();
 
+	system("cls");
 	cout << "NUEVO PRESUPUESTO" << endl;
 	cout << "-----------------" << endl << endl;
 
@@ -168,7 +169,9 @@ void PresupuestoManager::Cargar() {
 		vehiculoSustitucion = false;
 	} else cout << "Valor ingresado incorrecto." << endl;
 
-	Presupuesto reg(id, dniCliente, patente, importe, detalle, Fecha(dia, mes, anio), false, asistenciaGrua, vehiculoSustitucion);
+	bool trabajoAsignado = false;
+
+	Presupuesto reg(id, dniCliente, patente, importe, detalle, Fecha(dia, mes, anio), trabajoAsignado, asistenciaGrua, vehiculoSustitucion);
 
 	if (_archivo.Guardar(reg)) {
 		if ((nuevoCliente && nuevoVehiculo) || (!nuevoCliente && nuevoVehiculo)) {
@@ -177,6 +180,7 @@ void PresupuestoManager::Cargar() {
 		}
 		cout << "Registro guardado existosamente!" << endl;
 	} else cout << "Error al guardar el registro" << endl;
+
 	system("pause");
 }
 
