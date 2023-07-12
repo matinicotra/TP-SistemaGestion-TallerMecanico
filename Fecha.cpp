@@ -106,3 +106,28 @@ std::string Fecha::toString(std::string formatoFecha) {
     return fechaFormateada;
 }
 
+bool Fecha::operator >=(Fecha aux) {
+    string fechaFormateada = "";
+    string fechaFormateadaAux = "";
+
+    string DD = to_string(_dia);
+    string MM = to_string(_mes);
+    string YYYY = to_string(_anio);
+    if (_dia < 10) DD = "0" + to_string(_dia);
+    if (_mes < 10) MM = "0" + to_string(_mes);
+
+    fechaFormateada = YYYY + MM + DD;
+
+    DD = to_string(aux.getDia());
+    MM = to_string(aux.getMes());
+    YYYY = to_string(aux.getAnio());
+    if (aux.getDia() < 10) DD = "0" + to_string(aux.getDia());
+    if (aux.getMes() < 10) MM = "0" + to_string(aux.getMes());
+
+    fechaFormateadaAux = YYYY + MM + DD;
+
+    if (fechaFormateada >= fechaFormateadaAux) return true;
+
+    return false;
+}
+

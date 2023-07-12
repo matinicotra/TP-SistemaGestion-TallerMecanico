@@ -216,7 +216,8 @@ void Menu::menuInformes() {
         system("cls");
         std::cout<<"=========== INFORMES ==============="<<std::endl;
         std::cout<<"-1 RECAUDACION ANUAL"<<std::endl;
-        std::cout<<"-2 RECAUDACION POR CLIENTE"<<std::endl<<std::endl;
+        std::cout<<"-2 RECAUDACION POR RANGO DE FECHAS"<<std::endl;
+        std::cout<<"-3 RECAUDACION POR CLIENTE"<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS"<<std::endl;
         std::cout<<"===================================="<<std::endl;
         std::cout<<"INGRESE UNA OPCION: ";
@@ -234,6 +235,9 @@ void Menu::menuInformes() {
             recaudacionAnual();
             break;
         case '2':
+            recaudacionEntreFechas();
+            break;
+        case '3':
             recaudacionCliente();
             break;
         case '0':

@@ -373,6 +373,48 @@ void recaudacionCliente ()
     system("pause");
 }
 
+void recaudacionEntreFechas() {
+    int dia, mes, anio;
+    int cantidad = 0;
+    float recaudacion = 0;
+
+    cout << "INGRESAR FECHA INICIO: " << endl;
+    cout << "DIA:  ";
+    cin >> dia;
+    cout << "MES:  ";
+    cin >> mes;
+    cout << "ANIO: ";
+    cin >> anio;
+    Fecha fechaInicio(dia, mes, anio);
+
+    cout << endl << "INGRESAR FECHA FINAL:" << endl;
+    cout << "DIA:  ";
+    cin >> dia;
+    cout << "MES:  ";
+    cin >> mes;
+    cout << "ANIO: ";
+    cin >> anio;
+    Fecha fechaFinal(dia, mes, anio);
+
+    TrabajoArchivo arcTrabajo;
+    int cantTrabajos = arcTrabajo.GetCantidadRegistros();
+
+    for (int i = 0; i < cantTrabajos; i++) {
+        Trabajo trabajo = arcTrabajo.Leer(i);
+        if (trabajo.getFechaEntrega() >= fechaInicio && !(trabajo.getFechaEntrega() >= fechaFinal)) {
+            if (trabajo.getAvanceTrabajo() == 5 && trabajo.getEstado()){
+                recaudacion += trabajo.getPrecioTrabajo();
+                cantidad++;
+            }
+        }
+    }
+    if (cantidad > 0) {
+        cout << endl << "SE RECAUDARON $ " << recaudacion << " DE " << cantidad << " TRABAJO/S ENTRE LAS FECHAS INGRESADADS." << endl;
+    } else cout << "No se encontraron trabajos entre las fechas ingresadas." << endl;
+
+    system("pause");
+}
+
 void hacerCopiaDeSeguridadTodo(){
 
     ClienteManager _clienteManager;

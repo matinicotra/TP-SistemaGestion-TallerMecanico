@@ -45,7 +45,8 @@ void hardcodearTodo();
 
     ///funciones para el menu
 void recaudacionAnual();
-void recaudacionCliente ();
+void recaudacionCliente();
+void recaudacionEntreFechas();
 
     ///funciones archivos
 void hacerCopiaDeSeguridadTodo();

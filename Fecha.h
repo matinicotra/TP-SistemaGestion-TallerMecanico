@@ -21,4 +21,6 @@ public:
     void agregarDias(int cantidadDias);
 
     std::string toString(std::string formatoFecha = "DD/MM/YYYY");
+
+    bool operator >=(Fecha aux);
 };
