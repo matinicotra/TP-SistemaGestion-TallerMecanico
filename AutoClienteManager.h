@@ -13,8 +13,8 @@ public:
 	void Cargar(std::string dni, std::string patente);
 
 	void ListarTodos();
+	void ListarVehiculosPorDni(std::string dni);
 	void ListarRegistro(AutoCliente reg);
-	void ListarVehiculosPorDni();
 
 	void Eliminar(std::string patente);
 

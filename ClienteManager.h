@@ -21,7 +21,9 @@ public:
 	void ListarPorApellido();
 	void ListarOrdenadosPorFechaAlta();
 	void ListarOrdenadosPorApellido();
-	//void ListarEntreFechas(Fecha fecha1, Fecha fecha2);
+
+	void ListarVehiculosAsociados();
+	void EditarVehiculosAsociados();
 
 	void EditarTelefono();
 	void Eliminar();

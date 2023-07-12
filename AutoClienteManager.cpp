@@ -1,5 +1,7 @@
 #include <iostream>
 using namespace std;
+
+#include "VehiculoManager.h"
 #include "AutoClienteManager.h"
 
 void AutoClienteManager::Cargar(std::string dni, std::string patente) {
@@ -15,6 +17,43 @@ void AutoClienteManager::Cargar(std::string dni, std::string patente) {
 		AutoCliente reg(dni, patente);
 		_archivo.Guardar(reg);
 	}
+}
+
+void AutoClienteManager::ListarTodos(){
+	int cantRegistros = _archivo.GetCantidadRegistros();
+	for (int i = 0; i < cantRegistros; i++) {
+		AutoCliente autoCliente = _archivo.Leer(i);
+		if (autoCliente.getEstado()) {
+			ListarRegistro(autoCliente);
+		}
+	}
+}
+
+void AutoClienteManager::ListarVehiculosPorDni(std::string dni) {
+	string patente;
+	VehiculoArchivo arcVehiculos;
+	VehiculoManager managerAux;
+	int cantRegistros = _archivo.GetCantidadRegistros();
+	int cantVehiculos = arcVehiculos.GetCantidadRegistros();
+
+	for (int i = 0; i < cantRegistros; i++) {
+		AutoCliente autoCliente = _archivo.Leer(i);
+
+		if (autoCliente.getDniCliente() == dni && autoCliente.getEstado()) {
+			patente = autoCliente.getPatente();
+
+			for (int j = 0; j < cantVehiculos; j++) {
+				if (arcVehiculos.Leer(j).getPatente() == patente) {
+					managerAux.ListarRegistro(arcVehiculos.Leer(j));
+					break;
+				}
+			}
+		}
+	}
+}
+
+void AutoClienteManager::ListarRegistro(AutoCliente reg){
+    cout << "Dni del Cliente: " << reg.getDniCliente() << "    Patente del auto: " << reg.getPatente() << endl << endl;
 }
 
 void AutoClienteManager::Eliminar(std::string patente) {
@@ -55,18 +94,3 @@ void AutoClienteManager::RestaurarCopiaDeSeguridad() {
 	_archivo.Guardar(vec, cantRegistros);
 	delete []vec;
 }
-
-void AutoClienteManager::ListarTodos(){
-    	int cantRegistros = _archivo.GetCantidadRegistros();
-	for (int i = 0; i < cantRegistros; i++) {
-		AutoCliente autoCliente = _archivo.Leer(i);
-		if (autoCliente.getEstado()) {
-			ListarRegistro(autoCliente);
-		}
-	}
-}
-
-void AutoClienteManager::ListarRegistro(AutoCliente reg){
-    cout << "Dni del Cliente: " << reg.getDniCliente() << "    Patente del auto: " << reg.getPatente() << endl << endl;
-}
-

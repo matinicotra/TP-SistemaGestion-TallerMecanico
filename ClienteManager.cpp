@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+#include "AutoClienteManager.h"
 #include "ClienteManager.h"
 #include "TrabajoArchivo.h"
 #include "TrabajoManager.h"
@@ -177,25 +178,28 @@ void ClienteManager::ListarOrdenadosPorApellido() {
 	system("pause");
 }
 
-/*void ClienteManager::ListarEntreFechas(Fecha fecha1, Fecha fecha2) {
+void ClienteManager::ListarVehiculosAsociados() {
+	AutoClienteManager managerAux;
+	string dni;
 
-    if (fecha1.getAnio()==fecha2.getAnio() && ){
-        fecha1.getMes()==
+	cin.ignore();
+	cout << "INGRESAR DNI DEL CLIENTE: ";
+	getline(cin, dni);
 
-    }
+	int pos = _archivo.Buscar(dni);
 
-    ClienteArchivo ca;
+	if (pos >= 0 && _archivo.Leer(pos).getEstado() == true) {
+		Cliente cliente = _archivo.Leer(pos);
+		ListarRegistro(cliente);
 
+		cout << endl << "VEHICULOS: " << endl;
 
+		managerAux.ListarVehiculosPorDni(dni);
 
-	int cantRegistros = ca.GetCantidadRegistros();
+	} else cout << "DNI inexistente." << endl;
 
-	Cliente aux;
-	for (int i = 0; i < cantRegistros ; i++) {
-
-
-	}
-}*/
+	system("pause");
+}
 
 void ClienteManager::EditarTelefono() {
 	string dni, telefono;
@@ -206,15 +210,15 @@ void ClienteManager::EditarTelefono() {
 
 	int pos = _archivo.Buscar(dni);
 
-		Cliente reg = _archivo.Leer(pos);
-	if (pos >= 0 && reg.getEstado() == true) {
-		ListarRegistro(reg);
+	if (pos >= 0 && _archivo.Leer(pos).getEstado() == true) {
+		Cliente cliente = _archivo.Leer(pos);
+		ListarRegistro(cliente);
 
 		cout << endl << "INGRESAR NUEVO TELEFONO: ";
 		getline(cin, telefono);
-		reg.setTelefono(telefono);
+		cliente.setTelefono(telefono);
 
-		if (_archivo.Guardar(reg, pos)) {
+		if (_archivo.Guardar(cliente, pos)) {
 			cout << "Registro guardado existosamente!" << endl;
 		} else cout << "Error al guardar el registro." << endl;
 

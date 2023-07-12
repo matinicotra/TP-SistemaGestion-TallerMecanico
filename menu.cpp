@@ -484,7 +484,8 @@ void Menu::menuConsultasVehiculos() {
 		system("cls");
 		std::cout<<"======= CONSULTAS VEHICULOS ====="<<std::endl;
 		std::cout<<"-1 BUSCAR POR PATENTE"<<std::endl;
-		std::cout<<"-2 ELIMINAR VEHICULO"<<std::endl<<std::endl;
+		std::cout<<"-2 BUSCAR POR CLIENTE"<<std::endl;
+		std::cout<<"-3 ELIMINAR VEHICULO"<<std::endl<<std::endl;
 		std::cout<<"-0 ATRAS"<<std::endl;
 		std::cout<<"===================================="<<std::endl;
 		std::cout<<"INGRESE UNA OPCION: ";
@@ -502,7 +503,10 @@ void Menu::menuConsultasVehiculos() {
 		case '1':
 			_vehiculoManager.ListarPorPatente();
 			break;
-		case '2':
+                case '2':
+                        _clienteManager.ListarVehiculosAsociados();
+                        break;
+		case '3':
 			_vehiculoManager.Eliminar();
 			break;
 		case '0':
@@ -574,6 +578,7 @@ void Menu::menuListadoClientes() {
     while (true) {
         system("cls");
         std::cout<<"=========== LISTADOS CLIENTES ====="<<std::endl;
+        std::cout<<"-1 LISTAR ORDENADOS POR APLELLIDO"<<std::endl;
         std::cout<<"-1 LISTAR ORDENADOS POR APLELLIDO"<<std::endl;
         std::cout<<"-2 LISTAR ORDENADOS POR FECHA DE ALTA"<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS"<<std::endl;
