@@ -393,47 +393,48 @@ void Menu::menuConsultasTrabajos(){
 
         std::cin>>entrada;
 
-        if (entrada.length() != 1)
+        if (entrada.length() > 2 || !std::isdigit(entrada[0]))
         {
-            std::cout << "Error: Debe ingresar solo un caracter. Intente nuevamente." << std::endl;
+            std::cout << std::endl << "Error: Intente nuevamente." << std::endl;
+            system("pause");
         }
         else
         {
-            char opcion = entrada[0];
 
-            switch(opcion)
+
+            switch(std::stoi(entrada))
             {
-            case '1':
+            case 1:
                 _trabajoManager.ListarPorId();
                 break;
-            case '2':
+            case 2:
                 _trabajoManager.ListarPorAvance();
                 break;
-            case '3':
+            case 3:
                 _trabajoManager.ListarPorPatente();
                 break;
-            case '4':
+            case 4:
                 _trabajoManager.ListarPorDniCliente();
                 break;
-            case '5':
+            case 5:
                 _trabajoManager.ActualizarAvance();
                 break;
-            case '6':
+            case 6:
                 _trabajoManager.ActualizarProveedor();
                 break;
-            case '7':
+            case 7:
                 _trabajoManager.ActualizarEmpleado();
                 break;
-            case '8':
+            case 8:
                 _trabajoManager.AsignarPresupuesto();
                 break;
-            case '9':
+            case 9:
                 _trabajoManager.ActualizarPrecio();
                 break;
-            case '10':
+            case 10:
                 _trabajoManager.Eliminar();
                 break;
-            case '0':
+            case 0:
                 return;
                 break;
             default:
