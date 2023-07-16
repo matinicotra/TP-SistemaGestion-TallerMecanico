@@ -375,14 +375,18 @@ void TrabajoManager::ListarRegistro(Trabajo trabajo) {
 	if (posPresu >= 0) {
 		cout << "DETALLE            : " << arcPresupuesto.Leer(posPresu).getDetalle() << endl;
 		cout << "PRESUPUESTO:       $ " << arcPresupuesto.Leer(posPresu).getImporte() << endl;
-	} else cout << "PRESUPUESTO        : SIN ASIGNAR " << endl;
+	} else {
+	    cout << "DETALLE            : SIN ASIGNAR " << endl;
+	    cout << "PRESUPUESTO        : SIN ASIGNAR " << endl;}
 
 	cout << "PRECIO FINAL       $ " << trabajo.getPrecioTrabajo() << endl;
 
 	if (posProv >= 0) {
 		cout << "PROVEEDOR          : " << arcProveedor.Leer(posProv).getNombre() << " " << arcProveedor.Leer(posProv).getApellido() << endl;
 		cout << "REPUESTO           : " << arcProveedor.Leer(posProv).getAutoparte() << endl;
-	} else cout << "PROVEEDOR          : SIN ASIGNAR" << endl;
+	} else {
+	    cout << "PROVEEDOR          : SIN ASIGNAR" << endl;
+	    cout << "REPUESTO           : SIN ASIGNAR" << endl}
 
 	cout << "FECHA DE ENTRADA   : " << trabajo.getFechaEntrada().toString("DD/MM/YYYY") << endl;
 	cout << "FECHA DE ENTREGA   : " << trabajo.getFechaEntrega().toString("DD/MM/YYYY") << endl;
