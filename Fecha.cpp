@@ -1,12 +1,18 @@
 #include <string>
 #include "Fecha.h"
 #include <iostream>
+#include <chrono>
 using namespace std;
 
 void Fecha::establecerFechaPorDefecto() {
-    _dia = 1;
-    _mes = 1;
-    _anio = 1900;
+    auto fechaActual = std::chrono::system_clock::now();
+    std::time_t tiempoActual = std::chrono::system_clock::to_time_t(fechaActual);
+
+    std::tm* fechaActualTm = std::localtime(&tiempoActual);
+
+    _dia = fechaActualTm->tm_mday;
+    _mes = fechaActualTm->tm_mon + 1;
+    _anio = fechaActualTm->tm_year + 1900;
 }
 
 bool Fecha::esBisiesto() {
