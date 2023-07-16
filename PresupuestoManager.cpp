@@ -22,42 +22,57 @@ bool PresupuestoManager::ExisteId(int id) {
 string PresupuestoManager::IngresarVehiculo(bool &nuevoVehiculo) {
 	VehiculoArchivo arcVehiculo;
 	VehiculoManager aux;
- 	int opc, pos;
-	string patente;
+ 	int pos;
+	string patente, entrada;
+	bool bandera = true;
 
 	do {
+	    system("cls");
+        cout << "====== CARGAR PRESUPUESTO --> INGRESAR VEHICULO =======" << endl;
 		cout << "1 - INGRESAR PATENTE DEL VEHICULO" << endl;
 		cout << "2 - CARGAR NUEVO VEHICULO" << endl;
-		cout << "0 - CONTINUAR SIN CARGAR" << endl;
+		cout << "3 - CONTINUAR SIN CARGAR" << endl << endl;
 		cout << "Opcion: ";
-		cin >> opc;
+		cin >> entrada;
+		if (entrada.length() != 1 || !std::isdigit(entrada[0]))
+        {
+            std::cout << "Error: Intente nuevamente." << std::endl;
+            system ("pause");
+        }
+        else
+        {
 
-		switch (opc) {
+
+		switch (stoi(entrada)) {
 		case 1:
 			cin.ignore();
 			cout << endl << "PATENTE: ";
 			getline(cin, patente);
 			while (arcVehiculo.Buscar(patente) == -1) {
-				cout << "Patente inexistente, intente nuevamente... : ";
+				cout << "Patente inexistente: ingrese 0 para salir o intente nuevamente... : ";
 				getline(cin, patente);
 				if (patente == "0") break;
 			}
 			nuevoVehiculo = false;
+			bandera = false;
 			break;
 		case 2:
 			aux.Cargar();
 			pos = arcVehiculo.GetCantidadRegistros();
 			patente = arcVehiculo.Leer(pos-1).getPatente();
 			nuevoVehiculo = true;
+			bandera = false;
 			break;
-		case 0:
+		case 3:
 			patente = "0";
+			bandera = false;
 			break;
 		default:
-			cout << "Opcion incorrecta." << endl;
+			cout << "Opcion incorrecta: Intente nuevamente." << endl;
+			system("pause");
 			break;
 		}
-	} while (opc != 0 && opc != 1 && opc != 2);
+	} }while (bandera);
 
 	return patente;
 }
@@ -65,41 +80,54 @@ string PresupuestoManager::IngresarVehiculo(bool &nuevoVehiculo) {
 string PresupuestoManager::IngresarCliente(bool &nuevoCliente) {
 	ClienteArchivo arcCliente;
 	ClienteManager aux;
-	int opc, pos;
-	string dni;
+	int pos;
+	string dni, entrada;
+	bool bandera = true;
 
 	do {
+        cout << "====== CARGAR PRESUPUESTO --> INGRESAR CLIENTE =======" << endl;
 		cout << "1 - INGRESAR DNI DEL CLIENTE" << endl;
 		cout << "2 - CARGAR NUEVO CLIENTE" << endl;
-		cout << "0 - CONTINUAR SIN CARGAR" << endl;
+		cout << "3 - CONTINUAR SIN CARGAR" << endl;
 		cout << "Opcion: ";
-		cin >> opc;
+		cin >> entrada;
+		if (entrada.length() != 1 || !std::isdigit(entrada[0]))
+        {
+            std::cout << "Error: Intente nuevamente." << std::endl;
+            system ("pause");
+        }
+        else
+        {
 
-		switch (opc) {
+		switch (stoi(entrada)) {
 		case 1:
 			cin.ignore();
 			cout << endl << "DNI: ";
 			getline(cin, dni);
 			while (arcCliente.Buscar(dni) == -1) {
-				cout << "DNI inexistente, intente nuevamente... : ";
+				cout << "DNI inexistente: ingrese 0 para salir o intente nuevamente... : ";
 				getline(cin, dni);
 				if (dni == "0") break;
 			}
+			bandera = false;
 			break;
 		case 2:
 			aux.Cargar();
 			pos = arcCliente.GetCantidadRegistros();
 			dni = arcCliente.Leer(pos-1).getDni();
 			nuevoCliente = true;
+			bandera = false;
 			break;
-		case 0:
+		case 3:
 			dni = "0";
+			bandera = false;
 			break;
 		default:
 			cout << "Opcion incorrecta." << endl;
+			system("pause");
 			break;
 		}
-	} while (opc != 0 && opc != 1 && opc != 2);
+	}} while (bandera);
 
 	return dni;
 }
