@@ -85,6 +85,7 @@ string PresupuestoManager::IngresarCliente(bool &nuevoCliente) {
 	bool bandera = true;
 
 	do {
+        system("cls");
         cout << "====== CARGAR PRESUPUESTO --> INGRESAR CLIENTE =======" << endl;
 		cout << "1 - INGRESAR DNI DEL CLIENTE" << endl;
 		cout << "2 - CARGAR NUEVO CLIENTE" << endl;
