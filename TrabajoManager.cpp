@@ -386,7 +386,7 @@ void TrabajoManager::ListarRegistro(Trabajo trabajo) {
 		cout << "REPUESTO           : " << arcProveedor.Leer(posProv).getAutoparte() << endl;
 	} else {
 	    cout << "PROVEEDOR          : SIN ASIGNAR" << endl;
-	    cout << "REPUESTO           : SIN ASIGNAR" << endl}
+	    cout << "REPUESTO           : SIN ASIGNAR" << endl;}
 
 	cout << "FECHA DE ENTRADA   : " << trabajo.getFechaEntrada().toString("DD/MM/YYYY") << endl;
 	cout << "FECHA DE ENTREGA   : " << trabajo.getFechaEntrega().toString("DD/MM/YYYY") << endl;
