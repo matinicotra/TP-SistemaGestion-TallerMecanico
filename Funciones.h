@@ -3,6 +3,7 @@
 
 #include "string"
 #include "iostream"
+#include "climits"
 
 #include "Persona.h"
 #include "Cliente.h"
@@ -29,7 +30,6 @@
 #include "PresupuestoManager.h"
 #include "TrabajoManager.h"
 #include "AutoClienteManager.h"
-
 
 int getInteger(int minimo, int maximo);
 

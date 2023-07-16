@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 #include "Funciones.h"
@@ -13,6 +14,7 @@ using namespace std;
 #include "AutoClienteManager.h"
 #include "PresupuestoManager.h"
 #include "TrabajoManager.h"
+
 
 int TrabajoManager::GenerarId() {
 	return _archivo.GetCantidadRegistros() + 1;
@@ -517,9 +519,21 @@ void TrabajoManager::ActualizarAvance() {
 		cout << "2 - DESMONTAJE" << endl;
 		cout << "3 - REPARACION" << endl;
 		cout << "4 - ENSAMBLAJE" << endl;
-		cout << "5 - FINALIZADO" << endl;
+		cout << "5 - FINALIZADO" << endl << endl;
+		cout << "0 - CANCELAR" << endl;
 		cout << "Opcion: ";
 		cin >> nuevoEstado;
+
+		if (cin.fail()) {
+            cin.clear();
+            cin.ignore(INT_MAX, '\n');
+            cout << "Opción inválida. Intente nuevamente." << endl;
+            return;
+        }
+
+		if (nuevoEstado == 0){
+            return;
+		}
 
 		trabajo.setAvanceTrabajo(nuevoEstado);
 
