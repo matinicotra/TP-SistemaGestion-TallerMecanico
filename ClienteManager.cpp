@@ -45,7 +45,7 @@ void ClienteManager::OrdenarPorApellido(Cliente *vec, int cantRegistros) {
 
 void ClienteManager::Cargar() {
 	string dni, nombre, apellido, eMail, direccion, telefono, razonSocial;
-	int dia, mes, anio;
+	string dia, mes, anio;
 
 	cin.ignore();
 	cout << "NOMBRE       : ";
@@ -71,11 +71,18 @@ void ClienteManager::Cargar() {
 	cin >> anio;
 	cout << endl;
 
-	Cliente reg(dni, nombre, apellido, eMail, direccion, telefono, razonSocial, Fecha(dia, mes, anio));
+    Cliente reg;
+
+    if ((dia.length() > 2 || !isdigit(dia[0])) || (mes.length() > 2 || !isdigit(mes[0])) || (anio.length() > 4 || !isdigit(anio[0]))){
+	reg = Cliente (dni, nombre, apellido, eMail, direccion, telefono, razonSocial, Fecha());
+	cout << "Cargado con la fecha por defecto: hoy" << endl;
+	system("pause");}
+	else {
+	reg = Cliente (dni, nombre, apellido, eMail, direccion, telefono, razonSocial, Fecha(stoi(dia), stoi(mes),stoi(anio)));
+	}
 
 	if (_archivo.Guardar(reg)) {
 		cout << "Registro guardado existosamente!" << endl;
-		system("pause");
 	} else cout << "Error al guardar el registro" << endl;
 }
 
