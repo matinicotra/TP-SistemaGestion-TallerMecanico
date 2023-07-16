@@ -75,15 +75,17 @@ void ClienteManager::Cargar() {
 
     if ((dia.length() > 2 || !isdigit(dia[0])) || (mes.length() > 2 || !isdigit(mes[0])) || (anio.length() > 4 || !isdigit(anio[0]))){
 	reg = Cliente (dni, nombre, apellido, eMail, direccion, telefono, razonSocial, Fecha());
-	cout << "Cargado con la fecha por defecto: hoy" << endl;
-	system("pause");}
+	cout << "Error en la fecha. Cargada con fecha de hoy." << endl;
+	}
 	else {
 	reg = Cliente (dni, nombre, apellido, eMail, direccion, telefono, razonSocial, Fecha(stoi(dia), stoi(mes),stoi(anio)));
 	}
 
 	if (_archivo.Guardar(reg)) {
 		cout << "Registro guardado existosamente!" << endl;
+		system("pause");
 	} else cout << "Error al guardar el registro" << endl;
+        system("pause");
 }
 
 void ClienteManager::ListarTodos() {
