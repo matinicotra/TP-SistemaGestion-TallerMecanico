@@ -83,7 +83,6 @@ void ClienteManager::Cargar() {
 
 	if (_archivo.Guardar(reg)) {
 		cout << "Registro guardado existosamente!" << endl;
-		system("pause");
 	} else cout << "Error al guardar el registro" << endl;
         system("pause");
 }

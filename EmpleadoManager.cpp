@@ -43,7 +43,7 @@ void EmpleadoManager::OrdenarPorFecha(Empleado *vec, int cantRegistros) {
 void EmpleadoManager::Cargar() {
 	string dni, nombre, apellido, eMail, direccion, telefono, cargo, cuentaBancaria;
 	float sueldo;
-	int dia, mes, anio;
+	string dia, mes, anio;
 
 	cin.ignore();
 	cout << "NOMBRE              : ";
@@ -73,7 +73,15 @@ void EmpleadoManager::Cargar() {
 	cin >> anio;
 	cout << endl;
 
-	Empleado reg(dni, nombre, apellido, eMail, direccion, telefono, Fecha(dia, mes, anio), cargo, sueldo, cuentaBancaria);
+	Empleado reg;
+
+    if ((dia.length() > 2 || !isdigit(dia[0])) || (mes.length() > 2 || !isdigit(mes[0])) || (anio.length() > 4 || !isdigit(anio[0]))){
+	reg = Empleado (dni, nombre, apellido, eMail, direccion, telefono, Fecha(), cargo, sueldo, cuentaBancaria);
+	cout << "Error en la fecha. Cargada con fecha de hoy." << endl;
+	}
+	else {
+	reg = Empleado (dni, nombre, apellido, eMail, direccion, telefono, Fecha(stoi(dia), stoi(mes),stoi(anio)), cargo, sueldo, cuentaBancaria);
+	}
 
 	if (_archivo.Guardar(reg)) {
 		cout << "Registro guardado existosamente!" << endl;
@@ -103,7 +111,7 @@ void EmpleadoManager::ListarRegistro(Empleado empleado) {
 	cout << "CARGO                : " << empleado.getCargo() << endl;
 	cout << "SUELDO               : " << empleado.getSueldo() << endl;
 	cout << "CUENTA BANCARIA      : " << empleado.getCuentaBancaria() << endl;
-	cout << "FECHA DE NACIMOIENTO : " << empleado.getFechaNacimiento().toString("DD/MM/YYYY") << endl;
+	cout << "FECHA DE NACIMIENTO : " << empleado.getFechaNacimiento().toString("DD/MM/YYYY") << endl;
 }
 
 void EmpleadoManager::ListarPorDni() {
