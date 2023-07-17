@@ -178,8 +178,8 @@ string TrabajoManager::IngresarCliente(bool &nuevoCliente) {
 int TrabajoManager::IngresarPresupuesto(float &precioTrabajo) {
 	PresupuestoArchivo arcPresupuesto;
 	PresupuestoManager aux;
-	int id, pos;
-	string entrada;
+	int pos;
+	string entrada, id;
 	bool bandera = true;
 
 	do {
@@ -201,11 +201,19 @@ int TrabajoManager::IngresarPresupuesto(float &precioTrabajo) {
 		case 1:
 			cout << "ID #: ";
 			cin >> id;
-			while (arcPresupuesto.Buscar(id) == -1) {
+			if (!isdigit(id[0])){
+            cout << "ERROR: El ID debe ser un numero" << endl;
+            system("pause");
+            return -1;}
+			while (arcPresupuesto.Buscar(stoi(id)) == -1) {
 				cout << "No existe un presupuesto con ese ID. Intente nuevamente... : ";
 				cin >> id;
 			}
-			pos = arcPresupuesto.Buscar(id);
+			if (!isdigit(id[0])){
+            cout << "ERROR: El ID debe ser un numero" << endl;
+            system("pause");
+            return -1;}
+			pos = arcPresupuesto.Buscar(stoi(id));
 			precioTrabajo = arcPresupuesto.Leer(pos).getImporte();          //asignamos el importe del presu al precio del trabajo
 			bandera = false;
 			break;
@@ -214,7 +222,7 @@ int TrabajoManager::IngresarPresupuesto(float &precioTrabajo) {
 			pos = arcPresupuesto.GetCantidadRegistros();
 			id = arcPresupuesto.Leer(pos-1).getIdPresupuesto();				//buscamos el ultimo id ingresado que corresponde al ultimo presu
 			precioTrabajo = arcPresupuesto.Leer(pos-1).getImporte();		//asignamos al precio del trabajo el importe del presupuesto
-			aux.AsignarTrabajo(id, true); 									//setea al presupuesto como que tiene un trabajo asignado
+			aux.AsignarTrabajo(stoi(id), true); 									//setea al presupuesto como que tiene un trabajo asignado
 			bandera = false;
 			break;
 		case 0:
@@ -227,7 +235,7 @@ int TrabajoManager::IngresarPresupuesto(float &precioTrabajo) {
 		}
 	}} while (bandera);
 
-	return id;
+	return stoi(id);
 }
 
 void TrabajoManager::Cargar() {
@@ -342,10 +350,14 @@ void TrabajoManager::Cargar() {
 }
 
 void TrabajoManager::ListarPorId() {
-	int id;
+	string id;
 	cout << "INGRESAR ID DEL TRABAJO: ";
 	cin >> id;
-	int pos = _archivo.Buscar(id);
+	if (!isdigit(id[0])){
+            cout << "ERROR: El ID debe ser un numero" << endl;
+            system("pause");
+            return;}
+	int pos = _archivo.Buscar(stoi(id));
     Trabajo trabajo = _archivo.Leer(pos);
 	if (pos >= 0 && trabajo.getEstado() == true ) {
 		ListarRegistro(_archivo.Leer(pos));
@@ -571,11 +583,16 @@ void TrabajoManager::ListarPorEmpleado() {
 }
 
 void TrabajoManager::ActualizarAvance() {
-	int id, nuevoEstado;
+	int nuevoEstado;
+	string id;
 
 	cout << "INGRESAR ID DEL TRABAJO: ";
 	cin >> id;
-	int pos = _archivo.Buscar(id);
+	if (!isdigit(id[0])){
+            cout << "ERROR: El ID debe ser un numero" << endl;
+            system("pause");
+            return;}
+	int pos = _archivo.Buscar(stoi(id));
 
 	if (pos >= 0 && _archivo.Leer(pos).getEstado() == true) {
 		Trabajo trabajo = _archivo.Leer(pos);
@@ -615,12 +632,15 @@ void TrabajoManager::ActualizarAvance() {
 
 void TrabajoManager::ActualizarProveedor() {
 	ProveedorArchivo arcProveedor;
-	int id;
-	string dniProveedor;
+	string dniProveedor, id;
 
 	cout << "INGRESAR ID DEL TRABAJO: ";
 	cin >> id;
-	int pos = _archivo.Buscar(id);
+	if (!isdigit(id[0])){
+            cout << "ERROR: El ID debe ser un numero" << endl;
+            system("pause");
+            return;}
+	int pos = _archivo.Buscar(stoi(id));
 
 	if (pos >= 0 && _archivo.Leer(pos).getEstado() == true) {
 		Trabajo trabajo = _archivo.Leer(pos);
@@ -652,12 +672,15 @@ void TrabajoManager::ActualizarProveedor() {
 
 void TrabajoManager::ActualizarEmpleado() {
 	EmpleadoArchivo arcEmpleado;
-	int id;
-	string dniEmpleado;
+	string dniEmpleado, id;
 
 	cout << "INGRESAR ID DEL TRABAJO: ";
 	cin >> id;
-	int pos = _archivo.Buscar(id);
+	if (!isdigit(id[0])){
+            cout << "ERROR: El ID debe ser un numero" << endl;
+            system("pause");
+            return;}
+	int pos = _archivo.Buscar(stoi(id));
 
 	if (pos >= 0 && _archivo.Leer(pos).getEstado() == true) {
 		Trabajo trabajo = _archivo.Leer(pos);
@@ -689,11 +712,16 @@ void TrabajoManager::ActualizarEmpleado() {
 
 void TrabajoManager::AsignarPresupuesto() {
 	PresupuestoArchivo arcPresupuesto;
-	int id, idPresupuesto, asigno;
+	int asigno;
+	string id, idPresupuesto;
 
 	cout << "INGRESAR ID DEL TRABAJO: ";
 	cin >> id;
-	int pos = _archivo.Buscar(id);
+	if (!isdigit(id[0])){
+            cout << "ERROR: El ID debe ser un numero" << endl;
+            system("pause");
+            return;}
+	int pos = _archivo.Buscar(stoi(id));
 
 	if (pos >= 0 && _archivo.Leer(pos).getEstado() == true) {
 		Trabajo trabajo = _archivo.Leer(pos);
@@ -708,11 +736,15 @@ void TrabajoManager::AsignarPresupuesto() {
 
 		cout << endl << "ASIGNAR PRESUPUESTO ID #: ";
 		cin >> idPresupuesto;
+		if (!isdigit(idPresupuesto[0])){
+            cout << "ERROR: El ID debe ser un numero" << endl;
+            system("pause");
+            return;}
 
-		int posPresupuesto = arcPresupuesto.Buscar(idPresupuesto);
+		int posPresupuesto = arcPresupuesto.Buscar(stoi(idPresupuesto));
 
 		if (posPresupuesto >= 0 && arcPresupuesto.Leer(posPresupuesto).getEstado() == true) {
-			trabajo.setIdPresupuesto(idPresupuesto);
+			trabajo.setIdPresupuesto(stoi(idPresupuesto));
 
 			Presupuesto presupuesto = arcPresupuesto.Leer(posPresupuesto);
 			presupuesto.setTrabajoAsignado(true);
@@ -732,12 +764,16 @@ void TrabajoManager::AsignarPresupuesto() {
 }
 
 void TrabajoManager::ActualizarPrecio() {
-	int id;
+	string id;
 	float nuevoPrecio;
 
 	cout << "INGRESAR ID DEL TRABAJO: ";
 	cin >> id;
-	int pos = _archivo.Buscar(id);
+	if (!isdigit(id[0])){
+            cout << "ERROR: El ID debe ser un numero" << endl;
+            system("pause");
+            return;}
+	int pos = _archivo.Buscar(stoi(id));
 
 	if (pos >= 0 && _archivo.Leer(pos).getEstado() == true) {
 		Trabajo trabajo = _archivo.Leer(pos);
@@ -757,11 +793,16 @@ void TrabajoManager::ActualizarPrecio() {
 }
 
 void TrabajoManager::Eliminar() {
-	int id, pos;
+	int pos;
+    string id;
 
 	cout << "INGRESAR ID DE TRABAJO: ";
 	cin >> id;
-	pos = _archivo.Buscar(id);
+	if (!isdigit(id[0])){
+            cout << "ERROR: El ID debe ser un numero" << endl;
+            system("pause");
+            return;}
+	pos = _archivo.Buscar(stoi(id));
 
 		Trabajo reg = _archivo.Leer(pos);
 	if (pos >= 0 && reg.getEstado() == true) {
