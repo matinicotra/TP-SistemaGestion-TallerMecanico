@@ -43,8 +43,8 @@ void VehiculoManager::OrdenarPorPatente(Vehiculo *vec, int cantRegistros) {
 
 
 void VehiculoManager::Cargar() {
-	string patente, modelo, marca;
-	int dia, mes, anio, anioModelo;
+	string patente, modelo, marca, dia, mes, anio;
+	int anioModelo;
 
 	cin.ignore();
 	cout << "NUEVO VEHICULO" << endl;
@@ -66,7 +66,15 @@ void VehiculoManager::Cargar() {
 	cin >> anio;
 	cout << endl;
 
-	Vehiculo reg(patente, modelo, marca, anio, Fecha(dia, mes, anio));
+	Vehiculo reg;
+
+    if ((dia.length() > 2 || !isdigit(dia[0])) || (mes.length() > 2 || !isdigit(mes[0])) || (anio.length() > 4 || !isdigit(anio[0]))){
+	reg = Vehiculo (patente, modelo, marca, anioModelo, Fecha());
+	cout << "Error en la fecha. Cargada con fecha de hoy." << endl;
+	}
+	else {
+	reg = Vehiculo (patente, modelo, marca, anioModelo, Fecha(stoi(dia), stoi(mes),stoi(anio)));
+	}
 
 	if (_archivo.Guardar(reg)) {
 		cout << "Registro guardado existosamente!" << endl;
