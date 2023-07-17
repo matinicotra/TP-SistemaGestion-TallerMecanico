@@ -493,6 +493,10 @@ void TrabajoManager::ListarPorAvance() {
 
 void TrabajoManager::ListarOrdenadosPorFecha() {
 	int cantRegistros = _archivo.GetCantidadRegistros();
+	if (cantRegistros == -1 || cantRegistros == 0){
+        cout << "No existen registros" << endl;
+        system("pause");
+	 return;}
 
 	Trabajo *vec = new Trabajo[cantRegistros];
 	if (vec == nullptr) {
@@ -516,6 +520,10 @@ void TrabajoManager::ListarOrdenadosPorFecha() {
 
 void TrabajoManager::ListarEntregadosPorFecha() {
 	int cantRegistros = _archivo.GetCantidadRegistros();
+	if (cantRegistros == -1 || cantRegistros == 0){
+        cout << "No existen registros" << endl;
+        system("pause");
+	 return;}
 
 	Trabajo *vec = new Trabajo[cantRegistros];
 	if (vec == nullptr) {

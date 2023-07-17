@@ -224,6 +224,10 @@ void PresupuestoManager::Cargar() {
 
 void PresupuestoManager::ListarTodos() {
 	int cantRegistros = _archivo.GetCantidadRegistros();
+	if (cantRegistros == -1 || cantRegistros == 0){
+        cout << "No existen registros" << endl;
+        system("pause");
+	 return;}
 	for (int i = 0; i < cantRegistros; i++) {
 		Presupuesto presupuesto = _archivo.Leer(i);
 		if (presupuesto.getEstado()) {

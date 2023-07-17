@@ -55,6 +55,10 @@ void ProveedorManager::Cargar() {
 
 void ProveedorManager::ListarTodos() {
 	int cantRegistros = _archivo.GetCantidadRegistros();
+	if (cantRegistros == -1 || cantRegistros == 0){
+        cout << "No existen registros" << endl;
+        system("pause");
+	 return;}
 	for (int i = 0; i < cantRegistros; i++) {
 		Proveedor proveedor = _archivo.Leer(i);
 		if (proveedor.getEstado()) {
@@ -108,6 +112,10 @@ void ProveedorManager::ListarPorRubro() {
 
 void ProveedorManager::ListarPorOrigenFabricacion() {
 	int cantRegistros = _archivo.GetCantidadRegistros();
+	if (cantRegistros == -1 || cantRegistros == 0){
+        cout << "No existen registros" << endl;
+        system("pause");
+	 return;}
 
 	Proveedor *vec = new Proveedor[cantRegistros];
 	if (vec == nullptr) {

@@ -144,6 +144,10 @@ void ClienteManager::ListarPorApellido() {
 
 void ClienteManager::ListarOrdenadosPorFechaAlta() {
 	int cantReg = _archivo.GetCantidadRegistros();
+	if (cantReg == -1 || cantReg == 0){
+        cout << "No existen registros" << endl;
+        system("pause");
+	 return;}
 
 	Cliente *vec = new Cliente[cantReg];
 	if (vec == nullptr) {
@@ -167,6 +171,10 @@ void ClienteManager::ListarOrdenadosPorFechaAlta() {
 
 void ClienteManager::ListarOrdenadosPorApellido() {
 	int cantReg = _archivo.GetCantidadRegistros();
+	if (cantReg == -1 || cantReg == 0){
+        cout << "No existen registros" << endl;
+        system("pause");
+	 return;}
 
 	Cliente *vec = new Cliente[cantReg];
 	if (vec == nullptr) {

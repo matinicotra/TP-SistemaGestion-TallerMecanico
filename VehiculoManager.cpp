@@ -117,6 +117,10 @@ void VehiculoManager::ListarPorPatente() {
 
 void VehiculoManager::ListarOrdenadosPorFechaAlta() {
 	int cantReg = _archivo.GetCantidadRegistros();
+	if (cantReg == -1 || cantReg == 0){
+        cout << "No existen registros" << endl;
+        system("pause");
+	 return;}
 
 	Vehiculo *vec = new Vehiculo[cantReg];
 	if (vec == nullptr) {
@@ -140,6 +144,10 @@ void VehiculoManager::ListarOrdenadosPorFechaAlta() {
 
 void VehiculoManager::ListarOrdenadosPorPatente() {
 	int cantReg = _archivo.GetCantidadRegistros();
+	if (cantReg == -1 || cantReg == 0){
+        cout << "No existen registros" << endl;
+        system("pause");
+	 return;}
 
 	Vehiculo *vec = new Vehiculo[cantReg];
 	if (vec == nullptr) {

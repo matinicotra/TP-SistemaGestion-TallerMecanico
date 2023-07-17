@@ -129,6 +129,10 @@ void EmpleadoManager::ListarPorDni() {
 
 void EmpleadoManager::ListarOrdenadoPorSueldo() {
 	int cantReg = _archivo.GetCantidadRegistros();
+	if (cantReg == -1 || cantReg == 0){
+        cout << "No existen registros" << endl;
+        system("pause");
+	 return;}
 
 	Empleado *vec = new Empleado[cantReg];
 	if (vec == nullptr) {
@@ -152,6 +156,10 @@ void EmpleadoManager::ListarOrdenadoPorSueldo() {
 
 void EmpleadoManager::ListarOrdenadoPorFechaNacimiento() {
 	int cantReg = _archivo.GetCantidadRegistros();
+	if (cantReg == -1 || cantReg == 0){
+        cout << "No existen registros" << endl;
+        system("pause");
+	 return;}
 
 	Empleado *vec = new Empleado[cantReg];
 	if (vec == nullptr) {
