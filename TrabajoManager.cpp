@@ -234,9 +234,8 @@ void TrabajoManager::Cargar() {
 	ProveedorArchivo arcProveedor;
 	EmpleadoArchivo arcEmpleado;
 	AutoClienteArchivo arcAutoCliente;
-
-	int dia, mes, anio, idPresupuesto;
-	string patente, dniCliente, dniProveedor, dniEmpleado, detalle;
+	int idPresupuesto;
+	string patente, dniCliente, dniProveedor, dniEmpleado, detalle, dia, mes, anio;
 	bool nuevoCliente = false;
 	bool nuevoVehiculo = false;
 	float precioTrabajo;
@@ -299,7 +298,15 @@ void TrabajoManager::Cargar() {
 	cin >> mes;
 	cout << "ANIO:  ";
 	cin >> anio;
-	Fecha fechaEntrada(dia, mes, anio);
+
+	Fecha fechaEntrada;
+	if ((dia.length() > 2 || !isdigit(dia[0])) || (mes.length() > 2 || !isdigit(mes[0])) || (anio.length() > 4 || !isdigit(anio[0]))){
+	fechaEntrada = Fecha ();
+	cout << "Error en la fecha. Cargada con fecha de hoy." << endl;
+	}
+	else {
+	fechaEntrada = Fecha (stoi(dia), stoi(mes),stoi(anio));
+	}
 
 	cout << endl;
 	cout << "FECHA DE ENTREGA: " << endl;
@@ -309,7 +316,14 @@ void TrabajoManager::Cargar() {
 	cin >> mes;
 	cout << "ANIO:  ";
 	cin >> anio;
-	Fecha fechaEntrega(dia, mes, anio);
+    Fecha fechaEntrega;
+	if ((dia.length() > 2 || !isdigit(dia[0])) || (mes.length() > 2 || !isdigit(mes[0])) || (anio.length() > 4 || !isdigit(anio[0]))){
+	fechaEntrega = Fecha ();
+	cout << "Error en la fecha. Cargada con fecha de hoy." << endl;
+	}
+	else {
+	fechaEntrega = Fecha (stoi(dia), stoi(mes),stoi(anio));
+	}
 
 	Trabajo reg(id, idPresupuesto, patente, dniCliente, dniProveedor, dniEmpleado, 1, fechaEntrada, fechaEntrega, precioTrabajo);
 	reg.setEstado(true);
