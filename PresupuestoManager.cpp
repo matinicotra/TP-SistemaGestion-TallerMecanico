@@ -141,7 +141,8 @@ void PresupuestoManager::Cargar() {
 
 	string dniCliente, patente, detalle;
 	float importe;
-	int id, dia, mes, anio;
+	int id;
+	string dia, mes, anio;
 	char valGrua, valSustitucion; //para validar la entrada de datos
 	bool asistenciaGrua, vehiculoSustitucion;
 	bool nuevoVehiculo = false;
@@ -200,7 +201,15 @@ void PresupuestoManager::Cargar() {
 
 	bool trabajoAsignado = false;
 
-	Presupuesto reg(id, dniCliente, patente, importe, detalle, Fecha(dia, mes, anio), trabajoAsignado, asistenciaGrua, vehiculoSustitucion);
+	Presupuesto reg;
+
+	if ((dia.length() > 2 || !isdigit(dia[0])) || (mes.length() > 2 || !isdigit(mes[0])) || (anio.length() > 4 || !isdigit(anio[0]))){
+	reg = Presupuesto (id, dniCliente, patente, importe, detalle, Fecha(), trabajoAsignado, asistenciaGrua, vehiculoSustitucion);
+	cout << "Error en la fecha. Cargada con fecha de hoy." << endl;
+	}
+	else {
+	reg = Presupuesto (id, dniCliente, patente, importe, detalle, Fecha(stoi(dia), stoi(mes),stoi(anio)), trabajoAsignado, asistenciaGrua, vehiculoSustitucion);
+	}
 
 	if (_archivo.Guardar(reg)) {
 		if ((nuevoCliente && nuevoVehiculo) || (!nuevoCliente && nuevoVehiculo)) {
