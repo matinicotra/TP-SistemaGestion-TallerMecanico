@@ -237,7 +237,7 @@ void PresupuestoManager::ListarTodos() {
 	system("pause");
 }
 
-void PresupuestoManager::ListarTodosSinAsignar() {
+int PresupuestoManager::ListarTodosSinAsignar() {
 	bool band = false;
 	int cantRegistros = _archivo.GetCantidadRegistros();
 	for (int i = 0; i < cantRegistros; i++) {
@@ -247,7 +247,10 @@ void PresupuestoManager::ListarTodosSinAsignar() {
 			band = true;
 		}
 	}
-	if (!band) cout << "No se encontraron presupuestos sin trabajos asignados..." << endl;
+	if (!band) {
+            cout << "No se encontraron presupuestos sin trabajos asignados..." << endl;
+            return 0;}
+			return 1;
 	system("pause");
 }
 

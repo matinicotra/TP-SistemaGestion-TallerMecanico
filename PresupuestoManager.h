@@ -19,7 +19,7 @@ public:
 	void Cargar();
 
 	void ListarTodos();
-	void ListarTodosSinAsignar();
+	int ListarTodosSinAsignar();
 	void ListarRegistro(Presupuesto presupuesto);
 	void ListarPorId();
 	void ListarPorDni();		///lista todos los presu que coincidan con dni ingresado

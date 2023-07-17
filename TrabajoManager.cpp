@@ -689,7 +689,7 @@ void TrabajoManager::ActualizarEmpleado() {
 
 void TrabajoManager::AsignarPresupuesto() {
 	PresupuestoArchivo arcPresupuesto;
-	int id, idPresupuesto;
+	int id, idPresupuesto, asigno;
 
 	cout << "INGRESAR ID DEL TRABAJO: ";
 	cin >> id;
@@ -701,7 +701,10 @@ void TrabajoManager::AsignarPresupuesto() {
 
 		cout << endl << "LISTADO DE PRESUPUESTOS SIN TRABAJO ASIGNADO: " << endl;
 		PresupuestoManager aux;
-		aux.ListarTodosSinAsignar();
+		asigno = aux.ListarTodosSinAsignar();
+		if (asigno == 0) {
+                system("pause");
+                return;}
 
 		cout << endl << "ASIGNAR PRESUPUESTO ID #: ";
 		cin >> idPresupuesto;
