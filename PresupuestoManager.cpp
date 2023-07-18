@@ -272,10 +272,14 @@ void PresupuestoManager::ListarRegistro(Presupuesto presupuesto) {
 }
 
 void PresupuestoManager::ListarPorId() {
-	int id;
+	string id;
 	cout << "INGRESAR ID DEL PRESUPUESTO: ";
 	cin >> id;
-	int pos = _archivo.Buscar(id);
+	if (!isdigit(id[0])){
+            cout << "ERROR: El ID debe ser un numero" << endl;
+            system("pause");
+            return;}
+	int pos = _archivo.Buscar(stoi(id));
 	Presupuesto presupuesto = _archivo.Leer(pos);
 	if (pos >= 0 && presupuesto.getEstado() == true) {
 		ListarRegistro(_archivo.Leer(pos));
@@ -324,12 +328,16 @@ void PresupuestoManager::ListarPorPatente() {
 }
 
 void PresupuestoManager::EditarImporte() {
-	int id;
+	string id;
 	float importe;
 
 	cout << "INGRESAR ID DEL PRESUPUESTO: ";
 	cin >> id;
-	int pos = _archivo.Buscar(id);
+	if (!isdigit(id[0])){
+            cout << "ERROR: El ID debe ser un numero" << endl;
+            system("pause");
+            return;}
+	int pos = _archivo.Buscar(stoi(id));
 
 	if (pos >= 0 && _archivo.Leer(pos).getEstado() == true) {
 		Presupuesto presupuesto = _archivo.Leer(pos);
@@ -348,12 +356,15 @@ void PresupuestoManager::EditarImporte() {
 }
 
 void PresupuestoManager::EditarDetalle() {
-	int id;
-	string nuevoDetalle;
+	string nuevoDetalle, id;
 
 	cout << "INGRESAR ID DEL PRESUPUESTO: ";
 	cin >> id;
-	int pos = _archivo.Buscar(id);
+	if (!isdigit(id[0])){
+            cout << "ERROR: El ID debe ser un numero" << endl;
+            system("pause");
+            return;}
+	int pos = _archivo.Buscar(stoi(id));
 
 	if (pos >= 0 && _archivo.Leer(pos).getEstado() == true) {
 		Presupuesto presupuesto = _archivo.Leer(pos);
@@ -382,12 +393,16 @@ void PresupuestoManager::AsignarTrabajo(int id, bool valor) {
 }
 
 void PresupuestoManager::Eliminar() {
-	int id;
+	string id;
 
 	cout << "INGRESAR ID DEL PRESUPUESTO: ";
 	cin >> id;
+	if (!isdigit(id[0])){
+            cout << "ERROR: El ID debe ser un numero" << endl;
+            system("pause");
+            return;}
 
-	int pos = _archivo.Buscar(id);
+	int pos = _archivo.Buscar(stoi(id));
 	if (pos >= 0) {
 		Presupuesto reg = _archivo.Leer(pos);
 		ListarRegistro(reg);
