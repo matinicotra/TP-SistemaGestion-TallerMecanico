@@ -201,6 +201,24 @@ void EmpleadoManager::EditarSueldo() {
 	system("pause");
 }
 
+void EmpleadoManager::EditarFechaNacimiento(){
+    string dni;
+	cin.ignore();
+	cout << "INGRESAR DNI DEL EMPLEADO: ";
+	getline(cin, dni);
+	int pos = _archivo.Buscar(dni);
+		Empleado reg = _archivo.Leer(pos);
+	if (pos >= 0 && reg.getEstado() == true) {
+		ListarRegistro(reg);
+		Fecha aux = pedirFecha();
+		reg.setFechaNacimiento(aux);
+		if (_archivo.Guardar(reg, pos)) {
+			cout << "Registro guardado existosamente!" << endl;
+		} else cout << "Error al guardar el registro." << endl;
+	} else cout << "DNI inexistente." << endl;
+	system("pause");
+}
+
 void EmpleadoManager::Eliminar() {
 	string dni;
 	cin.ignore();

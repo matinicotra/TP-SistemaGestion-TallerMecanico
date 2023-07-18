@@ -601,7 +601,8 @@ void Menu::menuConsultasEmpleados(){
         std::cout<<"-3 LISTAR ORDENADOS POR SUELDO"<<std::endl;
         std::cout<<"-4 LISTAR ORDENADOS POR FECHA DE NACIMIENTO"<<std::endl;
         std::cout<<"-5 EDITAR SUELDO DE EMPLEADO"<<std::endl;
-        std::cout<<"-6 ELIMINAR EMPLEADO"<<std::endl;
+        std::cout<<"-6 EDITAR FECHA DE NACIMIENTO"<<std::endl;
+        std::cout<<"-7 ELIMINAR EMPLEADO"<<std::endl;
         std::cout<<"-0 ATRAS"<<std::endl;
         std::cout<<"===================================="<<std::endl;
         std::cout<<"INGRESE UNA OPCION: ";
@@ -635,6 +636,9 @@ void Menu::menuConsultasEmpleados(){
                 _empleadoManager.EditarSueldo();
                 break;
             case '6':
+                _empleadoManager.EditarFechaNacimiento();
+                break;
+            case '7':
                 _empleadoManager.Eliminar();
             case '0':
                 return;

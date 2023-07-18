@@ -4,6 +4,8 @@
 #include "Empleado.h"
 #include "EmpleadoArchivo.h"
 
+#include "Funciones.h"
+
 class EmpleadoManager {
 private:
 	EmpleadoArchivo _archivo;
@@ -23,6 +25,7 @@ public:
 	void ListarOrdenadoPorFechaNacimiento();
 
 	void EditarSueldo();
+	void EditarFechaNacimiento();
 	void Eliminar();
 
 	void HacerCopiaDeSeguridad();
