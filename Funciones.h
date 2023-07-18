@@ -33,6 +33,9 @@
 
 int getInteger(int minimo, int maximo);
 
+    ///pedir fecha
+Fecha pedirFecha();
+
     ///funciones para hardcodear
 void clienteHardcodear();
 void empleadoHardcodear();

@@ -24,6 +24,26 @@ int getInteger(int minimo = INT_MIN, int maximo = INT_MAX)
 }
 
 
+Fecha pedirFecha(){
+    string dia, mes, anio;
+    cout << endl << "INGRESAR LA FECHA" << endl;
+	cout << "DIA: ";
+	cin >> dia;
+	cout << "MES ";
+	cin >> mes;
+	cout << "ANIO: ";
+	cin >> anio;
+	cout << endl;
+	Fecha j;
+	if ((dia.length() > 2 || !isdigit(dia[0])) || (mes.length() > 2 || !isdigit(mes[0])) || (anio.length() > 4 || !isdigit(anio[0]))){
+     cout << "Error en la fecha. Cargada con fecha de hoy." << endl;
+     return j;
+	}
+    Fecha f(stoi(dia), stoi(mes),stoi(anio));
+    return f;
+}
+
+
 ///HARCODEO
 void clienteHardcodear()
 {

@@ -4,6 +4,8 @@
 #include "Cliente.h"
 #include "ClienteArchivo.h"
 
+#include "Funciones.h"
+
 class ClienteManager {
 private:
 	ClienteArchivo _archivo;
@@ -26,6 +28,7 @@ public:
 	void EditarVehiculosAsociados();
 
 	void EditarTelefono();
+	void EditarFechaAlta();
 	void Eliminar();
 
 	void HacerCopiaDeSeguridad();

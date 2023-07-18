@@ -245,6 +245,31 @@ void ClienteManager::EditarTelefono() {
 	system("pause");
 }
 
+void ClienteManager::EditarFechaAlta(){
+    string dni;
+
+	cin.ignore();
+	cout << "INGRESAR DNI DEL CLIENTE: ";
+	getline(cin, dni);
+
+	int pos = _archivo.Buscar(dni);
+
+	if (pos >= 0 && _archivo.Leer(pos).getEstado() == true) {
+		Cliente cliente = _archivo.Leer(pos);
+		ListarRegistro(cliente);
+        Fecha aux = pedirFecha();
+		cliente.setFechaAlta(aux);
+
+		if (_archivo.Guardar(cliente, pos)) {
+			cout << "Registro guardado existosamente!" << endl;
+		} else cout << "Error al guardar el registro." << endl;
+
+	} else cout << "DNI inexistente." << endl;
+
+	system("pause");
+
+}
+
 void ClienteManager::Eliminar() {
 	int pos;
 	string dni;

@@ -332,7 +332,8 @@ void Menu::menuConsultasClientes(){
         std::cout<<"-1 BUSCAR POR DNI"<<std::endl;
         std::cout<<"-2 BUSCAR POR APELLIDO"<<std::endl;
         std::cout<<"-3 MODIFICAR UN NUMERO DE TELEFONO"<<std::endl;
-        std::cout<<"-4 ELIMINAR CLIENTE"<<std::endl;
+        std::cout<<"-4 MODIFICAR FECHA DE ALTA"<<std::endl;
+        std::cout<<"-5 ELIMINAR CLIENTE"<<std::endl;
         std::cout<<"-0 ATRAS"<<std::endl;
         std::cout<<"================================"<<std::endl;
         std::cout<<"INGRESE UNA OPCION: ";
@@ -359,6 +360,9 @@ void Menu::menuConsultasClientes(){
                 _clienteManager.EditarTelefono();
                 break;
             case '4':
+                _clienteManager.EditarFechaAlta();
+                break;
+            case '5':
                 _clienteManager.Eliminar();
             case '0':
                 return;
