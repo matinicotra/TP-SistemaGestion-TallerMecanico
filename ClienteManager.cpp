@@ -79,8 +79,9 @@ void ClienteManager::Cargar() {
 	cout << endl;
 
     Cliente reg;
+    Fecha aux;
 
-    if ((dia.length() > 2 || !isdigit(dia[0])) || (mes.length() > 2 || !isdigit(mes[0])) || (anio.length() > 4 || !isdigit(anio[0]))){
+    if ((dia.length() > 2 || !isdigit(dia[0])) || (mes.length() > 2 || !isdigit(mes[0])) || (anio.length() > 4 || !isdigit(anio[0])) || aux.esFechaValida(stoi(dia), stoi(mes),stoi(anio)) == false){
 	reg = Cliente (dni, nombre, apellido, eMail, direccion, telefono, razonSocial, Fecha());
 	cout << "Error en la fecha. Cargada con fecha de hoy." << endl;
 	}
