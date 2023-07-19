@@ -395,7 +395,7 @@ void recaudacionCliente ()
 
 void recaudacionEntreFechas()
 {
-    int dia, mes, anio;
+    string dia, mes, anio;
     int cantidad = 0;
     float recaudacion = 0;
 
@@ -406,7 +406,13 @@ void recaudacionEntreFechas()
     cin >> mes;
     cout << "ANIO: ";
     cin >> anio;
-    Fecha fechaInicio(dia, mes, anio);
+
+    if ((dia.length() > 2 || !isdigit(dia[0])) || (mes.length() > 2 || !isdigit(mes[0])) || (anio.length() > 4 || !isdigit(anio[0]))){
+	cout << "Error en la fecha." << endl;
+	system("pause");
+	return;
+	}
+    Fecha fechaInicio(stoi(dia), stoi(mes), stoi(anio));
 
     cout << endl << "INGRESAR FECHA FINAL:" << endl;
     cout << "DIA:  ";
@@ -415,7 +421,13 @@ void recaudacionEntreFechas()
     cin >> mes;
     cout << "ANIO: ";
     cin >> anio;
-    Fecha fechaFinal(dia, mes, anio);
+
+    if ((dia.length() > 2 || !isdigit(dia[0])) || (mes.length() > 2 || !isdigit(mes[0])) || (anio.length() > 4 || !isdigit(anio[0]))){
+	cout << "Error en la fecha." << endl;
+	system("pause");
+	return;
+	}
+    Fecha fechaFinal(stoi(dia), stoi(mes), stoi(anio));
 
     TrabajoArchivo arcTrabajo;
     int cantTrabajos = arcTrabajo.GetCantidadRegistros();

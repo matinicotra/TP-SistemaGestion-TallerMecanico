@@ -187,7 +187,7 @@ int TrabajoManager::IngresarPresupuesto(float &precioTrabajo) {
         cout << "======= CARGA TRABAJO =======" << endl;
 		cout << "1 - INGRESAR ID DEL PRESUPUESTO" << endl;
 		cout << "2 - CARGAR NUEVO PRESUPUESTO" << endl;
-		cout << "0 - CARGAR MAS TARDE" << endl;
+		cout << "3 - CARGAR MAS TARDE" << endl;
 		cin >> entrada;
 		if (entrada.length() != 1 || !std::isdigit(entrada[0]))
         {
@@ -225,9 +225,9 @@ int TrabajoManager::IngresarPresupuesto(float &precioTrabajo) {
 			aux.AsignarTrabajo(stoi(id), true); 									//setea al presupuesto como que tiene un trabajo asignado
 			bandera = false;
 			break;
-		case 0:
-			return -1;
+		case 3:
 			precioTrabajo = 0;
+			return -1;
 			break;
         default:
 			cout << "Opcion incorrecta." << endl;
@@ -262,7 +262,10 @@ void TrabajoManager::Cargar() {
 
 	if (!nuevoVehiculo) {										//si el vehiculo esta cargado asigna el dni del duenio desde autocliente
 		int pos = arcAutoCliente.BuscarPatente(patente);
-		dniCliente = arcAutoCliente.Leer(pos).getDniCliente();
+		if (pos == -1){
+            dniCliente = "SIN ASIGNAR";
+		} else {
+		dniCliente = arcAutoCliente.Leer(pos).getDniCliente();}
 		cout << endl;
 	}
 	else {
@@ -308,7 +311,7 @@ void TrabajoManager::Cargar() {
 	cin >> anio;
 
 	Fecha fechaEntrada;
-	if ((dia.length() > 2 || !isdigit(dia[0])) || (mes.length() > 2 || !isdigit(mes[0])) || (anio.length() > 4 || !isdigit(anio[0]))){
+	if (dia.length() > 2 || !isdigit(dia[0]) || mes.length() > 2 || !isdigit(mes[0]) || anio.length() > 4 || !isdigit(anio[0]) || fechaEntrada.esFechaValida(stoi(dia), stoi(mes),stoi(anio)) == false){
 	fechaEntrada = Fecha ();
 	cout << "Error en la fecha. Cargada con fecha de hoy." << endl;
 	}
@@ -325,7 +328,7 @@ void TrabajoManager::Cargar() {
 	cout << "ANIO:  ";
 	cin >> anio;
     Fecha fechaEntrega;
-	if ((dia.length() > 2 || !isdigit(dia[0])) || (mes.length() > 2 || !isdigit(mes[0])) || (anio.length() > 4 || !isdigit(anio[0]))){
+	if ((dia.length() > 2 || !isdigit(dia[0])) || (mes.length() > 2 || !isdigit(mes[0])) || (anio.length() > 4 || !isdigit(anio[0])) || fechaEntrega.esFechaValida(stoi(dia), stoi(mes),stoi(anio)) == false){
 	fechaEntrega = Fecha ();
 	cout << "Error en la fecha. Cargada con fecha de hoy." << endl;
 	}

@@ -19,6 +19,7 @@ public:
     int getAnio();
 
     void agregarDias(int cantidadDias);
+    bool esFechaValida(int dia, int mes, int anio);
 
     std::string toString(std::string formatoFecha = "DD/MM/YYYY");
 

@@ -74,6 +74,23 @@ Fecha::Fecha(int dia, int mes, int anio) {
     }
 }
 
+bool Fecha::esFechaValida(int dia, int mes, int anio){
+    if (dia <= 0 || mes <= 0 || anio <= 0 || mes > 12) {
+        return false;
+    }
+    else {
+        int dias[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+        if (esBisiesto()) {
+            dias[1]++;
+        }
+
+        if (dia > dias[_mes - 1]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 int Fecha::getDia() {
     return _dia;
 }
