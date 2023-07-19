@@ -52,6 +52,13 @@ void EmpleadoManager::Cargar() {
 	getline(cin, apellido);
 	cout << "DNI                 : ";
 	getline(cin, dni);
+
+    if (_archivo.Buscar(dni) >= 0){
+        cout << "El registro ya existe." << endl;
+        system("pause");
+        return;
+	}
+
 	cout << "EMAIL               : ";
 	getline(cin, eMail);
 	cout << "DIRECCION           : ";

@@ -51,6 +51,13 @@ void VehiculoManager::Cargar() {
 	cout << "--------------" << endl;
 	cout << "PATENTE      : ";
 	getline(cin, patente);
+
+		if (_archivo.Buscar(patente) >= 0){
+        cout << "El registro ya existe." << endl;
+        system("pause");
+        return;
+	}
+
 	cout << "MARCA        : ";
 	getline(cin, marca);
 	cout << "MODELO       : ";
