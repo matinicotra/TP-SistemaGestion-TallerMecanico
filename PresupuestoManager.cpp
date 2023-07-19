@@ -28,7 +28,7 @@ string PresupuestoManager::IngresarVehiculo(bool &nuevoVehiculo) {
 
 	do {
 	    system("cls");
-        cout << "====== CARGAR PRESUPUESTO --> INGRESAR VEHICULO =======" << endl;
+        cout << "====== CARGAR PRESUPUESTO =======" << endl;
 		cout << "1 - INGRESAR PATENTE DEL VEHICULO" << endl;
 		cout << "2 - CARGAR NUEVO VEHICULO" << endl;
 		cout << "3 - CONTINUAR SIN CARGAR" << endl << endl;
@@ -86,7 +86,7 @@ string PresupuestoManager::IngresarCliente(bool &nuevoCliente) {
 
 	do {
         system("cls");
-        cout << "====== CARGAR PRESUPUESTO --> INGRESAR CLIENTE =======" << endl;
+        cout << "====== CARGAR PRESUPUESTO =======" << endl;
 		cout << "1 - INGRESAR DNI DEL CLIENTE" << endl;
 		cout << "2 - CARGAR NUEVO CLIENTE" << endl;
 		cout << "3 - CONTINUAR SIN CARGAR" << endl;
@@ -182,22 +182,25 @@ void PresupuestoManager::Cargar() {
 	cout << "ANIO: ";
 	cin >> anio;
 	cout << endl;
+    do {
+        cout << endl << "INCLUYE ASISTENCIA DE GRUA, 'S' o 'N' :";
+        cin >> valGrua;
+        if  (valGrua == 's' || valGrua == 'S') {
+            asistenciaGrua = true;
+        } else if (valGrua == 'n' || valGrua == 'N') {
+            asistenciaGrua = false;
+        } else cout << "Valor ingresado incorrecto." << endl;
+    } while (valGrua != 's' && valGrua != 'S' && valGrua != 'n' && valGrua != 'N');
 
-	cout << endl << "INCLUYE ASISTENCIA DE GRUA, 'S' o 'N' :";
-	cin >> valGrua;
-	if  (valGrua == 's' || valGrua == 'S') {
-		asistenciaGrua = true;
-	} else if (valGrua == 'n' || valGrua == 'N') {
-		asistenciaGrua = false;
-	} else cout << "Valor ingresado incorrecto." << endl;
-
-	cout << endl << "INCLUYE VEHICULO DE SUSTITUCION, 'S' o 'N' :";
-	cin >> valSustitucion;
-	if  (valSustitucion == 's' || valSustitucion == 'S') {
-		vehiculoSustitucion = true;
-	} else if (valSustitucion == 'n' || valSustitucion == 'N') {
-		vehiculoSustitucion = false;
-	} else cout << "Valor ingresado incorrecto." << endl;
+    do {
+        cout << endl << "INCLUYE VEHICULO DE SUSTITUCION, 'S' o 'N' :";
+        cin >> valSustitucion;
+        if  (valSustitucion == 's' || valSustitucion == 'S') {
+            vehiculoSustitucion = true;
+        } else if (valSustitucion == 'n' || valSustitucion == 'N') {
+            vehiculoSustitucion = false;
+        } else cout << "Valor ingresado incorrecto." << endl;
+    } while (valSustitucion != 's' && valSustitucion != 'S' && valSustitucion != 'n' && valSustitucion != 'N');
 
 	bool trabajoAsignado = false;
 

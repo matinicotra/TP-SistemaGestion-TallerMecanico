@@ -73,7 +73,7 @@ string TrabajoManager::IngresarVehiculo(bool &nuevoVehiculo) {
 
 	do {
         system("cls");
-        cout << "======= CARGA TRABAJO --> INGRESAR VEHICULO =======" << endl;
+        cout << "======= CARGA TRABAJO =======" << endl;
 		cout << "1 - INGRESAR PATENTE DEL VEHICULO" << endl;
 		cout << "2 - CARGAR NUEVO VEHICULO" << endl;
 		cout << "3 - CONTINUAR SIN CARGAR" << endl;
@@ -129,7 +129,7 @@ string TrabajoManager::IngresarCliente(bool &nuevoCliente) {
 
 	do {
         system("cls");
-        cout << "======= CARGA TRABAJO --> INGRESAR CLIENTE =======" << endl;
+        cout << "======= CARGA TRABAJO =======" << endl;
 		cout << "1 - INGRESAR DNI DEL CLIENTE" << endl;
 		cout << "2 - CARGAR NUEVO CLIENTE" << endl;
 		cout << "3 - CONTINUAR SIN CARGAR" << endl;
@@ -184,7 +184,7 @@ int TrabajoManager::IngresarPresupuesto(float &precioTrabajo) {
 
 	do {
 	    system("cls");
-        cout << "======= CARGA TRABAJO --> INGRESAR PRESUPUESTO =======" << endl;
+        cout << "======= CARGA TRABAJO =======" << endl;
 		cout << "1 - INGRESAR ID DEL PRESUPUESTO" << endl;
 		cout << "2 - CARGAR NUEVO PRESUPUESTO" << endl;
 		cout << "0 - CARGAR MAS TARDE" << endl;
