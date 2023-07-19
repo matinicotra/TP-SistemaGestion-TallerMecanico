@@ -4,6 +4,8 @@
 #include "Vehiculo.h"
 #include "VehiculoArchivo.h"
 
+#include "Funciones.h"
+
 class VehiculoManager {
 private:
 	VehiculoArchivo _archivo;
@@ -20,6 +22,8 @@ public:
 	void ListarPorPatente();
 	void ListarOrdenadosPorPatente();
 	void ListarOrdenadosPorFechaAlta();
+
+	void EditarFechaAlta();
 
 	void Eliminar();
 

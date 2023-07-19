@@ -169,6 +169,30 @@ void VehiculoManager::ListarOrdenadosPorPatente() {
 	system("pause");
 }
 
+void VehiculoManager::EditarFechaAlta(){
+    string patente;
+
+	cin.ignore();
+	cout << "INGRESAR PATENTE DEL VEHICULO: ";
+	getline(cin, patente);
+
+	int pos = _archivo.Buscar(patente);
+
+	if (pos >= 0 && _archivo.Leer(pos).getEstado() == true) {
+		Vehiculo vehiculo = _archivo.Leer(pos);
+		ListarRegistro(vehiculo);
+        Fecha aux = pedirFecha();
+		vehiculo.setFechaAlta(aux);
+
+		if (_archivo.Guardar(vehiculo, pos)) {
+			cout << "Registro guardado existosamente!" << endl;
+		} else cout << "Error al guardar el registro." << endl;
+
+	} else cout << "Patente inexistente." << endl;
+
+	system("pause");
+}
+
 void VehiculoManager::Eliminar() {
 	int pos;
 	string patente;

@@ -565,7 +565,8 @@ void Menu::menuConsultasVehiculos(){
         std::cout<<"======= CONSULTAS VEHICULOS ====="<<std::endl;
         std::cout<<"-1 BUSCAR POR PATENTE"<<std::endl;
         std::cout<<"-2 BUSCAR POR CLIENTE"<<std::endl;
-        std::cout<<"-3 ELIMINAR VEHICULO"<<std::endl<<std::endl;
+        std::cout<<"-3 MODIFICAR FECHA DE ALTA"<<std::endl;
+        std::cout<<"-4 ELIMINAR VEHICULO"<<std::endl<<std::endl;
         std::cout<<"-0 ATRAS"<<std::endl;
         std::cout<<"===================================="<<std::endl;
         std::cout<<"INGRESE UNA OPCION: ";
@@ -590,6 +591,9 @@ void Menu::menuConsultasVehiculos(){
                 _clienteManager.ListarVehiculosAsociados();
                 break;
             case '3':
+                _vehiculoManager.EditarFechaAlta();
+                break;
+            case '4':
                 _vehiculoManager.Eliminar();
                 break;
             case '0':
