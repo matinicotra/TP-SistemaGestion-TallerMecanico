@@ -383,6 +383,33 @@ void PresupuestoManager::EditarDetalle() {
 	system("pause");
 }
 
+void PresupuestoManager::EditarFechaPresupuesto(){
+    string id;
+
+	cout << "INGRESAR ID DEL PRESUPUESTO: ";
+	cin >> id;
+	if (!isdigit(id[0])){
+            cout << "ERROR: El ID debe ser un numero" << endl;
+            system("pause");
+            return;}
+	int pos = _archivo.Buscar(stoi(id));
+
+	if (pos >= 0 && _archivo.Leer(pos).getEstado() == true) {
+		Presupuesto presupuesto = _archivo.Leer(pos);
+		ListarRegistro(presupuesto);
+
+		//cin.ignore();
+		Fecha aux = pedirFecha();
+		presupuesto.setFecha(aux);
+
+		if (_archivo.Guardar(presupuesto, pos)) {
+			cout << "Registro guardado existosamente!" << endl;
+		} else cout << "Error al guardar el registro." << endl;
+
+	} else cout << "ID inexistente." << endl;
+	system("pause");
+}
+
 void PresupuestoManager::AsignarTrabajo(int id, bool valor) {
 	int pos = _archivo.Buscar(id);
 	if (pos >= 0 && _archivo.Leer(pos).getEstado() == true) {

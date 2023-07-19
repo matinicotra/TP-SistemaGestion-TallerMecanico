@@ -505,7 +505,8 @@ void Menu::menuConsultasPresupuestos(){
         std::cout<<"-1 BUSCAR POR ID"<<std::endl;
         std::cout<<"-2 MODIFICAR IMPORTE"<<std::endl;
         std::cout<<"-3 MODIFICAR DETALLE"<<std::endl;
-        std::cout<<"-4 ELIMINAR PRESUPUESTO"<<std::endl;
+        std::cout<<"-4 MODIFICAR LA FECHA DEL PRESUPUESTO"<<std::endl;
+        std::cout<<"-5 ELIMINAR PRESUPUESTO"<<std::endl;
         std::cout<<"-0 ATRAS"<<std::endl;
         std::cout<<"===================================="<<std::endl;
         std::cout<<"INGRESE UNA OPCION: ";
@@ -533,6 +534,9 @@ void Menu::menuConsultasPresupuestos(){
                 _presupuestoManager.EditarDetalle();
                 break;
             case '4':
+                _presupuestoManager.EditarFechaPresupuesto();
+                break;
+            case '5':
                 _presupuestoManager.Eliminar();
                 break;
             case '0':

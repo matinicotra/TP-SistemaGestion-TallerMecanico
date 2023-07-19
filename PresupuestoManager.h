@@ -5,6 +5,8 @@
 #include "Presupuesto.h"
 #include "PresupuestoArchivo.h"
 
+#include "Funciones.h"
+
 class PresupuestoManager {
 private:
 	PresupuestoArchivo _archivo;
@@ -27,6 +29,7 @@ public:
 
 	void EditarImporte();
 	void EditarDetalle();
+	void EditarFechaPresupuesto();
 	void AsignarTrabajo(int id, bool valor);
 	void Eliminar();
 
