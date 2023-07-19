@@ -212,16 +212,16 @@ void presupuestoHardcodear()
     Fecha fecha9(9, 9, 2022);
     Fecha fecha10(10, 10, 2022);
 
-    Presupuesto presupuesto1(1, "12345678", "ABC123", 1000.0, "Reparacion de motor", fecha1, true, true, false);
-    Presupuesto presupuesto2(2, "12345678", "DEF456", 500.0, "Cambio de frenos", fecha2, true, false, true);
-    Presupuesto presupuesto3(3, "12345678", "GHI789", 800.0, "Reparacion de carroceria", fecha3, true, true, true);
-    Presupuesto presupuesto4(4, "87654321", "JKL012", 1200.0, "Cambio de embrague", fecha4, true, false, false);
-    Presupuesto presupuesto5(5, "87654321", "MNO345", 1500.0, "Reparacion de suspension", fecha5, true, true, true);
-    Presupuesto presupuesto6(6, "56781234", "PQR678", 900.0, "Cambio de aceite y filtros", fecha6, true, false, false);
-    Presupuesto presupuesto7(7, "56781234", "STU901", 700.0, "Reparacion de sistema electrico", fecha7, true, true, false);
-    Presupuesto presupuesto8(8, "56783421", "VWX234", 1800.0, "Cambio de neumaticos", fecha8, true, false, true);
-    Presupuesto presupuesto9(9, "56783421", "YZA567", 600.0, "Reparacion de sistema de escape", fecha9, true, true, true);
-    Presupuesto presupuesto10(10, "56783421", "BCD890", 2000.0, "Cambio de kit de distribucion", fecha10, true, false, false);
+    Presupuesto presupuesto1(1, "12345678", "ABC123", 100.0, "Reparacion de motor", fecha1, true, true, false);
+    Presupuesto presupuesto2(2, "12345678", "DEF456", 50.0, "Cambio de frenos", fecha2, true, false, true);
+    Presupuesto presupuesto3(3, "12345678", "GHI789", 80.0, "Reparacion de carroceria", fecha3, true, true, true);
+    Presupuesto presupuesto4(4, "87654321", "JKL012", 120.0, "Cambio de embrague", fecha4, true, false, false);
+    Presupuesto presupuesto5(5, "87654321", "MNO345", 150.0, "Reparacion de suspension", fecha5, true, true, true);
+    Presupuesto presupuesto6(6, "56781234", "PQR678", 90.0, "Cambio de aceite y filtros", fecha6, true, false, false);
+    Presupuesto presupuesto7(7, "56781234", "STU901", 70.0, "Reparacion de sistema electrico", fecha7, true, true, false);
+    Presupuesto presupuesto8(8, "56783421", "VWX234", 180.0, "Cambio de neumaticos", fecha8, true, false, true);
+    Presupuesto presupuesto9(9, "56783421", "YZA567", 60.0, "Reparacion de sistema de escape", fecha9, true, true, true);
+    Presupuesto presupuesto10(10, "56783421", "BCD890", 200.0, "Cambio de kit de distribucion", fecha10, true, false, false);
 
     PresupuestoArchivo pa;
 
@@ -261,16 +261,16 @@ void trabajoHardcodear()
     Fecha fechaEntrada10(10, 10, 2021);
     Fecha fechaEntrega10(20, 10, 2021);
 
-    Trabajo trabajo1(1, 1, "ABC123", "12345678", "12345670", "12345600", 5, fechaEntrada1, fechaEntrega1, 10000);
-    Trabajo trabajo2(2, 2, "DEF456", "12345678", "12345670", "12345600", 5, fechaEntrada2, fechaEntrega2, 15000);
-    Trabajo trabajo3(3, 3, "GHI789", "12345678", "12345670", "12345600", 4, fechaEntrada3, fechaEntrega3, 7000);
-    Trabajo trabajo4(4, 4, "JKL012", "87654321", "65432187", "87654311", 5, fechaEntrada4, fechaEntrega4, 9500);
-    Trabajo trabajo5(5, 5, "MNO345", "87654321", "65432187", "87654311", 5, fechaEntrada5, fechaEntrega5, 12000);
-    Trabajo trabajo6(6, 6, "PQR678", "56781234", "65432187", "98765444", 3, fechaEntrada6, fechaEntrega6, 14000);
-    Trabajo trabajo7(7, 7, "STU901", "56781234", "43218765", "43218733", 5, fechaEntrada7, fechaEntrega7, 18000);
-    Trabajo trabajo8(8, 8, "VWX234", "56783421", "43218765", "43218733", 4, fechaEntrada8, fechaEntrega8, 9000);
-    Trabajo trabajo9(9, 9, "YZA567", "56783421", "56783429", "43218733", 5, fechaEntrada9, fechaEntrega9, 22000);
-    Trabajo trabajo10(10, 10, "BCD890", "56783421", "56783429", "56781222", 5, fechaEntrada10, fechaEntrega10, 5000);
+    Trabajo trabajo1(1, 1, "ABC123", "12345678", "12345670", "12345600", 5, fechaEntrada1, fechaEntrega1, 100);
+    Trabajo trabajo2(2, 2, "DEF456", "12345678", "12345670", "12345600", 5, fechaEntrada2, fechaEntrega2, 150);
+    Trabajo trabajo3(3, 3, "GHI789", "12345678", "12345670", "12345600", 4, fechaEntrada3, fechaEntrega3, 70);
+    Trabajo trabajo4(4, 4, "JKL012", "87654321", "65432187", "87654311", 5, fechaEntrada4, fechaEntrega4, 90);
+    Trabajo trabajo5(5, 5, "MNO345", "87654321", "65432187", "87654311", 5, fechaEntrada5, fechaEntrega5, 120);
+    Trabajo trabajo6(6, 6, "PQR678", "56781234", "65432187", "98765444", 3, fechaEntrada6, fechaEntrega6, 140);
+    Trabajo trabajo7(7, 7, "STU901", "56781234", "43218765", "43218733", 5, fechaEntrada7, fechaEntrega7, 180);
+    Trabajo trabajo8(8, 8, "VWX234", "56783421", "43218765", "43218733", 4, fechaEntrada8, fechaEntrega8, 90);
+    Trabajo trabajo9(9, 9, "YZA567", "56783421", "56783429", "43218733", 5, fechaEntrada9, fechaEntrega9, 220);
+    Trabajo trabajo10(10, 10, "BCD890", "56783421", "56783429", "56781222", 5, fechaEntrada10, fechaEntrega10, 50);
 
     TrabajoArchivo ta;
 
