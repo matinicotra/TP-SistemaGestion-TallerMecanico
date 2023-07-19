@@ -582,6 +582,51 @@ void TrabajoManager::ListarPorEmpleado() {
 	system("pause");
 }
 
+void TrabajoManager::EditarFechaEntrada(){
+	string id;
+	cout << "INGRESAR ID DEL TRABAJO: ";
+	cin >> id;
+	if (!isdigit(id[0])){
+            cout << "ERROR: El ID debe ser un numero" << endl;
+            system("pause");
+            return;}
+	int pos = _archivo.Buscar(stoi(id));
+
+	if (pos >= 0 && _archivo.Leer(pos).getEstado() == true) {
+		Trabajo trabajo = _archivo.Leer(pos);
+		ListarRegistro(trabajo);
+		Fecha aux = pedirFecha();
+		trabajo.setFechaEntrada(aux);
+		if (_archivo.Guardar(trabajo, pos)) {
+			cout << "Registro #" << id << " editado existosamente." << endl;
+		} else cout << "Error al guardar el registro." << endl;
+
+	} else cout << "ID inexistente." << endl;
+	system("pause");
+}
+void TrabajoManager::EditarFechaEntrega(){
+    string id;
+	cout << "INGRESAR ID DEL TRABAJO: ";
+	cin >> id;
+	if (!isdigit(id[0])){
+            cout << "ERROR: El ID debe ser un numero" << endl;
+            system("pause");
+            return;}
+	int pos = _archivo.Buscar(stoi(id));
+
+	if (pos >= 0 && _archivo.Leer(pos).getEstado() == true) {
+		Trabajo trabajo = _archivo.Leer(pos);
+		ListarRegistro(trabajo);
+		Fecha aux = pedirFecha();
+		trabajo.setFechaEntrega(aux);
+		if (_archivo.Guardar(trabajo, pos)) {
+			cout << "Registro #" << id << " editado existosamente." << endl;
+		} else cout << "Error al guardar el registro." << endl;
+
+	} else cout << "ID inexistente." << endl;
+	system("pause");
+}
+
 void TrabajoManager::ActualizarAvance() {
 	int nuevoEstado;
 	string id;

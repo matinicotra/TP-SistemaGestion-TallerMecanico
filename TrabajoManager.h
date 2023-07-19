@@ -4,6 +4,8 @@
 #include "Trabajo.h"
 #include "TrabajoArchivo.h"
 
+#include "Funciones.h"
+
 class TrabajoManager {
 private:
 	TrabajoArchivo _archivo;
@@ -30,6 +32,9 @@ public:
 	void ListarOrdenadosPorFecha();
 	void ListarEntregadosPorFecha();
 	void ListarPorEmpleado();
+
+	void EditarFechaEntrada();
+	void EditarFechaEntrega();
 
 	void ActualizarAvance();
 	void ActualizarProveedor();
