@@ -54,6 +54,13 @@ void ClienteManager::Cargar() {
 	getline(cin, apellido);
 	cout << "DNI          : ";
 	getline(cin, dni);
+
+	if (_archivo.Buscar(dni) >= 0){
+        cout << "El registro ya existe." << endl;
+        system("pause");
+        return;
+	}
+
 	cout << "EMAIL        : ";
 	getline(cin, eMail);
 	cout << "DIRECCION    : ";
@@ -86,6 +93,7 @@ void ClienteManager::Cargar() {
 	} else cout << "Error al guardar el registro" << endl;
         system("pause");
 }
+
 
 void ClienteManager::ListarTodos() {
 	int cantRegistros = _archivo.GetCantidadRegistros();
